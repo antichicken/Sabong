@@ -1,0 +1,845 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="s_dbModelStoreContainer" CdmEntityContainer="s_dbEntities">
+    <EntitySetMapping Name="agentbet_limit">
+      <EntityTypeMapping TypeName="s_dbModel.agentbet_limit">
+        <MappingFragment StoreEntitySet="agentbet_limit">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="agentid" ColumnName="agentid" />
+          <ScalarProperty Name="minbet_meron" ColumnName="minbet_meron" />
+          <ScalarProperty Name="maxbet_meron" ColumnName="maxbet_meron" />
+          <ScalarProperty Name="maxmeron_permatch" ColumnName="maxmeron_permatch" />
+          <ScalarProperty Name="minbet_wala" ColumnName="minbet_wala" />
+          <ScalarProperty Name="maxbet_wala" ColumnName="maxbet_wala" />
+          <ScalarProperty Name="maxwala_permatch" ColumnName="maxwala_permatch" />
+          <ScalarProperty Name="minbet_draw" ColumnName="minbet_draw" />
+          <ScalarProperty Name="maxbet_draw" ColumnName="maxbet_draw" />
+          <ScalarProperty Name="maxdraw_permatch" ColumnName="maxdraw_permatch" />
+          <ScalarProperty Name="currency" ColumnName="currency" />
+          <ScalarProperty Name="minbet_match" ColumnName="minbet_match" />
+          <ScalarProperty Name="maxbet_match" ColumnName="maxbet_match" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="agentbet_limit_backup">
+      <EntityTypeMapping TypeName="s_dbModel.agentbet_limit_backup">
+        <MappingFragment StoreEntitySet="agentbet_limit_backup">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="agentid" ColumnName="agentid" />
+          <ScalarProperty Name="minbet_meron" ColumnName="minbet_meron" />
+          <ScalarProperty Name="maxbet_meron" ColumnName="maxbet_meron" />
+          <ScalarProperty Name="maxmeron_permatch" ColumnName="maxmeron_permatch" />
+          <ScalarProperty Name="minbet_wala" ColumnName="minbet_wala" />
+          <ScalarProperty Name="maxbet_wala" ColumnName="maxbet_wala" />
+          <ScalarProperty Name="maxwala_permatch" ColumnName="maxwala_permatch" />
+          <ScalarProperty Name="minbet_draw" ColumnName="minbet_draw" />
+          <ScalarProperty Name="maxbet_draw" ColumnName="maxbet_draw" />
+          <ScalarProperty Name="maxdraw_permatch" ColumnName="maxdraw_permatch" />
+          <ScalarProperty Name="currency" ColumnName="currency" />
+          <ScalarProperty Name="minbet_match" ColumnName="minbet_match" />
+          <ScalarProperty Name="maxbet_match" ColumnName="maxbet_match" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="allbetcomms">
+      <EntityTypeMapping TypeName="s_dbModel.allbetcomm">
+        <MappingFragment StoreEntitySet="allbetcomm">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="matchno" ColumnName="matchno" />
+          <ScalarProperty Name="trans_id" ColumnName="trans_id" />
+          <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+          <ScalarProperty Name="comm" ColumnName="comm" />
+          <ScalarProperty Name="playerid" ColumnName="playerid" />
+          <ScalarProperty Name="commission" ColumnName="commission" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="setcomm" ColumnName="setcomm" />
+          <ScalarProperty Name="delflag" ColumnName="delflag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="allwincomms">
+      <EntityTypeMapping TypeName="s_dbModel.allwincomm">
+        <MappingFragment StoreEntitySet="allwincomm">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="matchno" ColumnName="matchno" />
+          <ScalarProperty Name="trans_id" ColumnName="trans_id" />
+          <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+          <ScalarProperty Name="comm" ColumnName="comm" />
+          <ScalarProperty Name="playerid" ColumnName="playerid" />
+          <ScalarProperty Name="commission" ColumnName="commission" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="announcements">
+      <EntityTypeMapping TypeName="s_dbModel.announcement">
+        <MappingFragment StoreEntitySet="announcement">
+          <ScalarProperty Name="slno" ColumnName="slno" />
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="time" ColumnName="time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="arenas">
+      <EntityTypeMapping TypeName="s_dbModel.arena">
+        <MappingFragment StoreEntitySet="arena">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="arena_name" ColumnName="arena_name" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="order" ColumnName="order" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bidpoints">
+      <EntityTypeMapping TypeName="s_dbModel.bidpoint">
+        <MappingFragment StoreEntitySet="bidpoints">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+          <ScalarProperty Name="bidpoint1" ColumnName="bidpoint" />
+          <ScalarProperty Name="updated_bidpoint" ColumnName="updated_bidpoint" />
+          <ScalarProperty Name="time" ColumnName="time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="breeders">
+      <EntityTypeMapping TypeName="s_dbModel.breeder">
+        <MappingFragment StoreEntitySet="breeder">
+          <ScalarProperty Name="slno" ColumnName="slno" />
+          <ScalarProperty Name="breedername" ColumnName="breedername" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="contactno" ColumnName="contactno" />
+          <ScalarProperty Name="emailid" ColumnName="emailid" />
+          <ScalarProperty Name="addby" ColumnName="addby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cocks">
+      <EntityTypeMapping TypeName="s_dbModel.cock">
+        <MappingFragment StoreEntitySet="cock">
+          <ScalarProperty Name="slno" ColumnName="slno" />
+          <ScalarProperty Name="cock_name" ColumnName="cock_name" />
+          <ScalarProperty Name="cock_weight" ColumnName="cock_weight" />
+          <ScalarProperty Name="breeder_slno" ColumnName="breeder_slno" />
+          <ScalarProperty Name="breed" ColumnName="breed" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="cocktype" ColumnName="cocktype" />
+          <ScalarProperty Name="addby" ColumnName="addby" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="comm_calculation">
+      <EntityTypeMapping TypeName="s_dbModel.comm_calculation">
+        <MappingFragment StoreEntitySet="comm_calculation">
+          <ScalarProperty Name="slno" ColumnName="slno" />
+          <ScalarProperty Name="playerid" ColumnName="playerid" />
+          <ScalarProperty Name="firstparent_id" ColumnName="firstparent_id" />
+          <ScalarProperty Name="firstparent_bet_comm" ColumnName="firstparent_bet_comm" />
+          <ScalarProperty Name="firstparent_win_comm" ColumnName="firstparent_win_comm" />
+          <ScalarProperty Name="secondparent_id" ColumnName="secondparent_id" />
+          <ScalarProperty Name="secondparent_bet_comm" ColumnName="secondparent_bet_comm" />
+          <ScalarProperty Name="secondparent_win_comm" ColumnName="secondparent_win_comm" />
+          <ScalarProperty Name="thirdparent_id" ColumnName="thirdparent_id" />
+          <ScalarProperty Name="thirdparent_bet_comm" ColumnName="thirdparent_bet_comm" />
+          <ScalarProperty Name="thirdparent_win_comm" ColumnName="thirdparent_win_comm" />
+          <ScalarProperty Name="fourth_id" ColumnName="fourth_id" />
+          <ScalarProperty Name="fourthparent_bet_comm" ColumnName="fourthparent_bet_comm" />
+          <ScalarProperty Name="fourthparent_win_comm" ColumnName="fourthparent_win_comm" />
+          <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+          <ScalarProperty Name="admin_bet_comm" ColumnName="admin_bet_comm" />
+          <ScalarProperty Name="admin_win_comm" ColumnName="admin_win_comm" />
+          <ScalarProperty Name="delflag" ColumnName="delflag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="commissions">
+      <EntityTypeMapping TypeName="s_dbModel.commission">
+        <MappingFragment StoreEntitySet="commission">
+          <ScalarProperty Name="slno" ColumnName="slno" />
+          <ScalarProperty Name="agentid" ColumnName="agentid" />
+          <ScalarProperty Name="for_id" ColumnName="for_id" />
+          <ScalarProperty Name="bet_commission" ColumnName="bet_commission" />
+          <ScalarProperty Name="win_commission" ColumnName="win_commission" />
+          <ScalarProperty Name="delflag" ColumnName="delflag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="country_currency">
+      <EntityTypeMapping TypeName="s_dbModel.country_currency">
+        <MappingFragment StoreEntitySet="country_currency">
+          <ScalarProperty Name="slno" ColumnName="slno" />
+          <ScalarProperty Name="countryname" ColumnName="countryname" />
+          <ScalarProperty Name="currency" ColumnName="currency" />
+          <ScalarProperty Name="shortcode" ColumnName="shortcode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="creaditbalances">
+      <EntityTypeMapping TypeName="s_dbModel.creaditbalance">
+        <MappingFragment StoreEntitySet="creaditbalance">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="currencies">
+      <EntityTypeMapping TypeName="s_dbModel.currency">
+        <MappingFragment StoreEntitySet="currency">
+          <ScalarProperty Name="slno" ColumnName="slno" />
+          <ScalarProperty Name="currency1" ColumnName="currency" />
+          <ScalarProperty Name="value" ColumnName="value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="currency_exchange">
+      <EntityTypeMapping TypeName="s_dbModel.currency_exchange">
+        <MappingFragment StoreEntitySet="currency_exchange">
+          <ScalarProperty Name="slno" ColumnName="slno" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="currency" ColumnName="currency" />
+          <ScalarProperty Name="val" ColumnName="val" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="derbies">
+      <EntityTypeMapping TypeName="s_dbModel.derby">
+        <MappingFragment StoreEntitySet="derby">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="ime" ColumnName="ime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="drawodds">
+      <EntityTypeMapping TypeName="s_dbModel.drawodd">
+        <MappingFragment StoreEntitySet="drawodds">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="odds" ColumnName="odds" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fight_assign">
+      <EntityTypeMapping TypeName="s_dbModel.fight_assign">
+        <MappingFragment StoreEntitySet="fight_assign">
+          <ScalarProperty Name="slno" ColumnName="slno" />
+          <ScalarProperty Name="matchtype" ColumnName="matchtype" />
+          <ScalarProperty Name="breeder_id" ColumnName="breeder_id" />
+          <ScalarProperty Name="breeder_name" ColumnName="breeder_name" />
+          <ScalarProperty Name="cock_id" ColumnName="cock_id" />
+          <ScalarProperty Name="cock_name" ColumnName="cock_name" />
+          <ScalarProperty Name="fightagainst_breeder_id" ColumnName="fightagainst_breeder_id" />
+          <ScalarProperty Name="fightagainst_breeder_name" ColumnName="fightagainst_breeder_name" />
+          <ScalarProperty Name="fightagainst_cock_id" ColumnName="fightagainst_cock_id" />
+          <ScalarProperty Name="fightagainst_cock_name" ColumnName="fightagainst_cock_name" />
+          <ScalarProperty Name="cock_type" ColumnName="cock_type" />
+          <ScalarProperty Name="against_type" ColumnName="against_type" />
+          <ScalarProperty Name="match_no" ColumnName="match_no" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="hour" ColumnName="hour" />
+          <ScalarProperty Name="minute" ColumnName="minute" />
+          <ScalarProperty Name="matchstarttime" ColumnName="matchstarttime" />
+          <ScalarProperty Name="entry_date" ColumnName="entry_date" />
+          <ScalarProperty Name="winner_cockid" ColumnName="winner_cockid" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="knockout" ColumnName="knockout" />
+          <ScalarProperty Name="block" ColumnName="block" />
+          <ScalarProperty Name="block_warning_time" ColumnName="block_warning_time" />
+          <ScalarProperty Name="block_warning_entry_time" ColumnName="block_warning_entry_time" />
+          <ScalarProperty Name="draw_odds" ColumnName="draw_odds" />
+          <ScalarProperty Name="addby" ColumnName="addby" />
+          <ScalarProperty Name="cancelmatch" ColumnName="cancelmatch" />
+          <ScalarProperty Name="arena" ColumnName="arena" />
+          <ScalarProperty Name="handler_m" ColumnName="handler_m" />
+          <ScalarProperty Name="graffer_m" ColumnName="graffer_m" />
+          <ScalarProperty Name="handler_w" ColumnName="handler_w" />
+          <ScalarProperty Name="graffer_w" ColumnName="graffer_w" />
+          <ScalarProperty Name="match_order" ColumnName="match_order" />
+          <ScalarProperty Name="cancel_reason" ColumnName="cancel_reason" />
+          <ScalarProperty Name="updatetime" ColumnName="updatetime" />
+          <ScalarProperty Name="del_flag" ColumnName="del_flag" />
+          <ScalarProperty Name="matchcreatetime" ColumnName="matchcreatetime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="fight_back">
+      <EntityTypeMapping TypeName="s_dbModel.fight_back">
+        <MappingFragment StoreEntitySet="fight_back">
+          <ScalarProperty Name="slno" ColumnName="slno" />
+          <ScalarProperty Name="matchno" ColumnName="matchno" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="player_id" ColumnName="player_id" />
+          <ScalarProperty Name="amt_player" ColumnName="amt_player" />
+          <ScalarProperty Name="odds" ColumnName="odds" />
+          <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+          <ScalarProperty Name="amt_agent" ColumnName="amt_agent" />
+          <ScalarProperty Name="agent_per" ColumnName="agent_per" />
+          <ScalarProperty Name="transaction_slno" ColumnName="transaction_slno" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="delflag" ColumnName="delflag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="languages">
+      <EntityTypeMapping TypeName="s_dbModel.language">
+        <MappingFragment StoreEntitySet="language">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="en" ColumnName="en" />
+          <ScalarProperty Name="ch" ColumnName="ch" />
+          <ScalarProperty Name="bh" ColumnName="bh" />
+          <ScalarProperty Name="vt" ColumnName="vt" />
+          <ScalarProperty Name="th" ColumnName="th" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="logins">
+      <EntityTypeMapping TypeName="s_dbModel.login">
+        <MappingFragment StoreEntitySet="login">
+          <ScalarProperty Name="slno" ColumnName="slno" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="group" ColumnName="group" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="marketvalues">
+      <EntityTypeMapping TypeName="s_dbModel.marketvalue">
+        <MappingFragment StoreEntitySet="marketvalue">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="playerid" ColumnName="playerid" />
+          <ScalarProperty Name="matchno" ColumnName="matchno" />
+          <ScalarProperty Name="marketvalue1" ColumnName="marketvalue" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="bet_eat_value" ColumnName="bet/eat_value" />
+          <ScalarProperty Name="bet_eat" ColumnName="bet/eat" />
+          <ScalarProperty Name="avail_bet" ColumnName="avail_bet" />
+          <ScalarProperty Name="avail_eat" ColumnName="avail_eat" />
+          <ScalarProperty Name="bet_slno" ColumnName="bet_slno" />
+          <ScalarProperty Name="eat_slno" ColumnName="eat_slno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="match_createstart">
+      <EntityTypeMapping TypeName="s_dbModel.match_createstart">
+        <MappingFragment StoreEntitySet="match_createstart">
+          <ScalarProperty Name="slno" ColumnName="slno" />
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="arenaid" ColumnName="arenaid" />
+          <ScalarProperty Name="fighttype" ColumnName="fighttype" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="endtime" ColumnName="endtime" />
+          <ScalarProperty Name="cancel_status" ColumnName="cancel_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="matchending_announcement">
+      <EntityTypeMapping TypeName="s_dbModel.matchending_announcement">
+        <MappingFragment StoreEntitySet="matchending_announcement">
+          <ScalarProperty Name="slno" ColumnName="slno" />
+          <ScalarProperty Name="announcement" ColumnName="announcement" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="matchstarttimes">
+      <EntityTypeMapping TypeName="s_dbModel.matchstarttime">
+        <MappingFragment StoreEntitySet="matchstarttime">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="matchno" ColumnName="matchno" />
+          <ScalarProperty Name="starttime" ColumnName="starttime" />
+          <ScalarProperty Name="stoptime" ColumnName="stoptime" />
+          <ScalarProperty Name="totaltime" ColumnName="totaltime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="multiple_transfer">
+      <EntityTypeMapping TypeName="s_dbModel.multiple_transfer">
+        <MappingFragment StoreEntitySet="multiple_transfer">
+          <ScalarProperty Name="slno" ColumnName="slno" />
+          <ScalarProperty Name="transfer_by" ColumnName="transfer_by" />
+          <ScalarProperty Name="transfer_to" ColumnName="transfer_to" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="delflag" ColumnName="delflag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mwvals">
+      <EntityTypeMapping TypeName="s_dbModel.mwval">
+        <MappingFragment StoreEntitySet="mwval">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="matchslno" ColumnName="matchslno" />
+          <ScalarProperty Name="W" ColumnName="W" />
+          <ScalarProperty Name="M" ColumnName="M" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="oddsdetails">
+      <EntityTypeMapping TypeName="s_dbModel.oddsdetail">
+        <MappingFragment StoreEntitySet="oddsdetail">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="matchno" ColumnName="matchno" />
+          <ScalarProperty Name="odds_difference" ColumnName="odds_difference" />
+          <ScalarProperty Name="openingodds_meron" ColumnName="openingodds_meron" />
+          <ScalarProperty Name="openingodds_wala" ColumnName="openingodds_wala" />
+          <ScalarProperty Name="oddsadjustment_value" ColumnName="oddsadjustment_value" />
+          <ScalarProperty Name="oddsbet_threshold" ColumnName="oddsbet_threshold" />
+          <ScalarProperty Name="maxbet_threshold" ColumnName="maxbet_threshold" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="oddsdiff_calc">
+      <EntityTypeMapping TypeName="s_dbModel.oddsdiff_calc">
+        <MappingFragment StoreEntitySet="oddsdiff_calc">
+          <ScalarProperty Name="idval" ColumnName="idval" />
+          <ScalarProperty Name="match_slno" ColumnName="match_slno" />
+          <ScalarProperty Name="C1odds" ColumnName="1odds" />
+          <ScalarProperty Name="C2odds" ColumnName="2odds" />
+          <ScalarProperty Name="diff" ColumnName="diff" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="openning_balance">
+      <EntityTypeMapping TypeName="s_dbModel.openning_balance">
+        <MappingFragment StoreEntitySet="openning_balance">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="balance" ColumnName="balance" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="player_pt_calc">
+      <EntityTypeMapping TypeName="s_dbModel.player_pt_calc">
+        <MappingFragment StoreEntitySet="player_pt_calc">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="player_id" ColumnName="player_id" />
+          <ScalarProperty Name="firstparent" ColumnName="firstparent" />
+          <ScalarProperty Name="firstparent_id" ColumnName="firstparent_id" />
+          <ScalarProperty Name="secondparent" ColumnName="secondparent" />
+          <ScalarProperty Name="secondparent_id" ColumnName="secondparent_id" />
+          <ScalarProperty Name="thirdparent" ColumnName="thirdparent" />
+          <ScalarProperty Name="thirdparent_id" ColumnName="thirdparent_id" />
+          <ScalarProperty Name="fourthparent" ColumnName="fourthparent" />
+          <ScalarProperty Name="fourthparent_id" ColumnName="fourthparent_id" />
+          <ScalarProperty Name="frstparentcomm" ColumnName="frstparentcomm" />
+          <ScalarProperty Name="secondparentcomm" ColumnName="secondparentcomm" />
+          <ScalarProperty Name="thirdparentcomm" ColumnName="thirdparentcomm" />
+          <ScalarProperty Name="fourthparentcomm" ColumnName="fourthparentcomm" />
+          <ScalarProperty Name="admincomm" ColumnName="admincomm" />
+          <ScalarProperty Name="del_flag" ColumnName="del_flag" />
+          <ScalarProperty Name="updated_time" ColumnName="updated_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="playerbet_commission">
+      <EntityTypeMapping TypeName="s_dbModel.playerbet_commission">
+        <MappingFragment StoreEntitySet="playerbet_commission">
+          <ScalarProperty Name="slno" ColumnName="slno" />
+          <ScalarProperty Name="playerid" ColumnName="playerid" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="playerbet_limit">
+      <EntityTypeMapping TypeName="s_dbModel.playerbet_limit">
+        <MappingFragment StoreEntitySet="playerbet_limit">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="playerid" ColumnName="playerid" />
+          <ScalarProperty Name="minbet_meron" ColumnName="minbet_meron" />
+          <ScalarProperty Name="maxbet_meron" ColumnName="maxbet_meron" />
+          <ScalarProperty Name="meronbet_permatch" ColumnName="meronbet_permatch" />
+          <ScalarProperty Name="minbet_wala" ColumnName="minbet_wala" />
+          <ScalarProperty Name="maxbet_wala" ColumnName="maxbet_wala" />
+          <ScalarProperty Name="walabet_permatch" ColumnName="walabet_permatch" />
+          <ScalarProperty Name="minbet_draw" ColumnName="minbet_draw" />
+          <ScalarProperty Name="maxbet_draw" ColumnName="maxbet_draw" />
+          <ScalarProperty Name="drawbet_permatch" ColumnName="drawbet_permatch" />
+          <ScalarProperty Name="currency" ColumnName="currency" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="playerbet_limit_backup">
+      <EntityTypeMapping TypeName="s_dbModel.playerbet_limit_backup">
+        <MappingFragment StoreEntitySet="playerbet_limit_backup">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="playerid" ColumnName="playerid" />
+          <ScalarProperty Name="minbet_meron" ColumnName="minbet_meron" />
+          <ScalarProperty Name="maxbet_meron" ColumnName="maxbet_meron" />
+          <ScalarProperty Name="meronbet_permatch" ColumnName="meronbet_permatch" />
+          <ScalarProperty Name="minbet_wala" ColumnName="minbet_wala" />
+          <ScalarProperty Name="maxbet_wala" ColumnName="maxbet_wala" />
+          <ScalarProperty Name="walabet_permatch" ColumnName="walabet_permatch" />
+          <ScalarProperty Name="minbet_draw" ColumnName="minbet_draw" />
+          <ScalarProperty Name="maxbet_draw" ColumnName="maxbet_draw" />
+          <ScalarProperty Name="drawbet_permatch" ColumnName="drawbet_permatch" />
+          <ScalarProperty Name="currency" ColumnName="currency" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="playerbetcomms">
+      <EntityTypeMapping TypeName="s_dbModel.playerbetcomm">
+        <MappingFragment StoreEntitySet="playerbetcomm">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="trans_id" ColumnName="trans_id" />
+          <ScalarProperty Name="playerid" ColumnName="playerid" />
+          <ScalarProperty Name="matchno" ColumnName="matchno" />
+          <ScalarProperty Name="comm" ColumnName="comm" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="delflag" ColumnName="delflag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="request_point">
+      <EntityTypeMapping TypeName="s_dbModel.request_point">
+        <MappingFragment StoreEntitySet="request_point">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="from" ColumnName="from" />
+          <ScalarProperty Name="to" ColumnName="to" />
+          <ScalarProperty Name="point" ColumnName="point" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="running_announcement">
+      <EntityTypeMapping TypeName="s_dbModel.running_announcement">
+        <MappingFragment StoreEntitySet="running_announcement">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="announcement" ColumnName="announcement" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="senior_commission">
+      <EntityTypeMapping TypeName="s_dbModel.senior_commission">
+        <MappingFragment StoreEntitySet="senior_commission">
+          <ScalarProperty Name="slno" ColumnName="slno" />
+          <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+          <ScalarProperty Name="down_id" ColumnName="down_id" />
+          <ScalarProperty Name="betcom" ColumnName="betcom" />
+          <ScalarProperty Name="wincom" ColumnName="wincom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="stake_detail">
+      <EntityTypeMapping TypeName="s_dbModel.stake_detail">
+        <MappingFragment StoreEntitySet="stake_detail">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fightback" ColumnName="fightback" />
+          <ScalarProperty Name="bet_comm" ColumnName="bet_comm" />
+          <ScalarProperty Name="win_comm" ColumnName="win_comm" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tests">
+      <EntityTypeMapping TypeName="s_dbModel.test">
+        <MappingFragment StoreEntitySet="test">
+          <ScalarProperty Name="idd" ColumnName="idd" />
+          <ScalarProperty Name="nn" ColumnName="nn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="transactions">
+      <EntityTypeMapping TypeName="s_dbModel.transaction">
+        <MappingFragment StoreEntitySet="transaction">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="playerid" ColumnName="playerid" />
+          <ScalarProperty Name="matchno" ColumnName="matchno" />
+          <ScalarProperty Name="acceptedamount" ColumnName="acceptedamount" />
+          <ScalarProperty Name="accepted_withodds" ColumnName="accepted_withodds" />
+          <ScalarProperty Name="betslno" ColumnName="betslno" />
+          <ScalarProperty Name="multiplier" ColumnName="multiplier" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="currencytype" ColumnName="currencytype" />
+          <ScalarProperty Name="cocktype" ColumnName="cocktype" />
+          <ScalarProperty Name="cockid" ColumnName="cockid" />
+          <ScalarProperty Name="odds" ColumnName="odds" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="cancelstatus" ColumnName="cancelstatus" />
+          <ScalarProperty Name="winloseamnt" ColumnName="winloseamnt" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="ip" ColumnName="ip" />
+          <ScalarProperty Name="betstatus" ColumnName="betstatus" />
+          <ScalarProperty Name="betcomstat" ColumnName="betcomstat" />
+          <ScalarProperty Name="playerbcamt" ColumnName="playerbcamt" />
+          <ScalarProperty Name="agentid" ColumnName="agentid" />
+          <ScalarProperty Name="agentbcamt" ColumnName="agentbcamt" />
+          <ScalarProperty Name="agentbcper" ColumnName="agentbcper" />
+          <ScalarProperty Name="agentfbamt" ColumnName="agentfbamt" />
+          <ScalarProperty Name="agentfbper" ColumnName="agentfbper" />
+          <ScalarProperty Name="masterid" ColumnName="masterid" />
+          <ScalarProperty Name="masterbcamt" ColumnName="masterbcamt" />
+          <ScalarProperty Name="masterbcper" ColumnName="masterbcper" />
+          <ScalarProperty Name="masterfbamt" ColumnName="masterfbamt" />
+          <ScalarProperty Name="masterfbper" ColumnName="masterfbper" />
+          <ScalarProperty Name="srmasterid" ColumnName="srmasterid" />
+          <ScalarProperty Name="srmasterbcamt" ColumnName="srmasterbcamt" />
+          <ScalarProperty Name="srmasterbcper" ColumnName="srmasterbcper" />
+          <ScalarProperty Name="srmasterfbamt" ColumnName="srmasterfbamt" />
+          <ScalarProperty Name="srmasterfbper" ColumnName="srmasterfbper" />
+          <ScalarProperty Name="houseid" ColumnName="houseid" />
+          <ScalarProperty Name="housebcamt" ColumnName="housebcamt" />
+          <ScalarProperty Name="housebcper" ColumnName="housebcper" />
+          <ScalarProperty Name="housefbamt" ColumnName="housefbamt" />
+          <ScalarProperty Name="housefbper" ColumnName="housefbper" />
+          <ScalarProperty Name="adminbcamt" ColumnName="adminbcamt" />
+          <ScalarProperty Name="adminbcper" ColumnName="adminbcper" />
+          <ScalarProperty Name="adminfbamt" ColumnName="adminfbamt" />
+          <ScalarProperty Name="adminfbper" ColumnName="adminfbper" />
+          <ScalarProperty Name="delflag" ColumnName="delflag" />
+          <ScalarProperty Name="agentbetcomm" ColumnName="agentbetcomm" />
+          <ScalarProperty Name="agentfb" ColumnName="agentfb" />
+          <ScalarProperty Name="masterbetcomm" ColumnName="masterbetcomm" />
+          <ScalarProperty Name="masterfb" ColumnName="masterfb" />
+          <ScalarProperty Name="srmasterbetcomm" ColumnName="srmasterbetcomm" />
+          <ScalarProperty Name="srmasterfb" ColumnName="srmasterfb" />
+          <ScalarProperty Name="housebetcomm" ColumnName="housebetcomm" />
+          <ScalarProperty Name="housefb" ColumnName="housefb" />
+          <ScalarProperty Name="adminbetcomm" ColumnName="adminbetcomm" />
+          <ScalarProperty Name="adminfb" ColumnName="adminfb" />
+          <ScalarProperty Name="cb" ColumnName="cb" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="typeof_currency">
+      <EntityTypeMapping TypeName="s_dbModel.typeof_currency">
+        <MappingFragment StoreEntitySet="typeof_currency">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="typename" ColumnName="typename" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="users">
+      <EntityTypeMapping TypeName="s_dbModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="slno" ColumnName="slno" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="lname" ColumnName="lname" />
+          <ScalarProperty Name="preffix" ColumnName="preffix" />
+          <ScalarProperty Name="idval" ColumnName="idval" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="contactno" ColumnName="contactno" />
+          <ScalarProperty Name="emailid" ColumnName="emailid" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="pinno" ColumnName="pinno" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="maxfightback" ColumnName="maxfightback" />
+          <ScalarProperty Name="parentfightback" ColumnName="parentfightback" />
+          <ScalarProperty Name="arena" ColumnName="arena" />
+          <ScalarProperty Name="currency_type" ColumnName="currency_type" />
+          <ScalarProperty Name="draw_fightback" ColumnName="draw_fightback" />
+          <ScalarProperty Name="reset_date" ColumnName="reset_date" />
+          <ScalarProperty Name="ip_address" ColumnName="ip_address" />
+          <ScalarProperty Name="user_status" ColumnName="user_status" />
+          <ScalarProperty Name="online_status" ColumnName="online_status" />
+          <ScalarProperty Name="show_status" ColumnName="show_status" />
+          <ScalarProperty Name="unique_idval" ColumnName="unique_idval" />
+          <ScalarProperty Name="last_ac_time" ColumnName="last_ac_time" />
+          <ScalarProperty Name="last_edit_time" ColumnName="last_edit_time" />
+          <ScalarProperty Name="delflag" ColumnName="delflag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="playerbetlimnit_nouse">
+      <EntityTypeMapping TypeName="s_dbModel.playerbetlimnit_nouse">
+        <MappingFragment StoreEntitySet="playerbetlimnit_nouse">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="playerid" ColumnName="playerid" />
+          <ScalarProperty Name="minbet_meron" ColumnName="minbet_meron" />
+          <ScalarProperty Name="maxbet_meron" ColumnName="maxbet_meron" />
+          <ScalarProperty Name="meronbet_permatch" ColumnName="meronbet_permatch" />
+          <ScalarProperty Name="minbet_wala" ColumnName="minbet_wala" />
+          <ScalarProperty Name="maxbet_wala" ColumnName="maxbet_wala" />
+          <ScalarProperty Name="walabet_permatch" ColumnName="walabet_permatch" />
+          <ScalarProperty Name="minbet_draw" ColumnName="minbet_draw" />
+          <ScalarProperty Name="maxbet_draw" ColumnName="maxbet_draw" />
+          <ScalarProperty Name="drawbet_permatch" ColumnName="drawbet_permatch" />
+          <ScalarProperty Name="currency" ColumnName="currency" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="u2">
+      <EntityTypeMapping TypeName="s_dbModel.u2">
+        <MappingFragment StoreEntitySet="u2">
+          <ScalarProperty Name="slno" ColumnName="slno" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="lname" ColumnName="lname" />
+          <ScalarProperty Name="preffix" ColumnName="preffix" />
+          <ScalarProperty Name="idval" ColumnName="idval" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="contactno" ColumnName="contactno" />
+          <ScalarProperty Name="emailid" ColumnName="emailid" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="pinno" ColumnName="pinno" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="maxfightback" ColumnName="maxfightback" />
+          <ScalarProperty Name="parentfightback" ColumnName="parentfightback" />
+          <ScalarProperty Name="arena" ColumnName="arena" />
+          <ScalarProperty Name="currency_type" ColumnName="currency_type" />
+          <ScalarProperty Name="draw_fightback" ColumnName="draw_fightback" />
+          <ScalarProperty Name="reset_date" ColumnName="reset_date" />
+          <ScalarProperty Name="ip_address" ColumnName="ip_address" />
+          <ScalarProperty Name="user_status" ColumnName="user_status" />
+          <ScalarProperty Name="online_status" ColumnName="online_status" />
+          <ScalarProperty Name="show_status" ColumnName="show_status" />
+          <ScalarProperty Name="unique_idval" ColumnName="unique_idval" />
+          <ScalarProperty Name="last_ac_time" ColumnName="last_ac_time" />
+          <ScalarProperty Name="last_edit_time" ColumnName="last_edit_time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="view_cocktype">
+      <EntityTypeMapping TypeName="s_dbModel.view_cocktype">
+        <MappingFragment StoreEntitySet="view_cocktype">
+          <ScalarProperty Name="cock_id" ColumnName="cock_id" />
+          <ScalarProperty Name="fightagainst_cock_id" ColumnName="fightagainst_cock_id" />
+          <ScalarProperty Name="breeder_id" ColumnName="breeder_id" />
+          <ScalarProperty Name="fightagainst_breeder_id" ColumnName="fightagainst_breeder_id" />
+          <ScalarProperty Name="cock_type" ColumnName="cock_type" />
+          <ScalarProperty Name="against_type" ColumnName="against_type" />
+          <ScalarProperty Name="fslno" ColumnName="fslno" />
+          <ScalarProperty Name="fdate" ColumnName="fdate" />
+          <ScalarProperty Name="match_no" ColumnName="match_no" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="block" ColumnName="block" />
+          <ScalarProperty Name="cancelmatch" ColumnName="cancelmatch" />
+          <ScalarProperty Name="arena" ColumnName="arena" />
+          <ScalarProperty Name="winner_cockid" ColumnName="winner_cockid" />
+          <ScalarProperty Name="match_order" ColumnName="match_order" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="view_downline">
+      <EntityTypeMapping TypeName="s_dbModel.view_downline">
+        <MappingFragment StoreEntitySet="view_downline">
+          <ScalarProperty Name="slno" ColumnName="slno" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="bet_commission" ColumnName="bet_commission" />
+          <ScalarProperty Name="win_commission" ColumnName="win_commission" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="maxfightback" ColumnName="maxfightback" />
+          <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="view_fightback">
+      <EntityTypeMapping TypeName="s_dbModel.view_fightback">
+        <MappingFragment StoreEntitySet="view_fightback">
+          <ScalarProperty Name="player_id" ColumnName="player_id" />
+          <ScalarProperty Name="parentid" ColumnName="parentid" />
+          <ScalarProperty Name="fightback" ColumnName="fightback" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="view_fullcomm">
+      <EntityTypeMapping TypeName="s_dbModel.view_fullcomm">
+        <MappingFragment StoreEntitySet="view_fullcomm">
+          <ScalarProperty Name="playerid" ColumnName="playerid" />
+          <ScalarProperty Name="betcomm" ColumnName="betcomm" />
+          <ScalarProperty Name="wincomm" ColumnName="wincomm" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="view_matchdetail">
+      <EntityTypeMapping TypeName="s_dbModel.view_matchdetail">
+        <MappingFragment StoreEntitySet="view_matchdetail">
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="acid" ColumnName="acid" />
+          <ScalarProperty Name="cock_type" ColumnName="cock_type" />
+          <ScalarProperty Name="against_type" ColumnName="against_type" />
+          <ScalarProperty Name="fslno" ColumnName="fslno" />
+          <ScalarProperty Name="fdate" ColumnName="fdate" />
+          <ScalarProperty Name="match_no" ColumnName="match_no" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="block" ColumnName="block" />
+          <ScalarProperty Name="cancelmatch" ColumnName="cancelmatch" />
+          <ScalarProperty Name="arena" ColumnName="arena" />
+          <ScalarProperty Name="winner_cockid" ColumnName="winner_cockid" />
+          <ScalarProperty Name="match_order" ColumnName="match_order" />
+          <ScalarProperty Name="cbid" ColumnName="cbid" />
+          <ScalarProperty Name="abid" ColumnName="abid" />
+          <ScalarProperty Name="cname" ColumnName="cname" />
+          <ScalarProperty Name="cimage" ColumnName="cimage" />
+          <ScalarProperty Name="agname" ColumnName="agname" />
+          <ScalarProperty Name="agimage" ColumnName="agimage" />
+          <ScalarProperty Name="cbreedername" ColumnName="cbreedername" />
+          <ScalarProperty Name="C1odds" ColumnName="1odds" />
+          <ScalarProperty Name="C2odds" ColumnName="2odds" />
+          <ScalarProperty Name="drawwodds" ColumnName="drawwodds" />
+          <ScalarProperty Name="abreedername" ColumnName="abreedername" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="view_odds">
+      <EntityTypeMapping TypeName="s_dbModel.view_odds">
+        <MappingFragment StoreEntitySet="view_odds">
+          <ScalarProperty Name="Name_exp_1" ColumnName="Name_exp_1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="view_playerbetreport">
+      <EntityTypeMapping TypeName="s_dbModel.view_playerbetreport">
+        <MappingFragment StoreEntitySet="view_playerbetreport">
+          <ScalarProperty Name="matchno" ColumnName="matchno" />
+          <ScalarProperty Name="cocktype" ColumnName="cocktype" />
+          <ScalarProperty Name="acceptedamount" ColumnName="acceptedamount" />
+          <ScalarProperty Name="odds" ColumnName="odds" />
+          <ScalarProperty Name="winloseamnt" ColumnName="winloseamnt" />
+          <ScalarProperty Name="winner" ColumnName="winner" />
+          <ScalarProperty Name="gain" ColumnName="gain" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="view_playercomm">
+      <EntityTypeMapping TypeName="s_dbModel.view_playercomm">
+        <MappingFragment StoreEntitySet="view_playercomm">
+          <ScalarProperty Name="playerid" ColumnName="playerid" />
+          <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+          <ScalarProperty Name="bet_comm" ColumnName="bet_comm" />
+          <ScalarProperty Name="win_comm" ColumnName="win_comm" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="view_playeruplines">
+      <EntityTypeMapping TypeName="s_dbModel.view_playeruplines">
+        <MappingFragment StoreEntitySet="view_playeruplines">
+          <ScalarProperty Name="Player" ColumnName="Player" />
+          <ScalarProperty Name="agent" ColumnName="agent" />
+          <ScalarProperty Name="master" ColumnName="master" />
+          <ScalarProperty Name="srmaster" ColumnName="srmaster" />
+          <ScalarProperty Name="house" ColumnName="house" />
+          <ScalarProperty Name="stakeholder" ColumnName="stakeholder" />
+          <ScalarProperty Name="Playername" ColumnName="Playername" />
+          <ScalarProperty Name="currency" ColumnName="currency" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -2,8 +2,31 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
-MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sabong.Business", "Sabong.Business\Sabong.Business.csproj", "{9E6E6945-3466-41E3-97E0-A6699DF91AC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sabong.Repository", "Sabong.Repository\Sabong.Repository.csproj", "{66E57BB2-4B49-4AC3-9229-315E974E38E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sabong.Test", "Sabong.Test\Sabong.Test.csproj", "{48146FC8-0ED9-4B64-B543-DFF4C909E916}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E6E6945-3466-41E3-97E0-A6699DF91AC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E6E6945-3466-41E3-97E0-A6699DF91AC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E6E6945-3466-41E3-97E0-A6699DF91AC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E6E6945-3466-41E3-97E0-A6699DF91AC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66E57BB2-4B49-4AC3-9229-315E974E38E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66E57BB2-4B49-4AC3-9229-315E974E38E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66E57BB2-4B49-4AC3-9229-315E974E38E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66E57BB2-4B49-4AC3-9229-315E974E38E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48146FC8-0ED9-4B64-B543-DFF4C909E916}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48146FC8-0ED9-4B64-B543-DFF4C909E916}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48146FC8-0ED9-4B64-B543-DFF4C909E916}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48146FC8-0ED9-4B64-B543-DFF4C909E916}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

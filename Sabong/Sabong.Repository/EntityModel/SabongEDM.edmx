@@ -1,0 +1,3057 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="s_dbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="agentbet_limit">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="agentid" Type="int" Nullable="false" />
+          <Property Name="minbet_meron" Type="double" Nullable="false" />
+          <Property Name="maxbet_meron" Type="double" Nullable="false" />
+          <Property Name="maxmeron_permatch" Type="float" Nullable="false" />
+          <Property Name="minbet_wala" Type="double" Nullable="false" />
+          <Property Name="maxbet_wala" Type="double" Nullable="false" />
+          <Property Name="maxwala_permatch" Type="float" Nullable="false" />
+          <Property Name="minbet_draw" Type="double" Nullable="false" />
+          <Property Name="maxbet_draw" Type="double" Nullable="false" />
+          <Property Name="maxdraw_permatch" Type="float" Nullable="false" />
+          <Property Name="currency" Type="int" Nullable="false" />
+          <Property Name="minbet_match" Type="double" Nullable="false" />
+          <Property Name="maxbet_match" Type="double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="agentbet_limit_backup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="agentid" Type="int" Nullable="false" />
+          <Property Name="minbet_meron" Type="double" Nullable="false" />
+          <Property Name="maxbet_meron" Type="double" Nullable="false" />
+          <Property Name="maxmeron_permatch" Type="float" Nullable="false" />
+          <Property Name="minbet_wala" Type="double" Nullable="false" />
+          <Property Name="maxbet_wala" Type="double" Nullable="false" />
+          <Property Name="maxwala_permatch" Type="float" Nullable="false" />
+          <Property Name="minbet_draw" Type="double" Nullable="false" />
+          <Property Name="maxbet_draw" Type="double" Nullable="false" />
+          <Property Name="maxdraw_permatch" Type="float" Nullable="false" />
+          <Property Name="currency" Type="int" Nullable="false" />
+          <Property Name="minbet_match" Type="double" Nullable="false" />
+          <Property Name="maxbet_match" Type="double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="allbetcomm">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="matchno" Type="int" Nullable="false" />
+          <Property Name="trans_id" Type="int" Nullable="false" />
+          <Property Name="agent_id" Type="int" Nullable="false" />
+          <Property Name="comm" Type="float" Nullable="false" />
+          <Property Name="playerid" Type="int" Nullable="false" />
+          <Property Name="commission" Type="float" Nullable="false" />
+          <Property Name="date" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="setcomm" Type="float" Nullable="false" />
+          <Property Name="delflag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="allwincomm">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="matchno" Type="int" Nullable="false" />
+          <Property Name="trans_id" Type="int" Nullable="false" />
+          <Property Name="agent_id" Type="int" Nullable="false" />
+          <Property Name="comm" Type="float" />
+          <Property Name="playerid" Type="int" Nullable="false" />
+          <Property Name="commission" Type="float" Nullable="false" />
+          <Property Name="date" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="announcement">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="subject" Type="text" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="time" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="arena">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="arena_name" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="date" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="order" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bidpoints">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="agent_id" Type="int" Nullable="false" />
+          <Property Name="bidpoint" Type="double" Nullable="false" />
+          <Property Name="updated_bidpoint" Type="double" Nullable="false" />
+          <Property Name="time" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="breeder">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="breedername" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="address" Type="text" Nullable="false" />
+          <Property Name="contactno" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="emailid" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="addby" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cock">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cock_name" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="cock_weight" Type="int" Nullable="false" />
+          <Property Name="breeder_slno" Type="int" Nullable="false" />
+          <Property Name="breed" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="age" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="image" Type="text" Nullable="false" />
+          <Property Name="type" Type="int" Nullable="false" />
+          <Property Name="cocktype" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="addby" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="comm_calculation">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="playerid" Type="int" Nullable="false" />
+          <Property Name="firstparent_id" Type="int" Nullable="false" />
+          <Property Name="firstparent_bet_comm" Type="float" Nullable="false" />
+          <Property Name="firstparent_win_comm" Type="float" Nullable="false" />
+          <Property Name="secondparent_id" Type="int" Nullable="false" />
+          <Property Name="secondparent_bet_comm" Type="float" Nullable="false" />
+          <Property Name="secondparent_win_comm" Type="float" Nullable="false" />
+          <Property Name="thirdparent_id" Type="int" Nullable="false" />
+          <Property Name="thirdparent_bet_comm" Type="float" Nullable="false" />
+          <Property Name="thirdparent_win_comm" Type="float" Nullable="false" />
+          <Property Name="fourth_id" Type="int" Nullable="false" />
+          <Property Name="fourthparent_bet_comm" Type="float" Nullable="false" />
+          <Property Name="fourthparent_win_comm" Type="float" Nullable="false" />
+          <Property Name="admin_id" Type="int" Nullable="false" />
+          <Property Name="admin_bet_comm" Type="float" Nullable="false" />
+          <Property Name="admin_win_comm" Type="float" Nullable="false" />
+          <Property Name="delflag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="commission">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="agentid" Type="int" Nullable="false" />
+          <Property Name="for_id" Type="int" Nullable="false" />
+          <Property Name="bet_commission" Type="double" Nullable="false" />
+          <Property Name="win_commission" Type="float" Nullable="false" />
+          <Property Name="delflag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="country_currency">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="countryname" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="currency" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="shortcode" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="creaditbalance">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="amount" Type="float" Nullable="false" />
+          <Property Name="agent_id" Type="int" Nullable="false" />
+          <Property Name="timestamp" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="currency">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="currency" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="value" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="currency_exchange">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="currency" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="val" Type="float" Nullable="false" />
+          <Property Name="timestamp" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="derby">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="ime" Type="time" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="drawodds">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="odds" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="fight_assign">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="matchtype" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="breeder_id" Type="int" Nullable="false" />
+          <Property Name="breeder_name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="cock_id" Type="int" Nullable="false" />
+          <Property Name="cock_name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="fightagainst_breeder_id" Type="int" Nullable="false" />
+          <Property Name="fightagainst_breeder_name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="fightagainst_cock_id" Type="int" Nullable="false" />
+          <Property Name="fightagainst_cock_name" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="cock_type" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="against_type" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="match_no" Type="int" Nullable="false" />
+          <Property Name="date" Type="varchar" MaxLength="400" Nullable="false" />
+          <Property Name="hour" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="minute" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="matchstarttime" Type="int" Nullable="false" />
+          <Property Name="entry_date" Type="date" Nullable="false" />
+          <Property Name="winner_cockid" Type="int" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="knockout" Type="int" Nullable="false" />
+          <Property Name="block" Type="int" Nullable="false" />
+          <Property Name="block_warning_time" Type="float" Nullable="false" />
+          <Property Name="block_warning_entry_time" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="draw_odds" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="addby" Type="int" Nullable="false" />
+          <Property Name="cancelmatch" Type="int" Nullable="false" />
+          <Property Name="arena" Type="int" Nullable="false" />
+          <Property Name="handler_m" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="graffer_m" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="handler_w" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="graffer_w" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="match_order" Type="int" Nullable="false" />
+          <Property Name="cancel_reason" Type="text" Nullable="false" />
+          <Property Name="updatetime" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="del_flag" Type="int" Nullable="false" />
+          <Property Name="matchcreatetime" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="fight_back">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="matchno" Type="int" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="player_id" Type="int" Nullable="false" />
+          <Property Name="amt_player" Type="float" Nullable="false" />
+          <Property Name="odds" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="agent_id" Type="int" Nullable="false" />
+          <Property Name="amt_agent" Type="float" Nullable="false" />
+          <Property Name="agent_per" Type="float" Nullable="false" />
+          <Property Name="transaction_slno" Type="int" Nullable="false" />
+          <Property Name="date" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="delflag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="language">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="en" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="ch" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="bh" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="vt" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="th" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="type" Type="int" Nullable="false" />
+          <Property Name="group" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="marketvalue">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="playerid" Type="int" Nullable="false" />
+          <Property Name="matchno" Type="int" Nullable="false" />
+          <Property Name="marketvalue" Type="float" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="bet/eat_value" Type="float" Nullable="false" />
+          <Property Name="bet/eat" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="avail_bet" Type="float" Nullable="false" />
+          <Property Name="avail_eat" Type="float" Nullable="false" />
+          <Property Name="bet_slno" Type="int" Nullable="false" />
+          <Property Name="eat_slno" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="match_createstart">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="create_date" Type="date" Nullable="false" />
+          <Property Name="time" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="arenaid" Type="int" Nullable="false" />
+          <Property Name="fighttype" Type="int" Nullable="false" />
+          <Property Name="description" Type="text" Nullable="false" />
+          <Property Name="enddate" Type="date" Nullable="false" />
+          <Property Name="endtime" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="cancel_status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="matchending_announcement">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="announcement" Type="text" Nullable="false" />
+          <Property Name="date" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="matchstarttime">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="matchno" Type="int" Nullable="false" />
+          <Property Name="starttime" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="stoptime" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="totaltime" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="multiple_transfer">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="transfer_by" Type="int" Nullable="false" />
+          <Property Name="transfer_to" Type="int" Nullable="false" />
+          <Property Name="amount" Type="float" Nullable="false" />
+          <Property Name="date" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="delflag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mwval">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="matchslno" Type="int" Nullable="false" />
+          <Property Name="W" Type="int" Nullable="false" />
+          <Property Name="M" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="oddsdetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="matchno" Type="int" Nullable="false" />
+          <Property Name="odds_difference" Type="float" Nullable="false" />
+          <Property Name="openingodds_meron" Type="float" Nullable="false" />
+          <Property Name="openingodds_wala" Type="float" Nullable="false" />
+          <Property Name="oddsadjustment_value" Type="float" Nullable="false" />
+          <Property Name="oddsbet_threshold" Type="float" Nullable="false" />
+          <Property Name="maxbet_threshold" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="oddsdiff_calc">
+          <Key>
+            <PropertyRef Name="idval" />
+          </Key>
+          <Property Name="idval" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="match_slno" Type="int" Nullable="false" />
+          <Property Name="1odds" Type="float" Nullable="false" />
+          <Property Name="2odds" Type="float" Nullable="false" />
+          <Property Name="diff" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="openning_balance">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="int" Nullable="false" />
+          <Property Name="balance" Type="double" Nullable="false" />
+          <Property Name="date" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="player_pt_calc">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="player_id" Type="int" Nullable="false" />
+          <Property Name="firstparent" Type="float" Nullable="false" />
+          <Property Name="firstparent_id" Type="int" Nullable="false" />
+          <Property Name="secondparent" Type="float" Nullable="false" />
+          <Property Name="secondparent_id" Type="int" Nullable="false" />
+          <Property Name="thirdparent" Type="float" Nullable="false" />
+          <Property Name="thirdparent_id" Type="int" Nullable="false" />
+          <Property Name="fourthparent" Type="float" Nullable="false" />
+          <Property Name="fourthparent_id" Type="int" Nullable="false" />
+          <Property Name="frstparentcomm" Type="float" Nullable="false" />
+          <Property Name="secondparentcomm" Type="float" Nullable="false" />
+          <Property Name="thirdparentcomm" Type="float" Nullable="false" />
+          <Property Name="fourthparentcomm" Type="float" Nullable="false" />
+          <Property Name="admincomm" Type="float" Nullable="false" />
+          <Property Name="del_flag" Type="int" Nullable="false" />
+          <Property Name="updated_time" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="playerbet_commission">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="playerid" Type="int" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="playerbet_limit">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="playerid" Type="int" Nullable="false" />
+          <Property Name="minbet_meron" Type="double" Nullable="false" />
+          <Property Name="maxbet_meron" Type="double" Nullable="false" />
+          <Property Name="meronbet_permatch" Type="double" Nullable="false" />
+          <Property Name="minbet_wala" Type="double" Nullable="false" />
+          <Property Name="maxbet_wala" Type="double" Nullable="false" />
+          <Property Name="walabet_permatch" Type="double" Nullable="false" />
+          <Property Name="minbet_draw" Type="double" Nullable="false" />
+          <Property Name="maxbet_draw" Type="double" Nullable="false" />
+          <Property Name="drawbet_permatch" Type="double" Nullable="false" />
+          <Property Name="currency" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="playerbet_limit_backup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="playerid" Type="int" Nullable="false" />
+          <Property Name="minbet_meron" Type="double" Nullable="false" />
+          <Property Name="maxbet_meron" Type="double" Nullable="false" />
+          <Property Name="meronbet_permatch" Type="double" Nullable="false" />
+          <Property Name="minbet_wala" Type="double" Nullable="false" />
+          <Property Name="maxbet_wala" Type="double" Nullable="false" />
+          <Property Name="walabet_permatch" Type="double" Nullable="false" />
+          <Property Name="minbet_draw" Type="double" Nullable="false" />
+          <Property Name="maxbet_draw" Type="double" Nullable="false" />
+          <Property Name="drawbet_permatch" Type="double" Nullable="false" />
+          <Property Name="currency" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="playerbetcomm">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="trans_id" Type="int" Nullable="false" />
+          <Property Name="playerid" Type="int" Nullable="false" />
+          <Property Name="matchno" Type="int" Nullable="false" />
+          <Property Name="comm" Type="double" />
+          <Property Name="type" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="date" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="delflag" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.s_db.playerbetlimnit_nouse' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="playerbetlimnit_nouse">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="playerid" />
+            <PropertyRef Name="minbet_meron" />
+            <PropertyRef Name="maxbet_meron" />
+            <PropertyRef Name="meronbet_permatch" />
+            <PropertyRef Name="minbet_wala" />
+            <PropertyRef Name="maxbet_wala" />
+            <PropertyRef Name="walabet_permatch" />
+            <PropertyRef Name="minbet_draw" />
+            <PropertyRef Name="maxbet_draw" />
+            <PropertyRef Name="drawbet_permatch" />
+            <PropertyRef Name="currency" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="playerid" Type="int" Nullable="false" />
+          <Property Name="minbet_meron" Type="double" Nullable="false" />
+          <Property Name="maxbet_meron" Type="double" Nullable="false" />
+          <Property Name="meronbet_permatch" Type="double" Nullable="false" />
+          <Property Name="minbet_wala" Type="double" Nullable="false" />
+          <Property Name="maxbet_wala" Type="double" Nullable="false" />
+          <Property Name="walabet_permatch" Type="double" Nullable="false" />
+          <Property Name="minbet_draw" Type="double" Nullable="false" />
+          <Property Name="maxbet_draw" Type="double" Nullable="false" />
+          <Property Name="drawbet_permatch" Type="double" Nullable="false" />
+          <Property Name="currency" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="request_point">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="from" Type="int" Nullable="false" />
+          <Property Name="to" Type="int" Nullable="false" />
+          <Property Name="point" Type="float" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="date" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="running_announcement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="announcement" Type="text" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="senior_commission">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="agent_id" Type="int" Nullable="false" />
+          <Property Name="down_id" Type="int" Nullable="false" />
+          <Property Name="betcom" Type="float" Nullable="false" />
+          <Property Name="wincom" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="stake_detail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fightback" Type="float" Nullable="false" />
+          <Property Name="bet_comm" Type="float" Nullable="false" />
+          <Property Name="win_comm" Type="float" Nullable="false" />
+          <Property Name="date" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="test">
+          <Key>
+            <PropertyRef Name="idd" />
+          </Key>
+          <Property Name="idd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nn" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="transaction">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="playerid" Type="int" Nullable="false" />
+          <Property Name="matchno" Type="int" Nullable="false" />
+          <Property Name="acceptedamount" Type="float" Nullable="false" />
+          <Property Name="accepted_withodds" Type="float" Nullable="false" />
+          <Property Name="betslno" Type="int" Nullable="false" />
+          <Property Name="multiplier" Type="float" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="50" />
+          <Property Name="currencytype" Type="int" Nullable="false" />
+          <Property Name="cocktype" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="cockid" Type="int" Nullable="false" />
+          <Property Name="odds" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="cancelstatus" Type="int" Nullable="false" />
+          <Property Name="winloseamnt" Type="double" Nullable="false" />
+          <Property Name="time" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="ip" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="betstatus" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="betcomstat" Type="bool" Nullable="false" />
+          <Property Name="playerbcamt" Type="float" Nullable="false" />
+          <Property Name="agentid" Type="int" Nullable="false" />
+          <Property Name="agentbcamt" Type="float" Nullable="false" />
+          <Property Name="agentbcper" Type="float" Nullable="false" />
+          <Property Name="agentfbamt" Type="float" Nullable="false" />
+          <Property Name="agentfbper" Type="float" Nullable="false" />
+          <Property Name="masterid" Type="int" Nullable="false" />
+          <Property Name="masterbcamt" Type="float" Nullable="false" />
+          <Property Name="masterbcper" Type="float" Nullable="false" />
+          <Property Name="masterfbamt" Type="float" Nullable="false" />
+          <Property Name="masterfbper" Type="float" Nullable="false" />
+          <Property Name="srmasterid" Type="int" Nullable="false" />
+          <Property Name="srmasterbcamt" Type="float" Nullable="false" />
+          <Property Name="srmasterbcper" Type="float" Nullable="false" />
+          <Property Name="srmasterfbamt" Type="float" Nullable="false" />
+          <Property Name="srmasterfbper" Type="float" Nullable="false" />
+          <Property Name="houseid" Type="int" Nullable="false" />
+          <Property Name="housebcamt" Type="float" Nullable="false" />
+          <Property Name="housebcper" Type="float" Nullable="false" />
+          <Property Name="housefbamt" Type="float" Nullable="false" />
+          <Property Name="housefbper" Type="float" Nullable="false" />
+          <Property Name="adminbcamt" Type="float" Nullable="false" />
+          <Property Name="adminbcper" Type="float" Nullable="false" />
+          <Property Name="adminfbamt" Type="float" Nullable="false" />
+          <Property Name="adminfbper" Type="float" Nullable="false" />
+          <Property Name="delflag" Type="int" Nullable="false" />
+          <Property Name="agentbetcomm" Type="float" Nullable="false" />
+          <Property Name="agentfb" Type="float" Nullable="false" />
+          <Property Name="masterbetcomm" Type="float" Nullable="false" />
+          <Property Name="masterfb" Type="float" Nullable="false" />
+          <Property Name="srmasterbetcomm" Type="float" Nullable="false" />
+          <Property Name="srmasterfb" Type="float" Nullable="false" />
+          <Property Name="housebetcomm" Type="float" Nullable="false" />
+          <Property Name="housefb" Type="float" Nullable="false" />
+          <Property Name="adminbetcomm" Type="float" Nullable="false" />
+          <Property Name="adminfb" Type="float" Nullable="false" />
+          <Property Name="cb" Type="double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="typeof_currency">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="typename" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="description" Type="text" Nullable="false" />
+          <Property Name="date" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.s_db.u2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="u2">
+          <Key>
+            <PropertyRef Name="slno" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="lname" />
+            <PropertyRef Name="preffix" />
+            <PropertyRef Name="idval" />
+            <PropertyRef Name="username" />
+            <PropertyRef Name="password" />
+            <PropertyRef Name="address" />
+            <PropertyRef Name="contactno" />
+            <PropertyRef Name="emailid" />
+            <PropertyRef Name="country" />
+            <PropertyRef Name="pinno" />
+            <PropertyRef Name="status" />
+            <PropertyRef Name="date" />
+            <PropertyRef Name="agent_id" />
+            <PropertyRef Name="type" />
+            <PropertyRef Name="maxfightback" />
+            <PropertyRef Name="parentfightback" />
+            <PropertyRef Name="arena" />
+            <PropertyRef Name="currency_type" />
+            <PropertyRef Name="draw_fightback" />
+            <PropertyRef Name="reset_date" />
+            <PropertyRef Name="ip_address" />
+            <PropertyRef Name="user_status" />
+            <PropertyRef Name="online_status" />
+            <PropertyRef Name="show_status" />
+            <PropertyRef Name="unique_idval" />
+            <PropertyRef Name="last_ac_time" />
+            <PropertyRef Name="last_edit_time" />
+          </Key>
+          <Property Name="slno" Type="int" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="lname" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="preffix" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="idval" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="address" Type="text" Nullable="false" />
+          <Property Name="contactno" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="emailid" Type="varchar" MaxLength="400" Nullable="false" />
+          <Property Name="country" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="pinno" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="date" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="agent_id" Type="int" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="maxfightback" Type="float" Nullable="false" />
+          <Property Name="parentfightback" Type="float" Nullable="false" />
+          <Property Name="arena" Type="int" Nullable="false" />
+          <Property Name="currency_type" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="draw_fightback" Type="float" Nullable="false" />
+          <Property Name="reset_date" Type="date" Nullable="false" />
+          <Property Name="ip_address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="user_status" Type="int" Nullable="false" />
+          <Property Name="online_status" Type="int" Nullable="false" />
+          <Property Name="show_status" Type="int" Nullable="false" />
+          <Property Name="unique_idval" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="last_ac_time" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="last_edit_time" Type="varchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="lname" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="preffix" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="idval" Type="varchar" MaxLength="2" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="address" Type="text" Nullable="false" />
+          <Property Name="contactno" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="emailid" Type="varchar" MaxLength="400" Nullable="false" />
+          <Property Name="country" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="pinno" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="date" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="agent_id" Type="int" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="maxfightback" Type="float" Nullable="false" />
+          <Property Name="parentfightback" Type="float" Nullable="false" />
+          <Property Name="arena" Type="int" Nullable="false" />
+          <Property Name="currency_type" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="draw_fightback" Type="float" Nullable="false" />
+          <Property Name="reset_date" Type="date" Nullable="false" />
+          <Property Name="ip_address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="user_status" Type="int" Nullable="false" />
+          <Property Name="online_status" Type="int" Nullable="false" />
+          <Property Name="show_status" Type="int" Nullable="false" />
+          <Property Name="unique_idval" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="last_ac_time" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="last_edit_time" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="delflag" Type="bool" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.s_db.view_cocktype' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_cocktype">
+          <Key>
+            <PropertyRef Name="cock_id" />
+            <PropertyRef Name="fightagainst_cock_id" />
+            <PropertyRef Name="breeder_id" />
+            <PropertyRef Name="fightagainst_breeder_id" />
+            <PropertyRef Name="cock_type" />
+            <PropertyRef Name="against_type" />
+            <PropertyRef Name="fslno" />
+            <PropertyRef Name="fdate" />
+            <PropertyRef Name="match_no" />
+            <PropertyRef Name="status" />
+            <PropertyRef Name="block" />
+            <PropertyRef Name="cancelmatch" />
+            <PropertyRef Name="arena" />
+            <PropertyRef Name="winner_cockid" />
+            <PropertyRef Name="match_order" />
+          </Key>
+          <Property Name="cock_id" Type="int" Nullable="false" />
+          <Property Name="fightagainst_cock_id" Type="int" Nullable="false" />
+          <Property Name="breeder_id" Type="int" Nullable="false" />
+          <Property Name="fightagainst_breeder_id" Type="int" Nullable="false" />
+          <Property Name="cock_type" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="against_type" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="fslno" Type="int" Nullable="false" />
+          <Property Name="fdate" Type="varchar" MaxLength="400" Nullable="false" />
+          <Property Name="match_no" Type="int" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="block" Type="int" Nullable="false" />
+          <Property Name="cancelmatch" Type="int" Nullable="false" />
+          <Property Name="arena" Type="int" Nullable="false" />
+          <Property Name="winner_cockid" Type="int" Nullable="false" />
+          <Property Name="match_order" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.s_db.view_downline' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_downline">
+          <Key>
+            <PropertyRef Name="slno" />
+            <PropertyRef Name="type" />
+            <PropertyRef Name="bet_commission" />
+            <PropertyRef Name="win_commission" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="maxfightback" />
+            <PropertyRef Name="agent_id" />
+          </Key>
+          <Property Name="slno" Type="int" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="bet_commission" Type="double" Nullable="false" />
+          <Property Name="win_commission" Type="float" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="maxfightback" Type="float" Nullable="false" />
+          <Property Name="agent_id" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.s_db.view_fightback' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_fightback">
+          <Key>
+            <PropertyRef Name="player_id" />
+            <PropertyRef Name="parentid" />
+            <PropertyRef Name="fightback" />
+          </Key>
+          <Property Name="player_id" Type="int" Nullable="false" />
+          <Property Name="parentid" Type="int" Nullable="false" />
+          <Property Name="fightback" Type="float" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.s_db.view_fullcomm' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_fullcomm">
+          <Key>
+            <PropertyRef Name="playerid" />
+            <PropertyRef Name="betcomm" />
+            <PropertyRef Name="wincomm" />
+          </Key>
+          <Property Name="playerid" Type="int" Nullable="false" />
+          <Property Name="betcomm" Type="double" Nullable="false" />
+          <Property Name="wincomm" Type="varchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.s_db.view_matchdetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_matchdetail">
+          <Key>
+            <PropertyRef Name="cid" />
+            <PropertyRef Name="acid" />
+            <PropertyRef Name="cock_type" />
+            <PropertyRef Name="against_type" />
+            <PropertyRef Name="fslno" />
+            <PropertyRef Name="fdate" />
+            <PropertyRef Name="match_no" />
+            <PropertyRef Name="status" />
+            <PropertyRef Name="block" />
+            <PropertyRef Name="cancelmatch" />
+            <PropertyRef Name="arena" />
+            <PropertyRef Name="winner_cockid" />
+            <PropertyRef Name="match_order" />
+            <PropertyRef Name="cbid" />
+            <PropertyRef Name="abid" />
+          </Key>
+          <Property Name="cid" Type="int" Nullable="false" />
+          <Property Name="acid" Type="int" Nullable="false" />
+          <Property Name="cock_type" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="against_type" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="fslno" Type="int" Nullable="false" />
+          <Property Name="fdate" Type="varchar" MaxLength="400" Nullable="false" />
+          <Property Name="match_no" Type="int" Nullable="false" />
+          <Property Name="status" Type="int" Nullable="false" />
+          <Property Name="block" Type="int" Nullable="false" />
+          <Property Name="cancelmatch" Type="int" Nullable="false" />
+          <Property Name="arena" Type="int" Nullable="false" />
+          <Property Name="winner_cockid" Type="int" Nullable="false" />
+          <Property Name="match_order" Type="int" Nullable="false" />
+          <Property Name="cbid" Type="int" Nullable="false" />
+          <Property Name="abid" Type="int" Nullable="false" />
+          <Property Name="cname" Type="varchar" MaxLength="300" />
+          <Property Name="cimage" Type="text" />
+          <Property Name="agname" Type="varchar" MaxLength="300" />
+          <Property Name="agimage" Type="text" />
+          <Property Name="cbreedername" Type="varchar" MaxLength="300" />
+          <Property Name="1odds" Type="double" />
+          <Property Name="2odds" Type="double" />
+          <Property Name="drawwodds" Type="varchar" MaxLength="21" />
+          <Property Name="abreedername" Type="varchar" MaxLength="300" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.s_db.view_odds' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_odds">
+          <Key>
+            <PropertyRef Name="Name_exp_1" />
+          </Key>
+          <Property Name="Name_exp_1" Type="varchar" MaxLength="21" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.s_db.view_playerbetreport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_playerbetreport">
+          <Key>
+            <PropertyRef Name="matchno" />
+            <PropertyRef Name="cocktype" />
+            <PropertyRef Name="acceptedamount" />
+            <PropertyRef Name="odds" />
+            <PropertyRef Name="winloseamnt" />
+            <PropertyRef Name="winner" />
+            <PropertyRef Name="gain" />
+            <PropertyRef Name="date" />
+          </Key>
+          <Property Name="matchno" Type="int" Nullable="false" />
+          <Property Name="cocktype" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="acceptedamount" Type="float" Nullable="false" />
+          <Property Name="odds" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="winloseamnt" Type="double" Nullable="false" />
+          <Property Name="winner" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="gain" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.s_db.view_playercomm' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_playercomm">
+          <Key>
+            <PropertyRef Name="playerid" />
+            <PropertyRef Name="parent_id" />
+            <PropertyRef Name="bet_comm" />
+            <PropertyRef Name="win_comm" />
+          </Key>
+          <Property Name="playerid" Type="int" Nullable="false" />
+          <Property Name="parent_id" Type="int" Nullable="false" />
+          <Property Name="bet_comm" Type="float" Nullable="false" />
+          <Property Name="win_comm" Type="float" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.s_db.view_playeruplines' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="view_playeruplines">
+          <Key>
+            <PropertyRef Name="Player" />
+            <PropertyRef Name="agent" />
+            <PropertyRef Name="master" />
+            <PropertyRef Name="srmaster" />
+            <PropertyRef Name="house" />
+            <PropertyRef Name="stakeholder" />
+            <PropertyRef Name="Playername" />
+            <PropertyRef Name="currency" />
+          </Key>
+          <Property Name="Player" Type="int" Nullable="false" />
+          <Property Name="agent" Type="int" Nullable="false" />
+          <Property Name="master" Type="int" Nullable="false" />
+          <Property Name="srmaster" Type="int" Nullable="false" />
+          <Property Name="house" Type="int" Nullable="false" />
+          <Property Name="stakeholder" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="Playername" Type="varchar" MaxLength="300" Nullable="false" />
+          <Property Name="currency" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="transaction_user_playerid">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="transaction" Type="Self.transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="slno" />
+            </Principal>
+            <Dependent Role="transaction">
+              <PropertyRef Name="playerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="chk" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db">
+          <Parameter Name="out_match" Type="int" Mode="Out" />
+        </Function>
+        <Function Name="chk_procedure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" />
+        <Function Name="func_agent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="int">
+          <Parameter Name="in_agentid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="func_agenteffwincomm" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
+          <Parameter Name="in_agentid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="func_agentwincomm" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
+          <Parameter Name="in_agentid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="func_arenaname" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="varchar">
+          <Parameter Name="in_matchno" Type="int" Mode="In" />
+        </Function>
+        <Function Name="func_betcom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
+          <Parameter Name="in_agentid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="func_betcommission" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
+          <Parameter Name="in_agentid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="func_betcommissionup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
+          <Parameter Name="in_agentid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="func_effewincom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
+          <Parameter Name="in_agentid" Type="int" Mode="In" />
+          <Parameter Name="in_playerid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="func_immidiatedownline" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="int">
+          <Parameter Name="in_agentid" Type="int" Mode="In" />
+          <Parameter Name="in_seniourid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="func_matchname" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="varchar">
+          <Parameter Name="in_matchno" Type="int" Mode="In" />
+        </Function>
+        <Function Name="func_playerbet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
+          <Parameter Name="in_agentid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="func_playerbetonly" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
+          <Parameter Name="in_agentid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="func_playerwin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
+          <Parameter Name="in_agentid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="func_playerwinonly" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
+          <Parameter Name="in_agentid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="func_ptagent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
+          <Parameter Name="in_agentid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="func_stakefight" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
+          <Parameter Name="in_agentid" Type="int" Mode="In" />
+          <Parameter Name="in_downid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="func_wincom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
+          <Parameter Name="in_agentid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="func_wincommission" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
+          <Parameter Name="in_agentid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="func_wincommissionup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
+          <Parameter Name="in_agentid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="func_winlose" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
+          <Parameter Name="in_agentid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="matchblock" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db">
+          <Parameter Name="in_matchno" Type="int" Mode="In" />
+        </Function>
+        <Function Name="matchclear" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" />
+        <Function Name="new_procedure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db">
+          <Parameter Name="slno" Type="int" Mode="In" />
+        </Function>
+        <Function Name="new_winnercal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db">
+          <Parameter Name="slno_n" Type="int" Mode="In" />
+          <Parameter Name="winnerid" Type="int" Mode="In" />
+          <Parameter Name="cocktype_n" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="proc_notification" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db">
+          <Parameter Name="in_date" Type="varchar" Mode="In" />
+          <Parameter Name="in_matchno" Type="varchar" Mode="In" />
+          <Parameter Name="in_arena" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="proc_transaction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db">
+          <Parameter Name="in_cockname" Type="varchar" Mode="In" />
+          <Parameter Name="in_type" Type="varchar" Mode="In" />
+          <Parameter Name="in_amount" Type="float" Mode="In" />
+          <Parameter Name="in_odds" Type="float" Mode="In" />
+          <Parameter Name="in_matchno" Type="int" Mode="In" />
+        </Function>
+        <Function Name="proc_winnercal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db">
+          <Parameter Name="slno_n" Type="int" Mode="In" />
+          <Parameter Name="winnerid" Type="int" Mode="In" />
+          <Parameter Name="cocktype_n" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="reset" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" />
+        <Function Name="testproc_jagat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db">
+          <Parameter Name="slno_n" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="s_dbModelStoreContainer">
+          <EntitySet Name="agentbet_limit" EntityType="Self.agentbet_limit" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="agentbet_limit_backup" EntityType="Self.agentbet_limit_backup" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="allbetcomm" EntityType="Self.allbetcomm" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="allwincomm" EntityType="Self.allwincomm" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="announcement" EntityType="Self.announcement" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="arena" EntityType="Self.arena" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="bidpoints" EntityType="Self.bidpoints" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="breeder" EntityType="Self.breeder" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="cock" EntityType="Self.cock" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="comm_calculation" EntityType="Self.comm_calculation" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="commission" EntityType="Self.commission" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="country_currency" EntityType="Self.country_currency" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="creaditbalance" EntityType="Self.creaditbalance" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="currency" EntityType="Self.currency" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="currency_exchange" EntityType="Self.currency_exchange" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="derby" EntityType="Self.derby" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="drawodds" EntityType="Self.drawodds" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="fight_assign" EntityType="Self.fight_assign" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="fight_back" EntityType="Self.fight_back" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="language" EntityType="Self.language" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="login" EntityType="Self.login" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="marketvalue" EntityType="Self.marketvalue" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="match_createstart" EntityType="Self.match_createstart" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="matchending_announcement" EntityType="Self.matchending_announcement" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="matchstarttime" EntityType="Self.matchstarttime" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="multiple_transfer" EntityType="Self.multiple_transfer" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="mwval" EntityType="Self.mwval" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="oddsdetail" EntityType="Self.oddsdetail" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="oddsdiff_calc" EntityType="Self.oddsdiff_calc" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="openning_balance" EntityType="Self.openning_balance" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="player_pt_calc" EntityType="Self.player_pt_calc" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="playerbet_commission" EntityType="Self.playerbet_commission" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="playerbet_limit" EntityType="Self.playerbet_limit" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="playerbet_limit_backup" EntityType="Self.playerbet_limit_backup" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="playerbetcomm" EntityType="Self.playerbetcomm" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="request_point" EntityType="Self.request_point" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="running_announcement" EntityType="Self.running_announcement" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="senior_commission" EntityType="Self.senior_commission" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="stake_detail" EntityType="Self.stake_detail" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="test" EntityType="Self.test" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="transaction" EntityType="Self.transaction" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="typeof_currency" EntityType="Self.typeof_currency" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="user" EntityType="Self.user" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="playerbetlimnit_nouse" EntityType="Self.playerbetlimnit_nouse" store:Type="Tables" store:Schema="s_db">
+            <DefiningQuery>SELECT
+`playerbetlimnit_nouse`.`id`, 
+`playerbetlimnit_nouse`.`playerid`, 
+`playerbetlimnit_nouse`.`minbet_meron`, 
+`playerbetlimnit_nouse`.`maxbet_meron`, 
+`playerbetlimnit_nouse`.`meronbet_permatch`, 
+`playerbetlimnit_nouse`.`minbet_wala`, 
+`playerbetlimnit_nouse`.`maxbet_wala`, 
+`playerbetlimnit_nouse`.`walabet_permatch`, 
+`playerbetlimnit_nouse`.`minbet_draw`, 
+`playerbetlimnit_nouse`.`maxbet_draw`, 
+`playerbetlimnit_nouse`.`drawbet_permatch`, 
+`playerbetlimnit_nouse`.`currency`
+FROM `playerbetlimnit_nouse` AS `playerbetlimnit_nouse`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="u2" EntityType="Self.u2" store:Type="Tables" store:Schema="s_db">
+            <DefiningQuery>SELECT
+`u2`.`slno`, 
+`u2`.`name`, 
+`u2`.`lname`, 
+`u2`.`preffix`, 
+`u2`.`idval`, 
+`u2`.`username`, 
+`u2`.`password`, 
+`u2`.`address`, 
+`u2`.`contactno`, 
+`u2`.`emailid`, 
+`u2`.`country`, 
+`u2`.`pinno`, 
+`u2`.`status`, 
+`u2`.`date`, 
+`u2`.`agent_id`, 
+`u2`.`type`, 
+`u2`.`maxfightback`, 
+`u2`.`parentfightback`, 
+`u2`.`arena`, 
+`u2`.`currency_type`, 
+`u2`.`draw_fightback`, 
+`u2`.`reset_date`, 
+`u2`.`ip_address`, 
+`u2`.`user_status`, 
+`u2`.`online_status`, 
+`u2`.`show_status`, 
+`u2`.`unique_idval`, 
+`u2`.`last_ac_time`, 
+`u2`.`last_edit_time`
+FROM `u2` AS `u2`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="view_cocktype" EntityType="Self.view_cocktype" store:Type="Views" store:Schema="s_db">
+            <DefiningQuery>SELECT
+`view_cocktype`.`cock_id`, 
+`view_cocktype`.`fightagainst_cock_id`, 
+`view_cocktype`.`breeder_id`, 
+`view_cocktype`.`fightagainst_breeder_id`, 
+`view_cocktype`.`cock_type`, 
+`view_cocktype`.`against_type`, 
+`view_cocktype`.`fslno`, 
+`view_cocktype`.`fdate`, 
+`view_cocktype`.`match_no`, 
+`view_cocktype`.`status`, 
+`view_cocktype`.`block`, 
+`view_cocktype`.`cancelmatch`, 
+`view_cocktype`.`arena`, 
+`view_cocktype`.`winner_cockid`, 
+`view_cocktype`.`match_order`
+FROM `view_cocktype` AS `view_cocktype`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="view_downline" EntityType="Self.view_downline" store:Type="Views" store:Schema="s_db">
+            <DefiningQuery>SELECT
+`view_downline`.`slno`, 
+`view_downline`.`type`, 
+`view_downline`.`bet_commission`, 
+`view_downline`.`win_commission`, 
+`view_downline`.`name`, 
+`view_downline`.`maxfightback`, 
+`view_downline`.`agent_id`
+FROM `view_downline` AS `view_downline`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="view_fightback" EntityType="Self.view_fightback" store:Type="Views" store:Schema="s_db">
+            <DefiningQuery>SELECT
+`view_fightback`.`player_id`, 
+`view_fightback`.`parentid`, 
+`view_fightback`.`fightback`
+FROM `view_fightback` AS `view_fightback`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="view_fullcomm" EntityType="Self.view_fullcomm" store:Type="Views" store:Schema="s_db">
+            <DefiningQuery>SELECT
+`view_fullcomm`.`playerid`, 
+`view_fullcomm`.`betcomm`, 
+`view_fullcomm`.`wincomm`
+FROM `view_fullcomm` AS `view_fullcomm`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="view_matchdetail" EntityType="Self.view_matchdetail" store:Type="Views" store:Schema="s_db">
+            <DefiningQuery>SELECT
+`view_matchdetail`.`cid`, 
+`view_matchdetail`.`acid`, 
+`view_matchdetail`.`cock_type`, 
+`view_matchdetail`.`against_type`, 
+`view_matchdetail`.`fslno`, 
+`view_matchdetail`.`fdate`, 
+`view_matchdetail`.`match_no`, 
+`view_matchdetail`.`status`, 
+`view_matchdetail`.`block`, 
+`view_matchdetail`.`cancelmatch`, 
+`view_matchdetail`.`arena`, 
+`view_matchdetail`.`winner_cockid`, 
+`view_matchdetail`.`match_order`, 
+`view_matchdetail`.`cbid`, 
+`view_matchdetail`.`abid`, 
+`view_matchdetail`.`cname`, 
+`view_matchdetail`.`cimage`, 
+`view_matchdetail`.`agname`, 
+`view_matchdetail`.`agimage`, 
+`view_matchdetail`.`cbreedername`, 
+`view_matchdetail`.`1odds`, 
+`view_matchdetail`.`2odds`, 
+`view_matchdetail`.`drawwodds`, 
+`view_matchdetail`.`abreedername`
+FROM `view_matchdetail` AS `view_matchdetail`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="view_odds" EntityType="Self.view_odds" store:Type="Views" store:Schema="s_db">
+            <DefiningQuery>SELECT
+`view_odds`.`Name_exp_1`
+FROM `view_odds` AS `view_odds`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="view_playerbetreport" EntityType="Self.view_playerbetreport" store:Type="Views" store:Schema="s_db">
+            <DefiningQuery>SELECT
+`view_playerbetreport`.`matchno`, 
+`view_playerbetreport`.`cocktype`, 
+`view_playerbetreport`.`acceptedamount`, 
+`view_playerbetreport`.`odds`, 
+`view_playerbetreport`.`winloseamnt`, 
+`view_playerbetreport`.`winner`, 
+`view_playerbetreport`.`gain`, 
+`view_playerbetreport`.`date`
+FROM `view_playerbetreport` AS `view_playerbetreport`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="view_playercomm" EntityType="Self.view_playercomm" store:Type="Views" store:Schema="s_db">
+            <DefiningQuery>SELECT
+`view_playercomm`.`playerid`, 
+`view_playercomm`.`parent_id`, 
+`view_playercomm`.`bet_comm`, 
+`view_playercomm`.`win_comm`
+FROM `view_playercomm` AS `view_playercomm`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="view_playeruplines" EntityType="Self.view_playeruplines" store:Type="Views" store:Schema="s_db">
+            <DefiningQuery>SELECT
+`view_playeruplines`.`Player`, 
+`view_playeruplines`.`agent`, 
+`view_playeruplines`.`master`, 
+`view_playeruplines`.`srmaster`, 
+`view_playeruplines`.`house`, 
+`view_playeruplines`.`stakeholder`, 
+`view_playeruplines`.`Playername`, 
+`view_playeruplines`.`currency`
+FROM `view_playeruplines` AS `view_playeruplines`</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="transaction_user_playerid" Association="Self.transaction_user_playerid">
+            <End Role="user" EntitySet="user" />
+            <End Role="transaction" EntitySet="transaction" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="s_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="agentbet_limit">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="agentid" Type="Int32" Nullable="false" />
+          <Property Name="minbet_meron" Type="Double" Nullable="false" />
+          <Property Name="maxbet_meron" Type="Double" Nullable="false" />
+          <Property Name="maxmeron_permatch" Type="Single" Nullable="false" />
+          <Property Name="minbet_wala" Type="Double" Nullable="false" />
+          <Property Name="maxbet_wala" Type="Double" Nullable="false" />
+          <Property Name="maxwala_permatch" Type="Single" Nullable="false" />
+          <Property Name="minbet_draw" Type="Double" Nullable="false" />
+          <Property Name="maxbet_draw" Type="Double" Nullable="false" />
+          <Property Name="maxdraw_permatch" Type="Single" Nullable="false" />
+          <Property Name="currency" Type="Int32" Nullable="false" />
+          <Property Name="minbet_match" Type="Double" Nullable="false" />
+          <Property Name="maxbet_match" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="agentbet_limit_backup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="agentid" Type="Int32" Nullable="false" />
+          <Property Name="minbet_meron" Type="Double" Nullable="false" />
+          <Property Name="maxbet_meron" Type="Double" Nullable="false" />
+          <Property Name="maxmeron_permatch" Type="Single" Nullable="false" />
+          <Property Name="minbet_wala" Type="Double" Nullable="false" />
+          <Property Name="maxbet_wala" Type="Double" Nullable="false" />
+          <Property Name="maxwala_permatch" Type="Single" Nullable="false" />
+          <Property Name="minbet_draw" Type="Double" Nullable="false" />
+          <Property Name="maxbet_draw" Type="Double" Nullable="false" />
+          <Property Name="maxdraw_permatch" Type="Single" Nullable="false" />
+          <Property Name="currency" Type="Int32" Nullable="false" />
+          <Property Name="minbet_match" Type="Double" Nullable="false" />
+          <Property Name="maxbet_match" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="allbetcomm">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="matchno" Type="Int32" Nullable="false" />
+          <Property Name="trans_id" Type="Int32" Nullable="false" />
+          <Property Name="agent_id" Type="Int32" Nullable="false" />
+          <Property Name="comm" Type="Single" Nullable="false" />
+          <Property Name="playerid" Type="Int32" Nullable="false" />
+          <Property Name="commission" Type="Single" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <Property Name="setcomm" Type="Single" Nullable="false" />
+          <Property Name="delflag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="allwincomm">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="matchno" Type="Int32" Nullable="false" />
+          <Property Name="trans_id" Type="Int32" Nullable="false" />
+          <Property Name="agent_id" Type="Int32" Nullable="false" />
+          <Property Name="comm" Type="Single" />
+          <Property Name="playerid" Type="Int32" Nullable="false" />
+          <Property Name="commission" Type="Single" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="announcement">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="subject" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <Property Name="time" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="arena">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="arena_name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <Property Name="order" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bidpoint">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="agent_id" Type="Int32" Nullable="false" />
+          <Property Name="bidpoint1" Type="Double" Nullable="false" />
+          <Property Name="updated_bidpoint" Type="Double" Nullable="false" />
+          <Property Name="time" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="breeder">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="breedername" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contactno" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="emailid" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="addby" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cock">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cock_name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cock_weight" Type="Int32" Nullable="false" />
+          <Property Name="breeder_slno" Type="Int32" Nullable="false" />
+          <Property Name="breed" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="age" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="image" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="type" Type="Int32" Nullable="false" />
+          <Property Name="cocktype" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="addby" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="comm_calculation">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="playerid" Type="Int32" Nullable="false" />
+          <Property Name="firstparent_id" Type="Int32" Nullable="false" />
+          <Property Name="firstparent_bet_comm" Type="Single" Nullable="false" />
+          <Property Name="firstparent_win_comm" Type="Single" Nullable="false" />
+          <Property Name="secondparent_id" Type="Int32" Nullable="false" />
+          <Property Name="secondparent_bet_comm" Type="Single" Nullable="false" />
+          <Property Name="secondparent_win_comm" Type="Single" Nullable="false" />
+          <Property Name="thirdparent_id" Type="Int32" Nullable="false" />
+          <Property Name="thirdparent_bet_comm" Type="Single" Nullable="false" />
+          <Property Name="thirdparent_win_comm" Type="Single" Nullable="false" />
+          <Property Name="fourth_id" Type="Int32" Nullable="false" />
+          <Property Name="fourthparent_bet_comm" Type="Single" Nullable="false" />
+          <Property Name="fourthparent_win_comm" Type="Single" Nullable="false" />
+          <Property Name="admin_id" Type="Int32" Nullable="false" />
+          <Property Name="admin_bet_comm" Type="Single" Nullable="false" />
+          <Property Name="admin_win_comm" Type="Single" Nullable="false" />
+          <Property Name="delflag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="commission">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="agentid" Type="Int32" Nullable="false" />
+          <Property Name="for_id" Type="Int32" Nullable="false" />
+          <Property Name="bet_commission" Type="Double" Nullable="false" />
+          <Property Name="win_commission" Type="Single" Nullable="false" />
+          <Property Name="delflag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="country_currency">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="countryname" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="currency" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="shortcode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="creaditbalance">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <Property Name="amount" Type="Single" Nullable="false" />
+          <Property Name="agent_id" Type="Int32" Nullable="false" />
+          <Property Name="timestamp" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="currency">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="currency1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="value" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="currency_exchange">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <Property Name="currency" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="val" Type="Single" Nullable="false" />
+          <Property Name="timestamp" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="derby">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="description" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <Property Name="ime" Type="Time" Nullable="false" />
+        </EntityType>
+        <EntityType Name="drawodd">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="odds" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="fight_assign">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="matchtype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="breeder_id" Type="Int32" Nullable="false" />
+          <Property Name="breeder_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cock_id" Type="Int32" Nullable="false" />
+          <Property Name="cock_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fightagainst_breeder_id" Type="Int32" Nullable="false" />
+          <Property Name="fightagainst_breeder_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fightagainst_cock_id" Type="Int32" Nullable="false" />
+          <Property Name="fightagainst_cock_name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cock_type" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="against_type" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="match_no" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hour" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="minute" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="matchstarttime" Type="Int32" Nullable="false" />
+          <Property Name="entry_date" Type="DateTime" Nullable="false" />
+          <Property Name="winner_cockid" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <Property Name="knockout" Type="Int32" Nullable="false" />
+          <Property Name="block" Type="Int32" Nullable="false" />
+          <Property Name="block_warning_time" Type="Single" Nullable="false" />
+          <Property Name="block_warning_entry_time" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="draw_odds" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="addby" Type="Int32" Nullable="false" />
+          <Property Name="cancelmatch" Type="Int32" Nullable="false" />
+          <Property Name="arena" Type="Int32" Nullable="false" />
+          <Property Name="handler_m" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="graffer_m" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="handler_w" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="graffer_w" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="match_order" Type="Int32" Nullable="false" />
+          <Property Name="cancel_reason" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="updatetime" Type="DateTime" Nullable="false" />
+          <Property Name="del_flag" Type="Int32" Nullable="false" />
+          <Property Name="matchcreatetime" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="fight_back">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="matchno" Type="Int32" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="player_id" Type="Int32" Nullable="false" />
+          <Property Name="amt_player" Type="Single" Nullable="false" />
+          <Property Name="odds" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="agent_id" Type="Int32" Nullable="false" />
+          <Property Name="amt_agent" Type="Single" Nullable="false" />
+          <Property Name="agent_per" Type="Single" Nullable="false" />
+          <Property Name="transaction_slno" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <Property Name="delflag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="language">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="en" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ch" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="bh" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="vt" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="th" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="login">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="type" Type="Int32" Nullable="false" />
+          <Property Name="group" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="marketvalue">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="playerid" Type="Int32" Nullable="false" />
+          <Property Name="matchno" Type="Int32" Nullable="false" />
+          <Property Name="marketvalue1" Type="Single" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="bet_eat_value" Type="Single" Nullable="false" />
+          <Property Name="bet_eat" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="avail_bet" Type="Single" Nullable="false" />
+          <Property Name="avail_eat" Type="Single" Nullable="false" />
+          <Property Name="bet_slno" Type="Int32" Nullable="false" />
+          <Property Name="eat_slno" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="match_createstart">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="create_date" Type="DateTime" Nullable="false" />
+          <Property Name="time" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="arenaid" Type="Int32" Nullable="false" />
+          <Property Name="fighttype" Type="Int32" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="enddate" Type="DateTime" Nullable="false" />
+          <Property Name="endtime" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cancel_status" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="matchending_announcement">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="announcement" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="matchstarttime">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="matchno" Type="Int32" Nullable="false" />
+          <Property Name="starttime" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="stoptime" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="totaltime" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="multiple_transfer">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="transfer_by" Type="Int32" Nullable="false" />
+          <Property Name="transfer_to" Type="Int32" Nullable="false" />
+          <Property Name="amount" Type="Single" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="delflag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mwval">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="matchslno" Type="Int32" Nullable="false" />
+          <Property Name="W" Type="Int32" Nullable="false" />
+          <Property Name="M" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="oddsdetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="matchno" Type="Int32" Nullable="false" />
+          <Property Name="odds_difference" Type="Single" Nullable="false" />
+          <Property Name="openingodds_meron" Type="Single" Nullable="false" />
+          <Property Name="openingodds_wala" Type="Single" Nullable="false" />
+          <Property Name="oddsadjustment_value" Type="Single" Nullable="false" />
+          <Property Name="oddsbet_threshold" Type="Single" Nullable="false" />
+          <Property Name="maxbet_threshold" Type="Single" Nullable="false" />
+        </EntityType>
+        <EntityType Name="oddsdiff_calc">
+          <Key>
+            <PropertyRef Name="idval" />
+          </Key>
+          <Property Name="idval" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="match_slno" Type="Int32" Nullable="false" />
+          <Property Name="C1odds" Type="Single" Nullable="false" />
+          <Property Name="C2odds" Type="Single" Nullable="false" />
+          <Property Name="diff" Type="Single" Nullable="false" />
+        </EntityType>
+        <EntityType Name="openning_balance">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="Int32" Nullable="false" />
+          <Property Name="balance" Type="Double" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="player_pt_calc">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="player_id" Type="Int32" Nullable="false" />
+          <Property Name="firstparent" Type="Single" Nullable="false" />
+          <Property Name="firstparent_id" Type="Int32" Nullable="false" />
+          <Property Name="secondparent" Type="Single" Nullable="false" />
+          <Property Name="secondparent_id" Type="Int32" Nullable="false" />
+          <Property Name="thirdparent" Type="Single" Nullable="false" />
+          <Property Name="thirdparent_id" Type="Int32" Nullable="false" />
+          <Property Name="fourthparent" Type="Single" Nullable="false" />
+          <Property Name="fourthparent_id" Type="Int32" Nullable="false" />
+          <Property Name="frstparentcomm" Type="Single" Nullable="false" />
+          <Property Name="secondparentcomm" Type="Single" Nullable="false" />
+          <Property Name="thirdparentcomm" Type="Single" Nullable="false" />
+          <Property Name="fourthparentcomm" Type="Single" Nullable="false" />
+          <Property Name="admincomm" Type="Single" Nullable="false" />
+          <Property Name="del_flag" Type="Int32" Nullable="false" />
+          <Property Name="updated_time" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="playerbet_commission">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="playerid" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="playerbet_limit">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="playerid" Type="Int32" Nullable="false" />
+          <Property Name="minbet_meron" Type="Double" Nullable="false" />
+          <Property Name="maxbet_meron" Type="Double" Nullable="false" />
+          <Property Name="meronbet_permatch" Type="Double" Nullable="false" />
+          <Property Name="minbet_wala" Type="Double" Nullable="false" />
+          <Property Name="maxbet_wala" Type="Double" Nullable="false" />
+          <Property Name="walabet_permatch" Type="Double" Nullable="false" />
+          <Property Name="minbet_draw" Type="Double" Nullable="false" />
+          <Property Name="maxbet_draw" Type="Double" Nullable="false" />
+          <Property Name="drawbet_permatch" Type="Double" Nullable="false" />
+          <Property Name="currency" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="playerbet_limit_backup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="playerid" Type="Int32" Nullable="false" />
+          <Property Name="minbet_meron" Type="Double" Nullable="false" />
+          <Property Name="maxbet_meron" Type="Double" Nullable="false" />
+          <Property Name="meronbet_permatch" Type="Double" Nullable="false" />
+          <Property Name="minbet_wala" Type="Double" Nullable="false" />
+          <Property Name="maxbet_wala" Type="Double" Nullable="false" />
+          <Property Name="walabet_permatch" Type="Double" Nullable="false" />
+          <Property Name="minbet_draw" Type="Double" Nullable="false" />
+          <Property Name="maxbet_draw" Type="Double" Nullable="false" />
+          <Property Name="drawbet_permatch" Type="Double" Nullable="false" />
+          <Property Name="currency" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="playerbetcomm">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="trans_id" Type="Int32" Nullable="false" />
+          <Property Name="playerid" Type="Int32" Nullable="false" />
+          <Property Name="matchno" Type="Int32" Nullable="false" />
+          <Property Name="comm" Type="Double" />
+          <Property Name="type" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <Property Name="delflag" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="request_point">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="from" Type="Int32" Nullable="false" />
+          <Property Name="to" Type="Int32" Nullable="false" />
+          <Property Name="point" Type="Single" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="running_announcement">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="announcement" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="senior_commission">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="agent_id" Type="Int32" Nullable="false" />
+          <Property Name="down_id" Type="Int32" Nullable="false" />
+          <Property Name="betcom" Type="Single" Nullable="false" />
+          <Property Name="wincom" Type="Single" Nullable="false" />
+        </EntityType>
+        <EntityType Name="stake_detail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fightback" Type="Single" Nullable="false" />
+          <Property Name="bet_comm" Type="Single" Nullable="false" />
+          <Property Name="win_comm" Type="Single" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="test">
+          <Key>
+            <PropertyRef Name="idd" />
+          </Key>
+          <Property Name="idd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nn" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="transaction">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="playerid" Type="Int32" Nullable="false" />
+          <Property Name="matchno" Type="Int32" Nullable="false" />
+          <Property Name="acceptedamount" Type="Single" Nullable="false" />
+          <Property Name="accepted_withodds" Type="Single" Nullable="false" />
+          <Property Name="betslno" Type="Int32" Nullable="false" />
+          <Property Name="multiplier" Type="Single" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="currencytype" Type="Int32" Nullable="false" />
+          <Property Name="cocktype" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cockid" Type="Int32" Nullable="false" />
+          <Property Name="odds" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <Property Name="cancelstatus" Type="Int32" Nullable="false" />
+          <Property Name="winloseamnt" Type="Double" Nullable="false" />
+          <Property Name="time" Type="DateTime" Nullable="false" />
+          <Property Name="ip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="betstatus" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="betcomstat" Type="Boolean" Nullable="false" />
+          <Property Name="playerbcamt" Type="Single" Nullable="false" />
+          <Property Name="agentid" Type="Int32" Nullable="false" />
+          <Property Name="agentbcamt" Type="Single" Nullable="false" />
+          <Property Name="agentbcper" Type="Single" Nullable="false" />
+          <Property Name="agentfbamt" Type="Single" Nullable="false" />
+          <Property Name="agentfbper" Type="Single" Nullable="false" />
+          <Property Name="masterid" Type="Int32" Nullable="false" />
+          <Property Name="masterbcamt" Type="Single" Nullable="false" />
+          <Property Name="masterbcper" Type="Single" Nullable="false" />
+          <Property Name="masterfbamt" Type="Single" Nullable="false" />
+          <Property Name="masterfbper" Type="Single" Nullable="false" />
+          <Property Name="srmasterid" Type="Int32" Nullable="false" />
+          <Property Name="srmasterbcamt" Type="Single" Nullable="false" />
+          <Property Name="srmasterbcper" Type="Single" Nullable="false" />
+          <Property Name="srmasterfbamt" Type="Single" Nullable="false" />
+          <Property Name="srmasterfbper" Type="Single" Nullable="false" />
+          <Property Name="houseid" Type="Int32" Nullable="false" />
+          <Property Name="housebcamt" Type="Single" Nullable="false" />
+          <Property Name="housebcper" Type="Single" Nullable="false" />
+          <Property Name="housefbamt" Type="Single" Nullable="false" />
+          <Property Name="housefbper" Type="Single" Nullable="false" />
+          <Property Name="adminbcamt" Type="Single" Nullable="false" />
+          <Property Name="adminbcper" Type="Single" Nullable="false" />
+          <Property Name="adminfbamt" Type="Single" Nullable="false" />
+          <Property Name="adminfbper" Type="Single" Nullable="false" />
+          <Property Name="delflag" Type="Int32" Nullable="false" />
+          <Property Name="agentbetcomm" Type="Single" Nullable="false" />
+          <Property Name="agentfb" Type="Single" Nullable="false" />
+          <Property Name="masterbetcomm" Type="Single" Nullable="false" />
+          <Property Name="masterfb" Type="Single" Nullable="false" />
+          <Property Name="srmasterbetcomm" Type="Single" Nullable="false" />
+          <Property Name="srmasterfb" Type="Single" Nullable="false" />
+          <Property Name="housebetcomm" Type="Single" Nullable="false" />
+          <Property Name="housefb" Type="Single" Nullable="false" />
+          <Property Name="adminbetcomm" Type="Single" Nullable="false" />
+          <Property Name="adminfb" Type="Single" Nullable="false" />
+          <Property Name="cb" Type="Double" Nullable="false" />
+          <NavigationProperty Name="user" Relationship="Self.transaction_user_playerid" FromRole="transaction" ToRole="user" />
+        </EntityType>
+        <EntityType Name="typeof_currency">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="typename" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="user">
+          <Key>
+            <PropertyRef Name="slno" />
+          </Key>
+          <Property Name="slno" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="preffix" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idval" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contactno" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="emailid" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="country" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pinno" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <Property Name="agent_id" Type="Int32" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="maxfightback" Type="Single" Nullable="false" />
+          <Property Name="parentfightback" Type="Single" Nullable="false" />
+          <Property Name="arena" Type="Int32" Nullable="false" />
+          <Property Name="currency_type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="draw_fightback" Type="Single" Nullable="false" />
+          <Property Name="reset_date" Type="DateTime" Nullable="false" />
+          <Property Name="ip_address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_status" Type="Int32" Nullable="false" />
+          <Property Name="online_status" Type="Int32" Nullable="false" />
+          <Property Name="show_status" Type="Int32" Nullable="false" />
+          <Property Name="unique_idval" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_ac_time" Type="DateTime" Nullable="false" />
+          <Property Name="last_edit_time" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="delflag" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="transactions" Relationship="Self.transaction_user_playerid" FromRole="user" ToRole="transaction" />
+        </EntityType>
+        <EntityType Name="playerbetlimnit_nouse">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="playerid" />
+            <PropertyRef Name="minbet_meron" />
+            <PropertyRef Name="maxbet_meron" />
+            <PropertyRef Name="meronbet_permatch" />
+            <PropertyRef Name="minbet_wala" />
+            <PropertyRef Name="maxbet_wala" />
+            <PropertyRef Name="walabet_permatch" />
+            <PropertyRef Name="minbet_draw" />
+            <PropertyRef Name="maxbet_draw" />
+            <PropertyRef Name="drawbet_permatch" />
+            <PropertyRef Name="currency" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="playerid" Type="Int32" Nullable="false" />
+          <Property Name="minbet_meron" Type="Double" Nullable="false" />
+          <Property Name="maxbet_meron" Type="Double" Nullable="false" />
+          <Property Name="meronbet_permatch" Type="Double" Nullable="false" />
+          <Property Name="minbet_wala" Type="Double" Nullable="false" />
+          <Property Name="maxbet_wala" Type="Double" Nullable="false" />
+          <Property Name="walabet_permatch" Type="Double" Nullable="false" />
+          <Property Name="minbet_draw" Type="Double" Nullable="false" />
+          <Property Name="maxbet_draw" Type="Double" Nullable="false" />
+          <Property Name="drawbet_permatch" Type="Double" Nullable="false" />
+          <Property Name="currency" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="u2">
+          <Key>
+            <PropertyRef Name="slno" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="lname" />
+            <PropertyRef Name="preffix" />
+            <PropertyRef Name="idval" />
+            <PropertyRef Name="username" />
+            <PropertyRef Name="password" />
+            <PropertyRef Name="address" />
+            <PropertyRef Name="contactno" />
+            <PropertyRef Name="emailid" />
+            <PropertyRef Name="country" />
+            <PropertyRef Name="pinno" />
+            <PropertyRef Name="status" />
+            <PropertyRef Name="date" />
+            <PropertyRef Name="agent_id" />
+            <PropertyRef Name="type" />
+            <PropertyRef Name="maxfightback" />
+            <PropertyRef Name="parentfightback" />
+            <PropertyRef Name="arena" />
+            <PropertyRef Name="currency_type" />
+            <PropertyRef Name="draw_fightback" />
+            <PropertyRef Name="reset_date" />
+            <PropertyRef Name="ip_address" />
+            <PropertyRef Name="user_status" />
+            <PropertyRef Name="online_status" />
+            <PropertyRef Name="show_status" />
+            <PropertyRef Name="unique_idval" />
+            <PropertyRef Name="last_ac_time" />
+            <PropertyRef Name="last_edit_time" />
+          </Key>
+          <Property Name="slno" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="preffix" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idval" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contactno" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="emailid" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="country" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pinno" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <Property Name="agent_id" Type="Int32" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="maxfightback" Type="Single" Nullable="false" />
+          <Property Name="parentfightback" Type="Single" Nullable="false" />
+          <Property Name="arena" Type="Int32" Nullable="false" />
+          <Property Name="currency_type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="draw_fightback" Type="Single" Nullable="false" />
+          <Property Name="reset_date" Type="DateTime" Nullable="false" />
+          <Property Name="ip_address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_status" Type="Int32" Nullable="false" />
+          <Property Name="online_status" Type="Int32" Nullable="false" />
+          <Property Name="show_status" Type="Int32" Nullable="false" />
+          <Property Name="unique_idval" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_ac_time" Type="DateTime" Nullable="false" />
+          <Property Name="last_edit_time" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="view_cocktype">
+          <Key>
+            <PropertyRef Name="cock_id" />
+            <PropertyRef Name="fightagainst_cock_id" />
+            <PropertyRef Name="breeder_id" />
+            <PropertyRef Name="fightagainst_breeder_id" />
+            <PropertyRef Name="cock_type" />
+            <PropertyRef Name="against_type" />
+            <PropertyRef Name="fslno" />
+            <PropertyRef Name="fdate" />
+            <PropertyRef Name="match_no" />
+            <PropertyRef Name="status" />
+            <PropertyRef Name="block" />
+            <PropertyRef Name="cancelmatch" />
+            <PropertyRef Name="arena" />
+            <PropertyRef Name="winner_cockid" />
+            <PropertyRef Name="match_order" />
+          </Key>
+          <Property Name="cock_id" Type="Int32" Nullable="false" />
+          <Property Name="fightagainst_cock_id" Type="Int32" Nullable="false" />
+          <Property Name="breeder_id" Type="Int32" Nullable="false" />
+          <Property Name="fightagainst_breeder_id" Type="Int32" Nullable="false" />
+          <Property Name="cock_type" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="against_type" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fslno" Type="Int32" Nullable="false" />
+          <Property Name="fdate" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="match_no" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <Property Name="block" Type="Int32" Nullable="false" />
+          <Property Name="cancelmatch" Type="Int32" Nullable="false" />
+          <Property Name="arena" Type="Int32" Nullable="false" />
+          <Property Name="winner_cockid" Type="Int32" Nullable="false" />
+          <Property Name="match_order" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="view_downline">
+          <Key>
+            <PropertyRef Name="slno" />
+            <PropertyRef Name="type" />
+            <PropertyRef Name="bet_commission" />
+            <PropertyRef Name="win_commission" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="maxfightback" />
+            <PropertyRef Name="agent_id" />
+          </Key>
+          <Property Name="slno" Type="Int32" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="bet_commission" Type="Double" Nullable="false" />
+          <Property Name="win_commission" Type="Single" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="maxfightback" Type="Single" Nullable="false" />
+          <Property Name="agent_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="view_fightback">
+          <Key>
+            <PropertyRef Name="player_id" />
+            <PropertyRef Name="parentid" />
+            <PropertyRef Name="fightback" />
+          </Key>
+          <Property Name="player_id" Type="Int32" Nullable="false" />
+          <Property Name="parentid" Type="Int32" Nullable="false" />
+          <Property Name="fightback" Type="Single" Nullable="false" />
+        </EntityType>
+        <EntityType Name="view_fullcomm">
+          <Key>
+            <PropertyRef Name="playerid" />
+            <PropertyRef Name="betcomm" />
+            <PropertyRef Name="wincomm" />
+          </Key>
+          <Property Name="playerid" Type="Int32" Nullable="false" />
+          <Property Name="betcomm" Type="Double" Nullable="false" />
+          <Property Name="wincomm" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="view_matchdetail">
+          <Key>
+            <PropertyRef Name="cid" />
+            <PropertyRef Name="acid" />
+            <PropertyRef Name="cock_type" />
+            <PropertyRef Name="against_type" />
+            <PropertyRef Name="fslno" />
+            <PropertyRef Name="fdate" />
+            <PropertyRef Name="match_no" />
+            <PropertyRef Name="status" />
+            <PropertyRef Name="block" />
+            <PropertyRef Name="cancelmatch" />
+            <PropertyRef Name="arena" />
+            <PropertyRef Name="winner_cockid" />
+            <PropertyRef Name="match_order" />
+            <PropertyRef Name="cbid" />
+            <PropertyRef Name="abid" />
+          </Key>
+          <Property Name="cid" Type="Int32" Nullable="false" />
+          <Property Name="acid" Type="Int32" Nullable="false" />
+          <Property Name="cock_type" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="against_type" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fslno" Type="Int32" Nullable="false" />
+          <Property Name="fdate" Type="String" MaxLength="400" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="match_no" Type="Int32" Nullable="false" />
+          <Property Name="status" Type="Int32" Nullable="false" />
+          <Property Name="block" Type="Int32" Nullable="false" />
+          <Property Name="cancelmatch" Type="Int32" Nullable="false" />
+          <Property Name="arena" Type="Int32" Nullable="false" />
+          <Property Name="winner_cockid" Type="Int32" Nullable="false" />
+          <Property Name="match_order" Type="Int32" Nullable="false" />
+          <Property Name="cbid" Type="Int32" Nullable="false" />
+          <Property Name="abid" Type="Int32" Nullable="false" />
+          <Property Name="cname" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="cimage" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="agname" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="agimage" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="cbreedername" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="C1odds" Type="Double" />
+          <Property Name="C2odds" Type="Double" />
+          <Property Name="drawwodds" Type="String" MaxLength="21" FixedLength="false" Unicode="false" />
+          <Property Name="abreedername" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="view_odds">
+          <Key>
+            <PropertyRef Name="Name_exp_1" />
+          </Key>
+          <Property Name="Name_exp_1" Type="String" MaxLength="21" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="view_playerbetreport">
+          <Key>
+            <PropertyRef Name="matchno" />
+            <PropertyRef Name="cocktype" />
+            <PropertyRef Name="acceptedamount" />
+            <PropertyRef Name="odds" />
+            <PropertyRef Name="winloseamnt" />
+            <PropertyRef Name="winner" />
+            <PropertyRef Name="gain" />
+            <PropertyRef Name="date" />
+          </Key>
+          <Property Name="matchno" Type="Int32" Nullable="false" />
+          <Property Name="cocktype" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="acceptedamount" Type="Single" Nullable="false" />
+          <Property Name="odds" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="winloseamnt" Type="Double" Nullable="false" />
+          <Property Name="winner" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="gain" Type="String" MaxLength="4" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="view_playercomm">
+          <Key>
+            <PropertyRef Name="playerid" />
+            <PropertyRef Name="parent_id" />
+            <PropertyRef Name="bet_comm" />
+            <PropertyRef Name="win_comm" />
+          </Key>
+          <Property Name="playerid" Type="Int32" Nullable="false" />
+          <Property Name="parent_id" Type="Int32" Nullable="false" />
+          <Property Name="bet_comm" Type="Single" Nullable="false" />
+          <Property Name="win_comm" Type="Single" Nullable="false" />
+        </EntityType>
+        <EntityType Name="view_playeruplines">
+          <Key>
+            <PropertyRef Name="Player" />
+            <PropertyRef Name="agent" />
+            <PropertyRef Name="master" />
+            <PropertyRef Name="srmaster" />
+            <PropertyRef Name="house" />
+            <PropertyRef Name="stakeholder" />
+            <PropertyRef Name="Playername" />
+            <PropertyRef Name="currency" />
+          </Key>
+          <Property Name="Player" Type="Int32" Nullable="false" />
+          <Property Name="agent" Type="Int32" Nullable="false" />
+          <Property Name="master" Type="Int32" Nullable="false" />
+          <Property Name="srmaster" Type="Int32" Nullable="false" />
+          <Property Name="house" Type="Int32" Nullable="false" />
+          <Property Name="stakeholder" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Playername" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="currency" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <Association Name="transaction_user_playerid">
+          <End Role="user" Type="Self.user" Multiplicity="1" />
+          <End Role="transaction" Type="Self.transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="user">
+              <PropertyRef Name="slno" />
+            </Principal>
+            <Dependent Role="transaction">
+              <PropertyRef Name="playerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="s_dbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="agentbet_limit" EntityType="Self.agentbet_limit" />
+          <EntitySet Name="agentbet_limit_backup" EntityType="Self.agentbet_limit_backup" />
+          <EntitySet Name="allbetcomms" EntityType="Self.allbetcomm" />
+          <EntitySet Name="allwincomms" EntityType="Self.allwincomm" />
+          <EntitySet Name="announcements" EntityType="Self.announcement" />
+          <EntitySet Name="arenas" EntityType="Self.arena" />
+          <EntitySet Name="bidpoints" EntityType="Self.bidpoint" />
+          <EntitySet Name="breeders" EntityType="Self.breeder" />
+          <EntitySet Name="cocks" EntityType="Self.cock" />
+          <EntitySet Name="comm_calculation" EntityType="Self.comm_calculation" />
+          <EntitySet Name="commissions" EntityType="Self.commission" />
+          <EntitySet Name="country_currency" EntityType="Self.country_currency" />
+          <EntitySet Name="creaditbalances" EntityType="Self.creaditbalance" />
+          <EntitySet Name="currencies" EntityType="Self.currency" />
+          <EntitySet Name="currency_exchange" EntityType="Self.currency_exchange" />
+          <EntitySet Name="derbies" EntityType="Self.derby" />
+          <EntitySet Name="drawodds" EntityType="Self.drawodd" />
+          <EntitySet Name="fight_assign" EntityType="Self.fight_assign" />
+          <EntitySet Name="fight_back" EntityType="Self.fight_back" />
+          <EntitySet Name="languages" EntityType="Self.language" />
+          <EntitySet Name="logins" EntityType="Self.login" />
+          <EntitySet Name="marketvalues" EntityType="Self.marketvalue" />
+          <EntitySet Name="match_createstart" EntityType="Self.match_createstart" />
+          <EntitySet Name="matchending_announcement" EntityType="Self.matchending_announcement" />
+          <EntitySet Name="matchstarttimes" EntityType="Self.matchstarttime" />
+          <EntitySet Name="multiple_transfer" EntityType="Self.multiple_transfer" />
+          <EntitySet Name="mwvals" EntityType="Self.mwval" />
+          <EntitySet Name="oddsdetails" EntityType="Self.oddsdetail" />
+          <EntitySet Name="oddsdiff_calc" EntityType="Self.oddsdiff_calc" />
+          <EntitySet Name="openning_balance" EntityType="Self.openning_balance" />
+          <EntitySet Name="player_pt_calc" EntityType="Self.player_pt_calc" />
+          <EntitySet Name="playerbet_commission" EntityType="Self.playerbet_commission" />
+          <EntitySet Name="playerbet_limit" EntityType="Self.playerbet_limit" />
+          <EntitySet Name="playerbet_limit_backup" EntityType="Self.playerbet_limit_backup" />
+          <EntitySet Name="playerbetcomms" EntityType="Self.playerbetcomm" />
+          <EntitySet Name="request_point" EntityType="Self.request_point" />
+          <EntitySet Name="running_announcement" EntityType="Self.running_announcement" />
+          <EntitySet Name="senior_commission" EntityType="Self.senior_commission" />
+          <EntitySet Name="stake_detail" EntityType="Self.stake_detail" />
+          <EntitySet Name="tests" EntityType="Self.test" />
+          <EntitySet Name="transactions" EntityType="Self.transaction" />
+          <EntitySet Name="typeof_currency" EntityType="Self.typeof_currency" />
+          <EntitySet Name="users" EntityType="Self.user" />
+          <EntitySet Name="playerbetlimnit_nouse" EntityType="Self.playerbetlimnit_nouse" />
+          <EntitySet Name="u2" EntityType="Self.u2" />
+          <EntitySet Name="view_cocktype" EntityType="Self.view_cocktype" />
+          <EntitySet Name="view_downline" EntityType="Self.view_downline" />
+          <EntitySet Name="view_fightback" EntityType="Self.view_fightback" />
+          <EntitySet Name="view_fullcomm" EntityType="Self.view_fullcomm" />
+          <EntitySet Name="view_matchdetail" EntityType="Self.view_matchdetail" />
+          <EntitySet Name="view_odds" EntityType="Self.view_odds" />
+          <EntitySet Name="view_playerbetreport" EntityType="Self.view_playerbetreport" />
+          <EntitySet Name="view_playercomm" EntityType="Self.view_playercomm" />
+          <EntitySet Name="view_playeruplines" EntityType="Self.view_playeruplines" />
+          <AssociationSet Name="transaction_user_playerid" Association="Self.transaction_user_playerid">
+            <End Role="user" EntitySet="users" />
+            <End Role="transaction" EntitySet="transactions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="s_dbModelStoreContainer" CdmEntityContainer="s_dbEntities">
+          <EntitySetMapping Name="agentbet_limit">
+            <EntityTypeMapping TypeName="s_dbModel.agentbet_limit">
+              <MappingFragment StoreEntitySet="agentbet_limit">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="agentid" ColumnName="agentid" />
+                <ScalarProperty Name="minbet_meron" ColumnName="minbet_meron" />
+                <ScalarProperty Name="maxbet_meron" ColumnName="maxbet_meron" />
+                <ScalarProperty Name="maxmeron_permatch" ColumnName="maxmeron_permatch" />
+                <ScalarProperty Name="minbet_wala" ColumnName="minbet_wala" />
+                <ScalarProperty Name="maxbet_wala" ColumnName="maxbet_wala" />
+                <ScalarProperty Name="maxwala_permatch" ColumnName="maxwala_permatch" />
+                <ScalarProperty Name="minbet_draw" ColumnName="minbet_draw" />
+                <ScalarProperty Name="maxbet_draw" ColumnName="maxbet_draw" />
+                <ScalarProperty Name="maxdraw_permatch" ColumnName="maxdraw_permatch" />
+                <ScalarProperty Name="currency" ColumnName="currency" />
+                <ScalarProperty Name="minbet_match" ColumnName="minbet_match" />
+                <ScalarProperty Name="maxbet_match" ColumnName="maxbet_match" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="agentbet_limit_backup">
+            <EntityTypeMapping TypeName="s_dbModel.agentbet_limit_backup">
+              <MappingFragment StoreEntitySet="agentbet_limit_backup">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="agentid" ColumnName="agentid" />
+                <ScalarProperty Name="minbet_meron" ColumnName="minbet_meron" />
+                <ScalarProperty Name="maxbet_meron" ColumnName="maxbet_meron" />
+                <ScalarProperty Name="maxmeron_permatch" ColumnName="maxmeron_permatch" />
+                <ScalarProperty Name="minbet_wala" ColumnName="minbet_wala" />
+                <ScalarProperty Name="maxbet_wala" ColumnName="maxbet_wala" />
+                <ScalarProperty Name="maxwala_permatch" ColumnName="maxwala_permatch" />
+                <ScalarProperty Name="minbet_draw" ColumnName="minbet_draw" />
+                <ScalarProperty Name="maxbet_draw" ColumnName="maxbet_draw" />
+                <ScalarProperty Name="maxdraw_permatch" ColumnName="maxdraw_permatch" />
+                <ScalarProperty Name="currency" ColumnName="currency" />
+                <ScalarProperty Name="minbet_match" ColumnName="minbet_match" />
+                <ScalarProperty Name="maxbet_match" ColumnName="maxbet_match" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="allbetcomms">
+            <EntityTypeMapping TypeName="s_dbModel.allbetcomm">
+              <MappingFragment StoreEntitySet="allbetcomm">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="matchno" ColumnName="matchno" />
+                <ScalarProperty Name="trans_id" ColumnName="trans_id" />
+                <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+                <ScalarProperty Name="comm" ColumnName="comm" />
+                <ScalarProperty Name="playerid" ColumnName="playerid" />
+                <ScalarProperty Name="commission" ColumnName="commission" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="setcomm" ColumnName="setcomm" />
+                <ScalarProperty Name="delflag" ColumnName="delflag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="allwincomms">
+            <EntityTypeMapping TypeName="s_dbModel.allwincomm">
+              <MappingFragment StoreEntitySet="allwincomm">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="matchno" ColumnName="matchno" />
+                <ScalarProperty Name="trans_id" ColumnName="trans_id" />
+                <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+                <ScalarProperty Name="comm" ColumnName="comm" />
+                <ScalarProperty Name="playerid" ColumnName="playerid" />
+                <ScalarProperty Name="commission" ColumnName="commission" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="announcements">
+            <EntityTypeMapping TypeName="s_dbModel.announcement">
+              <MappingFragment StoreEntitySet="announcement">
+                <ScalarProperty Name="slno" ColumnName="slno" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="time" ColumnName="time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="arenas">
+            <EntityTypeMapping TypeName="s_dbModel.arena">
+              <MappingFragment StoreEntitySet="arena">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="arena_name" ColumnName="arena_name" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="order" ColumnName="order" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bidpoints">
+            <EntityTypeMapping TypeName="s_dbModel.bidpoint">
+              <MappingFragment StoreEntitySet="bidpoints">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+                <ScalarProperty Name="bidpoint1" ColumnName="bidpoint" />
+                <ScalarProperty Name="updated_bidpoint" ColumnName="updated_bidpoint" />
+                <ScalarProperty Name="time" ColumnName="time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="breeders">
+            <EntityTypeMapping TypeName="s_dbModel.breeder">
+              <MappingFragment StoreEntitySet="breeder">
+                <ScalarProperty Name="slno" ColumnName="slno" />
+                <ScalarProperty Name="breedername" ColumnName="breedername" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="contactno" ColumnName="contactno" />
+                <ScalarProperty Name="emailid" ColumnName="emailid" />
+                <ScalarProperty Name="addby" ColumnName="addby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cocks">
+            <EntityTypeMapping TypeName="s_dbModel.cock">
+              <MappingFragment StoreEntitySet="cock">
+                <ScalarProperty Name="slno" ColumnName="slno" />
+                <ScalarProperty Name="cock_name" ColumnName="cock_name" />
+                <ScalarProperty Name="cock_weight" ColumnName="cock_weight" />
+                <ScalarProperty Name="breeder_slno" ColumnName="breeder_slno" />
+                <ScalarProperty Name="breed" ColumnName="breed" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="cocktype" ColumnName="cocktype" />
+                <ScalarProperty Name="addby" ColumnName="addby" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="comm_calculation">
+            <EntityTypeMapping TypeName="s_dbModel.comm_calculation">
+              <MappingFragment StoreEntitySet="comm_calculation">
+                <ScalarProperty Name="slno" ColumnName="slno" />
+                <ScalarProperty Name="playerid" ColumnName="playerid" />
+                <ScalarProperty Name="firstparent_id" ColumnName="firstparent_id" />
+                <ScalarProperty Name="firstparent_bet_comm" ColumnName="firstparent_bet_comm" />
+                <ScalarProperty Name="firstparent_win_comm" ColumnName="firstparent_win_comm" />
+                <ScalarProperty Name="secondparent_id" ColumnName="secondparent_id" />
+                <ScalarProperty Name="secondparent_bet_comm" ColumnName="secondparent_bet_comm" />
+                <ScalarProperty Name="secondparent_win_comm" ColumnName="secondparent_win_comm" />
+                <ScalarProperty Name="thirdparent_id" ColumnName="thirdparent_id" />
+                <ScalarProperty Name="thirdparent_bet_comm" ColumnName="thirdparent_bet_comm" />
+                <ScalarProperty Name="thirdparent_win_comm" ColumnName="thirdparent_win_comm" />
+                <ScalarProperty Name="fourth_id" ColumnName="fourth_id" />
+                <ScalarProperty Name="fourthparent_bet_comm" ColumnName="fourthparent_bet_comm" />
+                <ScalarProperty Name="fourthparent_win_comm" ColumnName="fourthparent_win_comm" />
+                <ScalarProperty Name="admin_id" ColumnName="admin_id" />
+                <ScalarProperty Name="admin_bet_comm" ColumnName="admin_bet_comm" />
+                <ScalarProperty Name="admin_win_comm" ColumnName="admin_win_comm" />
+                <ScalarProperty Name="delflag" ColumnName="delflag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="commissions">
+            <EntityTypeMapping TypeName="s_dbModel.commission">
+              <MappingFragment StoreEntitySet="commission">
+                <ScalarProperty Name="slno" ColumnName="slno" />
+                <ScalarProperty Name="agentid" ColumnName="agentid" />
+                <ScalarProperty Name="for_id" ColumnName="for_id" />
+                <ScalarProperty Name="bet_commission" ColumnName="bet_commission" />
+                <ScalarProperty Name="win_commission" ColumnName="win_commission" />
+                <ScalarProperty Name="delflag" ColumnName="delflag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="country_currency">
+            <EntityTypeMapping TypeName="s_dbModel.country_currency">
+              <MappingFragment StoreEntitySet="country_currency">
+                <ScalarProperty Name="slno" ColumnName="slno" />
+                <ScalarProperty Name="countryname" ColumnName="countryname" />
+                <ScalarProperty Name="currency" ColumnName="currency" />
+                <ScalarProperty Name="shortcode" ColumnName="shortcode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="creaditbalances">
+            <EntityTypeMapping TypeName="s_dbModel.creaditbalance">
+              <MappingFragment StoreEntitySet="creaditbalance">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="currencies">
+            <EntityTypeMapping TypeName="s_dbModel.currency">
+              <MappingFragment StoreEntitySet="currency">
+                <ScalarProperty Name="slno" ColumnName="slno" />
+                <ScalarProperty Name="currency1" ColumnName="currency" />
+                <ScalarProperty Name="value" ColumnName="value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="currency_exchange">
+            <EntityTypeMapping TypeName="s_dbModel.currency_exchange">
+              <MappingFragment StoreEntitySet="currency_exchange">
+                <ScalarProperty Name="slno" ColumnName="slno" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="currency" ColumnName="currency" />
+                <ScalarProperty Name="val" ColumnName="val" />
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="derbies">
+            <EntityTypeMapping TypeName="s_dbModel.derby">
+              <MappingFragment StoreEntitySet="derby">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="ime" ColumnName="ime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="drawodds">
+            <EntityTypeMapping TypeName="s_dbModel.drawodd">
+              <MappingFragment StoreEntitySet="drawodds">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="odds" ColumnName="odds" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fight_assign">
+            <EntityTypeMapping TypeName="s_dbModel.fight_assign">
+              <MappingFragment StoreEntitySet="fight_assign">
+                <ScalarProperty Name="slno" ColumnName="slno" />
+                <ScalarProperty Name="matchtype" ColumnName="matchtype" />
+                <ScalarProperty Name="breeder_id" ColumnName="breeder_id" />
+                <ScalarProperty Name="breeder_name" ColumnName="breeder_name" />
+                <ScalarProperty Name="cock_id" ColumnName="cock_id" />
+                <ScalarProperty Name="cock_name" ColumnName="cock_name" />
+                <ScalarProperty Name="fightagainst_breeder_id" ColumnName="fightagainst_breeder_id" />
+                <ScalarProperty Name="fightagainst_breeder_name" ColumnName="fightagainst_breeder_name" />
+                <ScalarProperty Name="fightagainst_cock_id" ColumnName="fightagainst_cock_id" />
+                <ScalarProperty Name="fightagainst_cock_name" ColumnName="fightagainst_cock_name" />
+                <ScalarProperty Name="cock_type" ColumnName="cock_type" />
+                <ScalarProperty Name="against_type" ColumnName="against_type" />
+                <ScalarProperty Name="match_no" ColumnName="match_no" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="hour" ColumnName="hour" />
+                <ScalarProperty Name="minute" ColumnName="minute" />
+                <ScalarProperty Name="matchstarttime" ColumnName="matchstarttime" />
+                <ScalarProperty Name="entry_date" ColumnName="entry_date" />
+                <ScalarProperty Name="winner_cockid" ColumnName="winner_cockid" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="knockout" ColumnName="knockout" />
+                <ScalarProperty Name="block" ColumnName="block" />
+                <ScalarProperty Name="block_warning_time" ColumnName="block_warning_time" />
+                <ScalarProperty Name="block_warning_entry_time" ColumnName="block_warning_entry_time" />
+                <ScalarProperty Name="draw_odds" ColumnName="draw_odds" />
+                <ScalarProperty Name="addby" ColumnName="addby" />
+                <ScalarProperty Name="cancelmatch" ColumnName="cancelmatch" />
+                <ScalarProperty Name="arena" ColumnName="arena" />
+                <ScalarProperty Name="handler_m" ColumnName="handler_m" />
+                <ScalarProperty Name="graffer_m" ColumnName="graffer_m" />
+                <ScalarProperty Name="handler_w" ColumnName="handler_w" />
+                <ScalarProperty Name="graffer_w" ColumnName="graffer_w" />
+                <ScalarProperty Name="match_order" ColumnName="match_order" />
+                <ScalarProperty Name="cancel_reason" ColumnName="cancel_reason" />
+                <ScalarProperty Name="updatetime" ColumnName="updatetime" />
+                <ScalarProperty Name="del_flag" ColumnName="del_flag" />
+                <ScalarProperty Name="matchcreatetime" ColumnName="matchcreatetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fight_back">
+            <EntityTypeMapping TypeName="s_dbModel.fight_back">
+              <MappingFragment StoreEntitySet="fight_back">
+                <ScalarProperty Name="slno" ColumnName="slno" />
+                <ScalarProperty Name="matchno" ColumnName="matchno" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="player_id" ColumnName="player_id" />
+                <ScalarProperty Name="amt_player" ColumnName="amt_player" />
+                <ScalarProperty Name="odds" ColumnName="odds" />
+                <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+                <ScalarProperty Name="amt_agent" ColumnName="amt_agent" />
+                <ScalarProperty Name="agent_per" ColumnName="agent_per" />
+                <ScalarProperty Name="transaction_slno" ColumnName="transaction_slno" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="delflag" ColumnName="delflag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="languages">
+            <EntityTypeMapping TypeName="s_dbModel.language">
+              <MappingFragment StoreEntitySet="language">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="en" ColumnName="en" />
+                <ScalarProperty Name="ch" ColumnName="ch" />
+                <ScalarProperty Name="bh" ColumnName="bh" />
+                <ScalarProperty Name="vt" ColumnName="vt" />
+                <ScalarProperty Name="th" ColumnName="th" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="logins">
+            <EntityTypeMapping TypeName="s_dbModel.login">
+              <MappingFragment StoreEntitySet="login">
+                <ScalarProperty Name="slno" ColumnName="slno" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="group" ColumnName="group" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="marketvalues">
+            <EntityTypeMapping TypeName="s_dbModel.marketvalue">
+              <MappingFragment StoreEntitySet="marketvalue">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="playerid" ColumnName="playerid" />
+                <ScalarProperty Name="matchno" ColumnName="matchno" />
+                <ScalarProperty Name="marketvalue1" ColumnName="marketvalue" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="bet_eat_value" ColumnName="bet/eat_value" />
+                <ScalarProperty Name="bet_eat" ColumnName="bet/eat" />
+                <ScalarProperty Name="avail_bet" ColumnName="avail_bet" />
+                <ScalarProperty Name="avail_eat" ColumnName="avail_eat" />
+                <ScalarProperty Name="bet_slno" ColumnName="bet_slno" />
+                <ScalarProperty Name="eat_slno" ColumnName="eat_slno" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="match_createstart">
+            <EntityTypeMapping TypeName="s_dbModel.match_createstart">
+              <MappingFragment StoreEntitySet="match_createstart">
+                <ScalarProperty Name="slno" ColumnName="slno" />
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="arenaid" ColumnName="arenaid" />
+                <ScalarProperty Name="fighttype" ColumnName="fighttype" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="enddate" ColumnName="enddate" />
+                <ScalarProperty Name="endtime" ColumnName="endtime" />
+                <ScalarProperty Name="cancel_status" ColumnName="cancel_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="matchending_announcement">
+            <EntityTypeMapping TypeName="s_dbModel.matchending_announcement">
+              <MappingFragment StoreEntitySet="matchending_announcement">
+                <ScalarProperty Name="slno" ColumnName="slno" />
+                <ScalarProperty Name="announcement" ColumnName="announcement" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="matchstarttimes">
+            <EntityTypeMapping TypeName="s_dbModel.matchstarttime">
+              <MappingFragment StoreEntitySet="matchstarttime">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="matchno" ColumnName="matchno" />
+                <ScalarProperty Name="starttime" ColumnName="starttime" />
+                <ScalarProperty Name="stoptime" ColumnName="stoptime" />
+                <ScalarProperty Name="totaltime" ColumnName="totaltime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="multiple_transfer">
+            <EntityTypeMapping TypeName="s_dbModel.multiple_transfer">
+              <MappingFragment StoreEntitySet="multiple_transfer">
+                <ScalarProperty Name="slno" ColumnName="slno" />
+                <ScalarProperty Name="transfer_by" ColumnName="transfer_by" />
+                <ScalarProperty Name="transfer_to" ColumnName="transfer_to" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="delflag" ColumnName="delflag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mwvals">
+            <EntityTypeMapping TypeName="s_dbModel.mwval">
+              <MappingFragment StoreEntitySet="mwval">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="matchslno" ColumnName="matchslno" />
+                <ScalarProperty Name="W" ColumnName="W" />
+                <ScalarProperty Name="M" ColumnName="M" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="oddsdetails">
+            <EntityTypeMapping TypeName="s_dbModel.oddsdetail">
+              <MappingFragment StoreEntitySet="oddsdetail">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="matchno" ColumnName="matchno" />
+                <ScalarProperty Name="odds_difference" ColumnName="odds_difference" />
+                <ScalarProperty Name="openingodds_meron" ColumnName="openingodds_meron" />
+                <ScalarProperty Name="openingodds_wala" ColumnName="openingodds_wala" />
+                <ScalarProperty Name="oddsadjustment_value" ColumnName="oddsadjustment_value" />
+                <ScalarProperty Name="oddsbet_threshold" ColumnName="oddsbet_threshold" />
+                <ScalarProperty Name="maxbet_threshold" ColumnName="maxbet_threshold" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="oddsdiff_calc">
+            <EntityTypeMapping TypeName="s_dbModel.oddsdiff_calc">
+              <MappingFragment StoreEntitySet="oddsdiff_calc">
+                <ScalarProperty Name="idval" ColumnName="idval" />
+                <ScalarProperty Name="match_slno" ColumnName="match_slno" />
+                <ScalarProperty Name="C1odds" ColumnName="1odds" />
+                <ScalarProperty Name="C2odds" ColumnName="2odds" />
+                <ScalarProperty Name="diff" ColumnName="diff" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="openning_balance">
+            <EntityTypeMapping TypeName="s_dbModel.openning_balance">
+              <MappingFragment StoreEntitySet="openning_balance">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="balance" ColumnName="balance" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="player_pt_calc">
+            <EntityTypeMapping TypeName="s_dbModel.player_pt_calc">
+              <MappingFragment StoreEntitySet="player_pt_calc">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="player_id" ColumnName="player_id" />
+                <ScalarProperty Name="firstparent" ColumnName="firstparent" />
+                <ScalarProperty Name="firstparent_id" ColumnName="firstparent_id" />
+                <ScalarProperty Name="secondparent" ColumnName="secondparent" />
+                <ScalarProperty Name="secondparent_id" ColumnName="secondparent_id" />
+                <ScalarProperty Name="thirdparent" ColumnName="thirdparent" />
+                <ScalarProperty Name="thirdparent_id" ColumnName="thirdparent_id" />
+                <ScalarProperty Name="fourthparent" ColumnName="fourthparent" />
+                <ScalarProperty Name="fourthparent_id" ColumnName="fourthparent_id" />
+                <ScalarProperty Name="frstparentcomm" ColumnName="frstparentcomm" />
+                <ScalarProperty Name="secondparentcomm" ColumnName="secondparentcomm" />
+                <ScalarProperty Name="thirdparentcomm" ColumnName="thirdparentcomm" />
+                <ScalarProperty Name="fourthparentcomm" ColumnName="fourthparentcomm" />
+                <ScalarProperty Name="admincomm" ColumnName="admincomm" />
+                <ScalarProperty Name="del_flag" ColumnName="del_flag" />
+                <ScalarProperty Name="updated_time" ColumnName="updated_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="playerbet_commission">
+            <EntityTypeMapping TypeName="s_dbModel.playerbet_commission">
+              <MappingFragment StoreEntitySet="playerbet_commission">
+                <ScalarProperty Name="slno" ColumnName="slno" />
+                <ScalarProperty Name="playerid" ColumnName="playerid" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="playerbet_limit">
+            <EntityTypeMapping TypeName="s_dbModel.playerbet_limit">
+              <MappingFragment StoreEntitySet="playerbet_limit">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="playerid" ColumnName="playerid" />
+                <ScalarProperty Name="minbet_meron" ColumnName="minbet_meron" />
+                <ScalarProperty Name="maxbet_meron" ColumnName="maxbet_meron" />
+                <ScalarProperty Name="meronbet_permatch" ColumnName="meronbet_permatch" />
+                <ScalarProperty Name="minbet_wala" ColumnName="minbet_wala" />
+                <ScalarProperty Name="maxbet_wala" ColumnName="maxbet_wala" />
+                <ScalarProperty Name="walabet_permatch" ColumnName="walabet_permatch" />
+                <ScalarProperty Name="minbet_draw" ColumnName="minbet_draw" />
+                <ScalarProperty Name="maxbet_draw" ColumnName="maxbet_draw" />
+                <ScalarProperty Name="drawbet_permatch" ColumnName="drawbet_permatch" />
+                <ScalarProperty Name="currency" ColumnName="currency" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="playerbet_limit_backup">
+            <EntityTypeMapping TypeName="s_dbModel.playerbet_limit_backup">
+              <MappingFragment StoreEntitySet="playerbet_limit_backup">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="playerid" ColumnName="playerid" />
+                <ScalarProperty Name="minbet_meron" ColumnName="minbet_meron" />
+                <ScalarProperty Name="maxbet_meron" ColumnName="maxbet_meron" />
+                <ScalarProperty Name="meronbet_permatch" ColumnName="meronbet_permatch" />
+                <ScalarProperty Name="minbet_wala" ColumnName="minbet_wala" />
+                <ScalarProperty Name="maxbet_wala" ColumnName="maxbet_wala" />
+                <ScalarProperty Name="walabet_permatch" ColumnName="walabet_permatch" />
+                <ScalarProperty Name="minbet_draw" ColumnName="minbet_draw" />
+                <ScalarProperty Name="maxbet_draw" ColumnName="maxbet_draw" />
+                <ScalarProperty Name="drawbet_permatch" ColumnName="drawbet_permatch" />
+                <ScalarProperty Name="currency" ColumnName="currency" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="playerbetcomms">
+            <EntityTypeMapping TypeName="s_dbModel.playerbetcomm">
+              <MappingFragment StoreEntitySet="playerbetcomm">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="trans_id" ColumnName="trans_id" />
+                <ScalarProperty Name="playerid" ColumnName="playerid" />
+                <ScalarProperty Name="matchno" ColumnName="matchno" />
+                <ScalarProperty Name="comm" ColumnName="comm" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="delflag" ColumnName="delflag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="request_point">
+            <EntityTypeMapping TypeName="s_dbModel.request_point">
+              <MappingFragment StoreEntitySet="request_point">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="from" ColumnName="from" />
+                <ScalarProperty Name="to" ColumnName="to" />
+                <ScalarProperty Name="point" ColumnName="point" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="running_announcement">
+            <EntityTypeMapping TypeName="s_dbModel.running_announcement">
+              <MappingFragment StoreEntitySet="running_announcement">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="announcement" ColumnName="announcement" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="senior_commission">
+            <EntityTypeMapping TypeName="s_dbModel.senior_commission">
+              <MappingFragment StoreEntitySet="senior_commission">
+                <ScalarProperty Name="slno" ColumnName="slno" />
+                <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+                <ScalarProperty Name="down_id" ColumnName="down_id" />
+                <ScalarProperty Name="betcom" ColumnName="betcom" />
+                <ScalarProperty Name="wincom" ColumnName="wincom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stake_detail">
+            <EntityTypeMapping TypeName="s_dbModel.stake_detail">
+              <MappingFragment StoreEntitySet="stake_detail">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="fightback" ColumnName="fightback" />
+                <ScalarProperty Name="bet_comm" ColumnName="bet_comm" />
+                <ScalarProperty Name="win_comm" ColumnName="win_comm" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tests">
+            <EntityTypeMapping TypeName="s_dbModel.test">
+              <MappingFragment StoreEntitySet="test">
+                <ScalarProperty Name="idd" ColumnName="idd" />
+                <ScalarProperty Name="nn" ColumnName="nn" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="transactions">
+            <EntityTypeMapping TypeName="s_dbModel.transaction">
+              <MappingFragment StoreEntitySet="transaction">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="playerid" ColumnName="playerid" />
+                <ScalarProperty Name="matchno" ColumnName="matchno" />
+                <ScalarProperty Name="acceptedamount" ColumnName="acceptedamount" />
+                <ScalarProperty Name="accepted_withodds" ColumnName="accepted_withodds" />
+                <ScalarProperty Name="betslno" ColumnName="betslno" />
+                <ScalarProperty Name="multiplier" ColumnName="multiplier" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="currencytype" ColumnName="currencytype" />
+                <ScalarProperty Name="cocktype" ColumnName="cocktype" />
+                <ScalarProperty Name="cockid" ColumnName="cockid" />
+                <ScalarProperty Name="odds" ColumnName="odds" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="cancelstatus" ColumnName="cancelstatus" />
+                <ScalarProperty Name="winloseamnt" ColumnName="winloseamnt" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="betstatus" ColumnName="betstatus" />
+                <ScalarProperty Name="betcomstat" ColumnName="betcomstat" />
+                <ScalarProperty Name="playerbcamt" ColumnName="playerbcamt" />
+                <ScalarProperty Name="agentid" ColumnName="agentid" />
+                <ScalarProperty Name="agentbcamt" ColumnName="agentbcamt" />
+                <ScalarProperty Name="agentbcper" ColumnName="agentbcper" />
+                <ScalarProperty Name="agentfbamt" ColumnName="agentfbamt" />
+                <ScalarProperty Name="agentfbper" ColumnName="agentfbper" />
+                <ScalarProperty Name="masterid" ColumnName="masterid" />
+                <ScalarProperty Name="masterbcamt" ColumnName="masterbcamt" />
+                <ScalarProperty Name="masterbcper" ColumnName="masterbcper" />
+                <ScalarProperty Name="masterfbamt" ColumnName="masterfbamt" />
+                <ScalarProperty Name="masterfbper" ColumnName="masterfbper" />
+                <ScalarProperty Name="srmasterid" ColumnName="srmasterid" />
+                <ScalarProperty Name="srmasterbcamt" ColumnName="srmasterbcamt" />
+                <ScalarProperty Name="srmasterbcper" ColumnName="srmasterbcper" />
+                <ScalarProperty Name="srmasterfbamt" ColumnName="srmasterfbamt" />
+                <ScalarProperty Name="srmasterfbper" ColumnName="srmasterfbper" />
+                <ScalarProperty Name="houseid" ColumnName="houseid" />
+                <ScalarProperty Name="housebcamt" ColumnName="housebcamt" />
+                <ScalarProperty Name="housebcper" ColumnName="housebcper" />
+                <ScalarProperty Name="housefbamt" ColumnName="housefbamt" />
+                <ScalarProperty Name="housefbper" ColumnName="housefbper" />
+                <ScalarProperty Name="adminbcamt" ColumnName="adminbcamt" />
+                <ScalarProperty Name="adminbcper" ColumnName="adminbcper" />
+                <ScalarProperty Name="adminfbamt" ColumnName="adminfbamt" />
+                <ScalarProperty Name="adminfbper" ColumnName="adminfbper" />
+                <ScalarProperty Name="delflag" ColumnName="delflag" />
+                <ScalarProperty Name="agentbetcomm" ColumnName="agentbetcomm" />
+                <ScalarProperty Name="agentfb" ColumnName="agentfb" />
+                <ScalarProperty Name="masterbetcomm" ColumnName="masterbetcomm" />
+                <ScalarProperty Name="masterfb" ColumnName="masterfb" />
+                <ScalarProperty Name="srmasterbetcomm" ColumnName="srmasterbetcomm" />
+                <ScalarProperty Name="srmasterfb" ColumnName="srmasterfb" />
+                <ScalarProperty Name="housebetcomm" ColumnName="housebetcomm" />
+                <ScalarProperty Name="housefb" ColumnName="housefb" />
+                <ScalarProperty Name="adminbetcomm" ColumnName="adminbetcomm" />
+                <ScalarProperty Name="adminfb" ColumnName="adminfb" />
+                <ScalarProperty Name="cb" ColumnName="cb" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="typeof_currency">
+            <EntityTypeMapping TypeName="s_dbModel.typeof_currency">
+              <MappingFragment StoreEntitySet="typeof_currency">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="typename" ColumnName="typename" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="users">
+            <EntityTypeMapping TypeName="s_dbModel.user">
+              <MappingFragment StoreEntitySet="user">
+                <ScalarProperty Name="slno" ColumnName="slno" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="lname" ColumnName="lname" />
+                <ScalarProperty Name="preffix" ColumnName="preffix" />
+                <ScalarProperty Name="idval" ColumnName="idval" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="contactno" ColumnName="contactno" />
+                <ScalarProperty Name="emailid" ColumnName="emailid" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="pinno" ColumnName="pinno" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="maxfightback" ColumnName="maxfightback" />
+                <ScalarProperty Name="parentfightback" ColumnName="parentfightback" />
+                <ScalarProperty Name="arena" ColumnName="arena" />
+                <ScalarProperty Name="currency_type" ColumnName="currency_type" />
+                <ScalarProperty Name="draw_fightback" ColumnName="draw_fightback" />
+                <ScalarProperty Name="reset_date" ColumnName="reset_date" />
+                <ScalarProperty Name="ip_address" ColumnName="ip_address" />
+                <ScalarProperty Name="user_status" ColumnName="user_status" />
+                <ScalarProperty Name="online_status" ColumnName="online_status" />
+                <ScalarProperty Name="show_status" ColumnName="show_status" />
+                <ScalarProperty Name="unique_idval" ColumnName="unique_idval" />
+                <ScalarProperty Name="last_ac_time" ColumnName="last_ac_time" />
+                <ScalarProperty Name="last_edit_time" ColumnName="last_edit_time" />
+                <ScalarProperty Name="delflag" ColumnName="delflag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="playerbetlimnit_nouse">
+            <EntityTypeMapping TypeName="s_dbModel.playerbetlimnit_nouse">
+              <MappingFragment StoreEntitySet="playerbetlimnit_nouse">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="playerid" ColumnName="playerid" />
+                <ScalarProperty Name="minbet_meron" ColumnName="minbet_meron" />
+                <ScalarProperty Name="maxbet_meron" ColumnName="maxbet_meron" />
+                <ScalarProperty Name="meronbet_permatch" ColumnName="meronbet_permatch" />
+                <ScalarProperty Name="minbet_wala" ColumnName="minbet_wala" />
+                <ScalarProperty Name="maxbet_wala" ColumnName="maxbet_wala" />
+                <ScalarProperty Name="walabet_permatch" ColumnName="walabet_permatch" />
+                <ScalarProperty Name="minbet_draw" ColumnName="minbet_draw" />
+                <ScalarProperty Name="maxbet_draw" ColumnName="maxbet_draw" />
+                <ScalarProperty Name="drawbet_permatch" ColumnName="drawbet_permatch" />
+                <ScalarProperty Name="currency" ColumnName="currency" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="u2">
+            <EntityTypeMapping TypeName="s_dbModel.u2">
+              <MappingFragment StoreEntitySet="u2">
+                <ScalarProperty Name="slno" ColumnName="slno" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="lname" ColumnName="lname" />
+                <ScalarProperty Name="preffix" ColumnName="preffix" />
+                <ScalarProperty Name="idval" ColumnName="idval" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="contactno" ColumnName="contactno" />
+                <ScalarProperty Name="emailid" ColumnName="emailid" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="pinno" ColumnName="pinno" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="maxfightback" ColumnName="maxfightback" />
+                <ScalarProperty Name="parentfightback" ColumnName="parentfightback" />
+                <ScalarProperty Name="arena" ColumnName="arena" />
+                <ScalarProperty Name="currency_type" ColumnName="currency_type" />
+                <ScalarProperty Name="draw_fightback" ColumnName="draw_fightback" />
+                <ScalarProperty Name="reset_date" ColumnName="reset_date" />
+                <ScalarProperty Name="ip_address" ColumnName="ip_address" />
+                <ScalarProperty Name="user_status" ColumnName="user_status" />
+                <ScalarProperty Name="online_status" ColumnName="online_status" />
+                <ScalarProperty Name="show_status" ColumnName="show_status" />
+                <ScalarProperty Name="unique_idval" ColumnName="unique_idval" />
+                <ScalarProperty Name="last_ac_time" ColumnName="last_ac_time" />
+                <ScalarProperty Name="last_edit_time" ColumnName="last_edit_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_cocktype">
+            <EntityTypeMapping TypeName="s_dbModel.view_cocktype">
+              <MappingFragment StoreEntitySet="view_cocktype">
+                <ScalarProperty Name="cock_id" ColumnName="cock_id" />
+                <ScalarProperty Name="fightagainst_cock_id" ColumnName="fightagainst_cock_id" />
+                <ScalarProperty Name="breeder_id" ColumnName="breeder_id" />
+                <ScalarProperty Name="fightagainst_breeder_id" ColumnName="fightagainst_breeder_id" />
+                <ScalarProperty Name="cock_type" ColumnName="cock_type" />
+                <ScalarProperty Name="against_type" ColumnName="against_type" />
+                <ScalarProperty Name="fslno" ColumnName="fslno" />
+                <ScalarProperty Name="fdate" ColumnName="fdate" />
+                <ScalarProperty Name="match_no" ColumnName="match_no" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="block" ColumnName="block" />
+                <ScalarProperty Name="cancelmatch" ColumnName="cancelmatch" />
+                <ScalarProperty Name="arena" ColumnName="arena" />
+                <ScalarProperty Name="winner_cockid" ColumnName="winner_cockid" />
+                <ScalarProperty Name="match_order" ColumnName="match_order" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_downline">
+            <EntityTypeMapping TypeName="s_dbModel.view_downline">
+              <MappingFragment StoreEntitySet="view_downline">
+                <ScalarProperty Name="slno" ColumnName="slno" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="bet_commission" ColumnName="bet_commission" />
+                <ScalarProperty Name="win_commission" ColumnName="win_commission" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="maxfightback" ColumnName="maxfightback" />
+                <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_fightback">
+            <EntityTypeMapping TypeName="s_dbModel.view_fightback">
+              <MappingFragment StoreEntitySet="view_fightback">
+                <ScalarProperty Name="player_id" ColumnName="player_id" />
+                <ScalarProperty Name="parentid" ColumnName="parentid" />
+                <ScalarProperty Name="fightback" ColumnName="fightback" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_fullcomm">
+            <EntityTypeMapping TypeName="s_dbModel.view_fullcomm">
+              <MappingFragment StoreEntitySet="view_fullcomm">
+                <ScalarProperty Name="playerid" ColumnName="playerid" />
+                <ScalarProperty Name="betcomm" ColumnName="betcomm" />
+                <ScalarProperty Name="wincomm" ColumnName="wincomm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_matchdetail">
+            <EntityTypeMapping TypeName="s_dbModel.view_matchdetail">
+              <MappingFragment StoreEntitySet="view_matchdetail">
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="acid" ColumnName="acid" />
+                <ScalarProperty Name="cock_type" ColumnName="cock_type" />
+                <ScalarProperty Name="against_type" ColumnName="against_type" />
+                <ScalarProperty Name="fslno" ColumnName="fslno" />
+                <ScalarProperty Name="fdate" ColumnName="fdate" />
+                <ScalarProperty Name="match_no" ColumnName="match_no" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="block" ColumnName="block" />
+                <ScalarProperty Name="cancelmatch" ColumnName="cancelmatch" />
+                <ScalarProperty Name="arena" ColumnName="arena" />
+                <ScalarProperty Name="winner_cockid" ColumnName="winner_cockid" />
+                <ScalarProperty Name="match_order" ColumnName="match_order" />
+                <ScalarProperty Name="cbid" ColumnName="cbid" />
+                <ScalarProperty Name="abid" ColumnName="abid" />
+                <ScalarProperty Name="cname" ColumnName="cname" />
+                <ScalarProperty Name="cimage" ColumnName="cimage" />
+                <ScalarProperty Name="agname" ColumnName="agname" />
+                <ScalarProperty Name="agimage" ColumnName="agimage" />
+                <ScalarProperty Name="cbreedername" ColumnName="cbreedername" />
+                <ScalarProperty Name="C1odds" ColumnName="1odds" />
+                <ScalarProperty Name="C2odds" ColumnName="2odds" />
+                <ScalarProperty Name="drawwodds" ColumnName="drawwodds" />
+                <ScalarProperty Name="abreedername" ColumnName="abreedername" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_odds">
+            <EntityTypeMapping TypeName="s_dbModel.view_odds">
+              <MappingFragment StoreEntitySet="view_odds">
+                <ScalarProperty Name="Name_exp_1" ColumnName="Name_exp_1" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_playerbetreport">
+            <EntityTypeMapping TypeName="s_dbModel.view_playerbetreport">
+              <MappingFragment StoreEntitySet="view_playerbetreport">
+                <ScalarProperty Name="matchno" ColumnName="matchno" />
+                <ScalarProperty Name="cocktype" ColumnName="cocktype" />
+                <ScalarProperty Name="acceptedamount" ColumnName="acceptedamount" />
+                <ScalarProperty Name="odds" ColumnName="odds" />
+                <ScalarProperty Name="winloseamnt" ColumnName="winloseamnt" />
+                <ScalarProperty Name="winner" ColumnName="winner" />
+                <ScalarProperty Name="gain" ColumnName="gain" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_playercomm">
+            <EntityTypeMapping TypeName="s_dbModel.view_playercomm">
+              <MappingFragment StoreEntitySet="view_playercomm">
+                <ScalarProperty Name="playerid" ColumnName="playerid" />
+                <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+                <ScalarProperty Name="bet_comm" ColumnName="bet_comm" />
+                <ScalarProperty Name="win_comm" ColumnName="win_comm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="view_playeruplines">
+            <EntityTypeMapping TypeName="s_dbModel.view_playeruplines">
+              <MappingFragment StoreEntitySet="view_playeruplines">
+                <ScalarProperty Name="Player" ColumnName="Player" />
+                <ScalarProperty Name="agent" ColumnName="agent" />
+                <ScalarProperty Name="master" ColumnName="master" />
+                <ScalarProperty Name="srmaster" ColumnName="srmaster" />
+                <ScalarProperty Name="house" ColumnName="house" />
+                <ScalarProperty Name="stakeholder" ColumnName="stakeholder" />
+                <ScalarProperty Name="Playername" ColumnName="Playername" />
+                <ScalarProperty Name="currency" ColumnName="currency" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

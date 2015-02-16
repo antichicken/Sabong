@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{66E57BB2-4B49-4AC3-9229-315E974E38E5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sabong.Repository</RootNamespace>
+    <AssemblyName>Sabong.Repository</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="EntityModel\agentbet_limit.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\agentbet_limit_backup.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\allbetcomm.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\allwincomm.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\announcement.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\arena.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\bidpoint.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\breeder.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\cock.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\commission.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\comm_calculation.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\country_currency.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\creaditbalance.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\currency.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\currency_exchange.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\derby.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\drawodd.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\fight_assign.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\fight_back.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\language.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\login.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\marketvalue.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\matchending_announcement.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\matchstarttime.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\match_createstart.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\multiple_transfer.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\mwval.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\oddsdetail.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\oddsdiff_calc.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\openning_balance.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\playerbetcomm.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\playerbetlimnit_nouse.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\playerbet_commission.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\playerbet_limit.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\playerbet_limit_backup.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\player_pt_calc.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\request_point.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\running_announcement.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\SabongEDM.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SabongEDM.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\SabongEDM.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\SabongEDM.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SabongEDM.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\senior_commission.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\stake_detail.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\test.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\transaction.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\typeof_currency.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\u2.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\user.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\view_cocktype.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\view_downline.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\view_fightback.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\view_fullcomm.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\view_matchdetail.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\view_odds.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\view_playerbetreport.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\view_playercomm.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityModel\view_playeruplines.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IRepositoryFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryContainer.cs" />
+    <Compile Include="RepositoryFactory.cs" />
+    <Compile Include="Repo\UserRepository.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="EntityModel\SabongEDM.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SabongEDM.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="EntityModel\SabongEDM.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SabongEDM.edmx</DependentUpon>
+      <LastGenOutput>SabongEDM.Context.cs</LastGenOutput>
+    </None>
+    <None Include="EntityModel\SabongEDM.edmx.diagram">
+      <DependentUpon>SabongEDM.edmx</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EntityModel\SabongEDM.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SabongEDM.edmx</DependentUpon>
+      <LastGenOutput>SabongEDM.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

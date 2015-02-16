@@ -1,0 +1,9 @@
+G:\Code\Sabong\Sabong\Sabong.Repository\bin\Debug\Sabong.Repository.dll
+G:\Code\Sabong\Sabong\Sabong.Repository\bin\Debug\Sabong.Repository.pdb
+G:\Code\Sabong\Sabong\Sabong.Repository\obj\Debug\Sabong.Repository.csprojResolveAssemblyReference.cache
+G:\Code\Sabong\Sabong\Sabong.Repository\obj\Debug\Sabong.Repository.dll
+G:\Code\Sabong\Sabong\Sabong.Repository\obj\Debug\Sabong.Repository.pdb
+G:\Code\Sabong\Sabong\Sabong.Repository\bin\Debug\Sabong.Repository.dll.config
+G:\Code\Sabong\Sabong\Sabong.Repository\bin\Debug\EntityFramework.dll
+G:\Code\Sabong\Sabong\Sabong.Repository\bin\Debug\System.Data.dll
+G:\Code\Sabong\Sabong\Sabong.Repository\bin\Debug\EntityFramework.xml
