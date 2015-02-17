@@ -53,6 +53,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Enum\TransactionStatus.cs" />
     <Compile Include="BO\Sessions.cs" />
+    <Compile Include="SessionContainer.cs" />
     <Compile Include="SessionsManager.cs" />
     <Compile Include="Enum\SessionViolation.cs" />
     <Compile Include="Utility.cs" />
