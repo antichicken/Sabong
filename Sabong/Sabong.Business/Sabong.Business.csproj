@@ -55,6 +55,7 @@
     <Compile Include="BO\Sessions.cs" />
     <Compile Include="SessionsManager.cs" />
     <Compile Include="Enum\SessionViolation.cs" />
+    <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sabong.Repository\Sabong.Repository.csproj">
