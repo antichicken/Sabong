@@ -1,0 +1,435 @@
+body {
+    background: #222;
+    margin: 0 auto;
+    font-size: 13px;
+    font-family: arial;
+    color: #444;
+}
+
+.wapper {
+    width: 1000px;
+    display: block;
+    margin: 0 auto;
+    background: white;
+}
+
+.topmenu ul {
+    margin: 0;
+    float: left;
+    padding: 0;
+}
+
+    .topmenu ul li {
+        list-style: none;
+        display: inline-block;
+        border-right: solid 1px #ccc;
+        padding: 3px 8px;
+        vertical-align: middle;
+    }
+
+.user-menu img {
+    float: left;
+    margin-right: 6px;
+}
+
+.userid {
+    font-weight: bold;
+}
+
+.logout a {
+    color: #444;
+    font-size: 12px;
+}
+
+.secondmenu {
+    background-image: url('/images/bet-button-background.png');
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+}
+
+    .secondmenu ul, .video ul {
+        margin: 0 auto;
+        padding: 0;
+    }
+
+        .secondmenu ul li {
+            display: inline-block;
+            font-weight: bold;
+            list-style: outside none none;
+            margin: 0 4px;
+            padding: 10px 2px;
+            color: white;
+        }
+
+            .secondmenu ul li a {
+                color: white;
+                text-decoration: none;
+            }
+
+.multilanguage {
+    border-left: 1px solid #ccc;
+    display: block;
+    left: 127px !important;
+    overflow: hidden;
+    padding: 2px 6px 0 0;
+    position: relative;
+    text-align: right;
+    top: 7px;
+    width: 148px;
+}
+
+.flag img {
+    float: left;
+    padding-left: 9px;
+    margin-top: 2px;
+}
+
+.multilanguage select {
+    width: 100px;
+}
+
+.maincontent {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+}
+
+.leftcol, .rightcol {
+    display: block;
+    float: left;
+}
+
+.leftcol {
+    width: 666px;
+    margin: 4px 0 0 4px;
+}
+
+.rightcol {
+    width: 330px;
+    margin: 4px 0 0 0;
+}
+
+.lefttop {
+    background: none repeat scroll 0 0 #dad8d9;
+    display: block;
+    margin-bottom: 4px;
+    margin-right: 4px;
+    padding: 9px;
+    font-size: 16px;
+}
+
+.righttop {
+    display: block;
+    margin-bottom: 4px;
+    margin-right: 4px;
+    padding: 6px;
+    background-image: url('/images/bet-button-background.png');
+}
+
+.number {
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    padding-right: 9px;
+    border-right: solid 1px #ccc;
+}
+
+.righttop .text {
+    color: red;
+    margin-left: 4px;
+}
+
+.matchscore {
+    display: block;
+    margin-right: 4px;
+    border: solid 1px #ccc;
+    overflow: hidden;
+}
+
+.twocol, .threecol, .threecol2, .threecol3 {
+    display: block;
+    padding: 9px 12px;
+}
+
+.twocol, .threecol {
+    text-transform: uppercase;
+}
+
+.twocol-1, .twocol-2 {
+    width: 50%;
+    float: left;
+}
+
+.twocol-1 {
+    text-align: left;
+}
+
+.twocol-2 {
+    text-align: right;
+}
+
+    .twocol-1 span, .twocol-2 span {
+        display: block;
+        width: 122px;
+        text-align: center;
+        font-size: 12px;
+        color: white;
+        padding: 2px 0;
+        font-weight: bold;
+    }
+
+.twocol-1 span {
+    background-image: url('/images/chicken-red.png');
+}
+
+.twocol-2 span {
+    background-image: url('/images/chicken-blue.png');
+    float: right;
+}
+
+.threecol-1, .threecol-2, .threecol-3, .threecol2-1, .threecol2-2, .threecol2-3, .threecol3-1, .threecol3-2, .threecol3-3 {
+    width: 33%;
+    float: left;
+    text-align: center;
+    font-weight: bold;
+}
+
+.threecol-2 {
+    font-size: 12px;
+}
+
+.threecol-1 {
+    color: red;
+    font-size: 15px;
+}
+
+.threecol-3 {
+    color: blue;
+    font-size: 15px;
+}
+
+.threecolblock {
+    background-image: url("/images/bet-button-background.png");
+    background-size: 100% auto;
+    clear: both;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    top: 6px;
+}
+
+.threecol2-1, .threecol3-1 {
+    color: red;
+}
+
+.threecol2-2, .threecol3-2 {
+    color: #61B129;
+}
+
+.threecol2-3, .threecol3-3 {
+    color: blue;
+}
+
+    .threecol3-1 span, .threecol3-2 span, .threecol3-3 span {
+        background-image: url("/images/button-bets.png");
+        background-repeat: no-repeat;
+        border-radius: 6px;
+        display: block;
+        height: 20px;
+        padding-top: 3px;
+        width: 91px;
+    }
+
+.mix {
+    clear: both;
+    color: #61B129;
+    display: block;
+    padding: 4px 12px 13px;
+    position: relative;
+}
+
+.video ul li {
+    display: inline-block;
+    list-style: outside none none;
+    margin: 0 6px;
+    padding: 6px 0;
+}
+
+    .video ul li a {
+        color: #444;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+.betslip {
+    background: none repeat scroll 0 0 #e6e6e6;
+    clear: both;
+    display: block;
+    padding: 20px 8px;
+    position: relative;
+}
+
+.betslip-title, .betsaccepted-title {
+    background-size: 100% auto;
+    color: white;
+    padding: 2px 12px;
+}
+
+.betslip-title {
+    background-image: url("/images/Best_Slip.jpg");
+}
+
+.betsaccepted-title {
+    background-image: url("/images/Best_Accepted.jpg");
+}
+
+.betslip-close, .betsaccepted-close {
+    float: right;
+    text-decoration: underline;
+}
+
+.betslip_content {
+    background: #F6F0E4;
+    padding: 10px 3px;
+}
+
+    .betslip_content table {
+        border: solid 1px #ccc;
+        border-collapse: collapse;
+    }
+
+        .betslip_content table td {
+            border: solid 1px #ccc;
+            padding: 6px;
+            font-size: 12px;
+            color: red;
+        }
+
+    .betslip_content button {
+        padding: 2px 6px;
+    }
+
+.betsaccepted {
+    display: block;
+}
+
+.betsaccepted-title {
+    padding: 6px 12px !important;
+}
+
+.betsaccepted-content {
+    background: #2E2E2E;
+    padding: 6px;
+}
+
+    .betsaccepted-content table {
+        color: white;
+        font-size: 12px;
+        text-align: center;
+        width: 100%;
+        border: none;
+    }
+
+.betsaccepted-th {
+    background: black;
+}
+
+.betsaccepted-td {
+    background: red;
+}
+
+.betsaccepted-content table tr th, .betsaccepted-content table tr td {
+    padding: 4px 0;
+}
+
+.bk {
+    display: block;
+    overflow: hidden;
+    margin-right: 4px;
+}
+
+.banker-title {
+    background-image: url("/images/Best_Accepted.jpg");
+    display: block;
+    top: 4px;
+}
+
+    .banker-title ul {
+        margin: 0;
+        padding: 0;
+        font-weight: bold;
+    }
+
+        .banker-title ul li {
+            color: white;
+            display: inline-block;
+            padding: 5px 10px;
+        }
+
+tr.betsaccepted-td td {
+    border-bottom: solid 1px black;
+}
+
+.bk table, .bk table tr td {
+    border: solid 1px #ccc;
+}
+
+.banker {
+    background-color: green;
+    background: url('/images/chart-icons.png');
+    background-repeat: no-repeat;
+    background-position: 4px -123px;
+}
+
+.player {
+    background-color: red;
+    background: url('/images/chart-icons.png');
+    background-repeat: no-repeat;
+    background-position: 4px -91px;
+}
+
+.draw-sign {
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 30px;
+    background: url('/images/chart-icons.png');
+    background-position: 6px -155px;
+    background-repeat: no-repeat;
+}
+
+.bk table tr td {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    position: relative;
+}
+
+.bk-content-wrap {
+    width: 331px;
+    overflow-x: scroll;
+    float: left;
+}
+
+.r_banker {
+    background: url('/images/chart-icons.png');
+    background-position: 5px -56px;
+    background-repeat: no-repeat;
+}
+.r_player {
+    background: url('/images/chart-icons.png');
+    background-position: 6px 6px;
+    background-repeat: no-repeat;
+}
+.r_draw {
+    background: url('/images/chart-icons.png');
+    background-position: 5px -25px;
+    background-repeat: no-repeat;
+}
+/*.br-icon {
+    display: none;
+    background: url('/images/chart-icons.png');
+    background-repeat: no-repeat;
+    position: absolute
+}*/

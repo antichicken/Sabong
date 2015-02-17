@@ -1,0 +1,63 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>S1288.net</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+    <script src="/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="/Scripts/drawbacaratchart.js"></script>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="wapper">
+        <div class="topmenu">
+            <ul>
+                <li class="user-menu">
+                <img src="/images/user_icon.png" />
+                <span class="userid">ZG01020101</span><br /><span class="logout"><a href="#"><asp:Literal ID="Literal7" runat="server" Text="<%$Resources:sabong.language, LOGOUT%>" EnableViewState="False"></asp:Literal></a></span></li>
+                <li><asp:Literal ID="Literal8" runat="server" Text="<%$Resources:sabong.language, CreditBalance%>" EnableViewState="False"></asp:Literal>: <strong>SGD $ 1,890.25</strong></li>
+                <li><asp:Literal ID="Literal9" runat="server" Text="<%$Resources:sabong.language, ProfitLoss%>" EnableViewState="False"></asp:Literal>: <strong>SGD $ 1,890.25</strong></li>
+                <li>Thu, Jan 22, 2015, 18:56:29</li>
+            </ul>
+            <div class="multilanguage">
+            <a href="#" class="flag"> <asp:Image ID="Image1" runat="server" ImageUrl="<%$Resources:sabong.language, Flag%>" EnableViewState="False"/></a>
+            <select>
+              <option value="en">English</option>
+              <option value="vi">Vietnam</option>
+            </select>
+            </div>
+        </div>
+        <div class="secondmenu">
+            <ul>
+                <li>|</li>
+                <li><a href="#">
+                    <asp:Literal ID="Literal1" runat="server" Text="<%$Resources:sabong.language, MatchHistory%>" EnableViewState="False"></asp:Literal></a></li>
+                <li>|</li>
+                <li><a href="#"><asp:Literal ID="Literal2" runat="server" Text="<%$Resources:sabong.language, MatchWinLoss%>" EnableViewState="False"></asp:Literal></a></li>
+                <li>|</li>
+                <li><a href="#"><asp:Literal ID="Literal3" runat="server" Text="<%$Resources:sabong.language, DailyWinLoss%>" EnableViewState="False"></asp:Literal></a></li>
+                <li>|</li>
+                <li><a href="#"><asp:Literal ID="Literal4" runat="server" Text="<%$Resources:sabong.language, WinLossByBetType%>" EnableViewState="False"></asp:Literal></a></li>
+                <li>|</li>
+                <li><a href="#"><asp:Literal ID="Literal5" runat="server" Text="<%$Resources:sabong.language, Schedule%>" EnableViewState="False"></asp:Literal></a></li>
+                <li>|</li>
+                <li><a href="#"><asp:Literal ID="Literal6" runat="server" Text="<%$Resources:sabong.language, ChangePassword%>" EnableViewState="False"></asp:Literal></a></li>
+                <li>|</li>
+            </ul>
+        </div>
+        <div class="maincontent">
+            <div class="leftcol">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolderLeftColumn" runat="server"></asp:ContentPlaceHolder>
+            </div>
+            <div class="rightcol">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolderRightColumn" runat="server"></asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>
