@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
@@ -15,73 +13,96 @@ namespace Sabong.Repository.Repo
     {
         public string ChickenResult { get; set; }
     }
-    public class MatchRepository
+
+    public class AnnoucementRepository
     {
-       // $query=mysql_query("select * from `view_matchdetail` where `fslno`='$matchno' and `fdate`='$date' and `status`!='1' and `cancelmatch`!='1'");
-        //$que=mysql_query("select * from `match_createstart` where `enddate`='0000-00-00'"); ---> lay ngay
-        public view_matchdetail GetCurrentMatch()
+        //select * from announcement WHERE (date >= DATE_SUB(CURDATE(), INTERVAL 9 DAY)) order by date DESC,slno desc
+        public IQueryable GetAll()
         {
             using (s_dbEntities context = new s_dbEntities())
             {
-                
+                var result = from announcement in context.announcements
+                    where announcement.date>= DateTime.Now.AddDays(-9)
+                    orderby announcement.date descending 
 
-                var dateStart = context.match_createstart.FirstOrDefault(i => i.enddate == DateTime.ParseExact("0000-00-00", "yyyy-MM-dd", CultureInfo.InvariantCulture));
-
-                if (dateStart == null)
-                    return null;
-
-                string CreatedDate = dateStart.create_date.ToString("yyyy-MM-dd");
-                return
-                    context.view_matchdetail.FirstOrDefault(
-                        i => i.winner_cockid == 0 && i.status != 1 && i.cancelmatch != 1 && i.fdate == CreatedDate);
-                
-
-                //var result = from viewMatchdetail in context.view_matchdetail
-                //    where viewMatchdetail.status != 1 &&
-                //          viewMatchdetail.winner_cockid == 0 &&
-                //          viewMatchdetail.cancelmatch != 1
-                //    select viewMatchdetail;
-                //return result;
-            }
-        }
-
-
-        //$query=mysql_query("select case when winner_cockid=-1 then 'DRAW' else case when cock_id=winner_cockid then cock_type else  against_type end end as winner  from fight_assign where `date`='$date' and cancelmatch='0' and winner_cockid !=0 order by slno");
-
-        public IEnumerable GetFightAssignsByDate(string date)
-        {
-            using (s_dbEntities context = new s_dbEntities())
-            {
-                var result = from fightAssign in context.fight_assign
-                    where fightAssign.date == date &&
-                          fightAssign.cancelmatch == 0 &&
-                          fightAssign.winner_cockid != 0
-                    orderby fightAssign.slno
-
-                    select new
-                           {
-                               
-                              ChickenWin  =(fightAssign.winner_cockid ==-1)? "DRAW" :(fightAssign.cock_id==fightAssign.winner_cockid)? "BANKER":"PLAYER"
-                           };
-                return result.ToList();
-
+                    select announcement;
+              //  return result.ToList();
+                return result;
 
             }
-           
         }
     }
-
-    public class OddRepository
+    public class TransactionRepository
     {
-        public oddsdiff_calc GetOddsdiffCalcByMatchId(int matchId)
-        {
-            var xxx = new oddsdiff_calc();
-            return xxx;
-        }
+        //$alltrans=mysql_query("select t.* from `transaction` t, fight_assign f where t.`date`='$date' and t.`playerid`='$_SESSION[useridval]' and t.matchno=f.slno and f.winner_cockid=0 and f.cancelmatch=0")or die();
+        //public List<transaction> GetAllTransaction(int userId, int matchId)
+        //{
+        //    using (s_dbEntities context = new s_dbEntities())
+        //    {
+        //       // var result = context.transactions.Where(i=>i.playerid==userId&& i.matchno=matchId&& );
+
+        //       // return result;
+
+        //    }
+        //}
+
+        //IEnumerable<string> query = from employee in employees
+        //                            join student in students
+        //                            on new { employee.FirstName, employee.LastName }
+        //                            equals new { student.FirstName, student.LastName }
+        //                            select employee.FirstName + " " + employee.LastName;
+
+        //var dealercontacts = from contact in DealerContact
+        //                     join dealer in Dealer on contact.DealerId equals dealer.ID
+        //                     select contact;
+
     }
-
-     public class UserRepository
+    public class UserRepository
     {
+        //select `currency_type` from `user` where `slno`='$userid'----> get currency
+        //select `balance` from `openning_balance` where `date` like '%$date%' and `userid`='$userid'
+         public double DayCashBalance(int userId,DateTime todayDateTime)
+         {
+             using (s_dbEntities context = new s_dbEntities())
+             {
+                 var result = context.openning_balance.FirstOrDefault(i => i.userid == userId&& i.date==todayDateTime);
+
+                 return result != null ? result.balance : 0;
+             }
+         }
+
+         //select `unique_idval` from `user` where `slno`='$userid'
+         public string GetUniqueIdVal(int userId)
+         {
+             using (s_dbEntities context = new s_dbEntities())
+             {
+                 var result = context.users.FirstOrDefault(i => i.slno == userId );
+
+                 return result != null ? result.unique_idval : "";
+             }
+         }
+
+
+         public double GetCashBalance(int userId)
+         {
+             using (s_dbEntities context = new s_dbEntities())
+             {
+                 var result = context.bidpoints.FirstOrDefault(i => i.agent_id == userId);
+
+                 return result != null ? result.updated_bidpoint : 0;
+             }
+         }
+         //select `bidpoint` from `bidpoints` where `agent_id`='$agntid'
+         public double GetCreditBalance(int userId)
+         {
+             using (s_dbEntities context = new s_dbEntities())
+             {
+                 var result = context.bidpoints.FirstOrDefault(i => i.agent_id == userId);
+
+                 return result != null ? result.bidpoint1 : 0;
+             }
+         }
+
          public user Login(string username,string password)
          {
 

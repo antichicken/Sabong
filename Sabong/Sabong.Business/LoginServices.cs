@@ -2,6 +2,21 @@
 
 namespace Sabong.Business
 {
+
+    public class UserServices
+    {
+        readonly Repository.Repo.UserRepository _user = new UserRepository();
+        public double GetCreditBalance(int userId)
+        {
+            
+            return _user.GetCreditBalance(userId);
+        }
+
+        public void GetUserLimit(int userId)
+        {
+           
+        }
+    }
     public class LoginServices
     {
 
@@ -32,11 +47,19 @@ namespace Sabong.Business
                 loginResult = LoginResult.NotAllowAccessPlayerSite;
                 return;
             }
-               
-              
-           
 
-          
+            if (u1.user_status == -1)
+            {
+                loginResult = LoginResult.Closed;
+                return;
+            }
+            if(u1.user_status==1)
+            {
+                loginResult=LoginResult.Suspended;
+                return;
+            }
+
+
             loginResult = LoginResult.Successful;
 
         }

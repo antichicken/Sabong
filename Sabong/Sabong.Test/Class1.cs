@@ -11,37 +11,46 @@ using Sabong.Repository.Repo;
 namespace Sabong.Test
 {
     [TestFixture]
-    public class TestDB
+    public class Class1
     {
         [Test]
-        public void LoginFixture()
+        public void Text1()
         {
             Repository.Repo.UserRepository user=new UserRepository();
-            var xx= user.Login("ttt","qq123456");
-           // Assert.Equals(xx, null);
+            var xx= user.Login("t","qq123456");
+        }
+
+
+        [Test]
+        public void GetCurrentMatch()
+        {
+            var match = new MatchRepository();
+            string status = "";
+           var xxx=  match.GetCurrentMatch(out status);
+
+            var matchNo = xxx.match_no;
+
+            var matchId = xxx.fslno;
+
+
+            bool matchEnd;
+            var xyz = match.IsMatchStart(matchId, out matchEnd);
+
         }
 
         [Test]
-        public void GetMatchRepoFixture()
+        public void GetAnnoucement()
         {
-            Repository.Repo.MatchRepository xxx = new MatchRepository();
-            var date=DateTime.Now.AddDays(-2).ToString("dd-MM-yyyy");
-            var xx = xxx.GetFightAssignsByDate(date);
-            // Assert.Equals(xx, null);
-        }
-
-         [Test]
-        public void GetDateIfNoMatch()
-        {
-            Repository.Repo.MatchRepository xxx = new MatchRepository();
-
-             var xx = xxx.GetCurrentMatch();
+            var match = new AnnoucementRepository();
+            var xx = match.GetAll();
+            
         }
 
         [Test]
-        public void TestCurrentDateToString()
+        public void GetAnnoucementRunning()
         {
-            var xxx=DateTime.Now.ToString("yyyy-MM-dd");
+            var match = new AnnoucementRunningRepository();
+            var xx = match.GetAll();
         }
     }
 }

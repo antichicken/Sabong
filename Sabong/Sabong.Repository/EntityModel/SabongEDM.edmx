@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="s_dbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="s_dbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="agentbet_limit">
           <Key>
             <PropertyRef Name="id" />
@@ -78,7 +78,7 @@
           <Property Name="slno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="subject" Type="text" Nullable="false" />
           <Property Name="date" Type="date" Nullable="false" />
-          <Property Name="time" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="time" Type="text" Nullable="false" />
         </EntityType>
         <EntityType Name="arena">
           <Key>
@@ -90,6 +90,16 @@
           <Property Name="order" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="bidpoints">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="agent_id" Type="int" Nullable="false" />
+          <Property Name="bidpoint" Type="double" Nullable="false" />
+          <Property Name="updated_bidpoint" Type="double" Nullable="false" />
+          <Property Name="time" Type="timestamp" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bidpoints_backup">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -211,6 +221,7 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="odds" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ftd" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="fight_assign">
           <Key>
@@ -235,6 +246,7 @@
           <Property Name="matchstarttime" Type="int" Nullable="false" />
           <Property Name="entry_date" Type="date" Nullable="false" />
           <Property Name="winner_cockid" Type="int" Nullable="false" />
+          <Property Name="winner" Type="varchar" MaxLength="6" Nullable="false" />
           <Property Name="status" Type="int" Nullable="false" />
           <Property Name="knockout" Type="int" Nullable="false" />
           <Property Name="block" Type="int" Nullable="false" />
@@ -540,6 +552,67 @@ warning 6002: The table/view 'def.s_db.playerbetlimnit_nouse' does not have a pr
           <Property Name="win_comm" Type="float" Nullable="false" />
           <Property Name="date" Type="timestamp" Precision="0" Nullable="false" />
         </EntityType>
+        <EntityType Name="t2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="playerid" Type="int" Nullable="false" />
+          <Property Name="matchno" Type="int" Nullable="false" />
+          <Property Name="acceptedamount" Type="float" Nullable="false" />
+          <Property Name="accepted_withodds" Type="float" Nullable="false" />
+          <Property Name="betslno" Type="int" Nullable="false" />
+          <Property Name="multiplier" Type="float" Nullable="false" />
+          <Property Name="type" Type="varchar" MaxLength="50" />
+          <Property Name="currencytype" Type="int" Nullable="false" />
+          <Property Name="cocktype" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="cockid" Type="int" Nullable="false" />
+          <Property Name="odds" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="cancelstatus" Type="int" Nullable="false" />
+          <Property Name="winloseamnt" Type="double" Nullable="false" />
+          <Property Name="time" Type="timestamp" Precision="0" Nullable="false" />
+          <Property Name="ip" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="betstatus" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="betcomstat" Type="bool" Nullable="false" />
+          <Property Name="playerbcamt" Type="float" Nullable="false" />
+          <Property Name="agentid" Type="int" Nullable="false" />
+          <Property Name="agentbcamt" Type="float" Nullable="false" />
+          <Property Name="agentbcper" Type="float" Nullable="false" />
+          <Property Name="agentfbamt" Type="float" Nullable="false" />
+          <Property Name="agentfbper" Type="float" Nullable="false" />
+          <Property Name="masterid" Type="int" Nullable="false" />
+          <Property Name="masterbcamt" Type="float" Nullable="false" />
+          <Property Name="masterbcper" Type="float" Nullable="false" />
+          <Property Name="masterfbamt" Type="float" Nullable="false" />
+          <Property Name="masterfbper" Type="float" Nullable="false" />
+          <Property Name="srmasterid" Type="int" Nullable="false" />
+          <Property Name="srmasterbcamt" Type="float" Nullable="false" />
+          <Property Name="srmasterbcper" Type="float" Nullable="false" />
+          <Property Name="srmasterfbamt" Type="float" Nullable="false" />
+          <Property Name="srmasterfbper" Type="float" Nullable="false" />
+          <Property Name="houseid" Type="int" Nullable="false" />
+          <Property Name="housebcamt" Type="float" Nullable="false" />
+          <Property Name="housebcper" Type="float" Nullable="false" />
+          <Property Name="housefbamt" Type="float" Nullable="false" />
+          <Property Name="housefbper" Type="float" Nullable="false" />
+          <Property Name="adminbcamt" Type="float" Nullable="false" />
+          <Property Name="adminbcper" Type="float" Nullable="false" />
+          <Property Name="adminfbamt" Type="float" Nullable="false" />
+          <Property Name="adminfbper" Type="float" Nullable="false" />
+          <Property Name="delflag" Type="int" Nullable="false" />
+          <Property Name="agentbetcomm" Type="float" Nullable="false" />
+          <Property Name="agentfb" Type="float" Nullable="false" />
+          <Property Name="masterbetcomm" Type="float" Nullable="false" />
+          <Property Name="masterfb" Type="float" Nullable="false" />
+          <Property Name="srmasterbetcomm" Type="float" Nullable="false" />
+          <Property Name="srmasterfb" Type="float" Nullable="false" />
+          <Property Name="housebetcomm" Type="float" Nullable="false" />
+          <Property Name="housefb" Type="float" Nullable="false" />
+          <Property Name="adminbetcomm" Type="float" Nullable="false" />
+          <Property Name="adminfb" Type="float" Nullable="false" />
+          <Property Name="cb" Type="double" Nullable="false" />
+        </EntityType>
         <EntityType Name="test">
           <Key>
             <PropertyRef Name="idd" />
@@ -734,6 +807,7 @@ warning 6002: The table/view 'def.s_db.view_cocktype' does not have a primary ke
             <PropertyRef Name="cancelmatch" />
             <PropertyRef Name="arena" />
             <PropertyRef Name="winner_cockid" />
+            <PropertyRef Name="winner" />
             <PropertyRef Name="match_order" />
           </Key>
           <Property Name="cock_id" Type="int" Nullable="false" />
@@ -750,6 +824,7 @@ warning 6002: The table/view 'def.s_db.view_cocktype' does not have a primary ke
           <Property Name="cancelmatch" Type="int" Nullable="false" />
           <Property Name="arena" Type="int" Nullable="false" />
           <Property Name="winner_cockid" Type="int" Nullable="false" />
+          <Property Name="winner" Type="varchar" MaxLength="6" Nullable="false" />
           <Property Name="match_order" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -797,6 +872,14 @@ warning 6002: The table/view 'def.s_db.view_fullcomm' does not have a primary ke
           <Property Name="wincomm" Type="varchar" MaxLength="1" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'def.s_db.View_match_createGetEndDateNull' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_match_createGetEndDateNull">
+          <Key>
+            <PropertyRef Name="create_date" />
+          </Key>
+          <Property Name="create_date" Type="date" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'def.s_db.view_matchdetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="view_matchdetail">
           <Key>
@@ -812,6 +895,7 @@ warning 6002: The table/view 'def.s_db.view_matchdetail' does not have a primary
             <PropertyRef Name="cancelmatch" />
             <PropertyRef Name="arena" />
             <PropertyRef Name="winner_cockid" />
+            <PropertyRef Name="winner" />
             <PropertyRef Name="match_order" />
             <PropertyRef Name="cbid" />
             <PropertyRef Name="abid" />
@@ -828,6 +912,7 @@ warning 6002: The table/view 'def.s_db.view_matchdetail' does not have a primary
           <Property Name="cancelmatch" Type="int" Nullable="false" />
           <Property Name="arena" Type="int" Nullable="false" />
           <Property Name="winner_cockid" Type="int" Nullable="false" />
+          <Property Name="winner" Type="varchar" MaxLength="6" Nullable="false" />
           <Property Name="match_order" Type="int" Nullable="false" />
           <Property Name="cbid" Type="int" Nullable="false" />
           <Property Name="abid" Type="int" Nullable="false" />
@@ -839,6 +924,7 @@ warning 6002: The table/view 'def.s_db.view_matchdetail' does not have a primary
           <Property Name="1odds" Type="double" />
           <Property Name="2odds" Type="double" />
           <Property Name="drawwodds" Type="varchar" MaxLength="21" />
+          <Property Name="ftd" Type="varchar" MaxLength="21" />
           <Property Name="abreedername" Type="varchar" MaxLength="300" />
         </EntityType>
         <!--Errors Found During Generation:
@@ -1027,6 +1113,7 @@ warning 6002: The table/view 'def.s_db.view_playeruplines' does not have a prima
           <EntitySet Name="announcement" EntityType="Self.announcement" Schema="s_db" store:Type="Tables" />
           <EntitySet Name="arena" EntityType="Self.arena" Schema="s_db" store:Type="Tables" />
           <EntitySet Name="bidpoints" EntityType="Self.bidpoints" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="bidpoints_backup" EntityType="Self.bidpoints_backup" Schema="s_db" store:Type="Tables" />
           <EntitySet Name="breeder" EntityType="Self.breeder" Schema="s_db" store:Type="Tables" />
           <EntitySet Name="cock" EntityType="Self.cock" Schema="s_db" store:Type="Tables" />
           <EntitySet Name="comm_calculation" EntityType="Self.comm_calculation" Schema="s_db" store:Type="Tables" />
@@ -1059,6 +1146,7 @@ warning 6002: The table/view 'def.s_db.view_playeruplines' does not have a prima
           <EntitySet Name="running_announcement" EntityType="Self.running_announcement" Schema="s_db" store:Type="Tables" />
           <EntitySet Name="senior_commission" EntityType="Self.senior_commission" Schema="s_db" store:Type="Tables" />
           <EntitySet Name="stake_detail" EntityType="Self.stake_detail" Schema="s_db" store:Type="Tables" />
+          <EntitySet Name="t2" EntityType="Self.t2" Schema="s_db" store:Type="Tables" />
           <EntitySet Name="test" EntityType="Self.test" Schema="s_db" store:Type="Tables" />
           <EntitySet Name="transaction" EntityType="Self.transaction" Schema="s_db" store:Type="Tables" />
           <EntitySet Name="typeof_currency" EntityType="Self.typeof_currency" Schema="s_db" store:Type="Tables" />
@@ -1128,6 +1216,7 @@ FROM `u2` AS `u2`</DefiningQuery>
 `view_cocktype`.`cancelmatch`, 
 `view_cocktype`.`arena`, 
 `view_cocktype`.`winner_cockid`, 
+`view_cocktype`.`winner`, 
 `view_cocktype`.`match_order`
 FROM `view_cocktype` AS `view_cocktype`</DefiningQuery>
           </EntitySet>
@@ -1156,6 +1245,11 @@ FROM `view_fightback` AS `view_fightback`</DefiningQuery>
 `view_fullcomm`.`wincomm`
 FROM `view_fullcomm` AS `view_fullcomm`</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="View_match_createGetEndDateNull" EntityType="Self.View_match_createGetEndDateNull" store:Type="Views" store:Schema="s_db">
+            <DefiningQuery>SELECT
+`View_match_createGetEndDateNull`.`create_date`
+FROM `View_match_createGetEndDateNull` AS `View_match_createGetEndDateNull`</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="view_matchdetail" EntityType="Self.view_matchdetail" store:Type="Views" store:Schema="s_db">
             <DefiningQuery>SELECT
 `view_matchdetail`.`cid`, 
@@ -1170,6 +1264,7 @@ FROM `view_fullcomm` AS `view_fullcomm`</DefiningQuery>
 `view_matchdetail`.`cancelmatch`, 
 `view_matchdetail`.`arena`, 
 `view_matchdetail`.`winner_cockid`, 
+`view_matchdetail`.`winner`, 
 `view_matchdetail`.`match_order`, 
 `view_matchdetail`.`cbid`, 
 `view_matchdetail`.`abid`, 
@@ -1181,6 +1276,7 @@ FROM `view_fullcomm` AS `view_fullcomm`</DefiningQuery>
 `view_matchdetail`.`1odds`, 
 `view_matchdetail`.`2odds`, 
 `view_matchdetail`.`drawwodds`, 
+`view_matchdetail`.`ftd`, 
 `view_matchdetail`.`abreedername`
 FROM `view_matchdetail` AS `view_matchdetail`</DefiningQuery>
           </EntitySet>
@@ -1226,8 +1322,7 @@ FROM `view_playeruplines` AS `view_playeruplines`</DefiningQuery>
             <End Role="transaction" EntitySet="transaction" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="s_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1437,6 +1532,7 @@ FROM `view_playeruplines` AS `view_playeruplines`</DefiningQuery>
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="odds" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ftd" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="fight_assign">
           <Key>
@@ -1479,6 +1575,7 @@ FROM `view_playeruplines` AS `view_playeruplines`</DefiningQuery>
           <Property Name="updatetime" Type="DateTime" Nullable="false" />
           <Property Name="del_flag" Type="Int32" Nullable="false" />
           <Property Name="matchcreatetime" Type="DateTime" Nullable="false" />
+          <Property Name="winner" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="fight_back">
           <Key>
@@ -1957,6 +2054,7 @@ FROM `view_playeruplines` AS `view_playeruplines`</DefiningQuery>
             <PropertyRef Name="arena" />
             <PropertyRef Name="winner_cockid" />
             <PropertyRef Name="match_order" />
+            <PropertyRef Name="winner" />
           </Key>
           <Property Name="cock_id" Type="Int32" Nullable="false" />
           <Property Name="fightagainst_cock_id" Type="Int32" Nullable="false" />
@@ -1973,6 +2071,7 @@ FROM `view_playeruplines` AS `view_playeruplines`</DefiningQuery>
           <Property Name="arena" Type="Int32" Nullable="false" />
           <Property Name="winner_cockid" Type="Int32" Nullable="false" />
           <Property Name="match_order" Type="Int32" Nullable="false" />
+          <Property Name="winner" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="view_downline">
           <Key>
@@ -2029,6 +2128,7 @@ FROM `view_playeruplines` AS `view_playeruplines`</DefiningQuery>
             <PropertyRef Name="match_order" />
             <PropertyRef Name="cbid" />
             <PropertyRef Name="abid" />
+            <PropertyRef Name="winner" />
           </Key>
           <Property Name="cid" Type="Int32" Nullable="false" />
           <Property Name="acid" Type="Int32" Nullable="false" />
@@ -2054,6 +2154,8 @@ FROM `view_playeruplines` AS `view_playeruplines`</DefiningQuery>
           <Property Name="C2odds" Type="Double" />
           <Property Name="drawwodds" Type="String" MaxLength="21" FixedLength="false" Unicode="false" />
           <Property Name="abreedername" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="winner" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="ftd" Type="String" MaxLength="21" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="view_odds">
           <Key>
@@ -2184,7 +2286,87 @@ FROM `view_playeruplines` AS `view_playeruplines`</DefiningQuery>
             <End Role="user" EntitySet="users" />
             <End Role="transaction" EntitySet="transactions" />
           </AssociationSet>
+          <EntitySet Name="bidpoints_backup" EntityType="s_dbModel.bidpoints_backup" />
+          <EntitySet Name="t2" EntityType="s_dbModel.t2" />
+          <EntitySet Name="View_match_createGetEndDateNull" EntityType="s_dbModel.View_match_createGetEndDateNull" />
         </EntityContainer>
+        <EntityType Name="bidpoints_backup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="agent_id" Type="Int32" Nullable="false" />
+          <Property Name="bidpoint" Type="Double" Nullable="false" />
+          <Property Name="updated_bidpoint" Type="Double" Nullable="false" />
+          <Property Name="time" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t2">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="playerid" Type="Int32" Nullable="false" />
+          <Property Name="matchno" Type="Int32" Nullable="false" />
+          <Property Name="acceptedamount" Type="Single" Nullable="false" />
+          <Property Name="accepted_withodds" Type="Single" Nullable="false" />
+          <Property Name="betslno" Type="Int32" Nullable="false" />
+          <Property Name="multiplier" Type="Single" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="currencytype" Type="Int32" Nullable="false" />
+          <Property Name="cocktype" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cockid" Type="Int32" Nullable="false" />
+          <Property Name="odds" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" />
+          <Property Name="cancelstatus" Type="Int32" Nullable="false" />
+          <Property Name="winloseamnt" Type="Double" Nullable="false" />
+          <Property Name="time" Type="DateTime" Nullable="false" />
+          <Property Name="ip" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="betstatus" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="betcomstat" Type="Boolean" Nullable="false" />
+          <Property Name="playerbcamt" Type="Single" Nullable="false" />
+          <Property Name="agentid" Type="Int32" Nullable="false" />
+          <Property Name="agentbcamt" Type="Single" Nullable="false" />
+          <Property Name="agentbcper" Type="Single" Nullable="false" />
+          <Property Name="agentfbamt" Type="Single" Nullable="false" />
+          <Property Name="agentfbper" Type="Single" Nullable="false" />
+          <Property Name="masterid" Type="Int32" Nullable="false" />
+          <Property Name="masterbcamt" Type="Single" Nullable="false" />
+          <Property Name="masterbcper" Type="Single" Nullable="false" />
+          <Property Name="masterfbamt" Type="Single" Nullable="false" />
+          <Property Name="masterfbper" Type="Single" Nullable="false" />
+          <Property Name="srmasterid" Type="Int32" Nullable="false" />
+          <Property Name="srmasterbcamt" Type="Single" Nullable="false" />
+          <Property Name="srmasterbcper" Type="Single" Nullable="false" />
+          <Property Name="srmasterfbamt" Type="Single" Nullable="false" />
+          <Property Name="srmasterfbper" Type="Single" Nullable="false" />
+          <Property Name="houseid" Type="Int32" Nullable="false" />
+          <Property Name="housebcamt" Type="Single" Nullable="false" />
+          <Property Name="housebcper" Type="Single" Nullable="false" />
+          <Property Name="housefbamt" Type="Single" Nullable="false" />
+          <Property Name="housefbper" Type="Single" Nullable="false" />
+          <Property Name="adminbcamt" Type="Single" Nullable="false" />
+          <Property Name="adminbcper" Type="Single" Nullable="false" />
+          <Property Name="adminfbamt" Type="Single" Nullable="false" />
+          <Property Name="adminfbper" Type="Single" Nullable="false" />
+          <Property Name="delflag" Type="Int32" Nullable="false" />
+          <Property Name="agentbetcomm" Type="Single" Nullable="false" />
+          <Property Name="agentfb" Type="Single" Nullable="false" />
+          <Property Name="masterbetcomm" Type="Single" Nullable="false" />
+          <Property Name="masterfb" Type="Single" Nullable="false" />
+          <Property Name="srmasterbetcomm" Type="Single" Nullable="false" />
+          <Property Name="srmasterfb" Type="Single" Nullable="false" />
+          <Property Name="housebetcomm" Type="Single" Nullable="false" />
+          <Property Name="housefb" Type="Single" Nullable="false" />
+          <Property Name="adminbetcomm" Type="Single" Nullable="false" />
+          <Property Name="adminfb" Type="Single" Nullable="false" />
+          <Property Name="cb" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="View_match_createGetEndDateNull">
+          <Key>
+            <PropertyRef Name="create_date" />
+          </Key>
+          <Property Name="create_date" Type="DateTime" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2410,6 +2592,7 @@ FROM `view_playeruplines` AS `view_playeruplines`</DefiningQuery>
           <EntitySetMapping Name="drawodds">
             <EntityTypeMapping TypeName="s_dbModel.drawodd">
               <MappingFragment StoreEntitySet="drawodds">
+                <ScalarProperty Name="ftd" ColumnName="ftd" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="odds" ColumnName="odds" />
               </MappingFragment>
@@ -2418,6 +2601,7 @@ FROM `view_playeruplines` AS `view_playeruplines`</DefiningQuery>
           <EntitySetMapping Name="fight_assign">
             <EntityTypeMapping TypeName="s_dbModel.fight_assign">
               <MappingFragment StoreEntitySet="fight_assign">
+                <ScalarProperty Name="winner" ColumnName="winner" />
                 <ScalarProperty Name="slno" ColumnName="slno" />
                 <ScalarProperty Name="matchtype" ColumnName="matchtype" />
                 <ScalarProperty Name="breeder_id" ColumnName="breeder_id" />
@@ -2907,6 +3091,7 @@ FROM `view_playeruplines` AS `view_playeruplines`</DefiningQuery>
           <EntitySetMapping Name="view_cocktype">
             <EntityTypeMapping TypeName="s_dbModel.view_cocktype">
               <MappingFragment StoreEntitySet="view_cocktype">
+                <ScalarProperty Name="winner" ColumnName="winner" />
                 <ScalarProperty Name="cock_id" ColumnName="cock_id" />
                 <ScalarProperty Name="fightagainst_cock_id" ColumnName="fightagainst_cock_id" />
                 <ScalarProperty Name="breeder_id" ColumnName="breeder_id" />
@@ -2959,6 +3144,8 @@ FROM `view_playeruplines` AS `view_playeruplines`</DefiningQuery>
           <EntitySetMapping Name="view_matchdetail">
             <EntityTypeMapping TypeName="s_dbModel.view_matchdetail">
               <MappingFragment StoreEntitySet="view_matchdetail">
+                <ScalarProperty Name="ftd" ColumnName="ftd" />
+                <ScalarProperty Name="winner" ColumnName="winner" />
                 <ScalarProperty Name="cid" ColumnName="cid" />
                 <ScalarProperty Name="acid" ColumnName="acid" />
                 <ScalarProperty Name="cock_type" ColumnName="cock_type" />
@@ -3028,6 +3215,86 @@ FROM `view_playeruplines` AS `view_playeruplines`</DefiningQuery>
                 <ScalarProperty Name="stakeholder" ColumnName="stakeholder" />
                 <ScalarProperty Name="Playername" ColumnName="Playername" />
                 <ScalarProperty Name="currency" ColumnName="currency" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bidpoints_backup">
+            <EntityTypeMapping TypeName="s_dbModel.bidpoints_backup">
+              <MappingFragment StoreEntitySet="bidpoints_backup">
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="updated_bidpoint" ColumnName="updated_bidpoint" />
+                <ScalarProperty Name="bidpoint" ColumnName="bidpoint" />
+                <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t2">
+            <EntityTypeMapping TypeName="s_dbModel.t2">
+              <MappingFragment StoreEntitySet="t2">
+                <ScalarProperty Name="cb" ColumnName="cb" />
+                <ScalarProperty Name="adminfb" ColumnName="adminfb" />
+                <ScalarProperty Name="adminbetcomm" ColumnName="adminbetcomm" />
+                <ScalarProperty Name="housefb" ColumnName="housefb" />
+                <ScalarProperty Name="housebetcomm" ColumnName="housebetcomm" />
+                <ScalarProperty Name="srmasterfb" ColumnName="srmasterfb" />
+                <ScalarProperty Name="srmasterbetcomm" ColumnName="srmasterbetcomm" />
+                <ScalarProperty Name="masterfb" ColumnName="masterfb" />
+                <ScalarProperty Name="masterbetcomm" ColumnName="masterbetcomm" />
+                <ScalarProperty Name="agentfb" ColumnName="agentfb" />
+                <ScalarProperty Name="agentbetcomm" ColumnName="agentbetcomm" />
+                <ScalarProperty Name="delflag" ColumnName="delflag" />
+                <ScalarProperty Name="adminfbper" ColumnName="adminfbper" />
+                <ScalarProperty Name="adminfbamt" ColumnName="adminfbamt" />
+                <ScalarProperty Name="adminbcper" ColumnName="adminbcper" />
+                <ScalarProperty Name="adminbcamt" ColumnName="adminbcamt" />
+                <ScalarProperty Name="housefbper" ColumnName="housefbper" />
+                <ScalarProperty Name="housefbamt" ColumnName="housefbamt" />
+                <ScalarProperty Name="housebcper" ColumnName="housebcper" />
+                <ScalarProperty Name="housebcamt" ColumnName="housebcamt" />
+                <ScalarProperty Name="houseid" ColumnName="houseid" />
+                <ScalarProperty Name="srmasterfbper" ColumnName="srmasterfbper" />
+                <ScalarProperty Name="srmasterfbamt" ColumnName="srmasterfbamt" />
+                <ScalarProperty Name="srmasterbcper" ColumnName="srmasterbcper" />
+                <ScalarProperty Name="srmasterbcamt" ColumnName="srmasterbcamt" />
+                <ScalarProperty Name="srmasterid" ColumnName="srmasterid" />
+                <ScalarProperty Name="masterfbper" ColumnName="masterfbper" />
+                <ScalarProperty Name="masterfbamt" ColumnName="masterfbamt" />
+                <ScalarProperty Name="masterbcper" ColumnName="masterbcper" />
+                <ScalarProperty Name="masterbcamt" ColumnName="masterbcamt" />
+                <ScalarProperty Name="masterid" ColumnName="masterid" />
+                <ScalarProperty Name="agentfbper" ColumnName="agentfbper" />
+                <ScalarProperty Name="agentfbamt" ColumnName="agentfbamt" />
+                <ScalarProperty Name="agentbcper" ColumnName="agentbcper" />
+                <ScalarProperty Name="agentbcamt" ColumnName="agentbcamt" />
+                <ScalarProperty Name="agentid" ColumnName="agentid" />
+                <ScalarProperty Name="playerbcamt" ColumnName="playerbcamt" />
+                <ScalarProperty Name="betcomstat" ColumnName="betcomstat" />
+                <ScalarProperty Name="betstatus" ColumnName="betstatus" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="time" ColumnName="time" />
+                <ScalarProperty Name="winloseamnt" ColumnName="winloseamnt" />
+                <ScalarProperty Name="cancelstatus" ColumnName="cancelstatus" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="odds" ColumnName="odds" />
+                <ScalarProperty Name="cockid" ColumnName="cockid" />
+                <ScalarProperty Name="cocktype" ColumnName="cocktype" />
+                <ScalarProperty Name="currencytype" ColumnName="currencytype" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="multiplier" ColumnName="multiplier" />
+                <ScalarProperty Name="betslno" ColumnName="betslno" />
+                <ScalarProperty Name="accepted_withodds" ColumnName="accepted_withodds" />
+                <ScalarProperty Name="acceptedamount" ColumnName="acceptedamount" />
+                <ScalarProperty Name="matchno" ColumnName="matchno" />
+                <ScalarProperty Name="playerid" ColumnName="playerid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_match_createGetEndDateNull">
+            <EntityTypeMapping TypeName="s_dbModel.View_match_createGetEndDateNull">
+              <MappingFragment StoreEntitySet="View_match_createGetEndDateNull">
+                <ScalarProperty Name="create_date" ColumnName="create_date" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -206,6 +206,7 @@
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="odds" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ftd" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="fight_assign">
     <Key>
@@ -248,6 +249,7 @@
     <Property Name="updatetime" Type="DateTime" Nullable="false" />
     <Property Name="del_flag" Type="Int32" Nullable="false" />
     <Property Name="matchcreatetime" Type="DateTime" Nullable="false" />
+    <Property Name="winner" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="fight_back">
     <Key>
@@ -726,6 +728,7 @@
       <PropertyRef Name="arena" />
       <PropertyRef Name="winner_cockid" />
       <PropertyRef Name="match_order" />
+      <PropertyRef Name="winner" />
     </Key>
     <Property Name="cock_id" Type="Int32" Nullable="false" />
     <Property Name="fightagainst_cock_id" Type="Int32" Nullable="false" />
@@ -742,6 +745,7 @@
     <Property Name="arena" Type="Int32" Nullable="false" />
     <Property Name="winner_cockid" Type="Int32" Nullable="false" />
     <Property Name="match_order" Type="Int32" Nullable="false" />
+    <Property Name="winner" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="view_downline">
     <Key>
@@ -798,6 +802,7 @@
       <PropertyRef Name="match_order" />
       <PropertyRef Name="cbid" />
       <PropertyRef Name="abid" />
+      <PropertyRef Name="winner" />
     </Key>
     <Property Name="cid" Type="Int32" Nullable="false" />
     <Property Name="acid" Type="Int32" Nullable="false" />
@@ -823,6 +828,8 @@
     <Property Name="C2odds" Type="Double" />
     <Property Name="drawwodds" Type="String" MaxLength="21" FixedLength="false" Unicode="false" />
     <Property Name="abreedername" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="winner" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="ftd" Type="String" MaxLength="21" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="view_odds">
     <Key>
@@ -953,5 +960,85 @@
       <End Role="user" EntitySet="users" />
       <End Role="transaction" EntitySet="transactions" />
     </AssociationSet>
+    <EntitySet Name="bidpoints_backup" EntityType="s_dbModel.bidpoints_backup" />
+    <EntitySet Name="t2" EntityType="s_dbModel.t2" />
+    <EntitySet Name="View_match_createGetEndDateNull" EntityType="s_dbModel.View_match_createGetEndDateNull" />
   </EntityContainer>
+  <EntityType Name="bidpoints_backup">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="agent_id" Type="Int32" Nullable="false" />
+    <Property Name="bidpoint" Type="Double" Nullable="false" />
+    <Property Name="updated_bidpoint" Type="Double" Nullable="false" />
+    <Property Name="time" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="t2">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="playerid" Type="Int32" Nullable="false" />
+    <Property Name="matchno" Type="Int32" Nullable="false" />
+    <Property Name="acceptedamount" Type="Single" Nullable="false" />
+    <Property Name="accepted_withodds" Type="Single" Nullable="false" />
+    <Property Name="betslno" Type="Int32" Nullable="false" />
+    <Property Name="multiplier" Type="Single" Nullable="false" />
+    <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="currencytype" Type="Int32" Nullable="false" />
+    <Property Name="cocktype" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="cockid" Type="Int32" Nullable="false" />
+    <Property Name="odds" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" />
+    <Property Name="cancelstatus" Type="Int32" Nullable="false" />
+    <Property Name="winloseamnt" Type="Double" Nullable="false" />
+    <Property Name="time" Type="DateTime" Nullable="false" />
+    <Property Name="ip" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="betstatus" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="betcomstat" Type="Boolean" Nullable="false" />
+    <Property Name="playerbcamt" Type="Single" Nullable="false" />
+    <Property Name="agentid" Type="Int32" Nullable="false" />
+    <Property Name="agentbcamt" Type="Single" Nullable="false" />
+    <Property Name="agentbcper" Type="Single" Nullable="false" />
+    <Property Name="agentfbamt" Type="Single" Nullable="false" />
+    <Property Name="agentfbper" Type="Single" Nullable="false" />
+    <Property Name="masterid" Type="Int32" Nullable="false" />
+    <Property Name="masterbcamt" Type="Single" Nullable="false" />
+    <Property Name="masterbcper" Type="Single" Nullable="false" />
+    <Property Name="masterfbamt" Type="Single" Nullable="false" />
+    <Property Name="masterfbper" Type="Single" Nullable="false" />
+    <Property Name="srmasterid" Type="Int32" Nullable="false" />
+    <Property Name="srmasterbcamt" Type="Single" Nullable="false" />
+    <Property Name="srmasterbcper" Type="Single" Nullable="false" />
+    <Property Name="srmasterfbamt" Type="Single" Nullable="false" />
+    <Property Name="srmasterfbper" Type="Single" Nullable="false" />
+    <Property Name="houseid" Type="Int32" Nullable="false" />
+    <Property Name="housebcamt" Type="Single" Nullable="false" />
+    <Property Name="housebcper" Type="Single" Nullable="false" />
+    <Property Name="housefbamt" Type="Single" Nullable="false" />
+    <Property Name="housefbper" Type="Single" Nullable="false" />
+    <Property Name="adminbcamt" Type="Single" Nullable="false" />
+    <Property Name="adminbcper" Type="Single" Nullable="false" />
+    <Property Name="adminfbamt" Type="Single" Nullable="false" />
+    <Property Name="adminfbper" Type="Single" Nullable="false" />
+    <Property Name="delflag" Type="Int32" Nullable="false" />
+    <Property Name="agentbetcomm" Type="Single" Nullable="false" />
+    <Property Name="agentfb" Type="Single" Nullable="false" />
+    <Property Name="masterbetcomm" Type="Single" Nullable="false" />
+    <Property Name="masterfb" Type="Single" Nullable="false" />
+    <Property Name="srmasterbetcomm" Type="Single" Nullable="false" />
+    <Property Name="srmasterfb" Type="Single" Nullable="false" />
+    <Property Name="housebetcomm" Type="Single" Nullable="false" />
+    <Property Name="housefb" Type="Single" Nullable="false" />
+    <Property Name="adminbetcomm" Type="Single" Nullable="false" />
+    <Property Name="adminfb" Type="Single" Nullable="false" />
+    <Property Name="cb" Type="Double" Nullable="false" />
+  </EntityType>
+  <EntityType Name="View_match_createGetEndDateNull">
+    <Key>
+      <PropertyRef Name="create_date" />
+    </Key>
+    <Property Name="create_date" Type="DateTime" Nullable="false" />
+  </EntityType>
 </Schema>

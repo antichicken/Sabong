@@ -220,6 +220,7 @@
     <EntitySetMapping Name="drawodds">
       <EntityTypeMapping TypeName="s_dbModel.drawodd">
         <MappingFragment StoreEntitySet="drawodds">
+          <ScalarProperty Name="ftd" ColumnName="ftd" />
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="odds" ColumnName="odds" />
         </MappingFragment>
@@ -228,6 +229,7 @@
     <EntitySetMapping Name="fight_assign">
       <EntityTypeMapping TypeName="s_dbModel.fight_assign">
         <MappingFragment StoreEntitySet="fight_assign">
+          <ScalarProperty Name="winner" ColumnName="winner" />
           <ScalarProperty Name="slno" ColumnName="slno" />
           <ScalarProperty Name="matchtype" ColumnName="matchtype" />
           <ScalarProperty Name="breeder_id" ColumnName="breeder_id" />
@@ -717,6 +719,7 @@
     <EntitySetMapping Name="view_cocktype">
       <EntityTypeMapping TypeName="s_dbModel.view_cocktype">
         <MappingFragment StoreEntitySet="view_cocktype">
+          <ScalarProperty Name="winner" ColumnName="winner" />
           <ScalarProperty Name="cock_id" ColumnName="cock_id" />
           <ScalarProperty Name="fightagainst_cock_id" ColumnName="fightagainst_cock_id" />
           <ScalarProperty Name="breeder_id" ColumnName="breeder_id" />
@@ -769,6 +772,8 @@
     <EntitySetMapping Name="view_matchdetail">
       <EntityTypeMapping TypeName="s_dbModel.view_matchdetail">
         <MappingFragment StoreEntitySet="view_matchdetail">
+          <ScalarProperty Name="ftd" ColumnName="ftd" />
+          <ScalarProperty Name="winner" ColumnName="winner" />
           <ScalarProperty Name="cid" ColumnName="cid" />
           <ScalarProperty Name="acid" ColumnName="acid" />
           <ScalarProperty Name="cock_type" ColumnName="cock_type" />
@@ -838,6 +843,86 @@
           <ScalarProperty Name="stakeholder" ColumnName="stakeholder" />
           <ScalarProperty Name="Playername" ColumnName="Playername" />
           <ScalarProperty Name="currency" ColumnName="currency" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="bidpoints_backup">
+      <EntityTypeMapping TypeName="s_dbModel.bidpoints_backup">
+        <MappingFragment StoreEntitySet="bidpoints_backup">
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="updated_bidpoint" ColumnName="updated_bidpoint" />
+          <ScalarProperty Name="bidpoint" ColumnName="bidpoint" />
+          <ScalarProperty Name="agent_id" ColumnName="agent_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="t2">
+      <EntityTypeMapping TypeName="s_dbModel.t2">
+        <MappingFragment StoreEntitySet="t2">
+          <ScalarProperty Name="cb" ColumnName="cb" />
+          <ScalarProperty Name="adminfb" ColumnName="adminfb" />
+          <ScalarProperty Name="adminbetcomm" ColumnName="adminbetcomm" />
+          <ScalarProperty Name="housefb" ColumnName="housefb" />
+          <ScalarProperty Name="housebetcomm" ColumnName="housebetcomm" />
+          <ScalarProperty Name="srmasterfb" ColumnName="srmasterfb" />
+          <ScalarProperty Name="srmasterbetcomm" ColumnName="srmasterbetcomm" />
+          <ScalarProperty Name="masterfb" ColumnName="masterfb" />
+          <ScalarProperty Name="masterbetcomm" ColumnName="masterbetcomm" />
+          <ScalarProperty Name="agentfb" ColumnName="agentfb" />
+          <ScalarProperty Name="agentbetcomm" ColumnName="agentbetcomm" />
+          <ScalarProperty Name="delflag" ColumnName="delflag" />
+          <ScalarProperty Name="adminfbper" ColumnName="adminfbper" />
+          <ScalarProperty Name="adminfbamt" ColumnName="adminfbamt" />
+          <ScalarProperty Name="adminbcper" ColumnName="adminbcper" />
+          <ScalarProperty Name="adminbcamt" ColumnName="adminbcamt" />
+          <ScalarProperty Name="housefbper" ColumnName="housefbper" />
+          <ScalarProperty Name="housefbamt" ColumnName="housefbamt" />
+          <ScalarProperty Name="housebcper" ColumnName="housebcper" />
+          <ScalarProperty Name="housebcamt" ColumnName="housebcamt" />
+          <ScalarProperty Name="houseid" ColumnName="houseid" />
+          <ScalarProperty Name="srmasterfbper" ColumnName="srmasterfbper" />
+          <ScalarProperty Name="srmasterfbamt" ColumnName="srmasterfbamt" />
+          <ScalarProperty Name="srmasterbcper" ColumnName="srmasterbcper" />
+          <ScalarProperty Name="srmasterbcamt" ColumnName="srmasterbcamt" />
+          <ScalarProperty Name="srmasterid" ColumnName="srmasterid" />
+          <ScalarProperty Name="masterfbper" ColumnName="masterfbper" />
+          <ScalarProperty Name="masterfbamt" ColumnName="masterfbamt" />
+          <ScalarProperty Name="masterbcper" ColumnName="masterbcper" />
+          <ScalarProperty Name="masterbcamt" ColumnName="masterbcamt" />
+          <ScalarProperty Name="masterid" ColumnName="masterid" />
+          <ScalarProperty Name="agentfbper" ColumnName="agentfbper" />
+          <ScalarProperty Name="agentfbamt" ColumnName="agentfbamt" />
+          <ScalarProperty Name="agentbcper" ColumnName="agentbcper" />
+          <ScalarProperty Name="agentbcamt" ColumnName="agentbcamt" />
+          <ScalarProperty Name="agentid" ColumnName="agentid" />
+          <ScalarProperty Name="playerbcamt" ColumnName="playerbcamt" />
+          <ScalarProperty Name="betcomstat" ColumnName="betcomstat" />
+          <ScalarProperty Name="betstatus" ColumnName="betstatus" />
+          <ScalarProperty Name="ip" ColumnName="ip" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="winloseamnt" ColumnName="winloseamnt" />
+          <ScalarProperty Name="cancelstatus" ColumnName="cancelstatus" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="odds" ColumnName="odds" />
+          <ScalarProperty Name="cockid" ColumnName="cockid" />
+          <ScalarProperty Name="cocktype" ColumnName="cocktype" />
+          <ScalarProperty Name="currencytype" ColumnName="currencytype" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="multiplier" ColumnName="multiplier" />
+          <ScalarProperty Name="betslno" ColumnName="betslno" />
+          <ScalarProperty Name="accepted_withodds" ColumnName="accepted_withodds" />
+          <ScalarProperty Name="acceptedamount" ColumnName="acceptedamount" />
+          <ScalarProperty Name="matchno" ColumnName="matchno" />
+          <ScalarProperty Name="playerid" ColumnName="playerid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="View_match_createGetEndDateNull">
+      <EntityTypeMapping TypeName="s_dbModel.View_match_createGetEndDateNull">
+        <MappingFragment StoreEntitySet="View_match_createGetEndDateNull">
+          <ScalarProperty Name="create_date" ColumnName="create_date" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
