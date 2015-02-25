@@ -5,6 +5,10 @@
         UnConfirmed=0,
         Confirmed,
         ClosingSoon,
-        Closed
+        StopBet,
+        MatchStarted,
+        MatchEnd,
+        Cancel,
+        MatchNotFound
     }
 }

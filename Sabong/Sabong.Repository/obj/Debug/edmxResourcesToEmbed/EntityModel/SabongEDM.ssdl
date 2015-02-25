@@ -73,7 +73,7 @@
     <Property Name="slno" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="subject" Type="text" Nullable="false" />
     <Property Name="date" Type="date" Nullable="false" />
-    <Property Name="time" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="time" Type="text" Nullable="false" />
   </EntityType>
   <EntityType Name="arena">
     <Key>
@@ -85,6 +85,16 @@
     <Property Name="order" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="bidpoints">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="agent_id" Type="int" Nullable="false" />
+    <Property Name="bidpoint" Type="double" Nullable="false" />
+    <Property Name="updated_bidpoint" Type="double" Nullable="false" />
+    <Property Name="time" Type="timestamp" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="bidpoints_backup">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -206,6 +216,7 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="odds" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ftd" Type="varchar" MaxLength="10" Nullable="false" />
   </EntityType>
   <EntityType Name="fight_assign">
     <Key>
@@ -230,6 +241,7 @@
     <Property Name="matchstarttime" Type="int" Nullable="false" />
     <Property Name="entry_date" Type="date" Nullable="false" />
     <Property Name="winner_cockid" Type="int" Nullable="false" />
+    <Property Name="winner" Type="varchar" MaxLength="6" Nullable="false" />
     <Property Name="status" Type="int" Nullable="false" />
     <Property Name="knockout" Type="int" Nullable="false" />
     <Property Name="block" Type="int" Nullable="false" />
@@ -535,6 +547,67 @@ warning 6002: The table/view 'def.s_db.playerbetlimnit_nouse' does not have a pr
     <Property Name="win_comm" Type="float" Nullable="false" />
     <Property Name="date" Type="timestamp" Precision="0" Nullable="false" />
   </EntityType>
+  <EntityType Name="t2">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="playerid" Type="int" Nullable="false" />
+    <Property Name="matchno" Type="int" Nullable="false" />
+    <Property Name="acceptedamount" Type="float" Nullable="false" />
+    <Property Name="accepted_withodds" Type="float" Nullable="false" />
+    <Property Name="betslno" Type="int" Nullable="false" />
+    <Property Name="multiplier" Type="float" Nullable="false" />
+    <Property Name="type" Type="varchar" MaxLength="50" />
+    <Property Name="currencytype" Type="int" Nullable="false" />
+    <Property Name="cocktype" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="cockid" Type="int" Nullable="false" />
+    <Property Name="odds" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+    <Property Name="cancelstatus" Type="int" Nullable="false" />
+    <Property Name="winloseamnt" Type="double" Nullable="false" />
+    <Property Name="time" Type="timestamp" Precision="0" Nullable="false" />
+    <Property Name="ip" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="betstatus" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="betcomstat" Type="bool" Nullable="false" />
+    <Property Name="playerbcamt" Type="float" Nullable="false" />
+    <Property Name="agentid" Type="int" Nullable="false" />
+    <Property Name="agentbcamt" Type="float" Nullable="false" />
+    <Property Name="agentbcper" Type="float" Nullable="false" />
+    <Property Name="agentfbamt" Type="float" Nullable="false" />
+    <Property Name="agentfbper" Type="float" Nullable="false" />
+    <Property Name="masterid" Type="int" Nullable="false" />
+    <Property Name="masterbcamt" Type="float" Nullable="false" />
+    <Property Name="masterbcper" Type="float" Nullable="false" />
+    <Property Name="masterfbamt" Type="float" Nullable="false" />
+    <Property Name="masterfbper" Type="float" Nullable="false" />
+    <Property Name="srmasterid" Type="int" Nullable="false" />
+    <Property Name="srmasterbcamt" Type="float" Nullable="false" />
+    <Property Name="srmasterbcper" Type="float" Nullable="false" />
+    <Property Name="srmasterfbamt" Type="float" Nullable="false" />
+    <Property Name="srmasterfbper" Type="float" Nullable="false" />
+    <Property Name="houseid" Type="int" Nullable="false" />
+    <Property Name="housebcamt" Type="float" Nullable="false" />
+    <Property Name="housebcper" Type="float" Nullable="false" />
+    <Property Name="housefbamt" Type="float" Nullable="false" />
+    <Property Name="housefbper" Type="float" Nullable="false" />
+    <Property Name="adminbcamt" Type="float" Nullable="false" />
+    <Property Name="adminbcper" Type="float" Nullable="false" />
+    <Property Name="adminfbamt" Type="float" Nullable="false" />
+    <Property Name="adminfbper" Type="float" Nullable="false" />
+    <Property Name="delflag" Type="int" Nullable="false" />
+    <Property Name="agentbetcomm" Type="float" Nullable="false" />
+    <Property Name="agentfb" Type="float" Nullable="false" />
+    <Property Name="masterbetcomm" Type="float" Nullable="false" />
+    <Property Name="masterfb" Type="float" Nullable="false" />
+    <Property Name="srmasterbetcomm" Type="float" Nullable="false" />
+    <Property Name="srmasterfb" Type="float" Nullable="false" />
+    <Property Name="housebetcomm" Type="float" Nullable="false" />
+    <Property Name="housefb" Type="float" Nullable="false" />
+    <Property Name="adminbetcomm" Type="float" Nullable="false" />
+    <Property Name="adminfb" Type="float" Nullable="false" />
+    <Property Name="cb" Type="double" Nullable="false" />
+  </EntityType>
   <EntityType Name="test">
     <Key>
       <PropertyRef Name="idd" />
@@ -729,6 +802,7 @@ warning 6002: The table/view 'def.s_db.view_cocktype' does not have a primary ke
       <PropertyRef Name="cancelmatch" />
       <PropertyRef Name="arena" />
       <PropertyRef Name="winner_cockid" />
+      <PropertyRef Name="winner" />
       <PropertyRef Name="match_order" />
     </Key>
     <Property Name="cock_id" Type="int" Nullable="false" />
@@ -745,6 +819,7 @@ warning 6002: The table/view 'def.s_db.view_cocktype' does not have a primary ke
     <Property Name="cancelmatch" Type="int" Nullable="false" />
     <Property Name="arena" Type="int" Nullable="false" />
     <Property Name="winner_cockid" Type="int" Nullable="false" />
+    <Property Name="winner" Type="varchar" MaxLength="6" Nullable="false" />
     <Property Name="match_order" Type="int" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
@@ -792,6 +867,14 @@ warning 6002: The table/view 'def.s_db.view_fullcomm' does not have a primary ke
     <Property Name="wincomm" Type="varchar" MaxLength="1" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
+warning 6002: The table/view 'def.s_db.View_match_createGetEndDateNull' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="View_match_createGetEndDateNull">
+    <Key>
+      <PropertyRef Name="create_date" />
+    </Key>
+    <Property Name="create_date" Type="date" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
 warning 6002: The table/view 'def.s_db.view_matchdetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="view_matchdetail">
     <Key>
@@ -807,6 +890,7 @@ warning 6002: The table/view 'def.s_db.view_matchdetail' does not have a primary
       <PropertyRef Name="cancelmatch" />
       <PropertyRef Name="arena" />
       <PropertyRef Name="winner_cockid" />
+      <PropertyRef Name="winner" />
       <PropertyRef Name="match_order" />
       <PropertyRef Name="cbid" />
       <PropertyRef Name="abid" />
@@ -823,6 +907,7 @@ warning 6002: The table/view 'def.s_db.view_matchdetail' does not have a primary
     <Property Name="cancelmatch" Type="int" Nullable="false" />
     <Property Name="arena" Type="int" Nullable="false" />
     <Property Name="winner_cockid" Type="int" Nullable="false" />
+    <Property Name="winner" Type="varchar" MaxLength="6" Nullable="false" />
     <Property Name="match_order" Type="int" Nullable="false" />
     <Property Name="cbid" Type="int" Nullable="false" />
     <Property Name="abid" Type="int" Nullable="false" />
@@ -834,6 +919,7 @@ warning 6002: The table/view 'def.s_db.view_matchdetail' does not have a primary
     <Property Name="1odds" Type="double" />
     <Property Name="2odds" Type="double" />
     <Property Name="drawwodds" Type="varchar" MaxLength="21" />
+    <Property Name="ftd" Type="varchar" MaxLength="21" />
     <Property Name="abreedername" Type="varchar" MaxLength="300" />
   </EntityType>
   <!--Errors Found During Generation:
@@ -1011,6 +1097,13 @@ warning 6002: The table/view 'def.s_db.view_playeruplines' does not have a prima
     <Parameter Name="cocktype_n" Type="varchar" Mode="In" />
   </Function>
   <Function Name="reset" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" />
+  <Function Name="SP_GetBetCommisionByUserIdUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db">
+    <Parameter Name="userId" Type="int" Mode="In" />
+    <Parameter Name="FirstParentId" Type="int" Mode="In" />
+    <Parameter Name="SecondParentId" Type="int" Mode="In" />
+    <Parameter Name="ThirdParentId" Type="int" Mode="In" />
+    <Parameter Name="FourthParentId" Type="int" Mode="In" />
+  </Function>
   <Function Name="testproc_jagat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db">
     <Parameter Name="slno_n" Type="int" Mode="In" />
   </Function>
@@ -1022,6 +1115,7 @@ warning 6002: The table/view 'def.s_db.view_playeruplines' does not have a prima
     <EntitySet Name="announcement" EntityType="Self.announcement" Schema="s_db" store:Type="Tables" />
     <EntitySet Name="arena" EntityType="Self.arena" Schema="s_db" store:Type="Tables" />
     <EntitySet Name="bidpoints" EntityType="Self.bidpoints" Schema="s_db" store:Type="Tables" />
+    <EntitySet Name="bidpoints_backup" EntityType="Self.bidpoints_backup" Schema="s_db" store:Type="Tables" />
     <EntitySet Name="breeder" EntityType="Self.breeder" Schema="s_db" store:Type="Tables" />
     <EntitySet Name="cock" EntityType="Self.cock" Schema="s_db" store:Type="Tables" />
     <EntitySet Name="comm_calculation" EntityType="Self.comm_calculation" Schema="s_db" store:Type="Tables" />
@@ -1054,6 +1148,7 @@ warning 6002: The table/view 'def.s_db.view_playeruplines' does not have a prima
     <EntitySet Name="running_announcement" EntityType="Self.running_announcement" Schema="s_db" store:Type="Tables" />
     <EntitySet Name="senior_commission" EntityType="Self.senior_commission" Schema="s_db" store:Type="Tables" />
     <EntitySet Name="stake_detail" EntityType="Self.stake_detail" Schema="s_db" store:Type="Tables" />
+    <EntitySet Name="t2" EntityType="Self.t2" Schema="s_db" store:Type="Tables" />
     <EntitySet Name="test" EntityType="Self.test" Schema="s_db" store:Type="Tables" />
     <EntitySet Name="transaction" EntityType="Self.transaction" Schema="s_db" store:Type="Tables" />
     <EntitySet Name="typeof_currency" EntityType="Self.typeof_currency" Schema="s_db" store:Type="Tables" />
@@ -1123,6 +1218,7 @@ FROM `u2` AS `u2`</DefiningQuery>
 `view_cocktype`.`cancelmatch`, 
 `view_cocktype`.`arena`, 
 `view_cocktype`.`winner_cockid`, 
+`view_cocktype`.`winner`, 
 `view_cocktype`.`match_order`
 FROM `view_cocktype` AS `view_cocktype`</DefiningQuery>
     </EntitySet>
@@ -1151,6 +1247,11 @@ FROM `view_fightback` AS `view_fightback`</DefiningQuery>
 `view_fullcomm`.`wincomm`
 FROM `view_fullcomm` AS `view_fullcomm`</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="View_match_createGetEndDateNull" EntityType="Self.View_match_createGetEndDateNull" store:Type="Views" store:Schema="s_db">
+      <DefiningQuery>SELECT
+`View_match_createGetEndDateNull`.`create_date`
+FROM `View_match_createGetEndDateNull` AS `View_match_createGetEndDateNull`</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="view_matchdetail" EntityType="Self.view_matchdetail" store:Type="Views" store:Schema="s_db">
       <DefiningQuery>SELECT
 `view_matchdetail`.`cid`, 
@@ -1165,6 +1266,7 @@ FROM `view_fullcomm` AS `view_fullcomm`</DefiningQuery>
 `view_matchdetail`.`cancelmatch`, 
 `view_matchdetail`.`arena`, 
 `view_matchdetail`.`winner_cockid`, 
+`view_matchdetail`.`winner`, 
 `view_matchdetail`.`match_order`, 
 `view_matchdetail`.`cbid`, 
 `view_matchdetail`.`abid`, 
@@ -1176,6 +1278,7 @@ FROM `view_fullcomm` AS `view_fullcomm`</DefiningQuery>
 `view_matchdetail`.`1odds`, 
 `view_matchdetail`.`2odds`, 
 `view_matchdetail`.`drawwodds`, 
+`view_matchdetail`.`ftd`, 
 `view_matchdetail`.`abreedername`
 FROM `view_matchdetail` AS `view_matchdetail`</DefiningQuery>
     </EntitySet>

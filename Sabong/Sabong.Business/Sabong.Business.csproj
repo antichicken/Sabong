@@ -50,6 +50,7 @@
     <Compile Include="Interface\IPlaceBetService.cs" />
     <Compile Include="LoginServices.cs" />
     <Compile Include="BO\MemberLimitedConfig.cs" />
+    <Compile Include="MatchWorkFlow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Enum\TransactionStatus.cs" />
     <Compile Include="BO\Sessions.cs" />

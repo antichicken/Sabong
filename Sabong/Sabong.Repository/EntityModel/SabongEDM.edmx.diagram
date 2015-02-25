@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8c073484837d43aa80e7391b5135e8c9" Name="Diagram1" ZoomLevel="74">
+      <Diagram DiagramId="8c073484837d43aa80e7391b5135e8c9" Name="Diagram1" ZoomLevel="71">
         <EntityTypeShape EntityType="s_dbModel.agentbet_limit" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="s_dbModel.agentbet_limit_backup" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="s_dbModel.allbetcomm" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
@@ -14,7 +14,7 @@
         <EntityTypeShape EntityType="s_dbModel.bidpoint" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="s_dbModel.breeder" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="s_dbModel.cock" Width="1.5" PointX="9.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="s_dbModel.comm_calculation" Width="1.75" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="s_dbModel.comm_calculation" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="s_dbModel.commission" Width="1.5" PointX="5.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="s_dbModel.country_currency" Width="1.5" PointX="11.75" PointY="6.75" IsExpanded="true" />
         <EntityTypeShape EntityType="s_dbModel.creaditbalance" Width="1.5" PointX="11.75" PointY="9.75" IsExpanded="true" />
@@ -49,7 +49,7 @@
         <EntityTypeShape EntityType="s_dbModel.typeof_currency" Width="1.5" PointX="19.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="s_dbModel.user" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="s_dbModel.playerbetlimnit_nouse" Width="1.5" PointX="19.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="s_dbModel.u2" Width="1.625" PointX="19.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="s_dbModel.u2" Width="1.5" PointX="19.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="s_dbModel.view_cocktype" Width="1.5" PointX="19.75" PointY="16.75" IsExpanded="true" />
         <EntityTypeShape EntityType="s_dbModel.view_downline" Width="1.5" PointX="21.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="s_dbModel.view_fightback" Width="1.5" PointX="0.75" PointY="21.75" IsExpanded="true" />
@@ -57,9 +57,12 @@
         <EntityTypeShape EntityType="s_dbModel.view_matchdetail" Width="1.5" PointX="21.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="s_dbModel.view_odds" Width="1.5" PointX="4.75" PointY="21.75" IsExpanded="true" />
         <EntityTypeShape EntityType="s_dbModel.view_playerbetreport" Width="1.5" PointX="9.75" PointY="21.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="s_dbModel.view_playercomm" Width="2.375" PointX="21.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="s_dbModel.view_playercomm" Width="1.5" PointX="21.75" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="s_dbModel.view_playeruplines" Width="1.5" PointX="11.75" PointY="21.75" IsExpanded="true" />
         <AssociationConnector Association="s_dbModel.transaction_user_playerid" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="s_dbModel.bidpoints_backup" Width="1.5" PointX="18.375" PointY="21.75" />
+        <EntityTypeShape EntityType="s_dbModel.t2" Width="1.5" PointX="20.375" PointY="21.75" />
+        <EntityTypeShape EntityType="s_dbModel.View_match_createGetEndDateNull" Width="1.5" PointX="22.375" PointY="14.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

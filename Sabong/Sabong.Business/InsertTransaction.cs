@@ -2,27 +2,41 @@
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Sabong.Repository;
+using Sabong.Repository.EntityModel;
+using Sabong.Repository.Repo;
 
 namespace Sabong.Business
 {
-    class InsertTransaction
+    public  class InsertTransaction
     {
-
+       
     }
 
-    class MatchWorkFlow
+    public class TransationServices
     {
-        private void GetCurrentMatch()
+        public void Insert(PlaceBet placeBet)
         {
-            //if nothing ---> no match
+            //insert into `transaction` set `playerid`='$_SESSION[useridval]',`matchno`='$match_slno',`acceptedamount`='$sacceptval',`cocktype`='$cocktype1',`odds`='$wodds',`date`='$date',`cockid`='$cockid',`multiplier`='$multiplier',`ip`='$ip'
 
-            //else if return current match
+            //do validate, calculate odd..jump odd before insert ...
+            TransactionRepository transRepo=new TransactionRepository();
+            transaction trans=new transaction
+                              {
+                                  playerid = placeBet.MemberId,
+                                  matchno = placeBet.MatchId,
+                                  acceptedamount = placeBet.Stake,
+                                  cocktype = placeBet.BetType.ToString(),
+                                  odds = placeBet.OddsRate.ToString(),
+                                  date = placeBet.PlaceTime,
+                                  cockid = placeBet.Cockid,
+                                  ip = placeBet.ip
+                              };
 
-            //cocktype and against type is null then dey r not set meron/wala
-// if a match slno is inserted in `match_createstart` then the match has been started on statrt time  and if the end time is not null then the match is eneded on that time
-// if cocktype is meron then cockid is meron and similarly  if d against type is meron then againstcockid is meron and other one is wala
+            trans=transRepo.GetBetComUserId(trans);
+
+            transRepo.Insert(trans);
+
         }
-        //void 
     }
-        
 }

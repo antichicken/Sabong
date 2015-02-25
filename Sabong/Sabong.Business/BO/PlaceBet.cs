@@ -8,6 +8,7 @@ namespace Sabong.Business
 {
     public class PlaceBet
     {
+        public string ip { get; set; }
         public int Id { get; set; }
 
         public int MatchId { get; set; }
@@ -20,13 +21,16 @@ namespace Sabong.Business
 
         public double OddsRate { get; set; }
 
-        public double Stake { get; set; }  // số tiền cược
+        public float Stake { get; set; }  // số tiền cược
 
         public double MaxPayout { get; set; } // số tiền ăn tối đa
 
         public DateTime PlaceTime { get; set; }
 
-        public string PlaceRemark { get; set; }  // Description
+        public string PlaceRemark { get; set; }
+        public int Cockid { get; set; }
+
+// Description
 
     
     }
