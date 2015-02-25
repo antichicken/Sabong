@@ -9,7 +9,6 @@ G:\Code\Sabong\Sabong\Sabong.Test\bin\Debug\EntityFramework.dll
 G:\Code\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Repository.pdb
 G:\Code\Sabong\Sabong\Sabong.Test\bin\Debug\EntityFramework.xml
 G:\Code\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Test.dll.config
-C:\Work\Sabong\Sabong\Sabong.Test\obj\Debug\Sabong.Test.csprojResolveAssemblyReference.cache
 C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Test.dll.config
 C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Test.dll
 C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Test.pdb
@@ -19,5 +18,6 @@ C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\EntityFramework.dll
 C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Repository.pdb
 C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\nunit.framework.xml
 C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\EntityFramework.xml
+C:\Work\Sabong\Sabong\Sabong.Test\obj\Debug\Sabong.Test.csprojResolveAssemblyReference.cache
 C:\Work\Sabong\Sabong\Sabong.Test\obj\Debug\Sabong.Test.dll
 C:\Work\Sabong\Sabong\Sabong.Test\obj\Debug\Sabong.Test.pdb

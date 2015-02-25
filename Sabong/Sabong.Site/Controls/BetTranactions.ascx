@@ -2,7 +2,7 @@
 <div class="betsaccepted">
     <div class="betsaccepted-title">BETS ACCEPTED <span class="betsaccepted-close">View Transaction History</span></div>
     <div class="betsaccepted-content">
-        <table cellspacing="0" cellpadding="0">
+        <table cellspacing="0" cellpadding="0" id="accepted_bet">
             <tbody>
                 <tr class="betsaccepted-th">
                     <th>Match</th>
@@ -10,13 +10,13 @@
                     <th></th>
                     <th>Odds</th>
                 </tr>
-                <tr class="betsaccepted-td">
+                <tr class="betsaccepted-td" id="a_3">
                     <td>16</td>
                     <td>COCK1</td>
                     <td>0.00</td>
                     <td>-0.79</td>
                 </tr>
-                <tr class="betsaccepted-td">
+                <tr class="betsaccepted-td" id="a_4">
                     <td>16</td>
                     <td>COCK1</td>
                     <td>0.00</td>

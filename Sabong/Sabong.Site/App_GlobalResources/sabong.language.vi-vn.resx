@@ -117,7 +117,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="XXX" xml:space="preserve">
-    <value>Det</value>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="CreditBalance" xml:space="preserve">
+    <value>Credit / Balance</value>
+  </data>
+  <data name="DailyWinLoss" xml:space="preserve">
+    <value>Daily Win Loss Analysis</value>
+  </data>
+  <data name="Flag" xml:space="preserve">
+    <value>/images/vi.jpg</value>
+  </data>
+  <data name="LOGOUT" xml:space="preserve">
+    <value>LOGOUT</value>
+  </data>
+  <data name="MatchHistory" xml:space="preserve">
+    <value>Lịch Sử</value>
+  </data>
+  <data name="MatchWinLoss" xml:space="preserve">
+    <value>Match Win Loss Analysis</value>
+  </data>
+  <data name="ProfitLoss" xml:space="preserve">
+    <value>Profit &amp; Loss</value>
+  </data>
+  <data name="Schedule" xml:space="preserve">
+    <value>Schedule</value>
+  </data>
+  <data name="WinLossByBetType" xml:space="preserve">
+    <value>Win/Loss By Bet Type</value>
   </data>
 </root>

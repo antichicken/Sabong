@@ -74,8 +74,8 @@
                 </tbody>
             </table>
         </div>
-        <div class="bk-content-wrap">
-            <table border="1" id="rightChart" style="float: left; border-collapse: collapse; margin-left: 10px; width: 320px">
+        <div class="bk-content-wrap" style="margin-left: 10px;width: 319px">
+            <table border="1" id="rightChart" style="float: left; border-collapse: collapse; width: 320px">
                 <tbody>
                     <tr>
                         <td id="r_0_0"></td>

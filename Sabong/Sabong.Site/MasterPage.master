@@ -1,4 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+<%@ Import Namespace="System.Globalization" %>
 
 <!DOCTYPE html>
 
@@ -6,29 +7,67 @@
 <head runat="server">
     <title>S1288.net</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css"/>
-    <script src="/Scripts/jquery-1.9.1.min.js"></script>
-    <script src="/Scripts/drawbacaratchart.js"></script>
+    <link href="/Scripts/jquery-ui/jquery-ui.css" rel="stylesheet" />
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
+        <div id="page-dialog" title="...">
+          <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+        </div>
     <div class="wapper">
         <div class="topmenu">
             <ul>
                 <li class="user-menu">
                 <img src="/images/user_icon.png" />
-                <span class="userid">ZG01020101</span><br /><span class="logout"><a href="#"><asp:Literal ID="Literal7" runat="server" Text="<%$Resources:sabong.language, LOGOUT%>" EnableViewState="False"></asp:Literal></a></span></li>
+                <span class="userid"><%=SessionInfo.User.name %></span><br /><span class="logout"><a href="#"><asp:Literal ID="Literal7" runat="server" Text="<%$Resources:sabong.language, LOGOUT%>" EnableViewState="False"></asp:Literal></a></span></li>
                 <li><asp:Literal ID="Literal8" runat="server" Text="<%$Resources:sabong.language, CreditBalance%>" EnableViewState="False"></asp:Literal>: <strong>SGD $ 1,890.25</strong></li>
                 <li><asp:Literal ID="Literal9" runat="server" Text="<%$Resources:sabong.language, ProfitLoss%>" EnableViewState="False"></asp:Literal>: <strong>SGD $ 1,890.25</strong></li>
-                <li>Thu, Jan 22, 2015, 18:56:29</li>
+                <li><%=DateTime.Now.ToString("MMM dd, yyyy UTCzz",new CultureInfo("en-us")) %> <span id="clockDisplay"></span>
+                    <script type="text/javascript">
+                        function renderTime() {
+                            var currentTime = new Date();
+                            var localTime = currentTime.getTime();
+                            var localOffset = currentTime.getTimezoneOffset() * 60000;
+                            var offset = 8;
+                            var utc = localTime + localOffset;
+                            var bombay = utc + (3600000 * offset);
+                            var currentTime = new Date(bombay);
+                            var diem = "AM ";
+                            var h = currentTime.getHours();
+                            var m = currentTime.getMinutes();
+                            var s = currentTime.getSeconds();
+                            setTimeout('renderTime()', 1000);
+                            if (h == 0) {
+                                h = 12;
+                            } else if (h > 12) {
+                                h = h - 12;
+                                diem = "PM";
+                            }
+                            if (h < 10) {
+                                h = "0" + h;
+                            }
+                            if (m < 10) {
+                                m = "0" + m;
+                            }
+                            if (s < 10) {
+                                s = "0" + s;
+                            }
+                            var myClock = document.getElementById('clockDisplay');
+                            myClock.textContent = h + ":" + m + ":" + s + " " + diem;
+                            myClock.innerText = h + ":" + m + ":" + s + " " + diem;
+                        }
+                        renderTime();
+                    </script>
+                </li>
             </ul>
             <div class="multilanguage">
             <a href="#" class="flag"> <asp:Image ID="Image1" runat="server" ImageUrl="<%$Resources:sabong.language, Flag%>" EnableViewState="False"/></a>
-            <select>
-              <option value="en">English</option>
-              <option value="vi">Vietnam</option>
-            </select>
+                <asp:DropDownList ID="ddlLang" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlLang_SelectedIndexChanged">
+                    <asp:ListItem Value="en-us">English</asp:ListItem>
+                    <asp:ListItem Value="vi-vn">Vietnam</asp:ListItem>
+                </asp:DropDownList>
             </div>
         </div>
         <div class="secondmenu">
@@ -60,4 +99,9 @@
     </div>
     </form>
 </body>
+    <script src="/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="/Scripts/jquery.cookie.js"></script>
+    <script src="/Scripts/drawbacaratchart.js"></script>
+    <script src="/Scripts/Site.js"></script>
+    <script src="/Scripts/jquery-ui/jquery-ui.min.js"></script>
 </html>

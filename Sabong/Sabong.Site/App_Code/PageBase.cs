@@ -12,25 +12,32 @@ public class PageBase : System.Web.UI.Page
 {
     protected override void InitializeCulture()
     {
-        //if (!string.IsNullOrEmpty(Request["lang"]))
-        //{
-
-        //    Session["lang"] = Request["lang"];
-        //}
-        //string lang = Convert.ToString(Session["lang"]);
-        //string culture = string.Empty;
-        //if (lang.ToLower().CompareTo("en") == 0 || string.IsNullOrEmpty(culture))
-        //{
-        //    culture = "en-US";
-        //}
-        //if (lang.ToLower().CompareTo("vi") == 0)
-        //{
-        //    culture = "vi-VN";
-        //}
-        //Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(culture);
-        //Thread.CurrentThread.CurrentUICulture = new CultureInfo(culture);
-        Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("vi-VN");
-        Thread.CurrentThread.CurrentUICulture = new CultureInfo("vi-VN");
+        if (Request.Cookies["user-lang"]!=null)
+        {
+            try
+            {
+                Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(Request.Cookies["user-lang"].Value);
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(Request.Cookies["user-lang"].Value);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
         base.InitializeCulture();
+    }
+
+    protected override void OnPreInit(EventArgs e)
+    {
+        base.OnPreInit(e);
+        var session = WebUtil.GetSessionInfo();
+        if (session!=null)
+        {
+            session.LastUpdate = DateTime.Now;
+        }
+        else
+        {
+            Response.Redirect("~/Login.aspx");
+        }
     }
 }
