@@ -963,6 +963,20 @@
     <EntitySet Name="bidpoints_backup" EntityType="s_dbModel.bidpoints_backup" />
     <EntitySet Name="t2" EntityType="s_dbModel.t2" />
     <EntitySet Name="View_match_createGetEndDateNull" EntityType="s_dbModel.View_match_createGetEndDateNull" />
+    <FunctionImport Name="SP_GetBetCommisionByUserId">
+      <Parameter Name="userId" Mode="In" Type="Int32" />
+      <Parameter Name="FirstParentId" Mode="In" Type="Int32" />
+      <Parameter Name="SecondParentId" Mode="In" Type="Int32" />
+      <Parameter Name="ThirdParentId" Mode="In" Type="Int32" />
+      <Parameter Name="FourthParentId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GetBetCommisionByUserIdUpdate">
+      <Parameter Name="userId" Mode="In" Type="Int32" />
+      <Parameter Name="FirstParentId" Mode="In" Type="Int32" />
+      <Parameter Name="SecondParentId" Mode="In" Type="Int32" />
+      <Parameter Name="ThirdParentId" Mode="In" Type="Int32" />
+      <Parameter Name="FourthParentId" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="bidpoints_backup">
     <Key>

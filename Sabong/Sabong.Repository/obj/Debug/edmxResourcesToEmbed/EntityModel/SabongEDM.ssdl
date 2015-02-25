@@ -1097,6 +1097,13 @@ warning 6002: The table/view 'def.s_db.view_playeruplines' does not have a prima
     <Parameter Name="cocktype_n" Type="varchar" Mode="In" />
   </Function>
   <Function Name="reset" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" />
+  <Function Name="SP_GetBetCommisionByUserIdUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db">
+    <Parameter Name="userId" Type="int" Mode="In" />
+    <Parameter Name="FirstParentId" Type="int" Mode="In" />
+    <Parameter Name="SecondParentId" Type="int" Mode="In" />
+    <Parameter Name="ThirdParentId" Type="int" Mode="In" />
+    <Parameter Name="FourthParentId" Type="int" Mode="In" />
+  </Function>
   <Function Name="testproc_jagat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db">
     <Parameter Name="slno_n" Type="int" Mode="In" />
   </Function>

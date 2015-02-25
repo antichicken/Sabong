@@ -91,8 +91,9 @@ namespace Sabong.Business
            
             string meronWalaConfirmedMessage;
             var viewMatchDetail=_match.GetCurrentMatch(out meronWalaConfirmedMessage);
-            
-           
+            var matchStatus = GetMatchStatus(viewMatchDetail);
+
+
         }
         //void 
     }

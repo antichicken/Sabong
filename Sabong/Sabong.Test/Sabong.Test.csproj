@@ -46,6 +46,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Sabong.Business\Sabong.Business.csproj">
+      <Project>{9e6e6945-3466-41e3-97e0-a6699df91ac8}</Project>
+      <Name>Sabong.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sabong.Repository\Sabong.Repository.csproj">
       <Project>{66e57bb2-4b49-4ac3-9229-315e974e38e5}</Project>
       <Name>Sabong.Repository</Name>

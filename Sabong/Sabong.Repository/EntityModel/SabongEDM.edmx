@@ -1102,6 +1102,13 @@ warning 6002: The table/view 'def.s_db.view_playeruplines' does not have a prima
           <Parameter Name="cocktype_n" Type="varchar" Mode="In" />
         </Function>
         <Function Name="reset" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" />
+        <Function Name="SP_GetBetCommisionByUserIdUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db">
+          <Parameter Name="userId" Type="int" Mode="In" />
+          <Parameter Name="FirstParentId" Type="int" Mode="In" />
+          <Parameter Name="SecondParentId" Type="int" Mode="In" />
+          <Parameter Name="ThirdParentId" Type="int" Mode="In" />
+          <Parameter Name="FourthParentId" Type="int" Mode="In" />
+        </Function>
         <Function Name="testproc_jagat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db">
           <Parameter Name="slno_n" Type="int" Mode="In" />
         </Function>
@@ -2289,6 +2296,20 @@ FROM `view_playeruplines` AS `view_playeruplines`</DefiningQuery>
           <EntitySet Name="bidpoints_backup" EntityType="s_dbModel.bidpoints_backup" />
           <EntitySet Name="t2" EntityType="s_dbModel.t2" />
           <EntitySet Name="View_match_createGetEndDateNull" EntityType="s_dbModel.View_match_createGetEndDateNull" />
+          <FunctionImport Name="SP_GetBetCommisionByUserId">
+            <Parameter Name="userId" Mode="In" Type="Int32" />
+            <Parameter Name="FirstParentId" Mode="In" Type="Int32" />
+            <Parameter Name="SecondParentId" Mode="In" Type="Int32" />
+            <Parameter Name="ThirdParentId" Mode="In" Type="Int32" />
+            <Parameter Name="FourthParentId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GetBetCommisionByUserIdUpdate">
+            <Parameter Name="userId" Mode="In" Type="Int32" />
+            <Parameter Name="FirstParentId" Mode="In" Type="Int32" />
+            <Parameter Name="SecondParentId" Mode="In" Type="Int32" />
+            <Parameter Name="ThirdParentId" Mode="In" Type="Int32" />
+            <Parameter Name="FourthParentId" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="bidpoints_backup">
           <Key>
@@ -3298,6 +3319,7 @@ FROM `view_playeruplines` AS `view_playeruplines`</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_GetBetCommisionByUserIdUpdate" FunctionName="s_dbModel.Store.SP_GetBetCommisionByUserIdUpdate" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

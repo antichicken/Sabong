@@ -136,12 +136,18 @@ namespace Sabong.Repository.Repo
 
         //$query=mysql_query("select case when winner_cockid=-1 then 'DRAW' else case when cock_id=winner_cockid then cock_type else  against_type end end as winner  from fight_assign where `date`='$date' and cancelmatch='0' and winner_cockid !=0 order by slno");
 
-        public IEnumerable GetFightAssignsByDate(string date)
+        public IEnumerable GetFightAssignsByDate()
         {
             using (s_dbEntities context = new s_dbEntities())
             {
+                var dateStart = context.View_match_createGetEndDateNull.FirstOrDefault();
+
+                if (dateStart == null)
+                    return null;
+                string createdDate = dateStart.create_date.ToString("dd-MM-yyyy");
+
                 var result = from fightAssign in context.fight_assign
-                    where fightAssign.date == date &&
+                             where fightAssign.date == createdDate &&
                           fightAssign.cancelmatch == 0 &&
                           fightAssign.winner_cockid != 0
                     orderby fightAssign.slno

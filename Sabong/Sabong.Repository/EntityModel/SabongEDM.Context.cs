@@ -17,6 +17,10 @@ using System;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 
+using System.Data.Objects;
+using System.Data.Objects.DataClasses;
+using System.Linq;
+
 
 public partial class s_dbEntities : DbContext
 {
@@ -145,6 +149,70 @@ public partial class s_dbEntities : DbContext
     public DbSet<t2> t2 { get; set; }
 
     public DbSet<View_match_createGetEndDateNull> View_match_createGetEndDateNull { get; set; }
+
+    
+    public virtual int SP_GetBetCommisionByUserId(Nullable<int> userId, Nullable<int> firstParentId, Nullable<int> secondParentId, Nullable<int> thirdParentId, Nullable<int> fourthParentId)
+    {
+
+        var userIdParameter = userId.HasValue ?
+            new ObjectParameter("userId", userId) :
+            new ObjectParameter("userId", typeof(int));
+
+
+        var firstParentIdParameter = firstParentId.HasValue ?
+            new ObjectParameter("FirstParentId", firstParentId) :
+            new ObjectParameter("FirstParentId", typeof(int));
+
+
+        var secondParentIdParameter = secondParentId.HasValue ?
+            new ObjectParameter("SecondParentId", secondParentId) :
+            new ObjectParameter("SecondParentId", typeof(int));
+
+
+        var thirdParentIdParameter = thirdParentId.HasValue ?
+            new ObjectParameter("ThirdParentId", thirdParentId) :
+            new ObjectParameter("ThirdParentId", typeof(int));
+
+
+        var fourthParentIdParameter = fourthParentId.HasValue ?
+            new ObjectParameter("FourthParentId", fourthParentId) :
+            new ObjectParameter("FourthParentId", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_GetBetCommisionByUserId", userIdParameter, firstParentIdParameter, secondParentIdParameter, thirdParentIdParameter, fourthParentIdParameter);
+    }
+
+
+    public virtual int SP_GetBetCommisionByUserIdUpdate(Nullable<int> userId, Nullable<int> firstParentId, Nullable<int> secondParentId, Nullable<int> thirdParentId, Nullable<int> fourthParentId)
+    {
+
+        var userIdParameter = userId.HasValue ?
+            new ObjectParameter("userId", userId) :
+            new ObjectParameter("userId", typeof(int));
+
+
+        var firstParentIdParameter = firstParentId.HasValue ?
+            new ObjectParameter("FirstParentId", firstParentId) :
+            new ObjectParameter("FirstParentId", typeof(int));
+
+
+        var secondParentIdParameter = secondParentId.HasValue ?
+            new ObjectParameter("SecondParentId", secondParentId) :
+            new ObjectParameter("SecondParentId", typeof(int));
+
+
+        var thirdParentIdParameter = thirdParentId.HasValue ?
+            new ObjectParameter("ThirdParentId", thirdParentId) :
+            new ObjectParameter("ThirdParentId", typeof(int));
+
+
+        var fourthParentIdParameter = fourthParentId.HasValue ?
+            new ObjectParameter("FourthParentId", fourthParentId) :
+            new ObjectParameter("FourthParentId", typeof(int));
+
+
+        return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_GetBetCommisionByUserIdUpdate", userIdParameter, firstParentIdParameter, secondParentIdParameter, thirdParentIdParameter, fourthParentIdParameter);
+    }
 
 }
 

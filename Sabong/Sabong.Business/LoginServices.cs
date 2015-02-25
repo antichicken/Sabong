@@ -48,12 +48,12 @@ namespace Sabong.Business
                 return;
             }
 
-            if (u1.user_status == -1)
+            if (u1.user_status == 1)
             {
                 loginResult = LoginResult.Closed;
                 return;
             }
-            if(u1.user_status==1)
+            if(u1.user_status!=0)
             {
                 loginResult=LoginResult.Suspended;
                 return;

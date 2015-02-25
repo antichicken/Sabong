@@ -926,5 +926,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetBetCommisionByUserIdUpdate" FunctionName="s_dbModel.Store.SP_GetBetCommisionByUserIdUpdate" />
   </EntityContainerMapping>
 </Mapping>

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8c073484837d43aa80e7391b5135e8c9" Name="Diagram1" ZoomLevel="93">
+      <Diagram DiagramId="8c073484837d43aa80e7391b5135e8c9" Name="Diagram1" ZoomLevel="71">
         <EntityTypeShape EntityType="s_dbModel.agentbet_limit" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="s_dbModel.agentbet_limit_backup" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="s_dbModel.allbetcomm" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
