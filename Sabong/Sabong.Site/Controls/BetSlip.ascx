@@ -5,9 +5,10 @@
         <table>
             <tbody>
                 <tr>
-                    <td>COCK1 (MERON) @ -0.79</td>
+                    <td id="bet-description">COCK1 (MERON) @ -0.79</td>
                     <td>
-                        <input name=""></td>
+                        <input name="" type="text" id="input-stake">
+                    </td>
                 </tr>
                 <tr>
                     <td></td>
@@ -17,4 +18,5 @@
             </tbody>
         </table>
     </div>
+    <input type="hidden" id="betInfo" value=""/>
 </div>

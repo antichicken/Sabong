@@ -8,18 +8,29 @@
     "banker", "banker", "banker",
     "player", "draw", "draw" ];
 
-
+var bacarattable = '';
+var rightchart = '';
 $(document).ready(function() {
+    
     DrawChart(charData);
     DrawNormalChart(charData);
+    $('.bk-content-wrap').scrollLeft(4000);
 });
+
+function ResetTable() {
+    $('#bacarat').replaceWith(bacarattable);
+    $('#rightChart').replaceWith(rightchart);
+}
+
 function DrawChart(data) {
     var maxRow = 4;
     var chartRoot = '#bacarat';
     var currentCol = -1;
     var currentRow = -1;
     var jump = 0;
-    
+
+    bacarattable =$(chartRoot)[0].outerHTML;
+
     for (var i = 0; i < data.length; i++) {
         var current = data[i];
         
@@ -128,7 +139,8 @@ function DrawNormalChart(data) {
     var maxRow = 4;
     var currentCol = -1;
     var currentRow = -1;
-
+    rightchart = $(chartRoot)[0].outerHTML;
+    
     for (var i = 0; i < data.length; i++) {
         if (currentCol<0 && currentRow<0) {
             currentCol = 0;

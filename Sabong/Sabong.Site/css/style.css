@@ -239,6 +239,7 @@ body {
         height: 20px;
         padding-top: 3px;
         width: 91px;
+        cursor: pointer
     }
 
 .mix {
@@ -265,7 +266,7 @@ body {
 .betslip {
     background: none repeat scroll 0 0 #e6e6e6;
     clear: both;
-    display: block;
+    display: none;
     padding: 20px 8px;
     position: relative;
 }
@@ -287,6 +288,7 @@ body {
 .betslip-close, .betsaccepted-close {
     float: right;
     text-decoration: underline;
+    cursor: pointer
 }
 
 .betslip_content {
@@ -312,6 +314,7 @@ body {
 
 .betsaccepted {
     display: block;
+    margin-top:15px
 }
 
 .betsaccepted-title {
@@ -407,9 +410,12 @@ tr.betsaccepted-td td {
 }
 
 .bk-content-wrap {
-    width: 331px;
+    width: 329px;
     overflow-x: scroll;
     float: left;
+    border: 1px solid #2e2e2e;
+    border-top-width: 0;
+    border-bottom-width: 0;
 }
 
 .r_banker {
@@ -426,6 +432,15 @@ tr.betsaccepted-td td {
     background: url('/images/chart-icons.png');
     background-position: 5px -25px;
     background-repeat: no-repeat;
+}
+#page-dialog {
+    display: none;
+}
+.upper {
+    text-transform: uppercase
+}
+.hidden {
+    display: none;
 }
 /*.br-icon {
     display: none;

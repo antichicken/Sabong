@@ -2,7 +2,7 @@
 {
     public enum BetType
     {
-        Meron,
+        Meron=0,
         Wala,
         BDD, //1:6
         FTD,

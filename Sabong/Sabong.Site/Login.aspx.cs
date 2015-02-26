@@ -10,7 +10,7 @@ using Sabong.Repository.Repo;
 
 public partial class Login : System.Web.UI.Page
 {
-    private readonly UserRepository _userRepo = RepositoryContainer.Factory.Get<UserRepository>();
+    private readonly UserRepository _userRepo = new UserRepository();
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -30,6 +30,7 @@ public partial class Login : System.Web.UI.Page
             SessionContainer.Add(sessionInfo);
 
             WebUtil.SetCookie("sec", sessionInfo.SessionId, DateTime.Now.AddDays(7));
+            Response.Redirect("~/Default.aspx");
         }
     }
 }

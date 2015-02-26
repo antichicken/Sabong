@@ -30,7 +30,7 @@ namespace Sabong.Business
                     Session.Remove(key);
                     return null;
                 }
-                info.ReFrest();
+                //info.ReFrest();
             }
 
             return info;
@@ -100,7 +100,7 @@ namespace Sabong.Business
 
     public class SessionInfo
     {
-        private readonly UserRepository _userRepo = RepositoryContainer.Factory.Get<UserRepository>();
+        private readonly UserRepository _userRepo = new UserRepository();
         private user _user;
         public user User
         {
