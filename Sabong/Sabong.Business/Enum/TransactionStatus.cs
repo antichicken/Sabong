@@ -11,5 +11,7 @@
         MaxBetExceed,    // Vượt quá số tiền đặt cược 
         MaxPerMatchExceed,  // Vượt quá số tiền đánh của 1 trận
         MaxWinningExceed  // 1 ngày chỉ được phép thằng tối đa
+        ,
+        MeronWalaUnConfirmed
     }
 }

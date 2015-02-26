@@ -1,4 +1,5 @@
-﻿using Sabong.Repository.Repo;
+﻿using Sabong.Repository.EntityModel;
+using Sabong.Repository.Repo;
 
 namespace Sabong.Business
 {
@@ -12,9 +13,16 @@ namespace Sabong.Business
             return _user.GetCreditBalance(userId);
         }
 
-        public void GetUserLimit(int userId)
+        public double GetCashBalance(int userId)
         {
-           
+
+            return _user.GetCashBalance(userId);
+        }
+
+        public playerbet_limit GetUserLimit(int userId)
+        {
+           return
+            _user.GetPlayerbetLimit(userId);
         }
     }
     public class LoginServices

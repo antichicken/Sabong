@@ -80,7 +80,7 @@ namespace Sabong.Repository.Repo
                           select fightassign;
 
 
-                return xxx.FirstOrDefault();
+                return xxx.FirstOrDefault();//
             }
         }
 
@@ -107,17 +107,32 @@ namespace Sabong.Repository.Repo
 
                 
                var xyz= xxx.FirstOrDefault();
-                if (xyz != null)
-                {
-                    if (xyz.cock_type == null && xyz.against_type == null)
-                    {
-                        confirmCockStatus = "meron/wala un-confirmed";
-                    }
-                    else
-                    {
-                        confirmCockStatus = "meron/wala Confirmed";
-                    }
-                }
+                var retVal = new view_matchdetail();
+                //if (xyz != null)
+                //{
+
+
+                //    if (string.IsNullOrEmpty(xyz.cock_type))
+                //    {
+                        
+                //    }
+                //    else
+                //    {
+                //        if (xyz.cock_type.ToLower() == "wala")
+                //        {
+                //            retVal = xyz;
+                //            retVal.cname = xyz.agname;
+                //            retVal.cbreedername = xyz.abreedername;
+                //            retVal.cock_type = xyz.against_type;
+                //            retVal.cimage = xyz.agimage;
+                //            retVal.cid = xyz.acid;
+
+                //            retVal.acid = xyz.cid;
+
+                //        }
+                //    }
+                //}
+                
                 return xyz;
 
 

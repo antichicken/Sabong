@@ -9,6 +9,12 @@ namespace Sabong.Business
 
         public bool OddExpire { get; set; }
 
+        public bool AllowBet { get; set; }
+
+      //  public bool MinMaxExeed { get; set; }
+
+        
+
         public bool OddRateChange { get; set; }//Gia keo thay doi
 
         public double RateChange { get; set; }//Gia keo moi nhat trong DB
@@ -18,6 +24,8 @@ namespace Sabong.Business
 
         public bool IsWaitingBet { get; set; }
 
-      
+        public double RemainStake { get; set; }
+
+        public TransactionStatus TransactionStatus { get; set; }
     }
 }
