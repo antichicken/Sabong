@@ -26,7 +26,7 @@ public class BettingHandler : IHttpHandler {
             betInfo.OddsRate = double.Parse(context.Request.Params["oddrate"]);
             betInfo.PlaceRemark = string.Empty;
             betInfo.PlaceTime = DateTime.UtcNow;
-            betInfo.Stake = double.Parse(context.Request.Params["stake"]);
+            betInfo.Stake = float.Parse(context.Request.Params["stake"]);
             betInfo.BetType = (BetType) int.Parse(context.Request.Params["type"]);
             var res = service.PlaceBets(betInfo);
             context.Response.Write(JsonConvert.SerializeObject(res));

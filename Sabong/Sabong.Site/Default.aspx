@@ -16,7 +16,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderLeftColumn" runat="Server">
     <div class="lefttop upper" id="">
         <marquee behaviour="scroll" id="site-anouncement" style="width:100%;">
-            YOU ARE WATCHING PSG 3-BULLSTAG
+            <%=RunningAnnoucement %>
         </marquee>
     </div>
     <uc1:VideoPlayer ID="VideoPlayer1" runat="server" />
@@ -24,11 +24,11 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderRightColumn" runat="Server">
     <div class="righttop">
-        <span class="number" id="match-number">16</span>
-        <span class="text" id="match-des">Betting for fight 16 is closing soon</span>
+        <span class="number" id="match-number"><%=Match!=null ? Match.match_order.ToString():""%></span>
+        <span class="text" id="match-des">Betting for fight <%=Match!=null ? Match.match_order.ToString():""%> is closing soon</span>
     </div>
     <div class="matchscore">
-        <uc3:MatchInfo ID="MatchInfo1" runat="server" />
+        <uc3:MatchInfo ID="MatchInfo" runat="server" />
         <uc4:BetSlip ID="BetSlip1" runat="server" />
         <uc6:SelectedBet ID="SelectedBet1" runat="server" />
         <uc5:BetTranactions ID="BetTranactions1" runat="server" />

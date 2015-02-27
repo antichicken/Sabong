@@ -378,15 +378,13 @@ tr.betsaccepted-td td {
     border: solid 1px #ccc;
 }
 
-.banker {
-    background-color: green;
+.player {
     background: url('/images/chart-icons.png');
     background-repeat: no-repeat;
     background-position: 4px -123px;
 }
 
-.player {
-    background-color: red;
+.banker {
     background: url('/images/chart-icons.png');
     background-repeat: no-repeat;
     background-position: 4px -91px;
