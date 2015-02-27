@@ -6,7 +6,7 @@
         CockOddsBase ValidateOdd(PlaceBet memberTransaction);
     }
 
-    class PlaceBetService : IPlaceBetService
+    public class PlaceBetService : IPlaceBetService
     {
         public TransactionHandler PlaceBets(PlaceBet memberTransaction)
         {

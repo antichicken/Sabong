@@ -1,19 +1,22 @@
-﻿var charData = ["banker", "banker", "banker", "banker", "banker", "banker", "banker", "banker", "banker", "banker", "banker", "banker", "banker", "banker", "banker","draw", "draw",
-    "player", "player", "player","draw", "player", "player",
-    "banker", "banker", "banker", "banker", "banker", "banker",
-    "player", "player", "player", "player", "player", "player", "player", "player", "player", "player",
-    "banker",
-    "player", "player",
-    "banker", "banker", "banker",
-    "banker", "banker", "banker",
-    "player", "draw", "draw" ];
+﻿//var charData = ["banker", "banker", "banker", "banker", "banker", "banker", "banker", "banker", "banker", "banker", "banker", "banker", "banker", "banker", "banker","draw", "draw",
+//    "player", "player", "player","draw", "player", "player",
+//    "banker", "banker", "banker", "banker", "banker", "banker",
+//    "player", "player", "player", "player", "player", "player", "player", "player", "player", "player",
+//    "banker",
+//    "player", "player",
+//    "banker", "banker", "banker",
+//    "banker", "banker", "banker",
+//    "player", "draw", "draw" ];
 
 var bacarattable = '';
 var rightchart = '';
 $(document).ready(function() {
     
-    DrawChart(charData);
-    DrawNormalChart(charData);
+    DrawChart(charData.chartInfo);
+    DrawNormalChart(charData.chartInfo);
+    $('#banker-win').text(charData.banker);
+    $('#player-win').text(charData.player);
+    $('#win-win').text(charData.draw);
     $('.bk-content-wrap').scrollLeft(4000);
 });
 
@@ -23,7 +26,7 @@ function ResetTable() {
 }
 
 function DrawChart(data) {
-    var maxRow = 4;
+    var maxRow = 5;
     var chartRoot = '#bacarat';
     var currentCol = -1;
     var currentRow = -1;
@@ -136,7 +139,7 @@ function DrawChart(data) {
 
 function DrawNormalChart(data) {
     var chartRoot = '#rightChart';
-    var maxRow = 4;
+    var maxRow = 5;
     var currentCol = -1;
     var currentRow = -1;
     rightchart = $(chartRoot)[0].outerHTML;

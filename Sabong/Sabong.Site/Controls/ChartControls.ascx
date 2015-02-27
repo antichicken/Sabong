@@ -1,10 +1,13 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="ChartControls.ascx.cs" Inherits="Controls_ChartControls" %>
+<script type="text/javascript">
+    var charData = <%=CharInfo%>;
+</script>
 <div class="bk">
     <div class="banker-title">
         <ul>
-            <li>BANKER: <span style="color: red;">50</span></li>
-            <li>PLAYER: <span style="color: blue;">21</span></li>
-            <li>DRAW: <span style="color: #61b129;">10</span></li>
+            <li>BANKER: <span style="color: red;" id="banker-win">50</span></li>
+            <li>PLAYER: <span style="color: blue;" id="player-win">21</span></li>
+            <li>DRAW: <span style="color: #61b129;" id="win-win">10</span></li>
         </ul>
     </div>
     <div class="bk-content">
@@ -71,6 +74,18 @@
                         <td id="8_4"></td>
                         <td id="9_4"></td>
                     </tr>
+                    <tr>
+                        <td id="0_5"></td>
+                        <td id="1_5"></td>
+                        <td id="2_5"></td>
+                        <td id="3_5"></td>
+                        <td id="4_5"></td>
+                        <td id="5_5"></td>
+                        <td id="6_5"></td>
+                        <td id="7_5"></td>
+                        <td id="8_5"></td>
+                        <td id="9_5"></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -136,6 +151,18 @@
                         <td id="r_7_4"></td>
                         <td id="r_8_4"></td>
                         <td id="r_9_4"></td>
+                    </tr>
+                    <tr>
+                        <td id="r_0_5"></td>
+                        <td id="r_1_5"></td>
+                        <td id="r_2_5"></td>
+                        <td id="r_3_5"></td>
+                        <td id="r_4_5"></td>
+                        <td id="r_5_5"></td>
+                        <td id="r_6_5"></td>
+                        <td id="r_7_5"></td>
+                        <td id="r_8_5"></td>
+                        <td id="r_9_5"></td>
                     </tr>
                 </tbody>
             </table>

@@ -11,4 +11,9 @@ public partial class Controls_ChartControls : System.Web.UI.UserControl
     {
 
     }
+
+    public string CharInfo
+    {
+        get; set;
+    }
 }

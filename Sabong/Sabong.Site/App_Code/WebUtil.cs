@@ -63,6 +63,19 @@ public class WebUtil
         }
     }
 
+    public static bool IsValidCapChar(string input)
+    {
+        try
+        {
+            var sCapchar = HttpContext.Current.Session["CaptchaVerifyCode"].ToString();
+            return input == sCapchar;
+        }
+        catch (Exception)
+        {
+            return false;
+        }
+    }
+
     public static void ExprireCookie(string name)
     {
         SetCookie(name, "", DateTime.Now);

@@ -1,4 +1,36 @@
-﻿$(document).ready(function () {
+﻿$(function() {
+    $('.video-quality').click(function() {
+        url = 'rtmp://stream-edge-vn2.s128.net/live/';
+        vid = "myStream";
+        var screen = "uniform";
+        if ($(this).data('type') == 1) {
+            vid = "myStream";
+        } else if ($(this).data('type') == 2) {
+            vid = "myStream_360p";
+            screen = "none";
+        } else if ($(this).data('type') == 3) {
+            vid = "myStream_160p";
+            screen = "none";
+        } else if ($(this).data('type') == 4) {
+            vid = "myStream_90p";
+            screen = "none";
+        }
+
+        jwplayer('playerlOrdvdydtRFi').setup({
+            file: url + vid + '?wowzasessionid=v01010101',
+            width: '100%',
+            aspectratio: '16:10',
+            autostart: true, // Added auto start
+            stretching: screen,
+            primary: 'flash',
+            rtmp: {
+                bufferlength: 2
+            },
+        });
+    });
+});
+
+$(document).ready(function () {
     NotificationPoll();
     $('.betslip-close').click(function() {
         $(this).closest('.betslip').hide();

@@ -1,4 +1,5 @@
-﻿using Sabong.Repository.EntityModel;
+﻿using System.Linq;
+using Sabong.Repository.EntityModel;
 
 namespace Sabong.Repository.Repo
 {
@@ -18,6 +19,22 @@ namespace Sabong.Repository.Repo
                     retVal += announcement.announcement;
                 }
                 return retVal;
+            }
+        }
+
+        public string GetLatest()
+        {
+            using (s_dbEntities context = new s_dbEntities())
+            {
+                var result = context.running_announcement.OrderByDescending(i=>i.id);
+
+                if (result == null) return "";
+                var row = result.FirstOrDefault();
+                if (row!=null)
+                {
+                    return row.announcement;
+                }
+                return string.Empty;
             }
         }
     }

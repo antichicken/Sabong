@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using Sabong.Repository.EntityModel;
@@ -98,11 +99,11 @@ namespace Sabong.Repository.Repo
                     return null;
                 string createdDate = dateStart.create_date.ToString("dd-MM-yyyy");
                 var xxx = from fightassign in context.view_matchdetail
-                    where
-                        fightassign.winner_cockid == 0 &&
-                        fightassign.status != 1 &&
-                        fightassign.cancelmatch != 1 &&
-                        fightassign.fdate == createdDate
+                          where
+                              fightassign.winner_cockid == 0 &&
+                              fightassign.status != 1 &&
+                              fightassign.cancelmatch != 1 
+                        && fightassign.fdate == createdDate
                     select fightassign; 
 
                 
@@ -136,7 +137,7 @@ namespace Sabong.Repository.Repo
 
         //$query=mysql_query("select case when winner_cockid=-1 then 'DRAW' else case when cock_id=winner_cockid then cock_type else  against_type end end as winner  from fight_assign where `date`='$date' and cancelmatch='0' and winner_cockid !=0 order by slno");
 
-        public IEnumerable GetFightAssignsByDate()
+        public List<string> GetFightAssignsByDate()
         {
             using (s_dbEntities context = new s_dbEntities())
             {
@@ -157,7 +158,7 @@ namespace Sabong.Repository.Repo
                                
                                ChickenWin  =(fightAssign.winner_cockid ==-1)? "DRAW" :(fightAssign.cock_id==fightAssign.winner_cockid)? "BANKER":"PLAYER"
                            };
-                return result.ToList();
+                return result.Select(i=>i.ChickenWin.ToLower()).ToList();
 
 
             }

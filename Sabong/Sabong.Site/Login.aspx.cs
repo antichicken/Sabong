@@ -17,20 +17,32 @@ public partial class Login : System.Web.UI.Page
     }
     protected void btnLogin_Click(object sender, EventArgs e)
     {
-        var user = _userRepo.Login(txtUser.Text, txtPass.Text);
-        if (user!=null)
+        if (WebUtil.IsValidCapChar(vercode.Text.Trim()))
         {
-            var sessionInfo = new SessionInfo()
+            var user = _userRepo.Login(username.Text, password.Text);
+            if (user != null)
             {
-                LastUpdate = DateTime.Now,
-                SessionId = Guid.NewGuid().ToString(),
-                User = user,
-                UserId = user.slno
-            };
-            SessionContainer.Add(sessionInfo);
+                var sessionInfo = new SessionInfo()
+                {
+                    LastUpdate = DateTime.Now,
+                    SessionId = Guid.NewGuid().ToString(),
+                    User = user,
+                    UserId = user.slno
+                };
+                SessionContainer.Add(sessionInfo);
 
-            WebUtil.SetCookie("sec", sessionInfo.SessionId, DateTime.Now.AddDays(7));
-            Response.Redirect("~/Default.aspx");
+                WebUtil.SetCookie("sec", sessionInfo.SessionId, DateTime.Now.AddDays(7));
+                Response.Redirect("~/Default.aspx");
+            }
+            else
+            {
+                ltrMessage.Text = "<label for=\"username\" generated=\"false\" class=\"error\">Username or Password is not correct</label>";
+            }
         }
+        else
+        {
+            ltrMessage.Text = "<label for=\"vercode\" generated=\"false\" class=\"error\">Verification code is not correct</label>";
+        }
+
     }
 }
