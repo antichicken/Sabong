@@ -4,8 +4,8 @@
     {
         Meron=0,
         Wala,
-        Draw, //1:6
-        Draw10,
+        BDD, //1:6
+        FTD,
         Draw20
     }
 }
