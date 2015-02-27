@@ -1,12 +1,11 @@
-<<<<<<< HEAD
+﻿
 ﻿
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
-=======
-﻿using System.Linq;
->>>>>>> 36d5b1e4a24b2b48b57db564dc8b5dee9cd06430
+
+
 using Sabong.Repository.EntityModel;
 
 namespace Sabong.Repository.Repo

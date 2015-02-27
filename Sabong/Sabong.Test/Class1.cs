@@ -20,14 +20,14 @@ namespace Sabong.Test
         [Test]
         public void GetMatchStats()
         {
-            Business.MatchWorkFlow matchWorkFlow=new MatchWorkFlow();
+            Business.MatchWorkFlow matchWorkFlow = new MatchWorkFlow();
 
             matchWorkFlow.GetCurrentMatch();
         }
 
         ////1484
         /// 
-       [Test]
+        [Test]
         public void TestStoreGetComm()
         {
             Repository.Repo.UserRepository user = new UserRepository();
@@ -36,15 +36,15 @@ namespace Sabong.Test
         [Test]
         public void TextLogin()
         {
-            Repository.Repo.UserRepository user=new UserRepository();
-            var xx= user.Login("t","qq123456");
+            Repository.Repo.UserRepository user = new UserRepository();
+            var xx = user.Login("t", "qq123456");
         }
 
         [Test]
         public void TextInsert()
         {
             Repository.Repo.TransactionRepository user = new TransactionRepository();
-            Repository.EntityModel.test xxTest=new test();
+            Repository.EntityModel.test xxTest = new test();
             xxTest.nn = "Fcuk1";
             user.InsertTest(xxTest);
         }
@@ -65,7 +65,7 @@ namespace Sabong.Test
         {
             var match = new MatchRepository();
             string status = "";
-           var xxx=  match.GetCurrentMatch(out status);
+            var xxx = match.GetCurrentMatch(out status);
 
             var matchNo = xxx.match_no;
 
@@ -84,11 +84,11 @@ namespace Sabong.Test
             string status = "";
             var xxx = match.GetFightAssignsByDate();
 
-          
+
 
 
             bool matchEnd;
-           
+
 
         }
 
@@ -100,7 +100,7 @@ namespace Sabong.Test
             var test = xx.Count;
             var test1 = xx[0].subject;
             var test2 = xx[0].time;
-            
+
 
         }
 
@@ -111,7 +111,7 @@ namespace Sabong.Test
             var xx = match.GetAll();
             var test = xx;
             //var test1 = xx[0];
-          //  var test2=t
+            //  var test2=t
         }
 
         [Test]

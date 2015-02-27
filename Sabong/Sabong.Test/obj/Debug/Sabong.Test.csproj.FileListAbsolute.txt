@@ -21,26 +21,19 @@ G:\Sabong-master\Sabong\Sabong.Test\obj\Debug\Sabong.Test.dll
 G:\Sabong-master\Sabong\Sabong.Test\obj\Debug\Sabong.Test.pdb
 G:\Code\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Business.dll
 G:\Code\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Business.pdb
-<<<<<<< HEAD
-<<<<<<< HEAD
 G:\Code\Sabong\Sabong\Sabong.Test\bin\Debug\nunit.framework.xml
-=======
 C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Business.dll
 C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Business.pdb
 >>>>>>> 36003af62621b4a9405b3403b18e313c811dee19
-=======
 C:\Work\Sabong\Sabong\Sabong.Test\obj\Debug\Sabong.Test.csprojResolveAssemblyReference.cache
 C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Test.dll.config
 C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Test.dll
 C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Test.pdb
 C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\nunit.framework.dll
-C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Business.dll
 C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Repository.dll
 C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\EntityFramework.dll
-C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Business.pdb
 C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Repository.pdb
 C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\nunit.framework.xml
 C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\EntityFramework.xml
 C:\Work\Sabong\Sabong\Sabong.Test\obj\Debug\Sabong.Test.dll
 C:\Work\Sabong\Sabong\Sabong.Test\obj\Debug\Sabong.Test.pdb
->>>>>>> 36d5b1e4a24b2b48b57db564dc8b5dee9cd06430
