@@ -154,46 +154,75 @@ function GlobalNotificationHandler(data) {
     }
 }
 
-function PlaceBet() {
-    var betInfo =$.parseJSON($('#betInfo').val());
+function PlaceBet(stake) {
+    $('#place-bet').attr('disabled', 'disabled');
+    
+    var betInfo = $.parseJSON($('#betInfo').val());
+    var s = stake;
+    if (stake==undefined) {
+        s = betInfo.Stake;
+    }
     $.ajax({
-        url: '',
+        url: '/Services/BettingHandler.ashx',
         type: 'POST',
+        data: { match: betInfo.MatchId,stake:s,type:betInfo.Bettype,oddrate:betInfo.OddRate},
         success: function(res) {
-            BettingResultHandler(res);
+            BettingResultHandler($.parseJSON(res));
         }
-    });
+    }).always(function () {
+        $('#place-bet').removeAttr('disabled');
+    });;
 
     function BettingResultHandler(result) {
         if (result.Status=="MarketExpire") {
             $('#page-dialog > p').text("MarketExpire");
-            $('#page-dialog').dialog();
+            $('#page-dialog').dialog({ modal: true });
         }
         else if (result.Status=="OddValueChange") {
-            $('#page-dialog > p').text("gia keo thay doi. Gia keo moi la: "+ result.RateChange);
-            $('#page-dialog').dialog();
+            $('#page-dialog > p').text("Odd value changed. New value: "+ result.RateChange);
+            $('#page-dialog').dialog({ modal: true });
         }
         else if (result.Status=="AcceptAmountAndWaitingReBet") {
-            alert('chap nhan mot phan, phan con lai danh voi odd rate khac <br/> Da chap nhan: '+result.MoneyAccept +'. So tien con lai danh voi oddrate moi: '+result.RemainMoney+'<br/>Rate moi: '+result.RateChange);
+            $('#page-dialog > p').html('chap nhan mot phan, phan con lai danh voi odd rate khac <br/> Da chap nhan: ' + result.MoneyAccept + '. So tien con lai danh voi oddrate moi: ' + result.RemainMoney + '<br/>Rate moi: ' + result.RateChange);
+            $('#page-dialog').dialog({
+                modal: true,
+                open: function() {
+                    $(this).parent().find('.ui-dialog-buttonset button:eq(0)').focus();
+                },
+                buttons: {
+                    "Yes": function() {
+                        PlaceBet(result.RemainMoney);
+                        $(this).dialog("close");
+                    },
+                    No: function() {
+                        $(this).dialog("close");
+                    }
+                }
+            });
         }
         else if (result.Status=="WalletNotEnough") {
-            alert('khong du tien');
+            $('#page-dialog > p').text("WalletNotEnough");
+            $('#page-dialog').dialog({ modal: true });
         }
         else if (result.Status=="MaxBetExceed") {
-            alert('tien dat qua dinh muc cho phep');
-        }
-        else if (result.Status=="MaxBetExceed") {
-            alert('tien dat qua dinh muc cho phep trong ngay');
+            $('#page-dialog > p').text("MaxBetExceed");
+            $('#page-dialog').dialog({ modal: true });
         }
         else if (result.Status=="MaxPerMatchExceed") {
-            alert('tien dat qua dinh muc cho phep trong tran');
+            $('#page-dialog > p').text("MaxPerMatchExceed");
+            $('#page-dialog').dialog({ modal: true });
         }
         else if (result.Status=="MaxWinningExceed") {
-            alert('tien thang qua dinh muc cho phep trong ngay');
+            $('#page-dialog > p').text("MaxWinningExceed");
+            $('#page-dialog').dialog({ modal: true });
+        } else if (result.Status == "AcceptBet") {
+            $('#page-dialog > p').text("Bet Accepted");
+            $('#page-dialog').dialog({ modal: true });
+        } else if (result.Status == "MeronWalaUnConfirmed") {
+            $('#page-dialog > p').text("MeronWalaUnConfirmed");
+            $('#page-dialog').dialog({ modal: true });
         }
     }
-
-    
 }
 
 function GetMessageByCurrentLang(message) {

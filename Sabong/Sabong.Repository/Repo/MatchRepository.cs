@@ -93,17 +93,17 @@ namespace Sabong.Repository.Repo
             using (s_dbEntities context = new s_dbEntities())
             {
                 confirmCockStatus = "meron/wala un-confirmed";
-                var dateStart = context.View_match_createGetEndDateNull.FirstOrDefault();
+                //var dateStart = context.View_match_createGetEndDateNull.FirstOrDefault();
 
-                if (dateStart == null)
-                    return null;
-                string createdDate = dateStart.create_date.ToString("dd-MM-yyyy");
+                //if (dateStart == null)
+                //    return null;
+                //string createdDate = dateStart.create_date.ToString("dd-MM-yyyy");
                 var xxx = from fightassign in context.view_matchdetail
-                          where
-                              fightassign.winner_cockid == 0 &&
-                              fightassign.status != 1 &&
-                              fightassign.cancelmatch != 1 
-                        && fightassign.fdate == createdDate
+                        //  where
+                        //      fightassign.winner_cockid == 0 &&
+                        //      fightassign.status != 1 &&
+                        //      fightassign.cancelmatch != 1 
+                        //&& fightassign.fdate == createdDate
                     select fightassign; 
 
                 
@@ -156,12 +156,12 @@ namespace Sabong.Repository.Repo
         {
             using (s_dbEntities context = new s_dbEntities())
             {
-                var dateStart = context.View_match_createGetEndDateNull.FirstOrDefault();
+                //var dateStart = context.View_match_createGetEndDateNull.FirstOrDefault();
 
-                if (dateStart == null)
-                    return null;
-                string createdDate = dateStart.create_date.ToString("dd-MM-yyyy");
-
+                //if (dateStart == null)
+                //    return null;
+                //string createdDate = dateStart.create_date.ToString("dd-MM-yyyy");
+                string createdDate = DateTime.Now.AddDays(-1).ToString("dd-MM-yyyy");
                 var result = from fightAssign in context.fight_assign
                              where fightAssign.date == createdDate &&
                           fightAssign.cancelmatch == 0 &&

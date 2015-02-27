@@ -13,7 +13,7 @@
                 <tr>
                     <td></td>
                     <td>
-                        <button>Place Bet</button></td>
+                        <button id="place-bet" onclick="PlaceBet();return false;">Place Bet</button></td>
                 </tr>
             </tbody>
         </table>
