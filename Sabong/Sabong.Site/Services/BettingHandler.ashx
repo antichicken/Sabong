@@ -19,17 +19,41 @@ public class BettingHandler : IHttpHandler {
         {
             IPlaceBetService service = new PlaceBetService();
             var betInfo = new PlaceBet();
-            betInfo.MatchId = int.Parse(context.Request.Params["match"]);
-            betInfo.MaxPayout = 100;
             betInfo.MemberId = sessionInfo.User.slno;
-            betInfo.OddsId = long.Parse(context.Request.Params["odd"]);
+            betInfo.MatchId = int.Parse(context.Request.Params["match"]);
+            betInfo.Stake = float.Parse(context.Request.Params["stake"]);
+            betInfo.BetType = (BetType)int.Parse(context.Request.Params["type"]);
             betInfo.OddsRate = double.Parse(context.Request.Params["oddrate"]);
-            betInfo.PlaceRemark = string.Empty;
+            //betInfo.OddsId = long.Parse(context.Request.Params["odd"]);
             betInfo.PlaceTime = DateTime.UtcNow;
+<<<<<<< HEAD
             betInfo.Stake = float.Parse(context.Request.Params["stake"]);
             betInfo.BetType = (BetType) int.Parse(context.Request.Params["type"]);
+=======
+            betInfo.ip = "192.168.1.1";
+            
+>>>>>>> 36d5b1e4a24b2b48b57db564dc8b5dee9cd06430
             var res = service.PlaceBets(betInfo);
-            context.Response.Write(JsonConvert.SerializeObject(res));
+            //market expride
+            //context.Response.Write(JsonConvert.SerializeObject(new
+            //{
+            //    Status = TransactionStatus.MarketExpire.ToString()
+            //}));
+
+            //odd value change
+            //context.Response.Write(JsonConvert.SerializeObject(new
+            //{
+            //    Status = TransactionStatus.OddValueChange.ToString(),
+            //    RateChange=0.90
+            //}));
+
+            context.Response.Write(JsonConvert.SerializeObject(new
+            {
+                Status = TransactionStatus.AcceptAmountAndWaitingReBet.ToString(),
+                MoneyAccept = 2000,
+                RemainMoney=3000,
+                RateChange = 0.7
+            }));
         }
         else
         {
