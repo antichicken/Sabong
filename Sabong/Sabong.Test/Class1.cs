@@ -97,7 +97,7 @@ namespace Sabong.Test
         {
             var match = new AnnoucementRepository();
             var xx = match.GetAll();
-           var test = xx.Count;
+            var test = xx.Count;
             var test1 = xx[0].subject;
             var test2 = xx[0].time;
             

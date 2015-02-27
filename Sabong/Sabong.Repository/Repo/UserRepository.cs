@@ -15,29 +15,6 @@ namespace Sabong.Repository.Repo
         public string ChickenResult { get; set; }
     }
 
-    public class AnnoucementRepository
-    {
-        //select * from announcement WHERE (date >= DATE_SUB(CURDATE(), INTERVAL 9 DAY)) order by date DESC,slno desc
-        public List<announcement> GetAll()
-        {
-            var currData = DateTime.Now.AddDays(-9);
-            using (s_dbEntities context = new s_dbEntities())
-            {
-                context.Database.Connection.Open();
-                var result = from announcement in context.announcements
-                    where announcement.date>= currData
-                    orderby announcement.date descending 
-
-                    select announcement;
-              //  return result.ToList();
-                context.Database.Connection.Close();
-                return result.ToList();
-
-                
-
-            }
-        }
-    }
     public class TransactionRepository
     {
         //$qu1=mysql_query("select bet_commission  from commission where agentid='$resuplpt[firstparent_id]' and for_id='$resuplpt[player_id]'");
@@ -149,6 +126,21 @@ namespace Sabong.Repository.Repo
                              select t).ToList();
 
                  return query;
+
+            }
+        }
+
+        public List<transaction> GetAcceptedTransactions(int userId, int matchId)
+        {
+            // date = date.ToString("dd-MM-yyyy");
+            using (s_dbEntities context = new s_dbEntities())
+            {
+                var query = (from  f in context.transactions 
+
+                             where f.playerid == userId &&  f.matchno == matchId
+                             select f).ToList();
+
+                return query;
 
             }
         }
@@ -303,7 +295,7 @@ namespace Sabong.Repository.Repo
              using (s_dbEntities context = new s_dbEntities())
              {
 
-                 using (MD5 md5Hash = MD5.Create())
+                 using (var md5Hash = MD5.Create())
                  {
                      string hashPass = GetMd5Hash(md5Hash, password);
 

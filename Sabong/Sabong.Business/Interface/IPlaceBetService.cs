@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Text.RegularExpressions;
 using Sabong.Repository.EntityModel;
 
 namespace Sabong.Business
@@ -11,18 +12,23 @@ namespace Sabong.Business
 
     class PlaceBetService : IPlaceBetService
     {
+
         public CockOddsBase PlaceBets(PlaceBet memberTransaction)
         {
-           //Validate Odd truoc Dua vao validate odd de return Transaction Handler
-            
-            //Validate Max winning
-
-            //Not implement this version
-            //Validate xem odd change and Accept How Much to Jump
-           // TransactionHandler reTransactionHandler = new TransactionHandler();
-            var oddValidate=ValidateOdd(memberTransaction);
-
            
+
+            //Validate Max winningNot implement this version
+
+
+            //Validate Odd truoc Dua vao validate odd de return CockOddsBase
+            var oddValidate=ValidateOdd(memberTransaction);
+            //convert currency to real odd stake
+            // Tinh toan nhan bao nhieu tien va hoi se danh bao nhieu tien voi Odd moi
+            //1.Stake = max bet
+
+            //work flow for odd jump
+            RiskManagementHandler.Instance.ReceiveMoney(memberTransaction);
+            
             if (oddValidate.TransactionStatus == TransactionStatus.AcceptBet)
             {
                 TransationServices transServices = new TransationServices();
@@ -30,6 +36,7 @@ namespace Sabong.Business
 
                // reTransactionHandler.IsSuccessBet = true;
                // reTransactionHandler.ReturnMessage = "Bet Success!";
+                
             }
 
             return oddValidate;
@@ -122,7 +129,32 @@ namespace Sabong.Business
                 cockOddsBase.TransactionStatus = TransactionStatus.WalletNotEnough;
                 return cockOddsBase;
             }
+            // Check odd change
 
+            var oddDiff=RiskManagementHandler.Instance.GetCurrentOdd(memberTransaction.MatchId);
+            if (memberTransaction.BetType == BetType.Meron)
+            {
+                if ((oddDiff.C1odds - memberTransaction.OddsRate) !=0)
+                {
+                    cockOddsBase.TransactionStatus = TransactionStatus.OddValueChange;
+                    cockOddsBase.OddRateChange = true;
+                    cockOddsBase.RateChange = oddDiff.C1odds;
+                    return cockOddsBase;
+                }
+            }
+
+            if (memberTransaction.BetType == BetType.Wala)
+            {
+                if ((oddDiff.C2odds - memberTransaction.OddsRate) != 0)
+                {
+                    cockOddsBase.TransactionStatus = TransactionStatus.OddValueChange;
+                    cockOddsBase.OddRateChange = true;
+                    cockOddsBase.RateChange = oddDiff.C2odds;
+                    return cockOddsBase;
+                }
+            }
+            
+           
             cockOddsBase.TransactionStatus = TransactionStatus.AcceptBet;
 
             return cockOddsBase;

@@ -33,3 +33,4 @@ G:\Sabong-master\Sabong\Sabong.Test\obj\Debug\Sabong.Test.dll
 G:\Sabong-master\Sabong\Sabong.Test\obj\Debug\Sabong.Test.pdb
 G:\Code\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Business.dll
 G:\Code\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Business.pdb
+G:\Code\Sabong\Sabong\Sabong.Test\bin\Debug\nunit.framework.xml

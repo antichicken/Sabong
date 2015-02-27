@@ -10,34 +10,115 @@ namespace Sabong.Business
 {
     public class RiskManagement
     {
-       // int MatchId { get; set; }
-        float Spread { get; set; }
-        double BoxLimit { get; set; }
-        float RiskLevel1 { get; set; }
-        
-        float RiskLevel2 { get; set; }
-        float RiskLevel3 { get; set; }
-        float RiskLevel4 { get; set; }
-        float RiskLevel5 { get; set; }
+       public  int MatchId { get; set; }
+       public float Spread { get; set; }
+       // double BoxLimit { get; set; }
+       public float RiskLevel1 { get; set; }
 
-        float RiskBoxSizeLevel { get; set; }
-        float RiskBoxSizeLeve2 { get; set; }
-        float RiskBoxSizeLeve3 { get; set; }
-        float RiskBoxSizeLeve4 { get; set; }
-        float RiskBoxSizeLeve5 { get; set; }
+       public float RiskLevel2 { get; set; }
+       public float RiskLevel3 { get; set; }
+       public float RiskLevel4 { get; set; }
+       public float RiskLevel5 { get; set; }
+
+       public float RiskBoxSizeLeve1 { get; set; }
+       public float RiskBoxSizeLeve2 { get; set; }
+       public float RiskBoxSizeLeve3 { get; set; }
+       public float RiskBoxSizeLeve4 { get; set; }
+       public float RiskBoxSizeLeve5 { get; set; }
     }
-    public sealed class BoxReceivedMoney
+    public  class RiskManagementHandler
     {
-        private static volatile BoxReceivedMoney _instance;
+        private static volatile RiskManagementHandler _instance;
         private static readonly object SyncRoot = new Object();
 
-        private BoxReceivedMoney()
+        private RiskManagementHandler()
         {
-            boxSize = 3000;
+           
            // CurrentBoxValue = 0;
             thrholdGroupA = 0.01f;
+            InitRiskManagement();
+        }
+        
+        public void UpdateRiskManagement(RiskManagement newRiskmanagement)
+        {
+            _defaultRiskManagement = new RiskManagement
+            {
+                RiskBoxSizeLeve1 = newRiskmanagement.RiskBoxSizeLeve1,
+                RiskBoxSizeLeve2 = newRiskmanagement.RiskBoxSizeLeve2,
+                RiskBoxSizeLeve3 = newRiskmanagement.RiskBoxSizeLeve3,
+                RiskBoxSizeLeve4 = newRiskmanagement.RiskBoxSizeLeve4,
+                RiskBoxSizeLeve5 = newRiskmanagement.RiskBoxSizeLeve5,
+
+                RiskLevel1 = newRiskmanagement.RiskLevel1,
+                RiskLevel2 = newRiskmanagement.RiskLevel2,
+                RiskLevel3 = newRiskmanagement.RiskLevel3,
+                RiskLevel4 = newRiskmanagement.RiskLevel4,
+                RiskLevel5 = newRiskmanagement.RiskLevel5,
+            };
+        }
+        private RiskManagement _defaultRiskManagement;
+        void InitRiskManagement()
+        {
+           //if(dicRiskManagements.TryGetValue()) 
+            _defaultRiskManagement=new RiskManagement
+                                   {
+                                       RiskBoxSizeLeve1 = 500,
+                                       RiskBoxSizeLeve2 = 1000,
+                                       RiskBoxSizeLeve3 = 1500,
+                                       RiskBoxSizeLeve4 = 2000,
+                                       RiskBoxSizeLeve5 = 2700,
+
+                                       RiskLevel1 = 0.01f,
+                                       RiskLevel2 = 0.02f,
+                                       RiskLevel3 = 0.03f,
+                                       RiskLevel4 = 0.04f,
+                                       RiskLevel5 = 0.05f,
+                                   };
         }
 
+        static bool IsJumpOdd(RiskManagement riskData, double currentSize, double stake, out float boxSize, out float riskLevel)
+        {
+            
+
+            var cumulatively = currentSize + stake;
+            cumulatively = Math.Abs(cumulatively);
+
+            if (cumulatively >= riskData.RiskBoxSizeLeve5)
+            {
+                riskLevel = riskData.RiskBoxSizeLeve5;
+                boxSize = riskData.RiskBoxSizeLeve5;
+                return true;
+            }
+            if (cumulatively >= riskData.RiskBoxSizeLeve4)
+            {
+                riskLevel = riskData.RiskBoxSizeLeve4;
+                boxSize = riskData.RiskBoxSizeLeve4;
+                return true;
+            }
+            if (cumulatively >= riskData.RiskBoxSizeLeve3)
+            {
+                riskLevel = riskData.RiskBoxSizeLeve3;
+                boxSize = riskData.RiskBoxSizeLeve3;
+                return true;
+            }
+            if (cumulatively >= riskData.RiskBoxSizeLeve2)
+            {
+                riskLevel = riskData.RiskBoxSizeLeve2;
+                boxSize = riskData.RiskBoxSizeLeve2;
+                return true;
+            }
+            if (cumulatively >= riskData.RiskBoxSizeLeve1)
+            {
+                riskLevel = riskData.RiskBoxSizeLeve1;
+                boxSize = riskData.RiskBoxSizeLeve1;
+                return true;
+            }
+            riskLevel = riskData.RiskBoxSizeLeve1; ;
+            boxSize = riskData.RiskBoxSizeLeve1;
+            return false;
+        }
+        //MatchId,RiskManagement
+        private Dictionary<int, RiskManagement> dictRiskManagements; 
         //Home Stake
         //Away Stake
 
@@ -50,27 +131,37 @@ namespace Sabong.Business
         public Dictionary<int,double> _currentBoxValue =new Dictionary<int, double>();
 
         public Dictionary<int, oddsdiff_calc> _currentOddValue =new Dictionary<int, oddsdiff_calc>();
-
-        void InitOdd(int MatchId)
+        readonly OddRepository _oddRepo = new OddRepository();
+        void InitOdd(int matchId)
         {
             oddsdiff_calc oddDiff;
-            OddRepository oddRepo = new OddRepository();
-            if (!_currentOddValue.TryGetValue(MatchId, out oddDiff))
+            
+            if (!_currentOddValue.TryGetValue(matchId, out oddDiff))
             {
                 //Get Odd from database
-                oddDiff = oddRepo.GetOddsdiffCalcByMatchId(MatchId);
+                oddDiff = _oddRepo.GetOddsdiffCalcByMatchId(matchId);
 
-                _currentOddValue.Add(MatchId, oddDiff);
+                _currentOddValue.Add(matchId, oddDiff);
             }
         }
+        public oddsdiff_calc GetCurrentOdd(int matchId)
+        {
+            //Get Current OddDiff or Opening Odd
+            oddsdiff_calc oddDiff;
 
-
-        void JumpOddDiff(int MatchId,float thrhold,bool isMeron)
+            if (_currentOddValue.TryGetValue(matchId, out oddDiff))
+            {
+                return oddDiff;
+            }
+            return _oddRepo.GetOddsdiffCalcByMatchId(matchId);
+        }
+        
+        void JumpAndUpdateOddDiff(int matchId,float thrhold,bool isMeron)
         {
             //Get Current OddDiff or Opening Odd
             oddsdiff_calc oddDiff;
           
-            if (_currentOddValue.TryGetValue(MatchId, out oddDiff))
+            if (_currentOddValue.TryGetValue(matchId, out oddDiff))
             {
                 if (isMeron)
                 {
@@ -83,84 +174,94 @@ namespace Sabong.Business
                     
                     oddDiff.C2odds -= thrhold;//giam wala
                 }
-                _currentOddValue[MatchId] = oddDiff;
+                //update odd diff. vao dictionary
+                _currentOddValue[matchId] = oddDiff;
             }
-                
-            
-            
-           
-           
+ 
         }
-        public CockOddsBase ReceiveMoney(PlaceBet betTransaction)
+        public void ReceiveMoney(PlaceBet betTransaction)
         {
             //If bet on Meron is Plus and bet on Wala is Minus.
-            CockOddsBase retVal=new CockOddsBase();
-            double currentstake;
+        //    CockOddsBase retVal=new CockOddsBase();
+            double cumulatively;
             double remainStake;
-            if (!_currentBoxValue.TryGetValue(betTransaction.MatchId, out currentstake))
+             float riskLevel;
+                float riskboxSize;
+            double stake = 0;
+            if (betTransaction.BetType == BetType.Meron)
+            {
+                //meron thi + wala thi -
+                stake = betTransaction.Stake;
+            }
+            if (betTransaction.BetType == BetType.Wala)
+            {
+                stake = betTransaction.Stake*-1;
+            }
+
+            if (!_currentBoxValue.TryGetValue(betTransaction.MatchId, out cumulatively))
             {// chua co keo nao` Bet vao tran dau nay`
                 InitOdd(betTransaction.MatchId);
-                if (betTransaction.BetType == BetType.Meron)
-                {
-                    //CurrentBoxValue.Keys = betTransaction.MatchId;
-                    currentstake = betTransaction.Stake;
-                }
-                if (betTransaction.BetType == BetType.Wala)
-                {
-                    currentstake = -betTransaction.Stake;
-                }
-                if (Math.Abs(currentstake) >= boxSize)
+
+                
+               
+                if (IsJumpOdd(_defaultRiskManagement, 0, stake, out riskboxSize, out riskLevel))
                 {
                     // nhan 1 phan tien de = box size va alert odd change 
-                    //calculate remain stake to continue bet
-                    remainStake = boxSize - (Math.Abs((currentstake)) + betTransaction.Stake);
+                    //calculate remain stake to continue store in cumulatively
+                    cumulatively = stake;
+                    remainStake = riskboxSize - Math.Abs(cumulatively );
                     //Empty current Box
-                    retVal.RemainStake = remainStake;
-                    currentstake = 0;
+                   // retVal.RemainStake = remainStake;
+                    
 
                     //Calculate odd to Odd jump because box clear;
-                    bool isMeron = currentstake > 0;
-                    JumpOddDiff(betTransaction.MatchId,thrholdGroupA,isMeron);
+                    bool isMeron = cumulatively > 0;
+                    JumpAndUpdateOddDiff(betTransaction.MatchId,riskLevel,isMeron);
+                    cumulatively = remainStake;
+                }
+                else
+                {
+                    cumulatively = stake;
                 }
                
                 // Add gia tri cua Dictionary
-                _currentBoxValue.Add(betTransaction.MatchId, currentstake);
+                _currentBoxValue.Add(betTransaction.MatchId, cumulatively);
             }
             else
             {
-                if (betTransaction.BetType == BetType.Meron)
+                
+                if (IsJumpOdd(_defaultRiskManagement,cumulatively,stake,out riskboxSize,out riskLevel))
                 {
-                    //CurrentBoxValue.Keys = betTransaction.MatchId;
-                    currentstake += betTransaction.Stake;
-                }
-                if (betTransaction.BetType == BetType.Wala)
-                {
-                    currentstake -= betTransaction.Stake;
-                }
-                if (Math.Abs(currentstake) >= boxSize)
-                {
+                    
                     // nhan 1 phan tien de = box size va alert odd change 
                     //calculate remain stake to continue bet
-                    remainStake = boxSize - (Math.Abs((currentstake)) + betTransaction.Stake);
+                    cumulatively += stake;
+                    remainStake = riskboxSize - Math.Abs(cumulatively);
                     //Empty current Box
-                    retVal.RemainStake = remainStake;
-                    currentstake = 0;
+               //     retVal.RemainStake = remainStake;
+                    
                     //Calculate odd to Odd jump because box clear;
-                    bool isMeron = currentstake > 0;
-                    JumpOddDiff(betTransaction.MatchId, thrholdGroupA, isMeron);
+                    bool isMeron = cumulatively > 0;
+                    JumpAndUpdateOddDiff(betTransaction.MatchId, thrholdGroupA, isMeron);
+
+                    cumulatively = remainStake;
+                }
+                else
+                {
+                    cumulatively += stake;
                 }
                 //Update gia tri cua Box
-                _currentBoxValue[betTransaction.MatchId] = currentstake;
+                _currentBoxValue[betTransaction.MatchId] = cumulatively;
             }
-            return retVal;
+          //  return retVal;
 
         }
 
         public float thrholdGroupA { get; set; }
 
-        public double boxSize { get; set; }
+       
 
-        public static BoxReceivedMoney Instance
+        public static RiskManagementHandler Instance
         {
            
             get
@@ -170,7 +271,7 @@ namespace Sabong.Business
                     lock (SyncRoot)
                     {
                         if (_instance == null)
-                            _instance = new BoxReceivedMoney();
+                            _instance = new RiskManagementHandler();
                     }
                 }
 
