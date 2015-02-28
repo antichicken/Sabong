@@ -35,3 +35,5 @@ C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\nunit.framework.xml
 C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\EntityFramework.xml
 C:\Work\Sabong\Sabong\Sabong.Test\obj\Debug\Sabong.Test.dll
 C:\Work\Sabong\Sabong\Sabong.Test\obj\Debug\Sabong.Test.pdb
+C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\Newtonsoft.Json.dll
+C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\Newtonsoft.Json.xml

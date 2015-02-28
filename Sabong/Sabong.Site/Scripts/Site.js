@@ -70,7 +70,7 @@ $(document).ready(function () {
 
 var NotificationPoll = function() {
     $.ajax({
-        url: 'http://localhost:8888/?action=hear&match=' + $('#match-id').val() + '&id=9992',
+        url: 'http://localhost:8888/?action=hear&match=' + $('#match-id').val() + '&id='+$.cookie('sec'),
         timeout:60000,
         success: function (data) {
             if (data.length>0) {
@@ -78,6 +78,7 @@ var NotificationPoll = function() {
                 MatchNotificationHandler(data);
                 BetNotificationHandler(data);
                 GlobalNotificationHandler(data);
+                UserNotificationHandler(data);
             }
         }
     }).always(function () {
@@ -151,6 +152,24 @@ function GlobalNotificationHandler(data) {
         DrawChart(data.charData);
         DrawNormalChart(data.charData);
         $('.bk-content-wrap').scrollLeft(4000);
+    }
+}
+
+function UserNotificationHandler(data) {
+    if (data.type=="loginlogout") {
+        $.cookie('sec', null);
+        $('#page-dialog > p').html('Account was logged in by another');
+        $('#page-dialog').dialog({
+            modal: true,
+            open: function () {
+                $(this).parent().find('.ui-dialog-buttonset button:eq(0)').focus();
+            },
+            buttons: {
+                OK: function () {
+                    window.location = "/Login.aspx";
+                }
+            }
+        });
     }
 }
 

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using Sabong.Repository;
 using Sabong.Repository.EntityModel;
@@ -51,17 +53,33 @@ namespace Sabong.Business
 
         private static void OnOtherLogin(SessionInfo sessionInfo)
         {
-            //NotificationRepo.Push(sessionInfo.SessionId, new Notification()
-            //{
-            //    NoticType = NotificationType.Login,
-            //    Value = Newtonsoft.Json.JsonConvert.SerializeObject(new
-            //    {
-            //        type = (int)NotificationType.Login,
-            //        status = 1,
-            //        message = "Another Login Your Account. Please Login Againt"
-            //    }),
-            //    CreatedDate = DateTime.Now
-            //});
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:8888/push?x=1");
+            httpWebRequest.ContentType = "text/json";
+            httpWebRequest.Method = "POST";
+
+            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            {
+                string json = Newtonsoft.Json.JsonConvert.SerializeObject(new
+                {
+                    type = "loginlogout",
+                    user = sessionInfo.SessionId,
+                    client = sessionInfo.SessionId,
+                    message = new
+                    {
+                        vi="Tai khoan bi dang nhap boi nguoi dung khac",
+                        en="Account was logged in by another"
+                    }
+                });
+                streamWriter.Write(json);
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
+
+            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            {
+                var result = streamReader.ReadToEnd();
+            }
         }
 
         public static SessionInfo Update(string key)
