@@ -28,7 +28,8 @@ public class BettingHandler : IHttpHandler {
             betInfo.PlaceTime = DateTime.UtcNow;
             betInfo.ip = "192.168.1.1";
             
-            //var res = service.PlaceBets(betInfo);
+>>>>>>> 36d5b1e4a24b2b48b57db564dc8b5dee9cd06430
+            var res = service.PlaceBets(betInfo);
             //market expride
             //context.Response.Write(JsonConvert.SerializeObject(new
             //{

@@ -1,11 +1,16 @@
-﻿using Sabong.Repository.EntityModel;
+﻿using System.Collections.Generic;
+using Sabong.Repository.EntityModel;
 using Sabong.Repository.Repo;
 
 namespace Sabong.Business
 {
     public class MatchWorkFlow
     {
-
+        public List<transaction> GetAllAcceptedTransaction(int userId, int matchId)
+        {
+            TransactionRepository tranRepo=new TransactionRepository();
+            return tranRepo.GetAcceptedTransactions(userId, matchId);
+        }
         //set warning update `fight_assign` set `block_warning_time`='$time',`block_warning_entry_time`='$now' where `slno`='$matchno'
         //fight_assign set block='1' ---> stop bet
         // start match  --select `matchstarttime` where `matchno`='$matchno',`starttime`='$now'

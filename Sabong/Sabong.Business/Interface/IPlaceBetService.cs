@@ -15,14 +15,13 @@ namespace Sabong.Business
         {
            //Validate Odd truoc Dua vao validate odd de return Transaction Handler
             
-            //Validate Max winning
-
-            //Not implement this version
+            //Validate Max winning   //Not implement this version
             //Validate xem odd change and Accept How Much to Jump
            // TransactionHandler reTransactionHandler = new TransactionHandler();
             var oddValidate=ValidateOdd(memberTransaction);
 
-           
+           //work flow for odd jump
+            RiskManagementHandler.Instance.ReceiveMoney(memberTransaction);
             if (oddValidate.TransactionStatus == TransactionStatus.AcceptBet)
             {
                 TransationServices transServices = new TransationServices();
@@ -122,6 +121,32 @@ namespace Sabong.Business
                 cockOddsBase.TransactionStatus = TransactionStatus.WalletNotEnough;
                 return cockOddsBase;
             }
+
+            // Check odd change
+
+            var oddDiff = RiskManagementHandler.Instance.GetCurrentOdd(memberTransaction.MatchId);
+            if (memberTransaction.BetType == BetType.Meron)
+            {
+                if ((oddDiff.C1odds - memberTransaction.OddsRate) != 0)
+                {
+                    cockOddsBase.TransactionStatus = TransactionStatus.OddValueChange;
+                    cockOddsBase.OddRateChange = true;
+                    cockOddsBase.RateChange = oddDiff.C1odds;
+                    return cockOddsBase;
+                }
+            }
+
+            if (memberTransaction.BetType == BetType.Wala)
+            {
+                if ((oddDiff.C2odds - memberTransaction.OddsRate) != 0)
+                {
+                    cockOddsBase.TransactionStatus = TransactionStatus.OddValueChange;
+                    cockOddsBase.OddRateChange = true;
+                    cockOddsBase.RateChange = oddDiff.C2odds;
+                    return cockOddsBase;
+                }
+            }
+
 
             cockOddsBase.TransactionStatus = TransactionStatus.AcceptBet;
 
