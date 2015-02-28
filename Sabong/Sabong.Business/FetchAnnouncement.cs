@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Sabong.Business
 {
-    public class FetchNews
+    public class FetchAnnouncement
     {
-        private static FetchNews _instance;
-        public static FetchNews Instance
+        private static FetchAnnouncement _instance;
+        public static FetchAnnouncement Instance
         {
             get
             {
                 if (_instance==null)
                 {
-                    _instance=new FetchNews();
+                    _instance=new FetchAnnouncement();
                 }
                 return _instance;
             }

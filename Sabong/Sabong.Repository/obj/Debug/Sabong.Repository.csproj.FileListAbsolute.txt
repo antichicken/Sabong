@@ -21,6 +21,6 @@ C:\Work\Sabong\Sabong\Sabong.Repository\bin\Debug\Sabong.Repository.pdb
 C:\Work\Sabong\Sabong\Sabong.Repository\bin\Debug\EntityFramework.dll
 C:\Work\Sabong\Sabong\Sabong.Repository\bin\Debug\System.Data.dll
 C:\Work\Sabong\Sabong\Sabong.Repository\bin\Debug\EntityFramework.xml
+C:\Work\Sabong\Sabong\Sabong.Repository\obj\Debug\Sabong.Repository.csprojResolveAssemblyReference.cache
 C:\Work\Sabong\Sabong\Sabong.Repository\obj\Debug\Sabong.Repository.dll
 C:\Work\Sabong\Sabong\Sabong.Repository\obj\Debug\Sabong.Repository.pdb
-C:\Work\Sabong\Sabong\Sabong.Repository\obj\Debug\Sabong.Repository.csprojResolveAssemblyReference.cache

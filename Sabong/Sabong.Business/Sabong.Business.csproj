@@ -48,7 +48,7 @@
     <Compile Include="Enum\BetType.cs" />
     <Compile Include="BO\TransactionHandler.cs" />
     <Compile Include="Class1.cs" />
-    <Compile Include="FetchNews.cs" />
+    <Compile Include="FetchAnnouncement.cs" />
     <Compile Include="InsertTransaction.cs" />
     <Compile Include="Enum\MatchStatus.cs" />
     <Compile Include="BO\LoginResult.cs" />
