@@ -24,7 +24,16 @@ namespace Sabong.Business
             TransactionRepository transRepo=new TransactionRepository();
          //   string oddsString = placeBet.OddsRate.ToString().PadLeft(4);
           //  string oddsString1 = placeBet.OddsRate.ToString().PadRight(4);
-            string oddsString = placeBet.OddsRate.ToString().Substring(0,4);
+            string oddsString;
+            if (placeBet.BetType == BetType.Meron || placeBet.BetType == BetType.Wala)
+            {
+                oddsString = placeBet.OddsRate.ToString().Substring(0, 4);
+            }
+            else
+            {
+                oddsString = placeBet.OddsRateInString;
+            }
+            
             transaction trans=new transaction
                               {
                                   playerid = placeBet.MemberId,
