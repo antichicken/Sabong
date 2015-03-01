@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Sabong.Business;
 using Sabong.Repository.EntityModel;
 using Sabong.Repository.Repo;
 
@@ -13,12 +14,23 @@ public partial class Controls_MatchInfo : System.Web.UI.UserControl
     {
     }
 
+    private view_matchdetail _match;
     public view_matchdetail Match
     {
-        get; set;
+        get
+        {
+            return _match;
+        }
+        set
+        {
+            _match = value;
+            if (_match!=null)
+            {
+                Status = _match.GetMatchStatus();
+            }
+        }
     }
-
-    public string Status
+    public MatchStatus Status
     {
         get; set;
     }

@@ -213,10 +213,6 @@ namespace Sabong.Repository.Repo
     public class UserRepository
     {
 
-       
-
-
-
         //  $queryplpt=mysql_query("SELECT * FROM `player_pt_calc` where player_id='$_SESSION[useridval]'");
         public player_pt_calc GetPlayerPtByUserId(int userId)
         {
@@ -298,26 +294,28 @@ namespace Sabong.Repository.Repo
              }
          }
 
-         public user Login(string username,string password)
-         {
+        public user Login(string username, string password)
+        {
+            using (s_dbEntities context = new s_dbEntities())
+            {
+                using (var md5Hash = MD5.Create())
+                {
+                    string hashPass = GetMd5Hash(md5Hash, password);
 
+                    return context.users.FirstOrDefault(i => i.username == username && i.password == hashPass);
+                }
+            }
+        }
 
-             using (s_dbEntities context = new s_dbEntities())
-             {
+        public user GetUser(int id)
+        {
+            using (s_dbEntities context=new s_dbEntities())
+            {
+                return context.users.FirstOrDefault(i => i.slno == id);
+            }
+        }
 
-                 using (var md5Hash = MD5.Create())
-                 {
-                     string hashPass = GetMd5Hash(md5Hash, password);
-
-                     return context.users.FirstOrDefault(i => i.username == username && i.password==hashPass);
-                 }
-                 
-             }
-             
-           
-         }
-
-         static string GetMd5Hash(MD5 md5Hash, string input)
+        static string GetMd5Hash(MD5 md5Hash, string input)
          {
 
              // Convert the input string to a byte array and compute the hash. 

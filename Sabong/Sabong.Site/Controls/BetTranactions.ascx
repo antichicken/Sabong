@@ -10,18 +10,16 @@
                     <th></th>
                     <th>Odds</th>
                 </tr>
-                <tr class="betsaccepted-td" id="a_3">
-                    <td>16</td>
-                    <td>COCK1</td>
-                    <td>0.00</td>
-                    <td>-0.79</td>
-                </tr>
-                <tr class="betsaccepted-td" id="a_4">
-                    <td>16</td>
-                    <td>COCK1</td>
-                    <td>0.00</td>
-                    <td>-0.75</td>
-                </tr>
+                <asp:Repeater ID="rptBetList" runat="server">
+                    <ItemTemplate>
+                        <tr class="betsaccepted-td" id="a_<%#Eval("id") %>">
+                            <td><%#Eval("matchno") %></td>
+                            <td><%#Eval("cocktype") %></td>
+                            <td><%#Eval("acceptedamount") %></td>
+                            <td><%#Eval("odds") %></td>
+                        </tr>
+                    </ItemTemplate>
+                </asp:Repeater>
             </tbody>
         </table>
     </div>

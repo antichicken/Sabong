@@ -1,6 +1,7 @@
 ﻿<%@ WebHandler Language="C#" Class="BettingHandler" %>
 
 using System;
+using System.Linq;
 using System.Web;
 using Newtonsoft.Json;
 using Sabong.Business;
@@ -23,31 +24,26 @@ public class BettingHandler : IHttpHandler {
             betInfo.MatchId = int.Parse(context.Request.Params["match"]);
             betInfo.Stake = float.Parse(context.Request.Params["stake"]);
             betInfo.BetType = (BetType)int.Parse(context.Request.Params["type"]);
-            betInfo.OddsRate = double.Parse(context.Request.Params["oddrate"]);
             betInfo.OddsId = int.Parse(context.Request.Params["match"]);
             betInfo.PlaceTime = DateTime.UtcNow;
-            betInfo.ip = "192.168.1.1";
+            betInfo.ip = WebUtil.GetIPAddress();
+
+            if (betInfo.BetType == BetType.Meron || betInfo.BetType == BetType.Wala)
+                betInfo.OddsRate = double.Parse(context.Request.Params["oddrate"]);
             
-            //var res = service.PlaceBets(betInfo);
-            //market expride
-            //context.Response.Write(JsonConvert.SerializeObject(new
-            //{
-            //    Status = TransactionStatus.MarketExpire.ToString()
-            //}));
+            betInfo.OddsRateInString = context.Request.Params["oddrate"];
+            
+            var res = service.PlaceBets(betInfo);
 
-            //odd value change
-            //context.Response.Write(JsonConvert.SerializeObject(new
-            //{
-            //    Status = TransactionStatus.OddValueChange.ToString(),
-            //    RateChange=0.90
-            //}));
-
+            var wf = new MatchWorkFlow();
+            
             context.Response.Write(JsonConvert.SerializeObject(new
             {
-                Status = TransactionStatus.AcceptAmountAndWaitingReBet.ToString(),
-                MoneyAccept = 2000,
-                RemainMoney=3000,
-                RateChange = 0.7
+                Status = res.TransactionStatus.ToString(),
+                RemainMoney=res.RemainStake,
+                RateChange = res.RateChange,
+                OddRateChanged=res.OddRateChange,
+                BetList = wf.GetAllAcceptedTransaction(sessionInfo.User.slno, betInfo.MatchId).Select(i => new { i.id, i.matchno, i.cocktype, i.acceptedamount,i.odds})
             }));
         }
         else

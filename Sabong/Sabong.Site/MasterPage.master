@@ -1,5 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
 <%@ Import Namespace="System.Globalization" %>
+<%@ Import Namespace="Sabong.Business" %>
 
 <!DOCTYPE html>
 
@@ -22,8 +23,8 @@
                 <li class="user-menu">
                 <img src="/images/user_icon.png" />
                 <span class="userid"><%=SessionInfo.User.name %></span><br /><span class="logout"><a href="#"><asp:Literal ID="Literal7" runat="server" Text="<%$Resources:sabong.language, LOGOUT%>" EnableViewState="False"></asp:Literal></a></span></li>
-                <li><asp:Literal ID="Literal8" runat="server" Text="<%$Resources:sabong.language, CreditBalance%>" EnableViewState="False"></asp:Literal>: <strong>SGD $ 1,890.25</strong></li>
-                <li><asp:Literal ID="Literal9" runat="server" Text="<%$Resources:sabong.language, ProfitLoss%>" EnableViewState="False"></asp:Literal>: <strong>SGD $ 1,890.25</strong></li>
+                <li><asp:Literal ID="Literal8" runat="server" Text="<%$Resources:sabong.language, CreditBalance%>" EnableViewState="False"></asp:Literal>: <strong>SGD $ <%=SessionInfo.User.GetCreditBalance() %></strong></li>
+                <li><asp:Literal ID="Literal9" runat="server" Text="<%$Resources:sabong.language, ProfitLoss%>" EnableViewState="False"></asp:Literal>: <strong>SGD $ <%=SessionInfo.User.GetCreditBalance() %></strong></li>
                 <li><%=DateTime.Now.ToString("MMM dd, yyyy UTCzz",new CultureInfo("en-us")) %> <span id="clockDisplay"></span>
                     <script type="text/javascript">
                         function renderTime() {
