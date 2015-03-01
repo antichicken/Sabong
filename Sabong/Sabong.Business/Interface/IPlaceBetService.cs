@@ -21,12 +21,27 @@ namespace Sabong.Business
             var oddValidate=ValidateOdd(memberTransaction);
 
            //work flow for odd jump
-            RiskManagementHandler.Instance.ReceiveMoney(memberTransaction);
+            //Kiem tra xem la nhan bao nhieu tien
+            //so sanh max bet cua user va so tien stake de quyet dinh co nhan du hay nhan bao nhieu
+            //dat ra 1 so Max co dinh cho muc cuoc cua he thong de nhan bao nhieu tien.
+
+            // tinh toan risk cua he thong :cac tham so can thiet
+            //1. possible win( stake * odd)
+            //2. max bet cua user
+
+           
+
+
+
+            //Convert currency de jump odd
             if (oddValidate.TransactionStatus == TransactionStatus.AcceptBet)
             {
                 TransationServices transServices = new TransationServices();
                 transServices.Insert(memberTransaction);
 
+                //Convert currency de Jump odd
+                //Calculate PT
+                RiskManagementHandler.Instance.ReceiveMoney(memberTransaction);
                // reTransactionHandler.IsSuccessBet = true;
                // reTransactionHandler.ReturnMessage = "Bet Success!";
             }

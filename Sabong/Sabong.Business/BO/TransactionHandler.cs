@@ -38,7 +38,8 @@ namespace Sabong.Business
             thrholdGroupA = 0.01f;
             InitRiskManagement();
         }
-        
+        //moi lan Jump Odd thi log lai 1 list<matchid,box level,risk level,current odd,isMeronJump>
+        public Dictionary<int,List<OddJumpStore>> DictOddJump=new Dictionary<int, List<OddJumpStore>>(); 
         public void UpdateRiskManagement(RiskManagement newRiskmanagement)
         {
             _defaultRiskManagement = new RiskManagement
@@ -156,7 +157,7 @@ namespace Sabong.Business
             return _oddRepo.GetOddsdiffCalcByMatchId(matchId);
         }
         
-        void JumpAndUpdateOddDiff(int matchId,float thrhold,bool isMeron)
+        void JumpAndUpdateOddDiff(int matchId,float thrhold,float boxsize,bool isMeron)
         {
             //Get Current OddDiff or Opening Odd
             oddsdiff_calc oddDiff;
@@ -176,9 +177,45 @@ namespace Sabong.Business
                 }
                 //update odd diff. vao dictionary
                 _currentOddValue[matchId] = oddDiff;
+
+                //update vao db OddDiffCalc
+                Repository.Repo.OddRepository oddrepo=new OddRepository();
+                Repository.EntityModel.oddsdiff_calc oddsdiffCalc=new oddsdiff_calc();
+                oddsdiffCalc.C1odds = oddDiff.C1odds;
+                oddsdiffCalc.C2odds = oddDiff.C2odds;
+                oddsdiffCalc.match_slno = matchId;
+                oddrepo.UpdateOddDiffCalc(oddsdiffCalc);
+
+                //update vao Dictonary Log Odd Jump
+                UpdateDictOddJump(matchId, thrhold, boxsize, isMeron);
             }
  
         }
+
+        private void UpdateDictOddJump(int matchId, float thrhold, float boxsize, bool isMeron)
+        {
+            List<OddJumpStore> oddJumpStore;
+            OddJumpStore oddjump = new OddJumpStore
+                                   {
+                                       MatchId = matchId,
+                                       JumpTime = DateTime.Now,
+                                       IsMeron = isMeron,
+                                       RiskLevel = thrhold,
+                                       BoxSize = boxsize
+                                   };
+            if (!DictOddJump.TryGetValue(matchId, out oddJumpStore))
+            {
+                oddJumpStore = new List<OddJumpStore> {oddjump};
+
+                DictOddJump.Add(matchId, oddJumpStore);
+            }
+            else
+            {
+                oddJumpStore.Add(oddjump);
+                DictOddJump[matchId] = oddJumpStore;
+            }
+        }
+
         public void ReceiveMoney(PlaceBet betTransaction)
         {
             //If bet on Meron is Plus and bet on Wala is Minus.
@@ -216,7 +253,7 @@ namespace Sabong.Business
 
                     //Calculate odd to Odd jump because box clear;
                     bool isMeron = cumulatively > 0;
-                    JumpAndUpdateOddDiff(betTransaction.MatchId,riskLevel,isMeron);
+                    JumpAndUpdateOddDiff(betTransaction.MatchId,riskLevel,riskboxSize,isMeron);
                     cumulatively = remainStake;
                 }
                 else
@@ -242,7 +279,7 @@ namespace Sabong.Business
                     
                     //Calculate odd to Odd jump because box clear;
                     bool isMeron = cumulatively > 0;
-                    JumpAndUpdateOddDiff(betTransaction.MatchId, thrholdGroupA, isMeron);
+                    JumpAndUpdateOddDiff(betTransaction.MatchId, thrholdGroupA,riskboxSize, isMeron);
 
                     cumulatively = remainStake;
                 }
@@ -279,6 +316,17 @@ namespace Sabong.Business
             }
         }
     }
+
+    public class OddJumpStore
+    {
+        public DateTime JumpTime { get; set; }
+        public int MatchId { get; set; } 
+        public float BoxSize { get; set; }
+        //,risk level,current odd,isMeronJump
+        public float RiskLevel { get; set; }
+        public bool IsMeron { get; set; }
+    }
+
     public class TransactionHandler
     {
         public bool MarketExpire { get; set; }

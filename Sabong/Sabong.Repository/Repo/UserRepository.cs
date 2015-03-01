@@ -15,6 +15,16 @@ namespace Sabong.Repository.Repo
         public string ChickenResult { get; set; }
     }
 
+    public class CurrencyRepository
+    {
+        public currency GetBetComUserId(int id)
+        {
+            using (s_dbEntities context = new s_dbEntities())
+            {
+                return context.currencies.FirstOrDefault(i => i.slno == id);
+            }
+        }
+    }
     public class TransactionRepository
     {
         //$qu1=mysql_query("select bet_commission  from commission where agentid='$resuplpt[firstparent_id]' and for_id='$resuplpt[player_id]'");

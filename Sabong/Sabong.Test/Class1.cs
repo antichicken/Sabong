@@ -37,7 +37,10 @@ namespace Sabong.Test
         public void TextLogin()
         {
             Repository.Repo.UserRepository user = new UserRepository();
-            var xx = user.Login("t", "qq123456");
+            var xx = user.Login("i051111i7", "AA123456");
+
+            var playerlimit=user.GetPlayerbetLimit(xx.slno);
+            var minbet = playerlimit.minbet_draw;
         }
 
         [Test]
