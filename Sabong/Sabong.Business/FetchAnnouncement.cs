@@ -98,23 +98,26 @@ namespace Sabong.Business
                 var x = _matchRepository.GetMatchendingAnnouncement();
                 if (x != null)
                 {
-                    try
+                    if (x!=_currentMatchendingAnnouncement)
                     {
-                        NodeHelper.SendToNode(new
+                        try
                         {
-                            type = "matchend",
-                            match = x.slno,
-                            message = new
+                            NodeHelper.SendToNode(new
                             {
-                                en = x.announcement,
-                                vn = x.announcement
-                            }
-                        });
+                                type = "matchend",
+                                match = x.slno,
+                                message = new
+                                {
+                                    en = x.announcement,
+                                    vn = x.announcement
+                                }
+                            });
+                        }
+                        catch (Exception ex)
+                        {
+                        }
+                        _currentMatchendingAnnouncement = x;
                     }
-                    catch (Exception ex)
-                    {
-                    }
-                    _currentMatchendingAnnouncement = x;
                 }
             }
             catch (Exception ex)

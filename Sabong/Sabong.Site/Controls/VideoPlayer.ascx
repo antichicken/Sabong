@@ -19,7 +19,7 @@
                 aspectratio: '16:10',
                 primary: 'flash',
                 rtmp: {
-                    securetoken: "ttttttttt",
+                    securetoken: "ttttttttt", 
                     bufferlength: 2
                 },
             });

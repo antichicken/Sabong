@@ -39,9 +39,11 @@ http.createServer(function (req, response) {
                     });
                 };
                 addMessageListener(response);
-                console.log('pull(' + EventEmitter.listenerCount(messageBus, 'message')+'): '+ req.url);
+                console.log('has new request: ' + EventEmitter.listenerCount(messageBus, 'message'));
 
-            }else {
+            } else if (action == "push") {
+                OnPushMessage(req, response);
+            } else {
                 response.writeHead(200);
                 response.end();
             }
