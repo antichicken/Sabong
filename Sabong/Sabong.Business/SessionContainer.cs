@@ -32,7 +32,7 @@ namespace Sabong.Business
                     Session.Remove(key);
                     return null;
                 }
-                //info.ReFrest();
+                info.FetchNewUserInfo();
             }
 
             return info;
@@ -53,33 +53,24 @@ namespace Sabong.Business
 
         private static void OnOtherLogin(SessionInfo sessionInfo)
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:8888/push?x=1");
-            httpWebRequest.ContentType = "text/json";
-            httpWebRequest.Method = "POST";
-
-            using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+            try
             {
-                string json = Newtonsoft.Json.JsonConvert.SerializeObject(new
+                NodeHelper.SendToNode(new
                 {
                     type = "loginlogout",
                     user = sessionInfo.SessionId,
                     client = sessionInfo.SessionId,
                     message = new
                     {
-                        vi="Tai khoan bi dang nhap boi nguoi dung khac",
-                        en="Account was logged in by another"
+                        vi = "Tai khoan bi dang nhap boi nguoi dung khac",
+                        en = "Account was logged in by another"
                     }
                 });
-                streamWriter.Write(json);
-                streamWriter.Flush();
-                streamWriter.Close();
             }
-
-            var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
-            using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            catch (Exception ex)
             {
-                var result = streamReader.ReadToEnd();
             }
+            
         }
 
         public static SessionInfo Update(string key)
@@ -90,7 +81,7 @@ namespace Sabong.Business
                 tmp.LastUpdate = DateTime.Now;
                 return tmp;
             }
-            return tmp;
+            return null;
         }
 
         private static SessionInfo Exist(int userId)
@@ -125,9 +116,8 @@ namespace Sabong.Business
             get
             {
                 if (_user == null)
-                {
-                    //_user = _userRepo.Get(UserId);
-                }
+                    _user = _userRepo.GetUser(UserId);
+                
                 return _user;
             }
             set { _user = value; }
@@ -136,7 +126,7 @@ namespace Sabong.Business
         public string SessionId { get; set; }
         public DateTime LastUpdate { get; set; }
 
-        public void ReFrest()
+        public void FetchNewUserInfo()
         {
             _user = null;
         }

@@ -86,10 +86,7 @@ namespace Sabong.Business
                 return MatchStatus.StopBet;
 
             }
-
             return matchstatus;
-
-
         }
         public void GetCurrentMatch()
         {

@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+<%@ Import Namespace="Sabong.Business" %>
 
 <%@ Register Src="~/Controls/VideoPlayer.ascx" TagName="VideoPlayer" TagPrefix="uc1" %>
 
@@ -24,8 +25,11 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolderRightColumn" runat="Server">
     <div class="righttop">
+        <% if (Match!=null)
+           {%>
         <span class="number" id="match-number"><%=Match!=null ? Match.match_order.ToString():""%></span>
-        <span class="text" id="match-des">Betting for fight <%=Match!=null ? Match.match_order.ToString():""%> is closing soon</span>
+        <span class="text" id="match-des"><%=Match.GetMatchStatus()==MatchStatus.Confirmed?string.Format("Betting for fight {0} is closing soon",Match.match_no):"" %></span>
+           <%} %>   
     </div>
     <div class="matchscore">
         <uc3:MatchInfo ID="MatchInfo" runat="server" />

@@ -21,6 +21,8 @@ namespace Sabong.Business
 
         public double OddsRate { get; set; }
 
+        public string OddsRateInString { get; set; }
+
         public float Stake { get; set; }  // số tiền cược
 
         public double MaxPayout { get; set; } // số tiền ăn tối đa

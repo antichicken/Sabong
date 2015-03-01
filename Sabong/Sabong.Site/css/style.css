@@ -5,7 +5,12 @@ body {
     font-family: arial;
     color: #444;
 }
-
+@font-face {
+    font-family: "Conv_MYRIADPRO-BOLD";
+    font-style: normal;
+    font-weight: normal;
+    src: local("?"), url("/fonts/MYRIADPRO-BOLD.woff") format("woff"), url("/fonts/MYRIADPRO-BOLD.ttf") format("truetype"), url("/fonts/MYRIADPRO-BOLD.svg") format("svg");
+}
 .wapper {
     width: 1000px;
     display: block;
@@ -188,13 +193,15 @@ body {
     float: right;
 }
 
-.threecol-1, .threecol-2, .threecol-3, .threecol2-1, .threecol2-2, .threecol2-3, .threecol3-1, .threecol3-2, .threecol3-3 {
-    width: 33%;
+.threecol-1, .threecol-2, .threecol-3,.threecol2-1, .threecol2-2, .threecol2-3, .threecol2-4, .threecol3-1, .threecol3-2, .threecol3-3 {
+    width: 25%;
     float: left;
     text-align: center;
     font-weight: bold;
 }
-
+.threecol-1, .threecol-2, .threecol-3 {
+    width: 33%
+}
 .threecol-2 {
     font-size: 12px;
 }
@@ -226,7 +233,9 @@ body {
 .threecol2-2, .threecol3-2 {
     color: #61B129;
 }
-
+.threecol2-4 {
+    color: #00ff00
+}
 .threecol2-3, .threecol3-3 {
     color: blue;
 }
@@ -440,9 +449,100 @@ tr.betsaccepted-td td {
 .hidden {
     display: none;
 }
-/*.br-icon {
-    display: none;
-    background: url('/images/chart-icons.png');
-    background-repeat: no-repeat;
-    position: absolute
-}*/
+#choose-draw, #choose-ftd, #choose-meron, #choose-wala {
+    line-height: 30px;
+    display: block
+}
+.button_m {
+    background-image: linear-gradient(to bottom, #fefefe 0%, #afafaf 100%);
+    border: 1px solid #787878;
+    border-radius: 8px;
+    float: left;
+    color: #333;
+    font-family: "Conv_MYRIADPRO-BOLD";
+    font-size: 14px;
+    height: auto;
+    padding: 1px;
+    text-align: center;
+    width: 70px;cursor: pointer;
+}
+.button_w {
+    background-image: linear-gradient(to bottom, #fefefe 0%, #afafaf 100%);
+    border: 1px solid #787878;
+    border-radius: 8px;
+    float: left;
+    color: #333;
+    font-family: "Conv_MYRIADPRO-BOLD";
+    font-size: 14px;
+    height: auto;
+    padding: 1px;
+    text-align: center;
+    width: 70px;cursor: pointer;
+}
+.button2_wa {
+    background-image: linear-gradient(to bottom, #fefefe 0%, #afafaf 100%);
+    border: 1px solid #787878;
+    color: #333;
+    border-radius: 8px;
+    float: left;
+    font-family: "Conv_MYRIADPRO-BOLD";
+    font-size: 14px;
+    height: auto;
+    padding: 1px;
+    text-align: center;
+    width: 70px;
+    margin-left: 1px;cursor: pointer;
+}
+.button_d {
+    background-image: linear-gradient(to bottom, #fefefe 0%, #afafaf 100%);
+    border: 1px solid #787878;
+    border-radius: 8px;
+    color: #333;
+    float: left;
+    font-family: "Conv_MYRIADPRO-BOLD";
+    font-size: 14px;
+    height: auto;
+    padding: 1px;
+    text-align: center;
+    width: 70px;
+    margin-left: 1px;cursor: pointer;
+}
+.button_f {
+    background-image: linear-gradient(to bottom, #fefefe 0%, #afafaf 100%);
+    border: 1px solid #787878;
+    border-radius: 8px;
+    color: #333;
+    float: left;
+    font-family: "Conv_MYRIADPRO-BOLD";
+    font-size: 14px;
+    height: auto;
+    padding: 1px;
+    text-align: center;
+    width: 70px;
+    margin-left: 1px;cursor: pointer;
+}
+.button_m:hover {
+    background-image: linear-gradient(to bottom, #f23220 0%, #bd1600 100%);
+    border: 1px solid #ff0000;
+    color: #fff;
+}
+.button_w:hover {
+    background-image: linear-gradient(to bottom, #008df9 0%, #004195 100%);
+    border: 1px solid #004eb0;
+    color: #fff;
+}
+.button2_wa:hover {
+    background-image: linear-gradient(to bottom, #008df9 0%, #004195 100%);
+    border: 1px solid #004eb0;
+    color: #fff;
+}
+.button_d:hover {
+    background-image: linear-gradient(to bottom, #03f003 0%, #007800 100%);
+    border: 1px solid #2e9e02;
+    color: #fff;
+}
+.button_f:hover {
+    background-image: linear-gradient(to bottom, #144700 0%, #006b02 100%);
+    border: 1px solid #006b02;
+    color: #fff;
+}

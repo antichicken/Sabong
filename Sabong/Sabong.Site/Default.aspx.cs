@@ -16,8 +16,8 @@ public partial class _Default : PageBase
         if (!IsPostBack)
         {
             MatchInfo.Match = Match;
-            MatchInfo.Status = Status;
             ChartControls1.CharInfo = ChartInfo;
+            BetTranactions1.Match = Match;
         }
     }
 
