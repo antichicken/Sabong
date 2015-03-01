@@ -17,8 +17,6 @@ http.createServer(function (req, response) {
             
             var action = url_parts.query.action;
             if (action == "hear") {
-                
-                
                 var addMessageListener = function (res) {
                     var userId = url_parts.query.id;
                     var match = url_parts.query.match;
@@ -41,11 +39,9 @@ http.createServer(function (req, response) {
                     });
                 };
                 addMessageListener(response);
-                console.log('has new request: ' + EventEmitter.listenerCount(messageBus, 'message'));
+                console.log('pull(' + EventEmitter.listenerCount(messageBus, 'message')+'): '+ req.url);
 
-            } else if (action == "push") {
-                OnPushMessage(req, response);
-            } else {
+            }else {
                 response.writeHead(200);
                 response.end();
             }
@@ -58,7 +54,7 @@ http.createServer(function (req, response) {
                 });
                 req.on('end', function () {
                     var postData = qs.parse(body);
-                    console.log(postData);
+                    console.log("push:"+ postData);
                     messageBus.emit('message', JSON.parse(body));
                     
                     response.writeHead(200, { "Content-Type": "text/plain" });
@@ -75,7 +71,6 @@ http.createServer(function (req, response) {
         });
         
         setTimeout(function () {
-            console.log('timmer');
             response.writeHead(200, { "Content-Type": "text/plain", 'Access-Control-Allow-Origin': req.headers.origin, 'Access-Control-Allow-Methods': 'GET', 'Access-Control-Allow-Headers': 'Content-Type' });
             response.end();
         }, 60000);
@@ -87,7 +82,8 @@ http.createServer(function (req, response) {
 }).listen(8888);
 
 function WreiteResponse(req, res, data) {
-    console.log('xxx');
+    var responseText = JSON.stringify(data);
+    console.log('WreiteResponse:'+ responseText);
     res.writeHead(200, { "Content-Type": "text/plain",'Access-Control-Allow-Origin': req.headers.origin, 'Access-Control-Allow-Methods': 'GET','Access-Control-Allow-Headers': 'Content-Type'});
     res.write(JSON.stringify(data));
     res.end();
@@ -115,5 +111,5 @@ function OnPushMessage(request, response) {
     response.write("ok");
     response.end();
     
-    console.log('has new message');
+    console.log('pull: '+ request.url);
 }
