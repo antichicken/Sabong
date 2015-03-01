@@ -84,6 +84,9 @@ namespace Sabong.Test
             oddPlaceBet.Stake = 30;
             oddPlaceBet.BetType=BetType.Meron;
             oddPlaceBet.OddsRate = 0.95f;
+            oddPlaceBet.PlaceTime = DateTime.Now;
+            oddPlaceBet.ip = "192.168.1.1";
+            
 
             PlaceBet oddPlaceBetSecon = new PlaceBet();
             oddPlaceBetSecon.MatchId = matchId;
@@ -99,13 +102,17 @@ namespace Sabong.Test
             oddPlaceBetThird.BetType = BetType.Meron;
             oddPlaceBetThird.OddsRate = 0.95f;
             
-            RiskManagementHandler.Instance.ReceiveMoney(oddPlaceBet);
+            //RiskManagementHandler.Instance.ReceiveMoney(oddPlaceBet);
 
-            var x1=RiskManagementHandler.Instance.GetCurrentOdd(matchId);
-            RiskManagementHandler.Instance.ReceiveMoney(oddPlaceBetSecon);
-            var x2 = RiskManagementHandler.Instance.GetCurrentOdd(matchId);
-            RiskManagementHandler.Instance.ReceiveMoney(oddPlaceBetThird);
-            var x3 = RiskManagementHandler.Instance.GetCurrentOdd(matchId);
+            //var x1=RiskManagementHandler.Instance.GetCurrentOdd(matchId);
+            //RiskManagementHandler.Instance.ReceiveMoney(oddPlaceBetSecon);
+            //var x2 = RiskManagementHandler.Instance.GetCurrentOdd(matchId);
+            //RiskManagementHandler.Instance.ReceiveMoney(oddPlaceBetThird);
+            //var x3 = RiskManagementHandler.Instance.GetCurrentOdd(matchId);
+
+            IPlaceBetService placebet=new PlaceBetService();
+
+            placebet.PlaceBets(oddPlaceBet);
 
         }
 
