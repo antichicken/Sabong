@@ -25,10 +25,10 @@
         <span class="threecol2-3">Wala</span>
     </div>
     <div class="threecol3">
-        <div class="button_m"><span id="choose-meron"><%=Match.C1odds %></span></div>
-        <div class="button_d"><span id="choose-draw"><%=Match.drawwodds %></span></div>
-        <div class="button_f"><span id="choose-ftd"><%=Match.ftd %></span></div>
-        <div class="button2_wa"><span id="choose-wala"><%=Match.C2odds %></span></div>
+        <div class="button_m clickable"><span id="choose-meron"><%=Match.C1odds %></span></div>
+        <div class="button_d clickable"><span id="choose-draw"><%=Match.drawwodds %></span></div>
+        <div class="button_f clickable"><span id="choose-ftd"><%=Match.ftd %></span></div>
+        <div class="button2_wa clickable"><span id="choose-wala"><%=Match.C2odds %></span></div>
     </div>
     <div class="mix" id="match-confirm"><%=Status==MatchStatus.Confirmed? "Meron / Wala confirmed" : "Meron / Wala unconfirm"%></div>
 </div>
