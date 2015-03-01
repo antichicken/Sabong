@@ -18,6 +18,7 @@ G:\Sabong-master\Sabong\Sabong.Business\obj\Debug\Sabong.Business.dll
 G:\Sabong-master\Sabong\Sabong.Business\obj\Debug\Sabong.Business.pdb
 C:\Work\Sabong\Sabong\Sabong.Business\bin\Debug\Sabong.Business.dll
 C:\Work\Sabong\Sabong\Sabong.Business\bin\Debug\Sabong.Business.pdb
+C:\Work\Sabong\Sabong\Sabong.Business\bin\Debug\Newtonsoft.Json.dll
 C:\Work\Sabong\Sabong\Sabong.Business\bin\Debug\Sabong.Repository.dll
 C:\Work\Sabong\Sabong\Sabong.Business\bin\Debug\EntityFramework.dll
 C:\Work\Sabong\Sabong\Sabong.Business\bin\Debug\Sabong.Repository.pdb
@@ -25,3 +26,4 @@ C:\Work\Sabong\Sabong\Sabong.Business\bin\Debug\EntityFramework.xml
 C:\Work\Sabong\Sabong\Sabong.Business\obj\Debug\Sabong.Business.csprojResolveAssemblyReference.cache
 C:\Work\Sabong\Sabong\Sabong.Business\obj\Debug\Sabong.Business.dll
 C:\Work\Sabong\Sabong\Sabong.Business\obj\Debug\Sabong.Business.pdb
+G:\Code\Sabong\Sabong\Sabong.Business\bin\Debug\Newtonsoft.Json.dll

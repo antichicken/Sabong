@@ -24,16 +24,11 @@ public class BettingHandler : IHttpHandler {
             betInfo.Stake = float.Parse(context.Request.Params["stake"]);
             betInfo.BetType = (BetType)int.Parse(context.Request.Params["type"]);
             betInfo.OddsRate = double.Parse(context.Request.Params["oddrate"]);
-            //betInfo.OddsId = long.Parse(context.Request.Params["odd"]);
+            betInfo.OddsId = int.Parse(context.Request.Params["match"]);
             betInfo.PlaceTime = DateTime.UtcNow;
-<<<<<<< HEAD
-            betInfo.Stake = float.Parse(context.Request.Params["stake"]);
-            betInfo.BetType = (BetType) int.Parse(context.Request.Params["type"]);
-=======
             betInfo.ip = "192.168.1.1";
             
->>>>>>> 36d5b1e4a24b2b48b57db564dc8b5dee9cd06430
-            var res = service.PlaceBets(betInfo);
+            //var res = service.PlaceBets(betInfo);
             //market expride
             //context.Response.Write(JsonConvert.SerializeObject(new
             //{
