@@ -1,15 +1,15 @@
+G:\Code\Sabong\Sabong\Sabong.Test\obj\Debug\Sabong.Test.csprojResolveAssemblyReference.cache
 G:\Code\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Test.dll.config
 G:\Code\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Test.dll
 G:\Code\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Test.pdb
+G:\Code\Sabong\Sabong\Sabong.Test\bin\Debug\nunit.framework.dll
 G:\Code\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Business.dll
 G:\Code\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Repository.dll
 G:\Code\Sabong\Sabong\Sabong.Test\bin\Debug\Newtonsoft.Json.dll
 G:\Code\Sabong\Sabong\Sabong.Test\bin\Debug\EntityFramework.dll
 G:\Code\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Business.pdb
 G:\Code\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Repository.pdb
-G:\Code\Sabong\Sabong\Sabong.Test\bin\Debug\nunit.framework.xml
 G:\Code\Sabong\Sabong\Sabong.Test\bin\Debug\Newtonsoft.Json.xml
 G:\Code\Sabong\Sabong\Sabong.Test\bin\Debug\EntityFramework.xml
-G:\Code\Sabong\Sabong\Sabong.Test\obj\Debug\Sabong.Test.csprojResolveAssemblyReference.cache
 G:\Code\Sabong\Sabong\Sabong.Test\obj\Debug\Sabong.Test.dll
 G:\Code\Sabong\Sabong\Sabong.Test\obj\Debug\Sabong.Test.pdb

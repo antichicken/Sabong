@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,16 +22,22 @@ namespace Sabong.Business
 
             //do validate, calculate odd..jump odd before insert ...
             TransactionRepository transRepo=new TransactionRepository();
+         //   string oddsString = placeBet.OddsRate.ToString().PadLeft(4);
+          //  string oddsString1 = placeBet.OddsRate.ToString().PadRight(4);
+            string oddsString = placeBet.OddsRate.ToString().Substring(0,4);
             transaction trans=new transaction
                               {
                                   playerid = placeBet.MemberId,
                                   matchno = placeBet.MatchId,
                                   acceptedamount = placeBet.Stake,
                                   cocktype = placeBet.BetType.ToString(),
-                                  odds = placeBet.OddsRate.ToString(),
+                                  odds = oddsString,
                                   date = placeBet.PlaceTime,
+                                  time = DateTime.Now,
                                   cockid = placeBet.Cockid,
-                                  ip = placeBet.ip
+                                  ip = placeBet.ip,
+                                  betstatus = ""
+                                 
                               };
 
             trans=transRepo.GetBetComUserId(trans);
