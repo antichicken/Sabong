@@ -30,7 +30,8 @@ public partial class Controls_BetTranactions : UserControl
         {
             var wf = new MatchWorkFlow();
             var trans = wf.GetAllAcceptedTransaction(session.User.slno, Match.fslno);
-            rptBetList.DataSource = trans;
+            rptBetList.DataSource = trans.OrderByDescending(i=>i.time);
+            rptBetList.DataBind();
         }
         
     }

@@ -279,7 +279,7 @@ function PlaceBet(stake) {
                     if ($(aid).length > 0) {
                         $(aid).replaceWith(tmp);
                     } else {
-                        $('#accepted_bet').append(tmp);
+                        $('#accepted_bet .betsaccepted-th').after(tmp);
                     }
                 }
             }
@@ -289,7 +289,7 @@ function PlaceBet(stake) {
 
 
     function bettingResultHandler(result) {
-        updateTransInfo();
+        updateTransInfo(result);
         
         if (result.Status=="MarketExpire") {
             $('#page-dialog > p').text("MarketExpire");
