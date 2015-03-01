@@ -37,6 +37,7 @@ namespace Sabong.Business
            // CurrentBoxValue = 0;
             thrholdGroupA = 0.01f;
             InitRiskManagement();
+            MaxBetSetting = 3000;
         }
         //moi lan Jump Odd thi log lai 1 list<matchid,box level,risk level,current odd,isMeronJump>
         public Dictionary<int,List<OddJumpStore>> DictOddJump=new Dictionary<int, List<OddJumpStore>>(); 
@@ -181,10 +182,11 @@ namespace Sabong.Business
                 //update vao db OddDiffCalc
                 Repository.Repo.OddRepository oddrepo=new OddRepository();
                 Repository.EntityModel.oddsdiff_calc oddsdiffCalc=new oddsdiff_calc();
-                oddsdiffCalc.C1odds = oddDiff.C1odds;
-                oddsdiffCalc.C2odds = oddDiff.C2odds;
-                oddsdiffCalc.match_slno = matchId;
-                oddrepo.UpdateOddDiffCalc(oddsdiffCalc);
+                //oddsdiffCalc.C1odds = oddDiff.C1odds;
+                //oddsdiffCalc.C2odds = oddDiff.C2odds;
+                //oddsdiffCalc.match_slno = matchId;
+             //   oddsdiffCalc.idval=oddf
+                oddrepo.UpdateOddDiffCalc(oddDiff);
 
                 //update vao Dictonary Log Odd Jump
                 UpdateDictOddJump(matchId, thrhold, boxsize, isMeron);
@@ -296,8 +298,8 @@ namespace Sabong.Business
 
         public float thrholdGroupA { get; set; }
 
-       
 
+        public float MaxBetSetting { get; set; }
         public static RiskManagementHandler Instance
         {
            

@@ -75,8 +75,37 @@ namespace Sabong.Test
             var matchId = xxx.fslno;
 
 
-            bool matchEnd;
-            var xyz = match.IsMatchStart(matchId, out matchEnd);
+            //bool matchEnd;
+            //var xyz = match.IsMatchStart(matchId, out matchEnd);
+
+            PlaceBet oddPlaceBet=new PlaceBet();
+            oddPlaceBet.MatchId = matchId;
+            oddPlaceBet.MemberId = 4908;
+            oddPlaceBet.Stake = 30;
+            oddPlaceBet.BetType=BetType.Meron;
+            oddPlaceBet.OddsRate = 0.95f;
+
+            PlaceBet oddPlaceBetSecon = new PlaceBet();
+            oddPlaceBetSecon.MatchId = matchId;
+            oddPlaceBetSecon.MemberId = 4908;
+            oddPlaceBetSecon.Stake = 500;
+            oddPlaceBetSecon.BetType = BetType.Meron;
+            oddPlaceBetSecon.OddsRate = 0.95f;
+
+            PlaceBet oddPlaceBetThird = new PlaceBet();
+            oddPlaceBetThird.MatchId = matchId;
+            oddPlaceBetThird.MemberId = 4908;
+            oddPlaceBetThird.Stake = 3000;
+            oddPlaceBetThird.BetType = BetType.Meron;
+            oddPlaceBetThird.OddsRate = 0.95f;
+            
+            RiskManagementHandler.Instance.ReceiveMoney(oddPlaceBet);
+
+            var x1=RiskManagementHandler.Instance.GetCurrentOdd(matchId);
+            RiskManagementHandler.Instance.ReceiveMoney(oddPlaceBetSecon);
+            var x2 = RiskManagementHandler.Instance.GetCurrentOdd(matchId);
+            RiskManagementHandler.Instance.ReceiveMoney(oddPlaceBetThird);
+            var x3 = RiskManagementHandler.Instance.GetCurrentOdd(matchId);
 
         }
 
