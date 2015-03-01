@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Linq;
 using Sabong.Repository.EntityModel;
 
 namespace Sabong.Repository.Repo
@@ -7,8 +8,10 @@ namespace Sabong.Repository.Repo
     {
         public oddsdiff_calc GetOddsdiffCalcByMatchId(int matchId)
         {
-            var xxx = new oddsdiff_calc();
-            return xxx;
+            using (s_dbEntities context = new s_dbEntities())
+            {
+                return context.oddsdiff_calc.FirstOrDefault(i => i.match_slno == matchId);
+            }
         }
 
         public void UpdateOddDiffCalc(oddsdiff_calc oddsdiff)
