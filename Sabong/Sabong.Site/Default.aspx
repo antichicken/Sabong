@@ -29,6 +29,11 @@
            {%>
         <span class="number" id="match-number"><%=Match!=null ? Match.match_order.ToString():""%></span>
         <span class="text" id="match-des"><%=Match.GetMatchStatus()==MatchStatus.Confirmed?string.Format("Betting for fight {0} is closing soon",Match.match_no):"" %></span>
+           <%}
+           else
+           {%>
+            <span class="number" id="match-number">Match</span>
+            <span class="text" id="match-des"></span>
            <%} %>   
     </div>
     <div class="matchscore">

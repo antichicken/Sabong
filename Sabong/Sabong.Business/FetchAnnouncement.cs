@@ -138,7 +138,10 @@ namespace Sabong.Business
                         NodeHelper.SendToNode(new
                         {
                             type = "chart",
-                            charData = x
+                            banker = x.Count(i => i == "banker"),
+                            player = x.Count(i => i == "player"),
+                            draw = x.Count(i => i == "draw"),
+                            chartInfo = x
                         });
                         _currentChartData = x;
                     }
@@ -195,7 +198,7 @@ namespace Sabong.Business
                                         vn = matchStatus == MatchStatus.Confirmed ? string.Format("Betting for fight {0} is closing soon", match.match_no) : ""
                                     },
                                     match_status=matchStatus.ToString(),
-                                    meron_image=match.cock_type.ToLower()=="wala"? match.agimage : match.cimage,
+                                    meron_img=match.cock_type.ToLower()=="wala"? match.agimage : match.cimage,
                                     wala_img = match.cock_type.ToLower() == "wala" ? match.cimage : match.agimage,
                                     meron_name = match.cock_type.ToLower() == "wala" ? match.agname : match.cname,
                                     wala_name = match.cock_type.ToLower() == "wala" ? match.cname : match.agname,

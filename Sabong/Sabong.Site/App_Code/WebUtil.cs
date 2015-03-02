@@ -28,6 +28,12 @@ public class WebUtil
         return null;
     }
 
+    public static void LogOut()
+    {
+        SessionContainer.Delete(GetUserKey());
+        ExprireCookie("sec");
+    }
+
     public static string GetUserKey()
     {
         try

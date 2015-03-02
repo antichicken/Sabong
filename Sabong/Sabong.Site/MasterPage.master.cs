@@ -49,4 +49,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
         WebUtil.SetCookie("user-lang",ddlLang.SelectedValue,DateTime.Now.AddYears(1000));
         Response.Redirect(Request.RawUrl);
     }
+    protected void btnLogOut_Click(object sender, EventArgs e)
+    {
+        WebUtil.LogOut();
+        Response.Redirect("~/Login.aspx");
+    }
 }
