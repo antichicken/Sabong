@@ -298,14 +298,26 @@ namespace Sabong.Repository.Repo
              }
          }
 
+         //$q=mysql_query("select sum(winloseamnt) as `totalamnt`,sum(playerbcamt) as totalbetcomm from `transaction` where `playerid`='".$_SESSION['useridval']."'");
+         //$trasfer=mysql_query("select coalesce(sum(`amount`),0) as `totaltrans` from `multiple_transfer` where `transfer_to`='$_SESSION[useridval]'  and `type`='transfer'");
 
          public double GetCashBalance(int userId)
          {
              using (s_dbEntities context = new s_dbEntities())
              {
-                 var result = context.bidpoints.FirstOrDefault(i => i.agent_id == userId);
 
-                 return result != null ? result.updated_bidpoint : 0;
+                 var calculateProfitLoss = context.Database.SqlQuery<ProfitLoss>(
+                      @"select (select sum(winloseamnt) as `totalamnt` from `transaction` where `playerid`={0} ) as totalamnt,
+
+(select coalesce(sum(`amount`),0) as `totaltrans` from `multiple_transfer` where `transfer_to`={0}  and `type`='transfer') as totaltrans",userId ).FirstOrDefault();
+
+                 if (calculateProfitLoss == null)
+                 {
+                     return 0;
+                 }
+
+
+                 return calculateProfitLoss.totalamnt+calculateProfitLoss.totaltrans;
              }
          }
          //select `bidpoint` from `bidpoints` where `agent_id`='$agntid'
@@ -360,6 +372,13 @@ namespace Sabong.Repository.Repo
              // Return the hexadecimal string. 
              return sBuilder.ToString();
          }
+    }
+
+    public class ProfitLoss
+    {
+        public double totaltrans { get; set; }
+
+        public double totalamnt { get; set; }
     }
 
     public class AllLevelComm

@@ -19,13 +19,13 @@ namespace Sabong.Business
 
         public BetType BetType { get; set; }  // chọn Meron hay Wala hay 1 trong 3 kiểu draw
 
-        public double OddsRate { get; set; }
+        public float OddsRate { get; set; }
 
         public string OddsRateInString { get; set; }
 
         public float Stake { get; set; }  // số tiền cược
 
-        public double MaxPayout { get; set; } // số tiền ăn tối đa
+        public float MaxPayout { get; set; } // số tiền ăn tối đa
 
         public DateTime PlaceTime { get; set; }
 

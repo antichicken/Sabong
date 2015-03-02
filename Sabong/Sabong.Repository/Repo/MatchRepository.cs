@@ -71,6 +71,69 @@ namespace Sabong.Repository.Repo
                 return false;
             }
         }
+        //select * from `match_createstart` where `create_date`='$start2' and $arena
+        public List<match_createstart> GetByDateAndArena(DateTime createDateTime, string arena)
+        {
+            return null;
+        }
+
+//        $q="select  date
+//,sum(acceptedamount) turnover,agent,master,srmaster,
+//sum(betcomamt) betcomamt,
+//sum(agentbetamount) agentbetamount,
+//sum(masterbetamount) masterbetamount,
+//sum(srmasterbetamount) srmasterbetamount,
+//sum(stakeholderbetamount) stakeholderbetamount,
+//sum(total) total,
+//sum(agenttotal) agenttotal,
+//sum(mastertotal) mastertotal,
+//sum(srmastertotal) srmastertotal,
+//sum(stakeholdertotal) stakeholdertotal,
+//sum(winloseamnt) winloseamnt,
+//sum(agentwinlose) agentwinlose,
+//sum(masterwinlose) masterwinlose,
+//sum(srmasterwinlose) srmasterwinlose,
+//sum(stakeholderwinlose) stakeholderwinlose from (
+
+
+//select transaction.id,transaction.matchno, transaction.date, user.username playername,cocktype,func_matchname(transaction.matchno) matchname,func_arenaname(transaction.matchno) arena, transaction.odds,acceptedamount,winloseamnt,
+//betstatus status
+//, ip,transaction.playerid,agentid agent,masterid master,srmasterid srmaster,transaction.playerid player,
+//playerbcamt betcomamt,
+//-agentbcamt  agentbetamount,
+//-masterbcamt  masterbetamount,
+//-srmasterbcamt  srmasterbetamount,
+//-housebcamt  stakeholderbetamount,
+//agentbetcomm  agentbetcomm,
+//masterbetcomm  masterbetcomm,
+//srmasterbetcomm  srmasterbetcomm,
+//housebetcomm  stakeholderbetcomm,
+//agentfbamt agent_amt,  
+//agentfbper agent_per, 
+//masterfbamt master_amt,  
+//masterfbper master_per,     
+//srmasterfbamt srmaster_amt,  
+//srmasterfbper srmaster_per,
+//agentfbamt agentwinlose, 
+//masterfbamt masterwinlose, 
+//srmasterfbamt srmasterwinlose,
+//housefbamt stakeholderwinlose,
+//(winloseamnt+playerbcamt) total,
+//round(-agentfbamt-agentbcamt,3)  agenttotal,
+//round(-masterfbamt-masterbcamt,3)  mastertotal,
+//round(-srmasterfbamt-srmasterbcamt,3)  srmastertotal,   
+//round(-housefbamt-housebcamt,3)  stakeholdertotal,  
+//0 wincomamt
+//from transaction
+//left join user on transaction.playerid=user.slno
+//where $cond and transaction.playerid is not null and DATE_FORMAT(transaction.date,'%Y-%m-%d') between '$start2' and '$end2'
+//and transaction.cancelstatus=0 and transaction.id not in ( select id from transaction where cocktype!='Draw' and matchno in (select slno from fight_assign where winner_cockid ='-1' and  entry_date between '$start2' and '$end2') )		 ) trans where $cond2 group by date
+//";
+
+        public List<transaction> GetDailyMatchWinloss()
+        {
+            return null;
+        }
 
         public view_matchdetail GetMatchStatus(int snlo)
         {

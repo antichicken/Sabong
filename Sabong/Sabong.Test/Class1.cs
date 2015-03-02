@@ -61,11 +61,134 @@ namespace Sabong.Test
             xxTest.nn = "Fcuk123";
             user.UpdateTest(xxTest);
         }
+        [Test]
+        public void ValidateOddAcceptBet()
+        {
+            double fuckdouble = 0.95f;
+            float fuckfloat = 0.95f;
+            var match = new MatchRepository();
+            string status = "";
+            var xxx = match.GetCurrentMatch(out status);
 
+            var matchNo = xxx.match_no;
+
+            var matchId = xxx.fslno;
+
+
+            //bool matchEnd;
+            //var xyz = match.IsMatchStart(matchId, out matchEnd);
+
+            PlaceBet oddPlaceBet = new PlaceBet();
+            oddPlaceBet.MatchId = matchId;
+            oddPlaceBet.MemberId = 4908;
+            oddPlaceBet.Stake = 30;
+            oddPlaceBet.BetType = BetType.Meron;
+            oddPlaceBet.OddsRate = 0.95f;
+            oddPlaceBet.PlaceTime = DateTime.Now;
+            oddPlaceBet.ip = "192.168.1.1";
+
+
+            PlaceBet oddPlaceBetSecon = new PlaceBet();
+            oddPlaceBetSecon.MatchId = matchId;
+            oddPlaceBetSecon.MemberId = 4908;
+            oddPlaceBetSecon.Stake = 500;
+            oddPlaceBetSecon.BetType = BetType.Meron;
+            oddPlaceBetSecon.OddsRate = 0.95f;
+
+            PlaceBet oddPlaceBetThird = new PlaceBet();
+            oddPlaceBetThird.MatchId = matchId;
+            oddPlaceBetThird.MemberId = 4908;
+            oddPlaceBetThird.Stake = 3000;
+            oddPlaceBetThird.BetType = BetType.Meron;
+            oddPlaceBetThird.OddsRate = 0.95f;
+
+            var xxxdfx = Math.Round((float)oddPlaceBetThird.OddsRate, 4, MidpointRounding.AwayFromZero);
+            //RiskManagementHandler.Instance.ReceiveMoney(oddPlaceBet);
+
+            //var x1 = RiskManagementHandler.Instance.GetCurrentOdd(matchId);
+            //RiskManagementHandler.Instance.ReceiveMoney(oddPlaceBetSecon);
+            //var x2 = RiskManagementHandler.Instance.GetCurrentOdd(matchId);
+            //RiskManagementHandler.Instance.ReceiveMoney(oddPlaceBetThird);
+            //var x3 = RiskManagementHandler.Instance.GetCurrentOdd(matchId);
+
+            IPlaceBetService placebet=new PlaceBetService();
+
+            var cockodd=placebet.ValidateOdd(oddPlaceBet);
+
+            if (Assert.Equals(cockodd.TransactionStatus, TransactionStatus.AcceptBet)) ;
+
+        }
+        [Test]
+        public void GetProfitLoss()
+        {
+            Repository.Repo.UserRepository user = new UserRepository();
+
+            var xxx = user.GetCashBalance(4908);
+        }
+
+        [Test]
+        public void ValidateOddAcceptAndREbet()
+        {
+            double fuckdouble = 0.95f;
+            float fuckfloat = 0.95f;
+            var match = new MatchRepository();
+            string status = "";
+            var xxx = match.GetCurrentMatch(out status);
+
+            var matchNo = xxx.match_no;
+
+            var matchId = xxx.fslno;
+
+
+            //bool matchEnd;
+            //var xyz = match.IsMatchStart(matchId, out matchEnd);
+
+            PlaceBet oddPlaceBet = new PlaceBet();
+            oddPlaceBet.MatchId = matchId;
+            oddPlaceBet.MemberId = 4908;
+            oddPlaceBet.Stake = 3050;
+            oddPlaceBet.BetType = BetType.Meron;
+            oddPlaceBet.OddsRate = 0.95f;
+            oddPlaceBet.PlaceTime = DateTime.Now;
+            oddPlaceBet.ip = "192.168.1.1";
+
+
+            PlaceBet oddPlaceBetSecon = new PlaceBet();
+            oddPlaceBetSecon.MatchId = matchId;
+            oddPlaceBetSecon.MemberId = 4908;
+            oddPlaceBetSecon.Stake = 500;
+            oddPlaceBetSecon.BetType = BetType.Meron;
+            oddPlaceBetSecon.OddsRate = 0.95f;
+
+            PlaceBet oddPlaceBetThird = new PlaceBet();
+            oddPlaceBetThird.MatchId = matchId;
+            oddPlaceBetThird.MemberId = 4908;
+            oddPlaceBetThird.Stake = 3000;
+            oddPlaceBetThird.BetType = BetType.Meron;
+            oddPlaceBetThird.OddsRate = 0.95f;
+
+            var xxxdfx = Math.Round((float)oddPlaceBetThird.OddsRate, 4, MidpointRounding.AwayFromZero);
+            //RiskManagementHandler.Instance.ReceiveMoney(oddPlaceBet);
+
+            //var x1 = RiskManagementHandler.Instance.GetCurrentOdd(matchId);
+            //RiskManagementHandler.Instance.ReceiveMoney(oddPlaceBetSecon);
+            //var x2 = RiskManagementHandler.Instance.GetCurrentOdd(matchId);
+            //RiskManagementHandler.Instance.ReceiveMoney(oddPlaceBetThird);
+            //var x3 = RiskManagementHandler.Instance.GetCurrentOdd(matchId);
+
+            IPlaceBetService placebet = new PlaceBetService();
+
+            var cockodd = placebet.ValidateOdd(oddPlaceBet);
+
+            //if (Assert.Equals(cockodd.TransactionStatus, TransactionStatus.AcceptAmountAndWaitingReBet)) ;
+
+        }
 
         [Test]
         public void GetCurrentMatch()
         {
+            double fuckdouble = 0.95f;
+            float fuckfloat = 0.95f;
             var match = new MatchRepository();
             string status = "";
             var xxx = match.GetCurrentMatch(out status);
@@ -101,10 +224,67 @@ namespace Sabong.Test
             oddPlaceBetThird.Stake = 3000;
             oddPlaceBetThird.BetType = BetType.Meron;
             oddPlaceBetThird.OddsRate = 0.95f;
-            
+           
+            var xxxdfx = Math.Round((float) oddPlaceBetThird.OddsRate, 4, MidpointRounding.AwayFromZero);
+            RiskManagementHandler.Instance.ReceiveMoney(oddPlaceBet);
+
+            var x1 = RiskManagementHandler.Instance.GetCurrentOdd(matchId);
+            RiskManagementHandler.Instance.ReceiveMoney(oddPlaceBetSecon);
+            var x2 = RiskManagementHandler.Instance.GetCurrentOdd(matchId);
+            RiskManagementHandler.Instance.ReceiveMoney(oddPlaceBetThird);
+            var x3 = RiskManagementHandler.Instance.GetCurrentOdd(matchId);
+
+            //IPlaceBetService placebet=new PlaceBetService();
+
+            //placebet.PlaceBets(oddPlaceBet);
+
+        }
+
+        [Test]
+        public void PlaceOdd()
+        {
+            double fuckdouble = 0.95f;
+            float fuckfloat = 0.95f;
+            var match = new MatchRepository();
+            string status = "";
+            var xxx = match.GetCurrentMatch(out status);
+
+            var matchNo = xxx.match_no;
+
+            var matchId = xxx.fslno;
+
+
+            //bool matchEnd;
+            //var xyz = match.IsMatchStart(matchId, out matchEnd);
+
+            PlaceBet oddPlaceBet = new PlaceBet();
+            oddPlaceBet.MatchId = matchId;
+            oddPlaceBet.MemberId = 4908;
+            oddPlaceBet.Stake = 30;
+            oddPlaceBet.BetType = BetType.Meron;
+            oddPlaceBet.OddsRate = 0.95f;
+            oddPlaceBet.PlaceTime = DateTime.Now;
+            oddPlaceBet.ip = "192.168.1.1";
+
+
+            PlaceBet oddPlaceBetSecon = new PlaceBet();
+            oddPlaceBetSecon.MatchId = matchId;
+            oddPlaceBetSecon.MemberId = 4908;
+            oddPlaceBetSecon.Stake = 500;
+            oddPlaceBetSecon.BetType = BetType.Meron;
+            oddPlaceBetSecon.OddsRate = 0.95f;
+
+            PlaceBet oddPlaceBetThird = new PlaceBet();
+            oddPlaceBetThird.MatchId = matchId;
+            oddPlaceBetThird.MemberId = 4908;
+            oddPlaceBetThird.Stake = 3000;
+            oddPlaceBetThird.BetType = BetType.Meron;
+            oddPlaceBetThird.OddsRate = 0.95f;
+
+            //var xxxdfx = Math.Round((float)oddPlaceBetThird.OddsRate, 4, MidpointRounding.AwayFromZero);
             //RiskManagementHandler.Instance.ReceiveMoney(oddPlaceBet);
 
-            //var x1=RiskManagementHandler.Instance.GetCurrentOdd(matchId);
+            //var x1 = RiskManagementHandler.Instance.GetCurrentOdd(matchId);
             //RiskManagementHandler.Instance.ReceiveMoney(oddPlaceBetSecon);
             //var x2 = RiskManagementHandler.Instance.GetCurrentOdd(matchId);
             //RiskManagementHandler.Instance.ReceiveMoney(oddPlaceBetThird);

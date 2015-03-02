@@ -1,0 +1,76 @@
+html{
+    margin: 0px;
+    padding: 0px;
+}
+
+@font-face {
+			font-family: 'SourceSansPro-Bold';
+			src: url('font/SourceSansPro-Bold.otf');
+			src: url('font/SourceSansPro-Bold.eot?#iefix') format('embedded-opentype'),
+				 url('font/SourceSansPro-Bold.woff') format('woff'),
+				 url('font/SourceSansPro-Bold.ttf') format('truetype'),
+				 url('font/SourceSansPro-Bold.svg') format('svg');
+			font-weight: normal;
+			font-style: normal;
+
+		}
+		
+		@font-face {
+			font-family: 'SourceSansPro-Regular';
+			src: url('font/SourceSansPro-Regular.otf');
+			src: url('font/SourceSansPro-Regular.eot?#iefix') format('embedded-opentype'),
+				 url('font/SourceSansPro-Regular.woff') format('woff'),
+				 url('font/SourceSansPro-Regular.ttf') format('truetype'),
+				 url('font/SourceSansPro-Regular.svg') format('svg');
+			font-weight: normal;
+			font-style: normal;
+
+		}
+
+#header{ width:100%; height:auto; float:left;}
+#content{ width:960px; margin:auto;}
+#content_head{ width:100%; height:auto; float:left; background:#000; border-top-left-radius:4px;
+border-top-right-radius:4px;
+}
+#head_left{ width:200px; height:auto; float:left; font-family:Arial, Helvetica, sans-serif; font-size:16px; color:#bcbcbc; margin-top:12px; font-weight:bold; margin-left:40px;}
+#head_right{ width:275px; height:auto; float:right; height:45px; margin-right:40px;}
+#head_right ul{ margin:0px; padding:0px;}
+#head_right ul li{ list-style-type:none; list-style-type:none; float:left; margin-left:8px; line-height:45px;}
+#head_right ul li a{ text-decoration:none; color:#bcbcbc; text-align:center; font-size:14px; font-family:Arial, Helvetica, sans-serif;}
+
+#content2{ width:960px; height:auto; float:left; background:#1e1e1e; padding-top:30px; border-bottom-right-radius:4px;
+border-bottom-left-radius:4px;}
+#content2_box{ width:750px; height:520px; overflow:auto; float:left; margin-left:130px;}
+#content2_box1{ width:100%; height:auto; float:left;}
+
+.head_text{ font-family:Arial, Helvetica, sans-serif; font-size:18px; color:#fff; font-weight:bold; }
+
+#content2_box ol{ margin:0px; padding:0px; color:#fff; font-size:14px; font-family: 'SourceSansPro-Regular'; line-height:1.2; margin-left:17px;}
+#content2_box ol li{ margin-top:10px; padding-left:15px;}
+
+.button3{ width:200px; padding:8px 0px 8px 0px; margin:20px; background-color:#2EB4B4; color:#fff; border:0px; border-radius:5px; font-size:large;}
+
+@font-face {
+			font-family: 'SourceSansPro-Bold';
+			src: url('font/SourceSansPro-Bold.otf');
+			src: url('font/SourceSansPro-Bold.eot?#iefix') format('embedded-opentype'),
+				 url('font/SourceSansPro-Bold.woff') format('woff'),
+				 url('font/SourceSansPro-Bold.ttf') format('truetype'),
+				 url('font/SourceSansPro-Bold.svg') format('svg');
+			font-weight: normal;
+			font-style: normal;
+}
+		
+		@font-face {
+			font-family: 'SourceSansPro-Regular';
+			src: url('font/SourceSansPro-Regular.otf');
+			src: url('font/SourceSansPro-Regular.eot?#iefix') format('embedded-opentype'),
+				 url('font/SourceSansPro-Regular.woff') format('woff'),
+				 url('font/SourceSansPro-Regular.ttf') format('truetype'),
+				 url('font/SourceSansPro-Regular.svg') format('svg');
+			font-weight: normal;
+			font-style: normal;
+}-weight: normal;
+			font-style: normal;
+}
+
