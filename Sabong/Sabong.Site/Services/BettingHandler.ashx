@@ -29,7 +29,7 @@ public class BettingHandler : IHttpHandler {
             betInfo.ip = WebUtil.GetIPAddress();
 
             if (betInfo.BetType == BetType.Meron || betInfo.BetType == BetType.Wala)
-                betInfo.OddsRate = double.Parse(context.Request.Params["oddrate"]);
+                betInfo.OddsRate = float.Parse(context.Request.Params["oddrate"]);
             
             betInfo.OddsRateInString = context.Request.Params["oddrate"];
             

@@ -4,16 +4,16 @@ namespace Sabong.Business
 {
     public class MemberLimitedConfig
     {
-        double _MinBetInOrder;
-        double _MaxBetInOrder;
+        float _MinBetInOrder;
+        float _MaxBetInOrder;
 
-        double _MinBetPerMatch;
-        double _MaxBetPerMatch;
+        float _MinBetPerMatch;
+        float _MaxBetPerMatch;
 
-        double _MinBetDraw;
-        double _MaxBetDraw;
+        float _MinBetDraw;
+        float _MaxBetDraw;
         //    double _ExtraOddsPromotion;
-        double _MaxWinningBet;
+        float _MaxWinningBet;
         DateTime _LastUpdate;
         //public byte Position
         //{
@@ -27,40 +27,40 @@ namespace Sabong.Business
         //    set { _Grade = value; }
         //}
 
-        public double MinBetInOrder
+        public float MinBetInOrder
         {
             get { return _MinBetInOrder; }
             set { _MinBetInOrder = value; }
         }
-        public double MaxBetInOrder
+        public float MaxBetInOrder
         {
             get { return _MaxBetInOrder; }
             set { _MaxBetInOrder = value; }
         }
 
-        public double MinBetPerMatch
+        public float MinBetPerMatch
         {
             get { return _MinBetPerMatch; }
             set { _MinBetPerMatch = value; }
         }
-        public double MaxBetPerMatch
+        public float MaxBetPerMatch
         {
             get { return _MaxBetPerMatch; }
             set { _MaxBetPerMatch = value; }
         }
 
-        public double MinBetDraw
+        public float MinBetDraw
         {
             get { return _MinBetDraw; }
             set { _MinBetDraw = value; }
         }
-        public double MaxBetDraw
+        public float MaxBetDraw
         {
             get { return _MinBetDraw; }
             set { _MinBetDraw = value; }
         }
 
-        public double MaxWinningBet
+        public float MaxWinningBet
         {
             get { return _MaxWinningBet; }
             set { _MaxWinningBet = value; }

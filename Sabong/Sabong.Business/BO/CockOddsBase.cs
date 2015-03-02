@@ -17,14 +17,14 @@ namespace Sabong.Business
 
         public bool OddRateChange { get; set; }//Gia keo thay doi
 
-        public double RateChange { get; set; }//Gia keo moi nhat trong DB
+        public float RateChange { get; set; }//Gia keo moi nhat trong DB
 
 
         public DateTime OddLastUpdateTime { get; set; }
 
         public bool IsWaitingBet { get; set; }
 
-        public double RemainStake { get; set; }
+        public float RemainStake { get; set; }
 
         public TransactionStatus TransactionStatus { get; set; }
     }

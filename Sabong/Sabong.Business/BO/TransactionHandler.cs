@@ -78,7 +78,7 @@ namespace Sabong.Business
                                    };
         }
 
-        static bool IsJumpOdd(RiskManagement riskData, double currentSize, double stake, out float boxSize, out float riskLevel)
+        static bool IsJumpOdd(RiskManagement riskData, float currentSize, float stake, out float boxSize, out float riskLevel)
         {
             
 
@@ -130,7 +130,7 @@ namespace Sabong.Business
         //List<OddWala, OddMeron , Diff,MatchId)---> current.
 
         // Setting A,B,C.
-        public Dictionary<int,double> _currentBoxValue =new Dictionary<int, double>();
+        public Dictionary<int, float> _currentBoxValue = new Dictionary<int, float>();
 
         public Dictionary<int, oddsdiff_calc> _currentOddValue =new Dictionary<int, oddsdiff_calc>();
         readonly OddRepository _oddRepo = new OddRepository();
@@ -222,11 +222,11 @@ namespace Sabong.Business
         {
             //If bet on Meron is Plus and bet on Wala is Minus.
         //    CockOddsBase retVal=new CockOddsBase();
-            double cumulatively;
-            double remainStake;
+            float cumulatively;
+            float remainStake;
              float riskLevel;
                 float riskboxSize;
-            double stake = 0;
+                float stake = 0;
             if (betTransaction.BetType == BetType.Meron)
             {
                 //meron thi + wala thi -
