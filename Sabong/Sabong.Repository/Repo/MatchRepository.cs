@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Text.RegularExpressions;
+using System.Threading;
 using Sabong.Repository.EntityModel;
 
 namespace Sabong.Repository.Repo
@@ -71,6 +73,53 @@ namespace Sabong.Repository.Repo
                 return false;
             }
         }
+        //select * from `arena`
+        public List<arena> GetAllArenas()
+        {
+            using (s_dbEntities context = new s_dbEntities())
+            {
+                return context.arenas.ToList();
+            }
+        }
+        
+        //"select * from `view_matchdetail` where `arena`='$arenaid' and `fdate`='$start'";
+        public List<view_matchdetail> GetMatchdetailsByDateAndArena(DateTime date, int arenaId)
+        {
+            using (s_dbEntities context = new s_dbEntities())
+            {
+
+                //IEnumerable<string> query = from employee in employees
+                //                            join student in students
+                //                            on new { employee.FirstName, employee.LastName }
+                //                            equals new { student.FirstName, student.LastName }
+                //                            select employee.FirstName + " " + employee.LastName;
+
+                //var dealercontacts = from contact in DealerContact
+                //                     join dealer in Dealer on contact.DealerId equals dealer.ID
+                //                     select contact;
+                string createdDate = date.ToString("dd-MM-yyyy");
+                var xxx = from s in context.view_matchdetail
+                          join f in context.matchstarttimes on
+                              s.fslno equals f.matchno
+                          where s.fdate == createdDate &&
+                                s.arena == arenaId
+                          select s;
+                return xxx.ToList();
+
+
+
+                //          join matchstart in matchstarttime on
+                //          view.fslno equals matchstart.matchno
+                //          where
+                //              view.fdate == createdDate &&
+                //              view.arena == arenaId
+
+                //          select view;
+                //return xxx.ToList();
+            }
+        }
+
+
         //select * from `match_createstart` where `create_date`='$start2' and $arena
         public List<match_createstart> GetByDateAndArena(DateTime createDateTime, string arena)
         {
@@ -201,15 +250,7 @@ namespace Sabong.Repository.Repo
                 return xyz;
 
 
-                //IEnumerable<string> query = from employee in employees
-                //                            join student in students
-                //                            on new { employee.FirstName, employee.LastName }
-                //                            equals new { student.FirstName, student.LastName }
-                //                            select employee.FirstName + " " + employee.LastName;
-
-                //var dealercontacts = from contact in DealerContact
-                //                     join dealer in Dealer on contact.DealerId equals dealer.ID
-                //                     select contact;
+              
             }
         }
 

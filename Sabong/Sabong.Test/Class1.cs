@@ -127,6 +127,14 @@ namespace Sabong.Test
         }
 
         [Test]
+        public void GetAnnoucementService()
+        {
+            AnnoucementServices abc = new AnnoucementServices();
+
+            var xxx = abc.GetAll();
+        }
+
+        [Test]
         public void ValidateOddAcceptAndREbet()
         {
             double fuckdouble = 0.95f;

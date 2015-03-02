@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnnoucementServices.cs" />
+    <Compile Include="BO\AnnoucementBO.cs" />
     <Compile Include="BO\PlaceBet.cs" />
     <Compile Include="BO\CockOddsBase.cs" />
     <Compile Include="Enum\BetType.cs" />
