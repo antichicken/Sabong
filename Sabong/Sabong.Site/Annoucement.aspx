@@ -15,7 +15,7 @@
 										     <div style="width:76%;float: left; height: auto;">
 												   <div style="width:17%; height: auto; float: left; text-align: right;">   Attn: manchester</div>
 												   <div style="width:78%; height: auto; float: left; margin-left: 2%;">
-												  what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,what the fuck,
+                                                       <%--<%#Eval("subject") %>--%>
 												   </div>
 										     </div>
 								    </div>
@@ -26,7 +26,6 @@
     
      <div style="clear:both;"></div>
 				  <div style="width:250px; float: left; margin-left: 355px; margin-top:10px;">
-				  				<a href="#" style="text-decoration:none;"><input type="button" name="agree" id="agree" value="Proceed" class="button3" style="text-decoration:none; cursor:pointer; "/></a>
-								
+				  				<a href="/Default.aspx" style="text-decoration:none;"><input type="button" name="agree" id="agree" value="Proceed" class="button3" style="text-decoration:none; cursor:pointer; "/></a>
 				  </div>
 </asp:Content>

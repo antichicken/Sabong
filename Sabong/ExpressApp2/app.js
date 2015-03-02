@@ -56,7 +56,7 @@ http.createServer(function (req, response) {
                 });
                 req.on('end', function () {
                     var postData = qs.parse(body);
-                    console.log("push:"+ postData);
+                    console.log("push:"+ body);
                     messageBus.emit('message', JSON.parse(body));
                     
                     response.writeHead(200, { "Content-Type": "text/plain" });

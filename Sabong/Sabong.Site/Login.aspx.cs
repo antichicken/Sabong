@@ -32,7 +32,7 @@ public partial class Login : System.Web.UI.Page
                 SessionContainer.Add(sessionInfo);
 
                 WebUtil.SetCookie("sec", sessionInfo.SessionId, DateTime.Now.AddDays(7));
-                Response.Redirect("~/Default.aspx");
+                Response.Redirect("~/Term.aspx");
             }
             else
             {

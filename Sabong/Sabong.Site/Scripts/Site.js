@@ -83,12 +83,19 @@ var NotificationPoll = function() {
         url: 'http://localhost:8888/?action=hear&match=' + $('#match-id').val() + '&id='+$.cookie('sec'),
         timeout:60000,
         success: function (data) {
-            if (data.length>0) {
-                data = $.parseJSON(data);
-                MatchNotificationHandler(data);
-                BetNotificationHandler(data);
-                GlobalNotificationHandler(data);
-                UserNotificationHandler(data);
+            if (data.length > 0) {
+                try {
+                    data = $.parseJSON(data);
+                    MatchNotificationHandler(data);
+                    BetNotificationHandler(data);
+                    GlobalNotificationHandler(data);
+                    UserNotificationHandler(data);
+                } catch(e) {
+                    if (console.log) {
+                        console.log(e.message);
+                    }
+                } 
+                
             }
         }
     }).always(function () {
@@ -145,6 +152,7 @@ function MatchNotificationHandler(data) {
     }
 
     function fillMatchInfo(matchdata) {
+        $('#match-info-wrap').removeClass('hidden');
         $('#match-id').val(matchdata.matchinfo.match);
         $('#match-number').text(matchdata.matchinfo.matchnumber);
         $('#match-des').text(GetMessageByCurrentLang(matchdata.matchinfo.top));
@@ -160,14 +168,26 @@ function MatchNotificationHandler(data) {
         var status = matchdata.matchinfo.match_status;
         if (status == "Confirmed" || status == "ClosingSoon") {
             $('.clickable').removeClass('disabled');
+            $('#match-confirm').removeClass('unconfirm');
         } else {
+            $('#match-confirm').addClass('unconfirm');
             $('.clickable').addClass('disabled');
             if (status == "Cancel") {
                 $('#page-dialog').dialog("destroy");
                 $('#page-dialog > p').text("Match no " + matchdata.matchinfo.matchnumber + ' cancelled');
                 $('#page-dialog').dialog({ modal: true });
             }
+            if (status=="StopBet") {
+                $('#accepted_bet .betsaccepted-td').remove();
+                clearBetSlip();
+            }
         }
+    }
+
+    function clearBetSlip() {
+        $('.betslip').hide();
+        $('#input-stake').val('');
+        $('#betInfo').val('');
     }
 }
 
