@@ -237,7 +237,17 @@ namespace Sabong.Repository.Repo
     }
     public class UserRepository
     {
-
+        //select * from `currency` where `slno`='$currency_id'
+        public string GetCurrencyName(int currencyId)
+        {
+           // if(currencyId)
+            using (s_dbEntities context = new s_dbEntities())
+            {
+                var result = context.currencies.FirstOrDefault(i => i.slno == currencyId);
+                if (result != null) return result.currency1;
+                return "";
+            }
+        }
         //  $queryplpt=mysql_query("SELECT * FROM `player_pt_calc` where player_id='$_SESSION[useridval]'");
         public player_pt_calc GetPlayerPtByUserId(int userId)
         {
