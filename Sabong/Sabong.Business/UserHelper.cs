@@ -19,5 +19,14 @@ namespace Sabong.Business
         {
             return _userServices.GetCashBalance(user.slno);
         }
+
+        public static string GetCurencyName(this user user)
+        {
+            if (string.IsNullOrEmpty(user.currency_type))
+            {
+                return _userServices.GetCurrencyName(1);
+            }
+            return _userServices.GetCurrencyName(Int16.Parse(user.currency_type));
+        }
     }
 }

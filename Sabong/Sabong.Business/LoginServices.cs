@@ -19,6 +19,12 @@ namespace Sabong.Business
             return _user.GetCashBalance(userId);
         }
 
+        public string GetCurrencyName(int currentId)
+        {
+
+            return _user.GetCurrencyName(currentId);
+        }
+
         public playerbet_limit GetUserLimit(int userId)
         {
            return
