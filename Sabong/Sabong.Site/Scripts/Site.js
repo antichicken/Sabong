@@ -35,7 +35,13 @@ $(document).ready(function () {
     $('.betslip-close').click(function() {
         $(this).closest('.betslip').hide();
     });
+    $('.disabled').click(function (e) {
+        e.stopPropagation();
+    });
     $('#choose-meron, #choose-wala, #choose-draw,#choose-ftd').click(function (e) {
+        if ($(this).closest('.disabled').length>0) {
+            return false;
+        }
         $('.betslip').show();
         var des = "";
         var betInfo = new BettingInfo();
@@ -141,7 +147,7 @@ function MatchNotificationHandler(data) {
     function fillMatchInfo(matchdata) {
         $('#match-id').val(matchdata.matchinfo.match);
         $('#match-number').text(matchdata.matchinfo.matchnumber);
-        $('#match-des').text(matchdata.matchinfo.top.en);
+        $('#match-des').text(GetMessageByCurrentLang(matchdata.matchinfo.top));
         $('#wala-image').attr('src', matchdata.matchinfo.wala_img);
         $('#meron-image').attr('src', matchdata.matchinfo.meron_img);
         $('#wala-name').text(matchdata.matchinfo.wala_name);
@@ -150,7 +156,18 @@ function MatchNotificationHandler(data) {
         $('#choose-wala').text(matchdata.matchinfo.wala_rate);
         $('#choose-draw').text(matchdata.matchinfo.draw_rate);
         $('#choose-ftd').text(matchdata.matchinfo.ftd_rate);
-        $('#match-confirm').text(matchdata.matchinfo.confirm.en);
+        $('#match-confirm').text(GetMessageByCurrentLang(matchdata.matchinfo.confirm));
+        var status = matchdata.matchinfo.match_status;
+        if (status == "Confirmed" || status == "ClosingSoon") {
+            $('.clickable').removeClass('disabled');
+        } else {
+            $('.clickable').addClass('disabled');
+            if (status == "Cancel") {
+                $('#page-dialog').dialog("destroy");
+                $('#page-dialog > p').text("Match no " + matchdata.matchinfo.matchnumber + ' cancelled');
+                $('#page-dialog').dialog({ modal: true });
+            }
+        }
     }
 }
 
@@ -221,9 +238,17 @@ function UserNotificationHandler(data) {
 }
 
 function PlaceBet(stake) {
+    if ($('#place-bet').hasClass('disabled')) {
+        return;
+    }
     $('#place-bet').attr('disabled', 'disabled');
     
     var betInfo = $.parseJSON($('#betInfo').val());
+    if (betInfo.Stake.length<1) {
+        $('#page-dialog').dialog("destroy");
+        $('#page-dialog > p').text('Please enter odd stake');
+        $('#page-dialog').dialog({ modal: true });
+    }
     var s = stake;
     if (stake==undefined) {
         s = betInfo.Stake;
@@ -232,7 +257,7 @@ function PlaceBet(stake) {
         url: '/Services/BettingHandler.ashx',
         type: 'POST',
         data: { match: betInfo.MatchId,stake:s,type:betInfo.Bettype,oddrate:betInfo.OddRate},
-        success: function(res) {
+        success: function (res) {
             bettingResultHandler($.parseJSON(res));
         }
     }).always(function () {
@@ -254,7 +279,7 @@ function PlaceBet(stake) {
                     if ($(aid).length > 0) {
                         $(aid).replaceWith(tmp);
                     } else {
-                        $('#accepted_bet').append(tmp);
+                        $('#accepted_bet .betsaccepted-th').after(tmp);
                     }
                 }
             }
@@ -264,6 +289,8 @@ function PlaceBet(stake) {
 
 
     function bettingResultHandler(result) {
+        updateTransInfo(result);
+        
         if (result.Status=="MarketExpire") {
             $('#page-dialog > p').text("MarketExpire");
             $('#page-dialog').dialog({ modal: true });
@@ -280,10 +307,10 @@ function PlaceBet(stake) {
                         betInfo.OddRate = result.RateChange;
                         $('#betInfo').val(JSON.stringify(betInfo));
                         PlaceBet();
-                        $(this).dialog("close");
+                        $(this).dialog("destroy");
                     },
                     No: function () {
-                        $(this).dialog("close");
+                        $(this).dialog("destroy");
                     }
                 }
             });
@@ -298,10 +325,10 @@ function PlaceBet(stake) {
                 buttons: {
                     "Yes": function() {
                         PlaceBet(result.RemainMoney);
-                        $(this).dialog("close");
+                        $(this).dialog("destroy");
                     },
                     No: function() {
-                        $(this).dialog("close");
+                        $(this).dialog( "destroy" );
                     }
                 }
             });

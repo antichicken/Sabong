@@ -193,6 +193,7 @@ namespace Sabong.Business
                                         en = matchStatus == MatchStatus.Confirmed?string.Format("Betting for fight {0} is closing soon",match.match_no):"",
                                         vn = matchStatus == MatchStatus.Confirmed ? string.Format("Betting for fight {0} is closing soon", match.match_no) : ""
                                     },
+                                    match_status=matchStatus.ToString(),
                                     meron_image=match.cock_type.ToLower()=="wala"? match.agimage : match.cimage,
                                     wala_img = match.cock_type.ToLower() == "wala" ? match.cimage : match.agimage,
                                     meron_name = match.cock_type.ToLower() == "wala" ? match.agname : match.cname,

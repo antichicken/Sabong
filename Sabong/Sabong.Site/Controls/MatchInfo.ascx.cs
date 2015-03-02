@@ -34,4 +34,13 @@ public partial class Controls_MatchInfo : System.Web.UI.UserControl
     {
         get; set;
     }
+
+    public string DisabledCss()
+    {
+        if (Status==MatchStatus.Confirmed || Status==MatchStatus.ClosingSoon)
+        {
+            return string.Empty;
+        }
+        return "disabled";
+    }
 }
