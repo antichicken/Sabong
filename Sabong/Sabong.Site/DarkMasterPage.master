@@ -1,0 +1,118 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="DarkMasterPage.master.cs" Inherits="DarkMasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<title>..::Cockfight::..</title>
+<script type="text/javascript" src="Scripts/jquery-1.9.1.min.js"></script>
+<script>
+$(function(){
+$('#disagree').click(function(){
+
+window.location.href="logout.aspx";
+});
+
+    $('#agree').click(function() {
+
+//window.location.href="announcement.php?type";
+//console.log(<?=$_SESSION['status'];?>);
+
+
+    });
+</script>
+<link rel="stylesheet" href="css/skeleton.css">
+<link rel="stylesheet" href="css/layout.css">
+<link href="css/styleold.css" type="text/css" rel="stylesheet"  />
+<style>
+		 html{ height:100%;}
+	  body{ height:100%;}
+.button{ width:80px; height:80px; font-size:40px; background-image: -o-linear-gradient(right, #262626 0%, #757575 47%, #1A1A1A 100%); color:#fff; border:1px solid #333; margin-bottom:10px; border-radius:8px; text-shadow:1px 1px 1px #000;
+background-image: -moz-linear-gradient(right, #262626 0%, #757575 47%, #1A1A1A 100%);
+background-image: -webkit-linear-gradient(right, #262626 0%, #757575 47%, #1A1A1A 100%);
+background-image: -ms-linear-gradient(right, #262626 0%, #757575 47%, #1A1A1A 100%);
+background-image: linear-gradient(to right, #262626 0%, #757575 47%, #1A1A1A 100%);}
+
+.button2{ width:90px; height:auto; float:left; background:#80dfe2; padding:4px; font-size:15px; color:#fff; border:1px solid #b56b00; margin-right:8px; text-shadow:1px 1px 1px #000; background: rgb(234,40,3); /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIxMSUiIHN0b3AtY29sb3I9IiNlYTI4MDMiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI0NiUiIHN0b3AtY29sb3I9IiNlODZjNTciIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjYzcyMjAwIiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iI2YzYzViZCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+background: -moz-linear-gradient(top, rgba(234,40,3,1) 11%, rgba(232,108,87,1) 46%, rgba(199,34,0,1) 100%, rgba(243,197,189,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(11%,rgba(234,40,3,1)), color-stop(46%,rgba(232,108,87,1)), color-stop(100%,rgba(199,34,0,1)), color-stop(100%,rgba(243,197,189,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgba(234,40,3,1) 11%,rgba(232,108,87,1) 46%,rgba(199,34,0,1) 100%,rgba(243,197,189,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgba(234,40,3,1) 11%,rgba(232,108,87,1) 46%,rgba(199,34,0,1) 100%,rgba(243,197,189,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgba(234,40,3,1) 11%,rgba(232,108,87,1) 46%,rgba(199,34,0,1) 100%,rgba(243,197,189,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom, rgba(234,40,3,1) 11%,rgba(232,108,87,1) 46%,rgba(199,34,0,1) 100%,rgba(243,197,189,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ea2803', endColorstr='#f3c5bd',GradientType=0 ); /* IE6-8 */ }
+ @font-face {
+			font-family: 'SourceSansPro-Bold';
+			src: url('fonts/SourceSansPro-Bold.otf');
+			src: url('fonts/SourceSansPro-Bold.eot?#iefix') format('embedded-opentype'),
+				 url('fonts/SourceSansPro-Bold.woff') format('woff'),
+				 url('fonts/SourceSansPro-Bold.ttf') format('truetype'),
+				 url('fonts/SourceSansPro-Bold.svg') format('svg');
+			font-weight: normal;
+			font-style: normal;
+
+		}
+		
+		@font-face {
+			font-family: 'SourceSansPro-Regular';
+			src: url('fonts/SourceSansPro-Regular.otf');
+			src: url('fonts/SourceSansPro-Regular.eot?#iefix') format('embedded-opentype'),
+				 url('fonts/SourceSansPro-Regular.woff') format('woff'),
+				 url('fonts/SourceSansPro-Regular.ttf') format('truetype'),
+				 url('fonts/SourceSansPro-Regular.svg') format('svg');
+			font-weight: normal;
+			font-style: normal;
+
+		}
+</style>
+
+<style>
+.content{ overflow:auto;-webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px;}
+		.content p:nth-child(even){}
+		.content p:nth-child(3n+0){}
+		html{
+				height: 100%;
+		}
+		ol li{
+		line-height:1.3;}
+</style>
+<link href="css/jquery.mCustomScrollbar.css" rel="stylesheet" />
+
+</head>
+<body style="background:#dadada; background:url(images/homebg.jpg) no-repeat center; background-size:100% 100%;  background-attachment:fixed;">
+
+
+<div id="header" style="margin-top: 2%;">
+		<div id="content">
+				<div id="content_head">
+						<div id="head_left">
+                            <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+						</div>
+						<div id="head_right">
+								
+						</div>
+				</div>
+				<div id="content2">
+                    <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+				</div>
+		</div>
+</div>
+
+<!-- custom scrollbars plugin -->
+
+	<script src="Scripts/jquery.mCustomScrollbar.concat.min.js"></script>
+
+<script>
+		(function($){
+			$(window).load(function(){
+				$(".content").mCustomScrollbar();
+			});
+			
+		})(jQuery);
+	</script>		
+</body>
+</html>

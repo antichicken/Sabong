@@ -118,6 +118,13 @@ namespace Sabong.Test
             if (Assert.Equals(cockodd.TransactionStatus, TransactionStatus.AcceptBet)) ;
 
         }
+        [Test]
+        public void GetProfitLoss()
+        {
+            Repository.Repo.UserRepository user = new UserRepository();
+
+            var xxx = user.GetCashBalance(4908);
+        }
 
         [Test]
         public void ValidateOddAcceptAndREbet()
