@@ -1,4 +1,5 @@
-﻿<%@ Page Title="Term And Condition" Language="C#" MasterPageFile="DarkMasterPage.master" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/DarkMasterPage.master" AutoEventWireup="true" CodeFile="Term.aspx.cs" Inherits="Term" %>
+
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="Server">
     Term And Condition
     </asp:Content>
@@ -283,7 +284,7 @@ ARRANGEMENT; MULTIPLE ENTRIES)</h2>
 						</div>
 						<div style="clear:both;"></div>
 				  <div style="width:500px; margin:auto; margin-top:10px;">
-				  				<input type="button" name="agree" id="agree" value="Agree" class="button3" style="cursor:pointer;"/>
-								<input type="button" name="disagree" id="disagree" value="Disagree" class="button3" style="cursor:pointer;" />
+				  				<input type="button" name="agree" id="agree" onclick="window.location = '/Annoucement.aspx'" value="Agree" class="button3" style="cursor:pointer;"/>
+								<input type="button" name="disagree" onclick="window.location='/Login.aspx'" id="disagree" value="Disagree" class="button3" style="cursor:pointer;" />
 				  </div>
     </asp:Content>

@@ -5,9 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Report : PageBase
+public partial class Annoucement : PageBase
 {
     protected void Page_Load(object sender, EventArgs e)
+    {
+    }
+
+    void GetAnnoucement()
     {
 
     }
