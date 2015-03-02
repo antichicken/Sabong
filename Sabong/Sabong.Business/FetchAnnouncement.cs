@@ -189,7 +189,7 @@ namespace Sabong.Business
                                     ftd_rate=match.ftd,
                                     confirm = new
                                     {
-                                        en = matchStatus == MatchStatus.Confirmed ? "Meron / Wala confirmed" : "Meron / Wala unconfirm",
+                                        en = oddStatus,
                                         vn = oddStatus
                                     },
                                     top = new

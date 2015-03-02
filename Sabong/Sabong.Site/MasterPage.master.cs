@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Sabong.Business;
+using Sabong.Repository.EntityModel;
 
 public partial class MasterPage : System.Web.UI.MasterPage
 {
@@ -53,5 +54,13 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
         WebUtil.LogOut();
         Response.Redirect("~/Login.aspx");
+    }
+
+    protected user User
+    {
+        get
+        {
+            return SessionInfo.User;
+        }
     }
 }

@@ -22,10 +22,10 @@
             <ul>
                 <li class="user-menu">
                 <img src="/images/user_icon.png" />
-                <span class="userid"><%=SessionInfo.User.name %></span><br /><span class="logout">
+                <span class="userid"><%=User.name %></span><br /><span class="logout">
     <asp:LinkButton ID="btnLogOut" runat="server" OnClick="btnLogOut_Click"><asp:Literal ID="Literal7" runat="server" Text="<%$Resources:sabong.language, LOGOUT%>" EnableViewState="False"></asp:Literal></asp:LinkButton></span></li>
-                <li><asp:Literal ID="Literal8" runat="server" Text="<%$Resources:sabong.language, CreditBalance%>" EnableViewState="False"></asp:Literal>: <strong>SGD $ <%=SessionInfo.User.GetCreditBalance() %></strong></li>
-                <li><asp:Literal ID="Literal9" runat="server" Text="<%$Resources:sabong.language, ProfitLoss%>" EnableViewState="False"></asp:Literal>: <strong>SGD $ <%=SessionInfo.User.GetCreditBalance() %></strong></li>
+                <li><asp:Literal ID="Literal8" runat="server" Text="<%$Resources:sabong.language, CreditBalance%>" EnableViewState="False"></asp:Literal>: <strong><%=User.GetCurencyName() %> $ <%=User.GetCreditBalance() %></strong></li>
+                <li><asp:Literal ID="Literal9" runat="server" Text="<%$Resources:sabong.language, ProfitLoss%>" EnableViewState="False"></asp:Literal>: <strong>SGD $ <%=User.GetCreditBalance() %></strong></li>
                 <li><%=DateTime.Now.ToString("MMM dd, yyyy UTCzz",new CultureInfo("en-us")) %> <span id="clockDisplay"></span>
                     <script type="text/javascript">
                         function renderTime() {
