@@ -17,6 +17,21 @@ namespace Sabong.Business
         private List<string> _currentChartData = null;
         private view_matchdetail _currentMatch = null;
 
+        public Dictionary<MatchStatus, string> _dicStatus;
+        public void DictMatchStatusAddMessage()
+        {
+            _dicStatus.Add(MatchStatus.Cancel, "Match Cancel");
+            _dicStatus.Add(MatchStatus.ClosingSoon, "Bet closing soon");
+            _dicStatus.Add(MatchStatus.Confirmed, "Meron/Wala Confirmed");
+            _dicStatus.Add(MatchStatus.MatchEnd, "Match End");
+            _dicStatus.Add(MatchStatus.MatchNotFound, "Match not Found");
+            _dicStatus.Add(MatchStatus.MatchStarted, "Match Start- Market Expire");
+            _dicStatus.Add(MatchStatus.StopBet, "Market Expire");
+            _dicStatus.Add(MatchStatus.UnConfirmed, "Meron/ Wala Unconfirmed");
+
+
+        }
+
         private static FetchAnnouncement _instance;
 
         public static FetchAnnouncement Instance

@@ -57,6 +57,9 @@ namespace Sabong.Business
         
         }
 
+      
+
+
         public MatchStatus GetMatchStatus(view_matchdetail viewMatchDetail)
         {
           //  var viewMatchDetail = _match.GetMatchStatus(slno);
