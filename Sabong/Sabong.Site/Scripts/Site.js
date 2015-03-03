@@ -233,8 +233,11 @@ function GlobalNotificationHandler(data) {
     }
     else if (data.type == "chart") {
         ResetTable();
-        DrawChart(data.charData);
-        DrawNormalChart(data.charData);
+        DrawChart(data.chartInfo);
+        DrawNormalChart(data.chartInfo);
+        $('#banker-win').text(data.banker);
+        $('#player-win').text(data.player);
+        $('#win-win').text(data.draw);
         $('.bk-content-wrap').scrollLeft(4000);
     }
 }
