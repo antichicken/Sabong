@@ -372,5 +372,19 @@ namespace Sabong.Test
             var x = date.ToString("MMM dd, yyyy");
             Console.WriteLine(x);
         }
+
+        [Test]
+        public void TestVNIpAddress()
+        {
+           var bo= IpHelper.IpIsWithinVNRange("183.81.103.148");
+            //119.9.104.232
+
+           var ba = IpHelper.IpIsWithinVNRange("119.9.104.232");
+
+            //210.211.109.145
+
+           var bi = IpHelper.IpIsWithinVNRange("210.211.109.145");
+        }
+      
     }
 }

@@ -220,6 +220,9 @@
     <Compile Include="EntityModel\view_matchdetail.cs">
       <DependentUpon>SabongEDM.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityModel\view_matchResult.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
     <Compile Include="EntityModel\View_match_createGetEndDateNull.cs">
       <DependentUpon>SabongEDM.tt</DependentUpon>
     </Compile>
@@ -235,6 +238,9 @@
     <Compile Include="EntityModel\view_playeruplines.cs">
       <DependentUpon>SabongEDM.tt</DependentUpon>
     </Compile>
+    <Compile Include="EntityModel\view_transactionReport.cs">
+      <DependentUpon>SabongEDM.tt</DependentUpon>
+    </Compile>
     <Compile Include="IRepositoryFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryContainer.cs" />
@@ -242,6 +248,7 @@
     <Compile Include="Repo\AnnoucementRepository.cs" />
     <Compile Include="Repo\MatchRepository.cs" />
     <Compile Include="Repo\OddRepository.cs" />
+    <Compile Include="Repo\ReportRepository.cs" />
     <Compile Include="Repo\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup />

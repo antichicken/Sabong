@@ -26,6 +26,8 @@ public partial class mwval
 
     public int M { get; set; }
 
+    public System.DateTime time { get; set; }
+
 }
 
 }

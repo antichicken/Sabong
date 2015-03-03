@@ -35,6 +35,7 @@ Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "ExpressApp2", "ExpressApp2\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DLL", "DLL", "{67962479-12CF-4C9D-AEDB-AE15CFB03754}"
 	ProjectSection(SolutionItems) = preProject
+		C:\Users\BTA\Desktop\LukeSkywalker.IPNetwork.dll = C:\Users\BTA\Desktop\LukeSkywalker.IPNetwork.dll
 		DLL\Newtonsoft.Json.dll = DLL\Newtonsoft.Json.dll
 	EndProjectSection
 EndProject

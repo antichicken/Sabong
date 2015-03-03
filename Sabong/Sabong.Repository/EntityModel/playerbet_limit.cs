@@ -42,6 +42,8 @@ public partial class playerbet_limit
 
     public int currency { get; set; }
 
+    public System.DateTime time { get; set; }
+
 }
 
 }
