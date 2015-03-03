@@ -237,6 +237,28 @@ namespace Sabong.Repository.Repo
     }
     public class UserRepository
     {
+
+        public void UPdatePassWord(user trans)
+        {
+            using (s_dbEntities context = new s_dbEntities())
+            {
+                using (var md5Hash = MD5.Create())
+                {
+                     var hashPass = GetMd5Hash(md5Hash, trans.password);
+                     trans.password = hashPass;
+                     context.users.Attach(trans);
+                  
+                     var entry = context.Entry(trans);
+                     entry.State = EntityState.Modified;
+
+                     //entry.Property(e => e.nn).IsModified = false;
+
+
+                     context.SaveChanges();
+                }
+              
+            }
+        }
         //select * from `currency` where `slno`='$currency_id'
         public string GetCurrencyName(int currencyId)
         {
