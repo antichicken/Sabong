@@ -13,6 +13,21 @@
 <%@ Register src="Controls/SelectedBet.ascx" tagname="SelectedBet" tagprefix="uc6" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <script>
+        var playerLimit = <%=Newtonsoft.Json.JsonConvert.SerializeObject(new
+                           {
+                               PlayerLimit.currency,
+                               PlayerLimit.drawbet_permatch,
+                               PlayerLimit.maxbet_draw,
+                               PlayerLimit.minbet_draw,
+                               PlayerLimit.maxbet_meron,
+                               PlayerLimit.minbet_meron,
+                               PlayerLimit.maxbet_wala,
+                               PlayerLimit.minbet_wala,
+                               PlayerLimit.meronbet_permatch,
+                               PlayerLimit.walabet_permatch,
+                           })%>;
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolderLeftColumn" runat="Server">
     <div class="lefttop upper" id="">

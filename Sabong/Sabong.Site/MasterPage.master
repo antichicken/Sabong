@@ -15,7 +15,33 @@
 <body>
     <form id="form1" runat="server">
         <div id="page-dialog" title="...">
-          <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+          <p></p>
+        </div>
+        <div id="change-pass-form" class="hidden" title="CHANGE PASSWORD">
+            <div class="password-rule">
+                <div style="margin-bottom: 5px">Password must have 8 to 15 characters without white-space and contain the following:</div>
+            <span>• Uppercase letter [A-Z]</span><br/>
+            <span>• Numeric [0-9]</span>
+            <div>For example: Aui123456, Adheufkvn0</div>
+            <div style="margin-top: 5px">Please note that your password is cAsE sEnSiTiVe and must not contain any special characters (!,@,#,etc..)</div>
+            </div>
+            
+            <table>
+                <tr>
+                    <td>Old Password</td>
+                    <td><input type="password" id="oldpass"/>
+                        <span class="error hidden"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>New Password</td>
+                    <td><input type="password" id="newpass"/><span class="error hidden"></span></td>
+                </tr>
+                <tr>
+                    <td>Confirm Password</td>
+                    <td><input type="password" id="newpasscf"/><span class="error hidden"></span></td>
+                </tr>
+            </table>
         </div>
     <div class="wapper">
         <div class="topmenu">
@@ -24,8 +50,9 @@
                 <img src="/images/user_icon.png" />
                 <span class="userid"><%=User.name %></span><br /><span class="logout">
     <asp:LinkButton ID="btnLogOut" runat="server" OnClick="btnLogOut_Click"><asp:Literal ID="Literal7" runat="server" Text="<%$Resources:sabong.language, LOGOUT%>" EnableViewState="False"></asp:Literal></asp:LinkButton></span></li>
-                <li><asp:Literal ID="Literal8" runat="server" Text="<%$Resources:sabong.language, CreditBalance%>" EnableViewState="False"></asp:Literal>: <strong><%=User.GetCurencyName() %> $ <%=User.GetCreditBalance() %></strong></li>
-                <li><asp:Literal ID="Literal9" runat="server" Text="<%$Resources:sabong.language, ProfitLoss%>" EnableViewState="False"></asp:Literal>: <strong>SGD $ <%=User.GetCreditBalance() %></strong></li>
+                <li><asp:Literal ID="Literal8" runat="server" Text="<%$Resources:sabong.language, CreditBalance%>" EnableViewState="False"></asp:Literal>: <strong><%=User.GetCurencyName() %> $ <%=GivenCredit %></strong></li>
+                <li><asp:Literal ID="Literal9" runat="server" Text="<%$Resources:sabong.language, ProfitLoss%>" EnableViewState="False"></asp:Literal>: <strong><%=User.GetCurencyName() %> $ <%=Profit %></strong></li>
+                <li><asp:Literal ID="Literal10" runat="server" Text="<%$Resources:sabong.language, BetCredit%>" EnableViewState="False"></asp:Literal>: <strong><%=User.GetCurencyName() %> $ <%=GivenCredit+Profit %></strong></li>
                 <li><%=DateTime.Now.ToString("MMM dd, yyyy UTCzz",new CultureInfo("en-us")) %> <span id="clockDisplay"></span>
                     <script type="text/javascript">
                         function renderTime() {
@@ -86,7 +113,7 @@
                 <li>|</li>
                 <li><a href="#"><asp:Literal ID="Literal5" runat="server" Text="<%$Resources:sabong.language, Schedule%>" EnableViewState="False"></asp:Literal></a></li>
                 <li>|</li>
-                <li><a href="#"><asp:Literal ID="Literal6" runat="server" Text="<%$Resources:sabong.language, ChangePassword%>" EnableViewState="False"></asp:Literal></a></li>
+                <li><a href="#" id="change-pass"><asp:Literal ID="Literal6" runat="server" Text="<%$Resources:sabong.language, ChangePassword%>" EnableViewState="False"></asp:Literal></a></li>
                 <li>|</li>
             </ul>
         </div>

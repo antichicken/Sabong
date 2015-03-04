@@ -117,11 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BetCredit" xml:space="preserve">
+    <value>Bet Credit</value>
+  </data>
   <data name="ChangePassword" xml:space="preserve">
     <value>Change Password</value>
   </data>
   <data name="CreditBalance" xml:space="preserve">
-    <value>Credit / Balance</value>
+    <value>Given Credit</value>
   </data>
   <data name="DailyWinLoss" xml:space="preserve">
     <value>Daily Win Loss Analysis</value>
@@ -139,7 +142,7 @@
     <value>Match Win Loss Analysis</value>
   </data>
   <data name="ProfitLoss" xml:space="preserve">
-    <value>Profit &amp; Loss</value>
+    <value>Profit/ Loss</value>
   </data>
   <data name="Schedule" xml:space="preserve">
     <value>Schedule</value>
