@@ -150,7 +150,11 @@ public partial class s_dbEntities : DbContext
 
     public DbSet<View_match_createGetEndDateNull> View_match_createGetEndDateNull { get; set; }
 
-    
+    public DbSet<view_matchResult> view_matchResult { get; set; }
+
+    public DbSet<view_transactionReport> view_transactionReport { get; set; }
+
+
     public virtual int SP_GetBetCommisionByUserId(Nullable<int> userId, Nullable<int> firstParentId, Nullable<int> secondParentId, Nullable<int> thirdParentId, Nullable<int> fourthParentId)
     {
 

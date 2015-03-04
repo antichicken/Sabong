@@ -34,6 +34,8 @@ public partial class oddsdetail
 
     public float maxbet_threshold { get; set; }
 
+    public System.DateTime time { get; set; }
+
 }
 
 }

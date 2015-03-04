@@ -29,3 +29,4 @@ C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\EntityFramework.xml
 C:\Work\Sabong\Sabong\Sabong.Test\obj\Debug\Sabong.Test.csprojResolveAssemblyReference.cache
 C:\Work\Sabong\Sabong\Sabong.Test\obj\Debug\Sabong.Test.dll
 C:\Work\Sabong\Sabong\Sabong.Test\obj\Debug\Sabong.Test.pdb
+G:\Code\Sabong\Sabong\Sabong.Test\bin\Debug\LukeSkywalker.IPNetwork.dll

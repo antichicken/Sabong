@@ -368,6 +368,7 @@
     <Property Name="matchslno" Type="int" Nullable="false" />
     <Property Name="W" Type="int" Nullable="false" />
     <Property Name="M" Type="int" Nullable="false" />
+    <Property Name="time" Type="timestamp" Precision="0" Nullable="false" />
   </EntityType>
   <EntityType Name="oddsdetail">
     <Key>
@@ -381,6 +382,7 @@
     <Property Name="oddsadjustment_value" Type="float" Nullable="false" />
     <Property Name="oddsbet_threshold" Type="float" Nullable="false" />
     <Property Name="maxbet_threshold" Type="float" Nullable="false" />
+    <Property Name="time" Type="timestamp" Precision="0" Nullable="false" />
   </EntityType>
   <EntityType Name="oddsdiff_calc">
     <Key>
@@ -447,6 +449,7 @@
     <Property Name="maxbet_draw" Type="double" Nullable="false" />
     <Property Name="drawbet_permatch" Type="double" Nullable="false" />
     <Property Name="currency" Type="int" Nullable="false" />
+    <Property Name="time" Type="timestamp" Precision="0" Nullable="false" />
   </EntityType>
   <EntityType Name="playerbet_limit_backup">
     <Key>
@@ -923,6 +926,64 @@ warning 6002: The table/view 'def.s_db.view_matchdetail' does not have a primary
     <Property Name="abreedername" Type="varchar" MaxLength="300" />
   </EntityType>
   <!--Errors Found During Generation:
+warning 6002: The table/view 'def.s_db.view_matchResult' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="view_matchResult">
+    <Key>
+      <PropertyRef Name="cid" />
+      <PropertyRef Name="acid" />
+      <PropertyRef Name="cock_type" />
+      <PropertyRef Name="against_type" />
+      <PropertyRef Name="fslno" />
+      <PropertyRef Name="fdate" />
+      <PropertyRef Name="match_no" />
+      <PropertyRef Name="status" />
+      <PropertyRef Name="block" />
+      <PropertyRef Name="cancelmatch" />
+      <PropertyRef Name="arena" />
+      <PropertyRef Name="winner_cockid" />
+      <PropertyRef Name="winner" />
+      <PropertyRef Name="match_order" />
+      <PropertyRef Name="cbid" />
+      <PropertyRef Name="abid" />
+      <PropertyRef Name="id" />
+      <PropertyRef Name="matchno" />
+      <PropertyRef Name="starttime" />
+      <PropertyRef Name="stoptime" />
+      <PropertyRef Name="totaltime" />
+    </Key>
+    <Property Name="cid" Type="int" Nullable="false" />
+    <Property Name="acid" Type="int" Nullable="false" />
+    <Property Name="cock_type" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="against_type" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="fslno" Type="int" Nullable="false" />
+    <Property Name="fdate" Type="varchar" MaxLength="400" Nullable="false" />
+    <Property Name="match_no" Type="int" Nullable="false" />
+    <Property Name="status" Type="int" Nullable="false" />
+    <Property Name="block" Type="int" Nullable="false" />
+    <Property Name="cancelmatch" Type="int" Nullable="false" />
+    <Property Name="arena" Type="int" Nullable="false" />
+    <Property Name="winner_cockid" Type="int" Nullable="false" />
+    <Property Name="winner" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="match_order" Type="int" Nullable="false" />
+    <Property Name="cbid" Type="int" Nullable="false" />
+    <Property Name="abid" Type="int" Nullable="false" />
+    <Property Name="cname" Type="varchar" MaxLength="300" />
+    <Property Name="cimage" Type="text" />
+    <Property Name="agname" Type="varchar" MaxLength="300" />
+    <Property Name="agimage" Type="text" />
+    <Property Name="cbreedername" Type="varchar" MaxLength="300" />
+    <Property Name="1odds" Type="double" />
+    <Property Name="2odds" Type="double" />
+    <Property Name="drawwodds" Type="varchar" MaxLength="21" />
+    <Property Name="ftd" Type="varchar" MaxLength="21" />
+    <Property Name="abreedername" Type="varchar" MaxLength="300" />
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="matchno" Type="int" Nullable="false" />
+    <Property Name="starttime" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="stoptime" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="totaltime" Type="varchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
 warning 6002: The table/view 'def.s_db.view_odds' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="view_odds">
     <Key>
@@ -988,125 +1049,36 @@ warning 6002: The table/view 'def.s_db.view_playeruplines' does not have a prima
     <Property Name="Playername" Type="varchar" MaxLength="300" Nullable="false" />
     <Property Name="currency" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
-  <Association Name="transaction_user_playerid">
-    <End Role="user" Type="Self.user" Multiplicity="1" />
-    <End Role="transaction" Type="Self.transaction" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="user">
-        <PropertyRef Name="slno" />
-      </Principal>
-      <Dependent Role="transaction">
-        <PropertyRef Name="playerid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Function Name="chk" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db">
-    <Parameter Name="out_match" Type="int" Mode="Out" />
-  </Function>
-  <Function Name="chk_procedure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" />
-  <Function Name="func_agent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="int">
-    <Parameter Name="in_agentid" Type="int" Mode="In" />
-  </Function>
-  <Function Name="func_agenteffwincomm" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
-    <Parameter Name="in_agentid" Type="int" Mode="In" />
-  </Function>
-  <Function Name="func_agentwincomm" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
-    <Parameter Name="in_agentid" Type="int" Mode="In" />
-  </Function>
-  <Function Name="func_arenaname" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="varchar">
-    <Parameter Name="in_matchno" Type="int" Mode="In" />
-  </Function>
-  <Function Name="func_betcom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
-    <Parameter Name="in_agentid" Type="int" Mode="In" />
-  </Function>
-  <Function Name="func_betcommission" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
-    <Parameter Name="in_agentid" Type="int" Mode="In" />
-  </Function>
-  <Function Name="func_betcommissionup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
-    <Parameter Name="in_agentid" Type="int" Mode="In" />
-  </Function>
-  <Function Name="func_effewincom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
-    <Parameter Name="in_agentid" Type="int" Mode="In" />
-    <Parameter Name="in_playerid" Type="int" Mode="In" />
-  </Function>
-  <Function Name="func_immidiatedownline" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="int">
-    <Parameter Name="in_agentid" Type="int" Mode="In" />
-    <Parameter Name="in_seniourid" Type="int" Mode="In" />
-  </Function>
-  <Function Name="func_matchname" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="varchar">
-    <Parameter Name="in_matchno" Type="int" Mode="In" />
-  </Function>
-  <Function Name="func_playerbet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
-    <Parameter Name="in_agentid" Type="int" Mode="In" />
-  </Function>
-  <Function Name="func_playerbetonly" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
-    <Parameter Name="in_agentid" Type="int" Mode="In" />
-  </Function>
-  <Function Name="func_playerwin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
-    <Parameter Name="in_agentid" Type="int" Mode="In" />
-  </Function>
-  <Function Name="func_playerwinonly" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
-    <Parameter Name="in_agentid" Type="int" Mode="In" />
-  </Function>
-  <Function Name="func_ptagent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
-    <Parameter Name="in_agentid" Type="int" Mode="In" />
-  </Function>
-  <Function Name="func_stakefight" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
-    <Parameter Name="in_agentid" Type="int" Mode="In" />
-    <Parameter Name="in_downid" Type="int" Mode="In" />
-  </Function>
-  <Function Name="func_wincom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
-    <Parameter Name="in_agentid" Type="int" Mode="In" />
-  </Function>
-  <Function Name="func_wincommission" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
-    <Parameter Name="in_agentid" Type="int" Mode="In" />
-  </Function>
-  <Function Name="func_wincommissionup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
-    <Parameter Name="in_agentid" Type="int" Mode="In" />
-  </Function>
-  <Function Name="func_winlose" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" ReturnType="float">
-    <Parameter Name="in_agentid" Type="int" Mode="In" />
-  </Function>
-  <Function Name="matchblock" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db">
-    <Parameter Name="in_matchno" Type="int" Mode="In" />
-  </Function>
-  <Function Name="matchclear" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" />
-  <Function Name="new_procedure" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db">
-    <Parameter Name="slno" Type="int" Mode="In" />
-  </Function>
-  <Function Name="new_winnercal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db">
-    <Parameter Name="slno_n" Type="int" Mode="In" />
-    <Parameter Name="winnerid" Type="int" Mode="In" />
-    <Parameter Name="cocktype_n" Type="varchar" Mode="In" />
-  </Function>
-  <Function Name="proc_notification" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db">
-    <Parameter Name="in_date" Type="varchar" Mode="In" />
-    <Parameter Name="in_matchno" Type="varchar" Mode="In" />
-    <Parameter Name="in_arena" Type="varchar" Mode="In" />
-  </Function>
-  <Function Name="proc_transaction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db">
-    <Parameter Name="in_cockname" Type="varchar" Mode="In" />
-    <Parameter Name="in_type" Type="varchar" Mode="In" />
-    <Parameter Name="in_amount" Type="float" Mode="In" />
-    <Parameter Name="in_odds" Type="float" Mode="In" />
-    <Parameter Name="in_matchno" Type="int" Mode="In" />
-  </Function>
-  <Function Name="proc_winnercal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db">
-    <Parameter Name="slno_n" Type="int" Mode="In" />
-    <Parameter Name="winnerid" Type="int" Mode="In" />
-    <Parameter Name="cocktype_n" Type="varchar" Mode="In" />
-  </Function>
-  <Function Name="reset" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db" />
-  <Function Name="SP_GetBetCommisionByUserIdUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db">
-    <Parameter Name="userId" Type="int" Mode="In" />
-    <Parameter Name="FirstParentId" Type="int" Mode="In" />
-    <Parameter Name="SecondParentId" Type="int" Mode="In" />
-    <Parameter Name="ThirdParentId" Type="int" Mode="In" />
-    <Parameter Name="FourthParentId" Type="int" Mode="In" />
-  </Function>
-  <Function Name="testproc_jagat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="s_db">
-    <Parameter Name="slno_n" Type="int" Mode="In" />
-  </Function>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'def.s_db.view_transactionReport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="view_transactionReport">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="date" />
+      <PropertyRef Name="ip" />
+      <PropertyRef Name="playerid" />
+      <PropertyRef Name="odds" />
+      <PropertyRef Name="acceptedamount" />
+      <PropertyRef Name="cocktype" />
+      <PropertyRef Name="winloseamnt" />
+      <PropertyRef Name="status" />
+      <PropertyRef Name="betcomamt" />
+    </Key>
+    <Property Name="matchno" Type="bigint" />
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="date" Type="timestamp" Precision="0" Nullable="false" />
+    <Property Name="ip" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="playerid" Type="int" Nullable="false" />
+    <Property Name="odds" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="acceptedamount" Type="float" Nullable="false" />
+    <Property Name="cocktype" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="winloseamnt" Type="double" Nullable="false" />
+    <Property Name="arena" Type="varchar" MaxLength="300" />
+    <Property Name="status" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="betcomamt" Type="float" Nullable="false" />
+    <Property Name="breedername" Type="varchar" MaxLength="300" />
+    <Property Name="againstbreedername" Type="varchar" MaxLength="300" />
+  </EntityType>
   <EntityContainer Name="s_dbModelStoreContainer">
     <EntitySet Name="agentbet_limit" EntityType="Self.agentbet_limit" Schema="s_db" store:Type="Tables" />
     <EntitySet Name="agentbet_limit_backup" EntityType="Self.agentbet_limit_backup" Schema="s_db" store:Type="Tables" />
@@ -1282,6 +1254,41 @@ FROM `View_match_createGetEndDateNull` AS `View_match_createGetEndDateNull`</Def
 `view_matchdetail`.`abreedername`
 FROM `view_matchdetail` AS `view_matchdetail`</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="view_matchResult" EntityType="Self.view_matchResult" store:Type="Views" store:Schema="s_db">
+      <DefiningQuery>SELECT
+`view_matchResult`.`cid`, 
+`view_matchResult`.`acid`, 
+`view_matchResult`.`cock_type`, 
+`view_matchResult`.`against_type`, 
+`view_matchResult`.`fslno`, 
+`view_matchResult`.`fdate`, 
+`view_matchResult`.`match_no`, 
+`view_matchResult`.`status`, 
+`view_matchResult`.`block`, 
+`view_matchResult`.`cancelmatch`, 
+`view_matchResult`.`arena`, 
+`view_matchResult`.`winner_cockid`, 
+`view_matchResult`.`winner`, 
+`view_matchResult`.`match_order`, 
+`view_matchResult`.`cbid`, 
+`view_matchResult`.`abid`, 
+`view_matchResult`.`cname`, 
+`view_matchResult`.`cimage`, 
+`view_matchResult`.`agname`, 
+`view_matchResult`.`agimage`, 
+`view_matchResult`.`cbreedername`, 
+`view_matchResult`.`1odds`, 
+`view_matchResult`.`2odds`, 
+`view_matchResult`.`drawwodds`, 
+`view_matchResult`.`ftd`, 
+`view_matchResult`.`abreedername`, 
+`view_matchResult`.`id`, 
+`view_matchResult`.`matchno`, 
+`view_matchResult`.`starttime`, 
+`view_matchResult`.`stoptime`, 
+`view_matchResult`.`totaltime`
+FROM `view_matchResult` AS `view_matchResult`</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="view_odds" EntityType="Self.view_odds" store:Type="Views" store:Schema="s_db">
       <DefiningQuery>SELECT
 `view_odds`.`Name_exp_1`
@@ -1319,9 +1326,23 @@ FROM `view_playercomm` AS `view_playercomm`</DefiningQuery>
 `view_playeruplines`.`currency`
 FROM `view_playeruplines` AS `view_playeruplines`</DefiningQuery>
     </EntitySet>
-    <AssociationSet Name="transaction_user_playerid" Association="Self.transaction_user_playerid">
-      <End Role="user" EntitySet="user" />
-      <End Role="transaction" EntitySet="transaction" />
-    </AssociationSet>
+    <EntitySet Name="view_transactionReport" EntityType="Self.view_transactionReport" store:Type="Views" store:Schema="s_db">
+      <DefiningQuery>SELECT
+`view_transactionReport`.`matchno`, 
+`view_transactionReport`.`id`, 
+`view_transactionReport`.`date`, 
+`view_transactionReport`.`ip`, 
+`view_transactionReport`.`playerid`, 
+`view_transactionReport`.`odds`, 
+`view_transactionReport`.`acceptedamount`, 
+`view_transactionReport`.`cocktype`, 
+`view_transactionReport`.`winloseamnt`, 
+`view_transactionReport`.`arena`, 
+`view_transactionReport`.`status`, 
+`view_transactionReport`.`betcomamt`, 
+`view_transactionReport`.`breedername`, 
+`view_transactionReport`.`againstbreedername`
+FROM `view_transactionReport` AS `view_transactionReport`</DefiningQuery>
+    </EntitySet>
   </EntityContainer>
 </Schema>

@@ -358,6 +358,7 @@
     <Property Name="matchslno" Type="Int32" Nullable="false" />
     <Property Name="W" Type="Int32" Nullable="false" />
     <Property Name="M" Type="Int32" Nullable="false" />
+    <Property Name="time" Type="DateTime" Nullable="false" />
   </EntityType>
   <EntityType Name="oddsdetail">
     <Key>
@@ -371,6 +372,7 @@
     <Property Name="oddsadjustment_value" Type="Single" Nullable="false" />
     <Property Name="oddsbet_threshold" Type="Single" Nullable="false" />
     <Property Name="maxbet_threshold" Type="Single" Nullable="false" />
+    <Property Name="time" Type="DateTime" Nullable="false" />
   </EntityType>
   <EntityType Name="oddsdiff_calc">
     <Key>
@@ -437,6 +439,7 @@
     <Property Name="maxbet_draw" Type="Double" Nullable="false" />
     <Property Name="drawbet_permatch" Type="Double" Nullable="false" />
     <Property Name="currency" Type="Int32" Nullable="false" />
+    <Property Name="time" Type="DateTime" Nullable="false" />
   </EntityType>
   <EntityType Name="playerbet_limit_backup">
     <Key>
@@ -977,6 +980,8 @@
       <Parameter Name="ThirdParentId" Mode="In" Type="Int32" />
       <Parameter Name="FourthParentId" Mode="In" Type="Int32" />
     </FunctionImport>
+    <EntitySet Name="view_matchResult" EntityType="s_dbModel.view_matchResult" />
+    <EntitySet Name="view_transactionReport" EntityType="s_dbModel.view_transactionReport" />
   </EntityContainer>
   <EntityType Name="bidpoints_backup">
     <Key>
@@ -1054,5 +1059,89 @@
       <PropertyRef Name="create_date" />
     </Key>
     <Property Name="create_date" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="view_matchResult">
+    <Key>
+      <PropertyRef Name="cid" />
+      <PropertyRef Name="acid" />
+      <PropertyRef Name="cock_type" />
+      <PropertyRef Name="against_type" />
+      <PropertyRef Name="fslno" />
+      <PropertyRef Name="fdate" />
+      <PropertyRef Name="match_no" />
+      <PropertyRef Name="status" />
+      <PropertyRef Name="block" />
+      <PropertyRef Name="cancelmatch" />
+      <PropertyRef Name="arena" />
+      <PropertyRef Name="winner_cockid" />
+      <PropertyRef Name="winner" />
+      <PropertyRef Name="match_order" />
+      <PropertyRef Name="cbid" />
+      <PropertyRef Name="abid" />
+      <PropertyRef Name="id" />
+      <PropertyRef Name="matchno" />
+      <PropertyRef Name="starttime" />
+      <PropertyRef Name="stoptime" />
+      <PropertyRef Name="totaltime" />
+    </Key>
+    <Property Name="cid" Type="Int32" Nullable="false" />
+    <Property Name="acid" Type="Int32" Nullable="false" />
+    <Property Name="cock_type" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="against_type" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="fslno" Type="Int32" Nullable="false" />
+    <Property Name="fdate" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="match_no" Type="Int32" Nullable="false" />
+    <Property Name="status" Type="Int32" Nullable="false" />
+    <Property Name="block" Type="Int32" Nullable="false" />
+    <Property Name="cancelmatch" Type="Int32" Nullable="false" />
+    <Property Name="arena" Type="Int32" Nullable="false" />
+    <Property Name="winner_cockid" Type="Int32" Nullable="false" />
+    <Property Name="winner" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="match_order" Type="Int32" Nullable="false" />
+    <Property Name="cbid" Type="Int32" Nullable="false" />
+    <Property Name="abid" Type="Int32" Nullable="false" />
+    <Property Name="cname" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="cimage" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="agname" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="agimage" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="cbreedername" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="C1odds" Type="Double" />
+    <Property Name="C2odds" Type="Double" />
+    <Property Name="drawwodds" Type="String" MaxLength="21" FixedLength="false" Unicode="false" />
+    <Property Name="ftd" Type="String" MaxLength="21" FixedLength="false" Unicode="false" />
+    <Property Name="abreedername" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="matchno" Type="Int32" Nullable="false" />
+    <Property Name="starttime" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="stoptime" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="totaltime" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="view_transactionReport">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="date" />
+      <PropertyRef Name="ip" />
+      <PropertyRef Name="playerid" />
+      <PropertyRef Name="odds" />
+      <PropertyRef Name="acceptedamount" />
+      <PropertyRef Name="cocktype" />
+      <PropertyRef Name="winloseamnt" />
+      <PropertyRef Name="status" />
+      <PropertyRef Name="betcomamt" />
+    </Key>
+    <Property Name="matchno" Type="Int64" />
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" />
+    <Property Name="ip" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="playerid" Type="Int32" Nullable="false" />
+    <Property Name="odds" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="acceptedamount" Type="Single" Nullable="false" />
+    <Property Name="cocktype" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="winloseamnt" Type="Double" Nullable="false" />
+    <Property Name="arena" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="betcomamt" Type="Single" Nullable="false" />
+    <Property Name="breedername" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="againstbreedername" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

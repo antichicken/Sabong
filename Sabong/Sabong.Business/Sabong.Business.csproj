@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LukeSkywalker.IPNetwork">
+      <HintPath>..\DLL\LukeSkywalker.IPNetwork.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\DLL\Newtonsoft.Json.dll</HintPath>
@@ -56,6 +59,7 @@
     <Compile Include="Enum\MatchStatus.cs" />
     <Compile Include="BO\LoginResult.cs" />
     <Compile Include="Interface\IPlaceBetService.cs" />
+    <Compile Include="IpHelper.cs" />
     <Compile Include="LoginServices.cs" />
     <Compile Include="BO\MemberLimitedConfig.cs" />
     <Compile Include="MatchHelper.cs" />
@@ -74,6 +78,9 @@
       <Project>{66e57bb2-4b49-4ac3-9229-315e974e38e5}</Project>
       <Name>Sabong.Repository</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="vietnam-netmask.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
