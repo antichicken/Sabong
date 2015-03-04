@@ -17,6 +17,12 @@
         <div id="page-dialog" title="...">
           <p></p>
         </div>
+        <div id="loading-form" title="Sendding request...">
+            Please wait...
+        </div>
+        <div id="response-message">
+            <p></p>
+        </div>
         <div id="change-pass-form" class="hidden" title="CHANGE PASSWORD">
             <div class="password-rule">
                 <div style="margin-bottom: 5px">Password must have 8 to 15 characters without white-space and contain the following:</div>

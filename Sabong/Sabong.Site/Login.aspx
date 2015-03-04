@@ -138,7 +138,7 @@
     </style>
     <link href="/Scripts/jquery-ui/jquery-ui.css" rel="stylesheet" />
     <script src="/Scripts/jquery-1.9.1.min.js"></script>
-    <script src="Scripts/jquery.validate.min.js"></script>
+    <script src="/Scripts/jquery.validate.min.js"></script>
     <script type="text/javascript">
         $(function(){
             $('#loginpanel_form').validate({

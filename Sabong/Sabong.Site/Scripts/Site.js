@@ -150,6 +150,47 @@ $(document).ready(function () {
             $('#newpass, #newpasscf').removeClass('input-err').next().addClass('hidden').html('');
         }
         $('#newpass, #newpasscf,#oldpass').removeClass('input-err').next().addClass('hidden').html('');
+        $('#change-pass-form').dialog('close');
+        $('#loading-form').dialog({ modal: true });
+        $.ajax({
+            url: '/Services/UserServices.ashx',
+            data: { current: $('#oldpass').val(), newpass: $('#newpass').val(), confirm: $('#newpasscf').val() },
+            type: 'POST',
+            success: function(data) {
+                data = $.parseJSON(data);
+                $('#loading-form').dialog('close');
+                if (data.status == 1) {
+                    $('#response-message > p').text(data.message);
+                    $('#response-message').dialog({modal:true});
+                }else if (data.status==-1) {
+                    $('#response-message > p').text(data.message);
+                    $('#response-message').dialog({
+                        modal: true,
+                        buttons: {
+                            OK: function () {
+                                $(this).dialog("destroy");
+                                $('#change-pass-form').dialog('open');
+                            }
+                        }
+                    });
+                }else if (data.status==0) {
+                    $('#response-message > p').text(data.message);
+                    $('#response-message').dialog({
+                        modal: true,
+                        buttons: {
+                            OK: function () {
+                                $(this).dialog("destroy");
+                                window.location = '/Login.aspx';
+                            }
+                        }
+                    });
+
+                    setTimeout(function() {
+                        window.location = '/Login.aspx';
+                    }, 5000);
+                }
+            }
+        });
     }
 });
 
@@ -265,8 +306,6 @@ function MatchNotificationHandler(data) {
         $('#betInfo').val('');
     }
 }
-
-
 
 function BetNotificationHandler(data) {
     if (data.type == "selected-bet") {
