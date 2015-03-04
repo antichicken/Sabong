@@ -249,8 +249,8 @@
             </div>
         </div>
         <div style="position: relative; margin-top: 10px;" class="schedule en">
-            <img onclick="window.open('calenderview.php','_newtab','width=920, height=800,scrollbars=1');" style="width: 65%;" src="/images/schedule1.png">
-            <div onclick="window.open('calenderview.php','_newtab','width=920, height=800,scrollbars=1');" style="width: 150px; height: 22px; float: left; padding-top: 8px; position: absolute; z-index: 99; top: 5px; left: 60px; font-family: arial; font-size: 12px; text-shadow: 1px 1px 1px #fff; color: #000;">
+            <img onclick="window.open('Calendar.aspx','_newtab','width=920, height=800,scrollbars=1');" style="width: 65%;" src="/images/schedule1.png">
+            <div onclick="window.open('Calendar.aspx','_newtab','width=920, height=800,scrollbars=1');" style="width: 150px; height: 22px; float: left; padding-top: 8px; position: absolute; z-index: 99; top: 5px; left: 60px; font-family: arial; font-size: 12px; text-shadow: 1px 1px 1px #fff; color: #000;">
                 Click here for schedule
             </div>
         </div>
