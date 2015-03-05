@@ -46,6 +46,7 @@ namespace Sabong.Business
                                   cockid = placeBet.Cockid,
                                   ip = placeBet.ip,
                                   betstatus = ""
+                                 // ,multiplier = 
                                  
                               };
 

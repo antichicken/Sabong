@@ -246,9 +246,14 @@
     <Compile Include="RepositoryContainer.cs" />
     <Compile Include="RepositoryFactory.cs" />
     <Compile Include="Repo\AnnoucementRepository.cs" />
+    <Compile Include="Repo\ArenaRepository.cs" />
+    <Compile Include="Repo\CurrencyRepository.cs" />
+    <Compile Include="Repo\DerbyRepository.cs" />
     <Compile Include="Repo\MatchRepository.cs" />
     <Compile Include="Repo\OddRepository.cs" />
     <Compile Include="Repo\ReportRepository.cs" />
+    <Compile Include="Repo\TransactionRepository.cs" />
+    <Compile Include="Repo\TransferRepository.cs" />
     <Compile Include="Repo\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup />
