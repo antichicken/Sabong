@@ -253,7 +253,37 @@ namespace Sabong.Repository.Repo
               
             }
         }
+        public view_matchdetail GetCurrentMatch(int arenaId)
+        {
 
+            using (s_dbEntities context = new s_dbEntities())
+            {
+               // confirmCockStatus = "meron/wala un-confirmed";
+                var dateStart = context.View_match_createGetEndDateNull.FirstOrDefault();
+
+                if (dateStart == null)
+                    return null;
+                string createdDate = dateStart.create_date.ToString("dd-MM-yyyy");
+                var xxx = from fightassign in context.view_matchdetail
+                          where
+                              fightassign.winner_cockid == 0 &&
+                              fightassign.status != 1 &&
+                              fightassign.cancelmatch != 1
+                        && fightassign.fdate == createdDate &&
+                        fightassign.arena==arenaId
+                          select fightassign;
+
+
+                var xyz = xxx.FirstOrDefault();
+                var retVal = new view_matchdetail();
+                
+
+                return xyz;
+
+
+
+            }
+        }
 
         //$query=mysql_query("select case when winner_cockid=-1 then 'DRAW' else case when cock_id=winner_cockid then cock_type else  against_type end end as winner  from fight_assign where `date`='$date' and cancelmatch='0' and winner_cockid !=0 order by slno");
 
