@@ -12,7 +12,7 @@
                 </tr>
                 <asp:Repeater ID="rptBetList" runat="server">
                     <ItemTemplate>
-                        <tr class="betsaccepted-td" id="a_<%#Eval("id") %>">
+                        <tr class="betsaccepted-td <%#Eval("cocktype")%>" id="a_<%#Eval("id") %>">
                             <td><%#Eval("matchno") %></td>
                             <td><%#Eval("cocktype") %></td>
                             <td><%#Eval("acceptedamount") %></td>

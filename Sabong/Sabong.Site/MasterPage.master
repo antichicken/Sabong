@@ -111,13 +111,13 @@
                 <li><a href="#">
                     <asp:Literal ID="Literal1" runat="server" Text="<%$Resources:sabong.language, MatchHistory%>" EnableViewState="False"></asp:Literal></a></li>
                 <li>|</li>
-                <li><a href="#"><asp:Literal ID="Literal2" runat="server" Text="<%$Resources:sabong.language, MatchWinLoss%>" EnableViewState="False"></asp:Literal></a></li>
+                <li><a href="#"onclick="window.open('MatchWinLoss.aspx','_newtab','width=920, height=735,scrollbars=1');return false;"><asp:Literal ID="Literal2" runat="server" Text="<%$Resources:sabong.language, MatchWinLoss%>" EnableViewState="False"></asp:Literal></a></li>
                 <li>|</li>
-                <li><a href="#"><asp:Literal ID="Literal3" runat="server" Text="<%$Resources:sabong.language, DailyWinLoss%>" EnableViewState="False"></asp:Literal></a></li>
+                <li><a href="#" onclick="window.open('DailyWinLoss.aspx','_newtab','width=920, height=735,scrollbars=1');return false;"><asp:Literal ID="Literal3" runat="server" Text="<%$Resources:sabong.language, DailyWinLoss%>" EnableViewState="False"></asp:Literal></a></li>
                 <li>|</li>
-                <li><a href="#"><asp:Literal ID="Literal4" runat="server" Text="<%$Resources:sabong.language, WinLossByBetType%>" EnableViewState="False"></asp:Literal></a></li>
+                <li><a href="#" onclick="window.open('WinLossBetType.aspx','_newtab','width=920, height=735,scrollbars=1');return false;"><asp:Literal ID="Literal4" runat="server" Text="<%$Resources:sabong.language, WinLossByBetType%>" EnableViewState="False"></asp:Literal></a></li>
                 <li>|</li>
-                <li><a href="#"><asp:Literal ID="Literal5" runat="server" Text="<%$Resources:sabong.language, Schedule%>" EnableViewState="False"></asp:Literal></a></li>
+                <li><a href="#" onclick="window.open('calendar.aspx','_newtab','width=920, height=735,scrollbars=1');return false;"><asp:Literal ID="Literal5" runat="server" Text="<%$Resources:sabong.language, Schedule%>" EnableViewState="False"></asp:Literal></a></li>
                 <li>|</li>
                 <li><a href="#" id="change-pass"><asp:Literal ID="Literal6" runat="server" Text="<%$Resources:sabong.language, ChangePassword%>" EnableViewState="False"></asp:Literal></a></li>
                 <li>|</li>

@@ -1,0 +1,180 @@
+﻿body {
+    background-repeat: repeat-y;
+    background-position: left;
+    background-color: #fff;
+    font-family: Arial, Verdana, sans-serif, Helvetica;
+    font-size: 12px;
+    color: #000;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.rightcolcontainer {
+    width: 97%;
+    height: auto;
+    background-color: #fff;
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-right: 35px;
+}
+
+.report-title {
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #9c0000;
+}
+
+.report-filter-bar {
+    width: 100%;
+    height: auto;
+    background-image: linear-gradient(to bottom, #fcfcfc 0%, #e6e6e6 100%);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #e7e8e8;
+    height: 45px;
+}
+
+.input-title {
+    padding-left: 15px;
+}
+
+.input-text {
+    margin: 0;
+    padding: 0;
+    float: left;
+    margin-left: 10px;
+}
+
+.calendar-ico {
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.input-select {
+    color: #000;
+    font-weight: bold;
+    font-size: 12px;
+    background: none;
+    background: url(/images/select2.png) no-repeat right;
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: none;
+    -webkit-appearance: none;
+    width: 100px;
+    margin-left: 10px;
+}
+
+    .input-select option {
+        display: block;
+        padding: 0px 2px 1px;
+        white-space: pre;
+        min-height: 1.2em;
+    }
+
+.input-btn {
+    width: 50px;
+    height: auto;
+    color: #000;
+    cursor: pointer;
+    text-shadow: 3px 3px 6px rgba(255, 255, 255, 1);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #989999;
+    text-align: center;
+    background-image: linear-gradient(to bottom, #fcfaf7 0%, #dedbd7 50%, #fcfaf7 100%);
+    float: left;
+    padding: 2px;
+    border: 1px solid #646464;
+}
+
+    .input-btn:hover {
+        background-image: linear-gradient(to bottom, #dedbd7 0%, #eceae6 100%);
+    }
+
+button, html input[type="button"], input[type="reset"], input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+
+.table_head {
+    background: #fff0dd;
+    color: #080000;
+    font-size: 12px;
+    padding: 6px;
+    font-weight: bold;
+}
+
+.table-ctn {
+    margin-top: 20px;
+}
+
+.tbl-header {
+    background: #fff0dd;
+    color: #080000;
+    font-size: 12px;
+    padding: 6px;
+    font-weight: bold;
+}
+
+.table-ctn td {
+    height: 22px;
+    border: 1px solid #aeafae;
+    padding-left: 3px;
+    padding-right: 3px;
+    font-size: 12px;
+}
+
+td.col-name {
+    line-height: 1.0;
+    color: #fff;
+    background: #000;
+    height: 56.5px;
+    font-weight: bold;
+    color: #fff;
+    background-image: linear-gradient(to bottom, #838384 0%, #686768 100%);
+    text-align: center;
+}
+
+.event-row {
+    background-color: #F8F8F8;
+}
+
+.data-row:hover {
+    background-color: yellow;
+}
+.td_bg {
+background-image: -o-linear-gradient(bottom, #A65834 0%, #763610 100%);
+background-image: -moz-linear-gradient(bottom, #A65834 0%, #763610 100%);
+background-image: -webkit-linear-gradient(bottom, #A65834 0%, #763610 100%);
+background-image: -ms-linear-gradient(bottom, #A65834 0%, #763610 100%);
+background-image: linear-gradient(to bottom, #A65834 0%, #763610 100%);
+color: #fff;
+}
+.td_bg1 {
+background-image: -o-linear-gradient(bottom, #582A13 0%, #452612 100%);
+background-image: -moz-linear-gradient(bottom, #582A13 0%, #452612 100%);
+background-image: -webkit-linear-gradient(bottom, #582A13 0%, #452612 100%);
+background-image: -ms-linear-gradient(bottom, #582A13 0%, #452612 100%);
+background-image: linear-gradient(to bottom, #582A13 0%, #452612 100%);
+color: #fff;
+}
+.winlosesubheader {
+background-color: #3f4040;
+font-weight: bold;
+color: #fff;
+text-align: center;
+}
+.transfertableheader {
+font-size: 12px;
+font-weight: bold;
+color: #fff;
+background-image: linear-gradient(to bottom, #838384 0%, #686768 100%);
+text-align: center;
+}

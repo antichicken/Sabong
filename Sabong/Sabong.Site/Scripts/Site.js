@@ -68,7 +68,7 @@ $(document).ready(function () {
         $('#betInfo').val(JSON.stringify(betInfo));
         $('#bet-description').text(des);
     });
-    $('#input-stake').keyup(function(e) {
+    $('#input-stake').change(function(e) {
         var betInfo = new BettingInfo();
         if ($('#betInfo').val().length>0) {
             betInfo = $.parseJSON($('#betInfo').val());
@@ -300,13 +300,13 @@ function MatchNotificationHandler(data) {
         }
     }
 
-    function clearBetSlip() {
-        $('.betslip').hide();
-        $('#input-stake').val('');
-        $('#betInfo').val('');
-    }
+    
 }
-
+function clearBetSlip() {
+    $('.betslip').hide();
+    $('#input-stake').val('');
+    $('#betInfo').val('');
+}
 function BetNotificationHandler(data) {
     if (data.type == "selected-bet") {
         if (data.betinfo.length > 0) {
@@ -378,10 +378,13 @@ function PlaceBet(stake) {
     if ($('#place-bet').hasClass('disabled')) {
         return false;
     }
+    $('#loading-form').dialog({ modal: true });
     $('#place-bet').attr('disabled', 'disabled');
     
     var betInfo = $.parseJSON($('#betInfo').val());
-    if (betInfo.Stake.length<1) {
+    betInfo.Stake = $('#input-stake').val();
+    if (betInfo.Stake.length < 1) {
+        $('#loading-form').dialog('close');
         $('#page-dialog > p').text('Please enter odd stake');
         $('#page-dialog').dialog({ modal: true });
         $('#place-bet').removeAttr('disabled');
@@ -389,6 +392,7 @@ function PlaceBet(stake) {
         return false;
     }
     if (!isValidBet()) {
+        $('#loading-form').dialog('close');
         $('#page-dialog > p').text("MaxBetExceed");
         $('#page-dialog').dialog({ modal: true });
         $('#place-bet').removeAttr('disabled');
@@ -407,6 +411,7 @@ function PlaceBet(stake) {
             bettingResultHandler($.parseJSON(res));
         }
     }).always(function () {
+        $('#loading-form').dialog('close');
         $('#place-bet').removeAttr('disabled');
     });;
 
@@ -460,7 +465,8 @@ function PlaceBet(stake) {
     function bettingResultHandler(result) {
         updateTransInfo(result);
         
-        if (result.Status=="MarketExpire") {
+        if (result.Status == "MarketExpire") {
+            clearBetSlip();
             $('#page-dialog > p').text("MarketExpire");
             $('#page-dialog').dialog({ modal: true });
         }
@@ -484,7 +490,8 @@ function PlaceBet(stake) {
                 }
             });
         }
-        else if (result.Status=="AcceptAmountAndWaitingReBet") {
+        else if (result.Status == "AcceptAmountAndWaitingReBet") {
+            
             $('#page-dialog > p').html('chap nhan mot phan, phan con lai danh voi odd rate khac <br/> Da chap nhan: ' + result.MoneyAccept + '. So tien con lai danh voi oddrate moi: ' + result.RemainMoney + '<br/>Rate moi: ' + result.RateChange);
             $('#page-dialog').dialog({
                 modal: true,
@@ -497,7 +504,8 @@ function PlaceBet(stake) {
                         $(this).dialog("destroy");
                     },
                     No: function() {
-                        $(this).dialog( "destroy" );
+                        $(this).dialog("destroy");
+                        clearBetSlip();
                     }
                 }
             });
@@ -518,6 +526,7 @@ function PlaceBet(stake) {
             $('#page-dialog > p').text("MaxWinningExceed");
             $('#page-dialog').dialog({ modal: true });
         } else if (result.Status == "AcceptBet") {
+            clearBetSlip();
             $('#page-dialog > p').text("Bet Accepted");
             $('#page-dialog').dialog({ modal: true });
         } else if (result.Status == "MeronWalaUnConfirmed") {

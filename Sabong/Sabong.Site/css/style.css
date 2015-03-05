@@ -72,17 +72,17 @@ body {
                 text-decoration: none;
             }
 
-.multilanguage {0;
-    position: relative;
+.multilanguage {
     text-align: right;
-    top: 15px;
-    width: 148px;
+margin-top: 17px;
+margin-right: 5px;
+width: 140px;
+float: right;
 }
 
 .flag img {
     float: left;
     padding-left: 9px;
-    margin-top
 }
 
 .flag img {
@@ -232,10 +232,10 @@ body {
 }
 
 .threecol2-2, .threecol3-2 {
-    color: #61B129;
+    color: #59a918;
 }
 .threecol2-4 {
-    color: #00ff00
+    color: #59a918
 }
 .threecol2-3, .threecol3-3 {
     color: blue;
@@ -498,7 +498,7 @@ tr.betsaccepted-td td {
     background-image: linear-gradient(to bottom, #fefefe 0%, #afafaf 100%);
     border: 1px solid #787878;
     border-radius: 8px;
-    color: #333;
+    color: #C75900;
     float: left;
     font-family: "Conv_MYRIADPRO-BOLD";
     font-size: 14px;
@@ -512,7 +512,7 @@ tr.betsaccepted-td td {
     background-image: linear-gradient(to bottom, #fefefe 0%, #afafaf 100%);
     border: 1px solid #787878;
     border-radius: 8px;
-    color: #333;
+    color: #C75900;
     float: left;
     font-family: "Conv_MYRIADPRO-BOLD";
     font-size: 14px;
@@ -538,14 +538,20 @@ tr.betsaccepted-td td {
     color: #fff;
 }
 .button_d:hover {
-    background-image: linear-gradient(to bottom, #03f003 0%, #007800 100%);
-    border: 1px solid #2e9e02;
-    color: #fff;
+    background-image: -o-linear-gradient(bottom, #FB9F00 0%, #8A5801 100%);
+background-image: -moz-linear-gradient(bottom, #FB9F00 0%, #8A5801 100%);
+background-image: -webkit-linear-gradient(bottom, #FB9F00 0%, #8A5801 100%);
+background-image: -ms-linear-gradient(bottom, #FB9F00 0%, #8A5801 100%);
+background-image: linear-gradient(to bottom, #FB9F00 0%, #8A5801 100%); border:none; color:#fff; border:1px solid #c07a01;
+color: #fff
 }
 .button_f:hover {
-    background-image: linear-gradient(to bottom, #144700 0%, #006b02 100%);
-    border: 1px solid #006b02;
-    color: #fff;
+    background-image: -o-linear-gradient(bottom, #FB9F00 0%, #8A5801 100%);
+background-image: -moz-linear-gradient(bottom, #FB9F00 0%, #8A5801 100%);
+background-image: -webkit-linear-gradient(bottom, #FB9F00 0%, #8A5801 100%);
+background-image: -ms-linear-gradient(bottom, #FB9F00 0%, #8A5801 100%);
+background-image: linear-gradient(to bottom, #FB9F00 0%, #8A5801 100%); border:none; color:#fff; border:1px solid #c07a01;
+color: #fff
 }
 
 .clickable.disabled {
@@ -579,4 +585,10 @@ tr.betsaccepted-td td {
 }
 .hidden {
 display: none;
+}
+.Wala {
+    background-color: #006BCC
+}
+.BDD, .FTD {
+    background-color: #59a918
 }
