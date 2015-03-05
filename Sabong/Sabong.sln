@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sabong.Business", "Sabong.Business\Sabong.Business.csproj", "{9E6E6945-3466-41E3-97E0-A6699DF91AC8}"
 EndProject
@@ -35,7 +35,7 @@ Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "ExpressApp2", "ExpressApp2\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DLL", "DLL", "{67962479-12CF-4C9D-AEDB-AE15CFB03754}"
 	ProjectSection(SolutionItems) = preProject
-		DLL\LukeSkywalker.IPNetwork.dll = DLL\LukeSkywalker.IPNetwork.dll
+		C:\Users\BTA\Desktop\LukeSkywalker.IPNetwork.dll = C:\Users\BTA\Desktop\LukeSkywalker.IPNetwork.dll
 		DLL\Newtonsoft.Json.dll = DLL\Newtonsoft.Json.dll
 	EndProjectSection
 EndProject

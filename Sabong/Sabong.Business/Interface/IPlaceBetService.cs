@@ -149,7 +149,9 @@ namespace Sabong.Business
                     break;
             }
             //Validate Credit Balance and profit.
-            var betCredit=userServices.GetCashBalance(memberTransaction.MemberId);
+            var profit=userServices.GetCashBalance(memberTransaction.MemberId);
+
+            var betCredit = userServices.GetCreditBalance(memberTransaction.MemberId) + profit;
             if ((betCredit - memberTransaction.Stake) < 0)
             {
                 cockOddsBase.TransactionStatus = TransactionStatus.WalletNotEnough;

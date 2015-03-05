@@ -131,6 +131,27 @@ namespace Sabong.Repository.Repo
                  return calculateProfitLoss.totalamnt+calculateProfitLoss.totaltrans;
              }
          }
+        
+         public double GetBetCredit(int userId)
+         {
+             using (s_dbEntities context = new s_dbEntities())
+             {
+
+                 var calculateProfitLoss = context.Database.SqlQuery<ProfitLoss>(
+                      @"select (select sum(winloseamnt) as `totalamnt` from `transaction` where `playerid`={0} ) as totalamnt,
+
+(select coalesce(sum(`amount`),0) as `totaltrans` from `multiple_transfer` where `transfer_to`={0}  and `type`='transfer') as totaltrans", userId).FirstOrDefault();
+
+                 if (calculateProfitLoss == null)
+                 {
+                     return 0;
+                 }
+
+
+                 return calculateProfitLoss.totalamnt + calculateProfitLoss.totaltrans;
+             }
+         }
+
          //select `bidpoint` from `bidpoints` where `agent_id`='$agntid'
          public double GetCreditBalance(int userId)
          {
