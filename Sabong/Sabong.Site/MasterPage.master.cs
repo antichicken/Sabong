@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -9,11 +10,16 @@ using Sabong.Repository.EntityModel;
 
 public partial class MasterPage : System.Web.UI.MasterPage
 {
+    protected double GivenCredit;
+    protected double Profit;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
             SelectLang();
+            Profit = User.GetCashBalance();
+            GivenCredit = User.GetCreditBalance();
         }
     }
 
@@ -63,4 +69,5 @@ public partial class MasterPage : System.Web.UI.MasterPage
             return SessionInfo.User;
         }
     }
+
 }

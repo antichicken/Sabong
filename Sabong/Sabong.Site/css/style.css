@@ -72,16 +72,17 @@ body {
                 text-decoration: none;
             }
 
-.multilanguage {
-    border-left: 1px solid #ccc;
-    display: block;
-    left: 127px !important;
-    overflow: hidden;
-    padding: 2px 6px 0 0;
+.multilanguage {0;
     position: relative;
     text-align: right;
-    top: 7px;
+    top: 15px;
     width: 148px;
+}
+
+.flag img {
+    float: left;
+    padding-left: 9px;
+    margin-top
 }
 
 .flag img {
@@ -552,4 +553,30 @@ tr.betsaccepted-td td {
 }
 .unconfirm {
     color: white
+}
+#change-pass-form {
+    width: 320px;
+}
+#change-pass-form input {
+    margin-left: 20px;
+    width: 216px;
+    height: 25px;border: 1px solid #bdbdbd;
+}
+.password-rule {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: solid 3px #BDBDBD;
+    color: black;
+    
+}
+.input-err {
+    border-color: red !important
+}
+.error {
+    margin-left: 20px;
+    color: red;
+    display: inline-block
+}
+.hidden {
+display: none;
 }

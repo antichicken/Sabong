@@ -10,6 +10,7 @@ using Sabong.Repository.Repo;
 public partial class _Default : PageBase
 {
     readonly MatchRepository _matchRepo = new MatchRepository();
+    UserRepository _userRepos = new UserRepository();
     
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -79,6 +80,19 @@ public partial class _Default : PageBase
                 _annoucement = _annoucementRepos.GetLatest();
             }
             return _annoucement;
+        }
+    }
+
+    private playerbet_limit _playerbetLimit;
+    protected playerbet_limit PlayerLimit
+    {
+        get
+        {
+            if (_playerbetLimit==null)
+            {
+                _playerbetLimit = _userRepos.GetPlayerbetLimit(WebUtil.GetSessionInfo().UserId);
+            }
+            return _playerbetLimit;
         }
     }
 }

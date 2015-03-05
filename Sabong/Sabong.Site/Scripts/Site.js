@@ -76,6 +76,122 @@ $(document).ready(function () {
         betInfo.Stake = $(this).val();
         $('#betInfo').val(JSON.stringify(betInfo));
     });
+    $('#change-pass').click(function () {
+        $('#newpass, #newpasscf, #oldpass').removeClass('input-err').val('');
+        $('.error').addClass('hidden');
+        $('#change-pass-form').dialog({
+            modal: true,
+            width: 400,
+            open: function () {
+                $(this).parent().find('.ui-dialog-buttonset button:eq(0)').focus();
+            },
+            buttons: {
+                Update: function () {
+                    changePass($('#oldpass').val(), $('#newpass').val(), $('#newpasscf').val());
+                },
+                Reset: function () {
+                    $('#newpass, #newpasscf, #oldpass').removeClass('input-err').val('');
+                    $('.error').addClass('hidden');
+                }
+            }
+        });
+        return false;
+    });
+
+    function changePass(p1, p2, p3) {
+        if (p1.length == 0) {
+            $('#oldpass').addClass('input-err').next().removeClass('hidden').html('Enter the old password.');
+            return false;
+        } else {
+            $('#oldpass').removeClass('input-err').next().addClass('hidden').html('');
+        }
+        if (p2.length == 0) {
+            $('#newpass').addClass('input-err').next().removeClass('hidden').html('Enter your new password.');
+            return false;
+        } else {
+            $('#newpass').removeClass('input-err').next().addClass('hidden').html('');
+        }
+        if (p3.length == 0) {
+            $('#newpasscf').addClass('input-err').next().removeClass('hidden').html('Confirm your new password.');
+            return false;
+        } else {
+            $('#newpasscf').removeClass('input-err').next().addClass('hidden').html('');
+        }
+        if (p2!=p3) {
+            $('#newpass, #newpasscf').addClass('input-err').next().removeClass('hidden').html('New password should be equal to confirm password.');
+            return false;
+        } else {
+            $('#newpass, #newpasscf').removeClass('input-err').next().addClass('hidden').html('');
+        }
+        if (/[^a-zA-Z0-9]/.test(p2)) {
+            $('#newpass, #newpasscf').addClass('input-err').next().removeClass('hidden').html('Enter your password without space special character.');
+            return false;
+        } else {
+            $('#newpass, #newpasscf').removeClass('input-err').next().addClass('hidden').html('');
+        }
+
+        if (!/[A-Z]/.test(p2)) {
+            $('#newpass, #newpasscf').addClass('input-err').next().removeClass('hidden').html('Password must have at least one capital letter.');
+            return false;
+        } else {
+            $('#newpass, #newpasscf').removeClass('input-err').next().addClass('hidden').html('');
+        }
+        if (!/[0-9]/.test(p2)) {
+            $('#newpass, #newpasscf').addClass('input-err').next().removeClass('hidden').html('Password must have at least one numeric caracter.');
+            return false;
+        } else {
+            $('#newpass, #newpasscf').removeClass('input-err').next().addClass('hidden').html('');
+        }
+
+        if (p2.length < 8) {
+            $('#newpass, #newpasscf').addClass('input-err').next().removeClass('hidden').html('Password length should be 8-15.');
+            return false;
+        } else {
+            $('#newpass, #newpasscf').removeClass('input-err').next().addClass('hidden').html('');
+        }
+        $('#newpass, #newpasscf,#oldpass').removeClass('input-err').next().addClass('hidden').html('');
+        $('#change-pass-form').dialog('close');
+        $('#loading-form').dialog({ modal: true });
+        $.ajax({
+            url: '/Services/UserServices.ashx',
+            data: { current: $('#oldpass').val(), newpass: $('#newpass').val(), confirm: $('#newpasscf').val() },
+            type: 'POST',
+            success: function(data) {
+                data = $.parseJSON(data);
+                $('#loading-form').dialog('close');
+                if (data.status == 1) {
+                    $('#response-message > p').text(data.message);
+                    $('#response-message').dialog({modal:true});
+                }else if (data.status==-1) {
+                    $('#response-message > p').text(data.message);
+                    $('#response-message').dialog({
+                        modal: true,
+                        buttons: {
+                            OK: function () {
+                                $(this).dialog("destroy");
+                                $('#change-pass-form').dialog('open');
+                            }
+                        }
+                    });
+                }else if (data.status==0) {
+                    $('#response-message > p').text(data.message);
+                    $('#response-message').dialog({
+                        modal: true,
+                        buttons: {
+                            OK: function () {
+                                $(this).dialog("destroy");
+                                window.location = '/Login.aspx';
+                            }
+                        }
+                    });
+
+                    setTimeout(function() {
+                        window.location = '/Login.aspx';
+                    }, 5000);
+                }
+            }
+        });
+    }
 });
 
 var NotificationPoll = function() {
@@ -191,8 +307,6 @@ function MatchNotificationHandler(data) {
     }
 }
 
-
-
 function BetNotificationHandler(data) {
     if (data.type == "selected-bet") {
         if (data.betinfo.length > 0) {
@@ -262,15 +376,24 @@ function UserNotificationHandler(data) {
 
 function PlaceBet(stake) {
     if ($('#place-bet').hasClass('disabled')) {
-        return;
+        return false;
     }
     $('#place-bet').attr('disabled', 'disabled');
     
     var betInfo = $.parseJSON($('#betInfo').val());
     if (betInfo.Stake.length<1) {
-        $('#page-dialog').dialog("destroy");
         $('#page-dialog > p').text('Please enter odd stake');
         $('#page-dialog').dialog({ modal: true });
+        $('#place-bet').removeAttr('disabled');
+        $('#input-stake').focus();
+        return false;
+    }
+    if (!isValidBet()) {
+        $('#page-dialog > p').text("MaxBetExceed");
+        $('#page-dialog').dialog({ modal: true });
+        $('#place-bet').removeAttr('disabled');
+        $('#input-stake').focus();
+        return false;
     }
     var s = stake;
     if (stake==undefined) {
@@ -286,6 +409,29 @@ function PlaceBet(stake) {
     }).always(function () {
         $('#place-bet').removeAttr('disabled');
     });;
+
+    function isValidBet() {
+        if (playerLimit != null) {
+            var vstake = parseFloat(betInfo.Stake);
+            if (betInfo.Bettype == 0) {
+                if (vstake < playerLimit.minbet_meron || vstake > playerLimit.maxbet_meron) {
+                    return false;
+                }
+                return true;
+            } else if (betInfo.Bettype == 1) {
+                if (vstake < playerLimit.minbet_wala || vstake > playerLimit.maxbet_wala) {
+                    return false;
+                }
+                return true;
+            } else {
+                if (vstake < playerLimit.minbet_draw || vstake > playerLimit.maxbet_draw) {
+                    return false;
+                }
+                return true;
+            }
+        }
+        return true;
+    }
 
     function updateTransInfo(data) {
         if (data.Status == 'AcceptBet' || data.Status == 'AcceptAmountAndWaitingReBet') {

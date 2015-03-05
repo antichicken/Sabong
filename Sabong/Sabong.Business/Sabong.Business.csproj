@@ -71,6 +71,7 @@
     <Compile Include="SessionContainer.cs" />
     <Compile Include="SessionsManager.cs" />
     <Compile Include="Enum\SessionViolation.cs" />
+    <Compile Include="StringHelper.cs" />
     <Compile Include="UserHelper.cs" />
   </ItemGroup>
   <ItemGroup>
