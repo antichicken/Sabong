@@ -43,6 +43,7 @@ $(document).ready(function () {
             return false;
         }
         $('.betslip').show();
+        $('#input-stake').val('');
         var des = "";
         var betInfo = new BettingInfo();
         betInfo.MatchId = $('#match-id').val();
@@ -51,18 +52,34 @@ $(document).ready(function () {
         if (e.target.id == "choose-meron") {
             des += $('#meron-name').text() + " MERON @" + rate;
             betInfo.Bettype = 0;
+            //playerLimit.minbet_meron
+            if (playerLimit) {
+                $('#input-stake').val(playerLimit.minbet_meron);
+            }
         }
         if (e.target.id == "choose-wala") {
             des += $('#wala-name').text() + " WALA @" + rate;
             betInfo.Bettype = 1;
+            //playerLimit.minbet_wala
+            if (playerLimit) {
+                $('#input-stake').val(playerLimit.minbet_wala);
+            }
         }
         if (e.target.id == "choose-draw") {
             des += "DRAW @" + rate;
             betInfo.Bettype = 2;
+            //playerLimit.minbet_draw
+            if (playerLimit) {
+                $('#input-stake').val(playerLimit.minbet_draw);
+            }
         }
         if (e.target.id == "choose-ftd") {
             des += "FTD @" + rate;
             betInfo.Bettype = 3;
+            //playerLimit.minbet_draw
+            if (playerLimit) {
+                $('#input-stake').val(playerLimit.minbet_draw);
+            }
         }
         betInfo.Stake = $('#input-stake').val();
         $('#betInfo').val(JSON.stringify(betInfo));

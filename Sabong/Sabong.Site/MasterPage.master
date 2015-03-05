@@ -108,7 +108,7 @@
         <div class="secondmenu">
             <ul>
                 <li>|</li>
-                <li><a href="#">
+                <li><a href="#" onclick="window.open('MatchHistory.aspx','_newtab','width=920, height=735,scrollbars=1');return false;">
                     <asp:Literal ID="Literal1" runat="server" Text="<%$Resources:sabong.language, MatchHistory%>" EnableViewState="False"></asp:Literal></a></li>
                 <li>|</li>
                 <li><a href="#"onclick="window.open('MatchWinLoss.aspx','_newtab','width=920, height=735,scrollbars=1');return false;"><asp:Literal ID="Literal2" runat="server" Text="<%$Resources:sabong.language, MatchWinLoss%>" EnableViewState="False"></asp:Literal></a></li>

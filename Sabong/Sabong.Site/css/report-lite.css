@@ -129,6 +129,7 @@ button, html input[type="button"], input[type="reset"], input[type="submit"] {
     padding-left: 3px;
     padding-right: 3px;
     font-size: 12px;
+    text-align: center
 }
 
 td.col-name {
@@ -177,4 +178,13 @@ font-weight: bold;
 color: #fff;
 background-image: linear-gradient(to bottom, #838384 0%, #686768 100%);
 text-align: center;
+}
+.meron {
+    color: #fc1c00
+}
+.wala {
+    color: #083bff
+}
+.cancel{
+    text-decoration:line-through;
 }

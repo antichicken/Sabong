@@ -1,4 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="MatchHistory.aspx.cs" Inherits="MatchHistory" %>
+<%@ Import Namespace="System.ComponentModel" %>
+<%@ Import Namespace="Sabong.Repository.EntityModel" %>
 
 <!DOCTYPE html>
 
@@ -11,11 +13,11 @@
     <script src="/Scripts/jquery-ui/jquery-ui.min.js"></script>
     <script>
         $(document).ready(function() {
-            $("#select-date").datepicker({
-                dateFormat: "dd/mm/yy"
+            $("#<%=txtDate.ClientID%>").datepicker({
+                dateFormat: "dd-mm-yy"
             });
             $("#calendar-ico").click(function () {
-                $('#select-date').datepicker("show");
+                $('#<%=txtDate.ClientID%>').datepicker("show");
             });
         })
     </script>
@@ -29,20 +31,23 @@
                     <tr>
                         <td class="input-title">Select Date:</td>
                         <td>
-                            <input type="text" class="input-text" id="select-date" />
+                            <%--<input type="text" class="input-text" id="select-date" />--%>
+                            <asp:TextBox ID="txtDate" runat="server" CssClass="input-text"></asp:TextBox>
                             <img src="/images/ico_calendar.jpg" class="calendar-ico" id="calendar-ico" />
                         </td>
                         <td class="input-title">Select Arena:
                         </td>
                         <td>
-                            <select class="input-select">
+                            <asp:DropDownList ID="ddlArena" CssClass="input-select" runat="server"></asp:DropDownList>
+                            <%--<select class="input-select">
                                 <option>1</option>
                                 <option>3</option>
                                 <option>3</option>
-                            </select>
+                            </select>--%>
                         </td>
                         <td>
-                            <input type="button" class="input-btn" value="Sumit" />
+                            <asp:Button ID="btnSearch" CssClass="input-btn" runat="server" Text="Sumit" OnClick="btnSearch_Click" />
+                            <%--<input type="button" class="input-btn" value="Sumit" />--%>
                         </td>
                     </tr>
                 </table>
@@ -61,42 +66,20 @@
                         <td class="col-name">Winner</td>
                         <td class="col-name">Match Result</td>
                     </tr>
-                    <tr class="data-row">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr class="data-row event-row">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr class="data-row">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr class="data-row event-row">
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    <asp:Repeater runat="server" ID="rptReport">
+                        <ItemTemplate>
+                            <tr class="data-row <%# Container.ItemIndex%2 == 0 ?"event-row":string.Empty %>">
+                                <td><%#Eval("match_no") %></td>
+                                <td class="<%#MatchCancel((view_matchResult)Container.DataItem) %>"><span class="meron"><%#Eval("cname") %></span>  vs <span class="wala"><%#Eval("agname") %></span></td>
+                                <td><%#UnixTimeStampToDateTime(Eval("starttime").ToString()) %></td>
+                                <td><%#UnixTimeStampToDateTime(Eval("stoptime").ToString()) %></td>
+                                <td><%#GetDuration(Eval("starttime").ToString(),Eval("stoptime").ToString()) %></td>
+                                <td><%#WinnerName((view_matchResult)Container.DataItem) %></td>
+                                <td style="text-transform: uppercase"><%#MatchResult((view_matchResult)Container.DataItem) %></td>
+                            </tr>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                    
                 </table>
             </div>
         </div>
