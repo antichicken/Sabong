@@ -92,6 +92,7 @@ table {
     float: left;
     padding: 2px;
     border: 1px solid #646464;
+    margin-left: 20px
 }
 
     .input-btn:hover {
@@ -187,4 +188,7 @@ text-align: center;
 }
 .cancel{
     text-decoration:line-through;
+}
+.strong {
+font-weight: bold;
 }

@@ -74,7 +74,7 @@ body {
 
 .multilanguage {
     text-align: right;
-margin-top: 17px;
+margin-top: 9px;
 margin-right: 5px;
 width: 140px;
 float: right;
@@ -591,4 +591,7 @@ display: none;
 }
 .BDD, .FTD {
     background-color: #59a918
+}
+.topmenu {
+    font-size: 12px
 }

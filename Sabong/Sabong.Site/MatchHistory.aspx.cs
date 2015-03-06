@@ -17,7 +17,7 @@ public partial class MatchHistory : System.Web.UI.Page
         if (!IsPostBack)
         {
             arenas = matchRepository.GetAllArenas();
-            txtDate.Text = DateTime.Now.ToString("dd-MM-yyyy");
+            txtDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
             int arena = 0;
             if (!int.TryParse(Request.QueryString["arena"],out arena))
             {
@@ -50,7 +50,7 @@ public partial class MatchHistory : System.Web.UI.Page
 
     private void LoadReport(int arena, string date)
     {
-        var rp = reportRepos.GetMatchResultByDate(arena, date);
+        var rp = reportRepos.GetMatchResultByDate(arena, date.Replace("/","-"));
         rptReport.DataSource = rp;
         rptReport.DataBind();
     }

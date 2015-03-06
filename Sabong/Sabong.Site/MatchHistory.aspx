@@ -14,7 +14,7 @@
     <script>
         $(document).ready(function() {
             $("#<%=txtDate.ClientID%>").datepicker({
-                dateFormat: "dd-mm-yy"
+                dateFormat: "dd/mm/yy"
             });
             $("#calendar-ico").click(function () {
                 $('#<%=txtDate.ClientID%>').datepicker("show");
