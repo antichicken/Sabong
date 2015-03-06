@@ -31,5 +31,15 @@ namespace Sabong.Business
                 return sBuilder.ToString();
             }
         }
+
+        public static string NumberTostring(this double number)
+        {
+            var x = number.ToString("N");
+            if (x.EndsWith(".00"))
+            {
+                return x.Substring(0, x.IndexOf('.'));
+            }
+            return x;
+        }
     }
 }
