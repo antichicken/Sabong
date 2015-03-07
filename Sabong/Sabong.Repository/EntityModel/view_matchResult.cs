@@ -70,9 +70,9 @@ public partial class view_matchResult
 
     public string abreedername { get; set; }
 
-    public int id { get; set; }
+    public Nullable<int> id { get; set; }
 
-    public int matchno { get; set; }
+    public Nullable<int> matchno { get; set; }
 
     public string starttime { get; set; }
 

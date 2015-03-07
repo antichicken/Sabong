@@ -131,7 +131,18 @@ namespace Sabong.Repository.Repo
                  return calculateProfitLoss.totalamnt+calculateProfitLoss.totaltrans;
              }
          }
-        
+         public string GetCurrencyValueByUserId(int userid)
+         {
+             using (s_dbEntities context = new s_dbEntities())
+             {
+                 //Select
+                 user xxx = new user();
+                 string query = string.Format("select `t1`.`value` AS `value` from (`currency` `t1` join `user` `t2` on((`t1`.`slno` = `t2`.`currency_type`))) where (`t2`.`slno` = {0})", userid);
+                 var retval = context.Database.SqlQuery<string>(
+                    query).FirstOrDefault();
+                 return retval;
+             }
+         }
          public double GetBetCredit(int userId)
          {
              using (s_dbEntities context = new s_dbEntities())
@@ -147,8 +158,28 @@ namespace Sabong.Repository.Repo
                      return 0;
                  }
 
-
+                 //SELECT coalesce(sum(`acceptedamount`),0) as `creditbet` FROM `transaction` WHERE `playerid`='$_SESSION[useridval]' and `matchno` in (select `slno` from `fight_assign` where date='$datebe' and winner_cockid=0 and cancelstatus=0)
                  return calculateProfitLoss.totalamnt + calculateProfitLoss.totaltrans;
+             }
+         }
+
+         public double GetCanBetCredit(int matchId,int userId)
+         {
+             using (s_dbEntities context = new s_dbEntities())
+             {
+
+                 var calculateProfitLoss = context.Database.SqlQuery<BetCreditxxx>(
+                      @"select (select sum(winloseamnt) as `totalamnt` from `transaction` where `playerid`={0} ) as totalamnt,
+
+(select coalesce(sum(`amount`),0) as `totaltrans` from `multiple_transfer` where `transfer_to`={0}  and `type`='transfer') as totaltrans, (SELECT coalesce(sum(`acceptedamount`),0) as `creditbet` FROM `transaction` WHERE `playerid`={0} and {1} in (select `slno` from `fight_assign` where  winner_cockid=0 and cancelstatus=0)) as current       ", userId,matchId).FirstOrDefault();
+
+                 if (calculateProfitLoss == null)
+                 {
+                     return 0;
+                 }
+
+                 //SELECT coalesce(sum(`acceptedamount`),0) as `creditbet` FROM `transaction` WHERE `playerid`='$_SESSION[useridval]' and `matchno` in (select `slno` from `fight_assign` where date='$datebe' and winner_cockid=0 and cancelstatus=0)
+                 return calculateProfitLoss.totalamnt + calculateProfitLoss.totaltrans-calculateProfitLoss.current;
              }
          }
 
@@ -211,6 +242,15 @@ namespace Sabong.Repository.Repo
         public double totaltrans { get; set; }
 
         public double totalamnt { get; set; }
+    }
+
+    public class BetCreditxxx
+    {
+        public double totaltrans { get; set; }
+
+        public double totalamnt { get; set; }
+
+        public double current { get; set; }
     }
 
     public class AllLevelComm

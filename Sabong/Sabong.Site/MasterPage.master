@@ -54,7 +54,7 @@
             <ul>
                 <li class="user-menu">
                 <img src="/images/user_icon.png" />
-                <span class="userid"><%=User.name %></span><br /><span class="logout">
+                <span class="userid"><%=User.username %></span><br /><span class="logout">
     <asp:LinkButton ID="btnLogOut" runat="server" OnClick="btnLogOut_Click"><asp:Literal ID="Literal7" runat="server" Text="<%$Resources:sabong.language, LOGOUT%>" EnableViewState="False"></asp:Literal></asp:LinkButton></span></li>
                 <li><asp:Literal ID="Literal8" runat="server" Text="<%$Resources:sabong.language, CreditBalance%>" EnableViewState="False"></asp:Literal>: <strong><%=User.GetCurencyName() %> $ <%=GivenCredit %></strong></li>
                 <li><asp:Literal ID="Literal9" runat="server" Text="<%$Resources:sabong.language, ProfitLoss%>" EnableViewState="False"></asp:Literal>: <strong><%=User.GetCurencyName() %> $ <%=Profit %></strong></li>

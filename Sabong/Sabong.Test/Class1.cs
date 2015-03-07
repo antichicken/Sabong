@@ -318,6 +318,35 @@ namespace Sabong.Test
 
 
         }
+        [Test]
+        public void GetReport()
+        {
+            var match = new ReportRepository();
+            string status = "";
+            var xxx = match.GetMatchResultByDate(2,"11-01-2015");
+
+
+
+
+        //    bool matchEnd;
+
+
+        }
+
+        [Test]
+        public void GetBetCredit()
+        {
+            var match = new UserRepository();
+            string status = "";
+            var xxx = match.GetCanBetCredit(3498,4908);
+
+
+
+
+            //    bool matchEnd;
+
+
+        }
 
         [Test]
         public void GetAnnoucement()

@@ -33,7 +33,14 @@ namespace Sabong.Business
             {
                 oddsString = placeBet.OddsRateInString;
             }
-            
+            //$multiplier=1/$crncy_value;
+            UserServices userServices=new UserServices();
+            var value=userServices.GetCurrencyValueByUserId(placeBet.MemberId);
+            var multipliers = 0;
+            if (!string.IsNullOrEmpty(value))
+            {
+                multipliers = int.Parse(value);
+            }
             transaction trans=new transaction
                               {
                                   playerid = placeBet.MemberId,
@@ -46,7 +53,7 @@ namespace Sabong.Business
                                   cockid = placeBet.Cockid,
                                   ip = placeBet.ip,
                                   betstatus = ""
-                                 // ,multiplier = 
+                                 ,multiplier = multipliers
                                  
                               };
 
