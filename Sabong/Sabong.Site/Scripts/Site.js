@@ -44,6 +44,7 @@ $(document).ready(function () {
         }
         $('.betslip').show();
         $('#input-stake').val('');
+        $('#input-stake').focus();
         var des = "";
         var betInfo = new BettingInfo();
         betInfo.MatchId = $('#match-id').val();
@@ -462,7 +463,7 @@ function PlaceBet(stake) {
                     var bet = data.BetList[i];
                     //var sid = '#s_' + bet.id;
                     var aid = '#a_' + bet.id;
-                    var tmp = '<tr class="betsaccepted-td" id="a_' + bet.id + '"><td>' + bet.matchno + '</td><td>' + bet.cocktype + '</td><td>' + bet.acceptedamount + '</td><td>' + bet.odds + '</td></tr>';
+                    var tmp = '<tr class="betsaccepted-td ' + bet.cocktype + '" id="a_' + bet.id + '"><td>' + bet.matchno + '</td><td>' + bet.cocktype + '</td><td>' + bet.acceptedamount + '</td><td>' + bet.odds + '</td></tr>';
                     //$(sid).remove();
                     if ($('#selected-bet .betsaccepted-td').length < 1) {
                         $('#selected-bet').closest('.betsaccepted').hide();

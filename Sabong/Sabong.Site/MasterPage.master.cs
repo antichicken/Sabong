@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -20,6 +21,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
             SelectLang();
             Profit = User.GetCashBalance();
             GivenCredit = User.GetCreditBalance();
+            GivenCredit = Math.Round(GivenCredit, 2, MidpointRounding.AwayFromZero);
+            Profit = Math.Round(Profit, 2, MidpointRounding.AwayFromZero);
         }
     }
 

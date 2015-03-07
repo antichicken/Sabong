@@ -56,9 +56,9 @@
                 <img src="/images/user_icon.png" />
                 <span class="userid"><%=User.username %></span><br /><span class="logout">
     <asp:LinkButton ID="btnLogOut" runat="server" OnClick="btnLogOut_Click"><asp:Literal ID="Literal7" runat="server" Text="<%$Resources:sabong.language, LOGOUT%>" EnableViewState="False"></asp:Literal></asp:LinkButton></span></li>
-                <li><asp:Literal ID="Literal8" runat="server" Text="<%$Resources:sabong.language, CreditBalance%>" EnableViewState="False"></asp:Literal>: <strong><%=User.GetCurencyName() %> $ <%=GivenCredit %></strong></li>
-                <li><asp:Literal ID="Literal9" runat="server" Text="<%$Resources:sabong.language, ProfitLoss%>" EnableViewState="False"></asp:Literal>: <strong><%=User.GetCurencyName() %> $ <%=Profit %></strong></li>
-                <li><asp:Literal ID="Literal10" runat="server" Text="<%$Resources:sabong.language, BetCredit%>" EnableViewState="False"></asp:Literal>: <strong><%=User.GetCurencyName() %> $ <%=GivenCredit+Profit %></strong></li>
+                <li><asp:Literal ID="Literal8" runat="server" Text="<%$Resources:sabong.language, CreditBalance%>" EnableViewState="False"></asp:Literal>: <strong><%=User.GetCurencyName() %> $ <%=GivenCredit.NumberTostring() %></strong></li>
+                <li><asp:Literal ID="Literal9" runat="server" Text="<%$Resources:sabong.language, ProfitLoss%>" EnableViewState="False"></asp:Literal>: <strong><%=User.GetCurencyName() %> $ <%=Profit.NumberTostring() %></strong></li>
+                <li><asp:Literal ID="Literal10" runat="server" Text="<%$Resources:sabong.language, BetCredit%>" EnableViewState="False"></asp:Literal>: <strong><%=User.GetCurencyName() %> $ <%=(GivenCredit+Profit).NumberTostring() %></strong></li>
                 <li><%=DateTime.Now.ToString("MMM dd, yyyy UTCzz",new CultureInfo("en-us")) %> <span id="clockDisplay"></span>
                     <script type="text/javascript">
                         function renderTime() {
@@ -108,7 +108,7 @@
         <div class="secondmenu">
             <ul>
                 <li>|</li>
-                <li><a href="#" onclick="window.open('MatchHistory.aspx','_newtab','width=920, height=735,scrollbars=1');return false;">
+                <li><a href="#" onclick="window.open('MatchHistory.aspx?arena=<%=User.arena%>','_newtab','width=920, height=735,scrollbars=1');return false;">
                     <asp:Literal ID="Literal1" runat="server" Text="<%$Resources:sabong.language, MatchHistory%>" EnableViewState="False"></asp:Literal></a></li>
                 <li>|</li>
                 <li><a href="#"onclick="window.open('MatchWinLoss.aspx','_newtab','width=920, height=735,scrollbars=1');return false;"><asp:Literal ID="Literal2" runat="server" Text="<%$Resources:sabong.language, MatchWinLoss%>" EnableViewState="False"></asp:Literal></a></li>

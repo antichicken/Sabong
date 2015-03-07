@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Threading;
 using System.Web;
+using Sabong.Business;
 
 /// <summary>
 /// Summary description for PageBase
@@ -30,14 +31,19 @@ public class PageBase : System.Web.UI.Page
     protected override void OnPreInit(EventArgs e)
     {
         base.OnPreInit(e);
-        var session = WebUtil.GetSessionInfo();
-        if (session!=null)
+        SessionInfo = WebUtil.GetSessionInfo();
+        if (SessionInfo != null)
         {
-            session.LastUpdate = DateTime.Now;
+            SessionInfo.LastUpdate = DateTime.Now;
         }
         else
         {
             Response.Redirect("~/Login.aspx");
         }
     }
+
+    protected SessionInfo SessionInfo
+    {
+        get; set;
+    } 
 }
