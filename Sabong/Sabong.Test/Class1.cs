@@ -25,6 +25,18 @@ namespace Sabong.Test
             matchWorkFlow.GetCurrentMatch();
         }
 
+        [Test]
+        public void FuckingStupid()
+        {
+           var xxx= RiskManagementHandler.Instance.ProcessOddMoreThanOne(-1.04f);
+
+           var xxx1 = RiskManagementHandler.Instance.ProcessOddMoreThanOne(1.04f);
+
+           var xxx2 = RiskManagementHandler.Instance.ProcessOddMoreThanOne(0.98f);
+
+           var xxx3 = RiskManagementHandler.Instance.ProcessOddMoreThanOne(-0.98f);
+        }
+
         ////1484
         /// 
         [Test]

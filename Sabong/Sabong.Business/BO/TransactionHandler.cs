@@ -87,31 +87,31 @@ namespace Sabong.Business
 
             if (cumulatively >= riskData.RiskBoxSizeLeve5)
             {
-                riskLevel = riskData.RiskBoxSizeLeve5;
+                riskLevel = riskData.RiskLevel5;
                 boxSize = riskData.RiskBoxSizeLeve5;
                 return true;
             }
             if (cumulatively >= riskData.RiskBoxSizeLeve4)
             {
-                riskLevel = riskData.RiskBoxSizeLeve4;
+                riskLevel = riskData.RiskLevel4;
                 boxSize = riskData.RiskBoxSizeLeve4;
                 return true;
             }
             if (cumulatively >= riskData.RiskBoxSizeLeve3)
             {
-                riskLevel = riskData.RiskBoxSizeLeve3;
+                riskLevel = riskData.RiskLevel3;
                 boxSize = riskData.RiskBoxSizeLeve3;
                 return true;
             }
             if (cumulatively >= riskData.RiskBoxSizeLeve2)
             {
-                riskLevel = riskData.RiskBoxSizeLeve2;
+                riskLevel = riskData.RiskLevel2;
                 boxSize = riskData.RiskBoxSizeLeve2;
                 return true;
             }
             if (cumulatively >= riskData.RiskBoxSizeLeve1)
             {
-                riskLevel = riskData.RiskBoxSizeLeve1;
+                riskLevel = riskData.RiskLevel1;
                 boxSize = riskData.RiskBoxSizeLeve1;
                 return true;
             }
@@ -157,6 +157,36 @@ namespace Sabong.Business
             }
             return _oddRepo.GetOddsdiffCalcByMatchId(matchId);
         }
+
+       public float ProcessOddMoreThanOne(float odd)
+        {
+           // var sum = odd + threadHold;
+
+            //-0.98 -0.03 =-1 
+            if (odd>1)
+            {
+                var remainSum = odd - 1;
+                //1.03 --> -0.97
+                return remainSum - 1;
+            }
+            else if(odd<-1)
+            {
+                var remainSum = odd + 1;
+                //1.03 --> -0.97
+                return 1 + remainSum;
+            }
+
+            //-0.98 
+
+           
+                //-1.03 -> 0.97
+                //0.95 ->0.9   -> 0.8 -> 
+                //0.95 -> 1.0 -> -0.98 - 05 -->  -1.03
+            return odd;
+
+        }
+
+       
         
         void JumpAndUpdateOddDiff(int matchId,float thrhold,float boxsize,bool isMeron)
         {
@@ -167,8 +197,11 @@ namespace Sabong.Business
             {
                 if (isMeron)
                 {
+                   
                     oddDiff.C1odds -= thrhold;//giam meron
                     oddDiff.C2odds += thrhold;//tang wala
+
+                    
                 }
                 else
                 {
@@ -176,6 +209,10 @@ namespace Sabong.Business
                     
                     oddDiff.C2odds -= thrhold;//giam wala
                 }
+
+                oddDiff.C1odds = ProcessOddMoreThanOne(oddDiff.C1odds);
+                oddDiff.C2odds = ProcessOddMoreThanOne(oddDiff.C2odds);
+                    ;//tang wala
                 //update odd diff. vao dictionary
                 _currentOddValue[matchId] = oddDiff;
 
@@ -245,10 +282,21 @@ namespace Sabong.Business
                
                 if (IsJumpOdd(_defaultRiskManagement, 0, stake, out riskboxSize, out riskLevel))
                 {
+
+                    //cumulattively=0
+                    //cumulattively du bao nhieu
                     // nhan 1 phan tien de = box size va alert odd change 
                     //calculate remain stake to continue store in cumulatively
-                    cumulatively = stake;
-                    remainStake = riskboxSize - Math.Abs(cumulatively );
+                    cumulatively = stake;//5000
+                    //3000
+
+                    //boxsize 2700 danh 3000 . Jump 300
+                    remainStake = Math.Abs(cumulatively) - riskboxSize;
+ 
+                    //3000
+                    //du 2000
+                    //500 nua
+
                     //Empty current Box
                    // retVal.RemainStake = remainStake;
                     
@@ -281,7 +329,7 @@ namespace Sabong.Business
                     
                     //Calculate odd to Odd jump because box clear;
                     bool isMeron = cumulatively > 0;
-                    JumpAndUpdateOddDiff(betTransaction.MatchId, thrholdGroupA,riskboxSize, isMeron);
+                    JumpAndUpdateOddDiff(betTransaction.MatchId, riskLevel,riskboxSize, isMeron);
 
                     cumulatively = remainStake;
                 }

@@ -118,7 +118,7 @@ namespace Sabong.Repository.Repo
              {
 
                  var calculateProfitLoss = context.Database.SqlQuery<ProfitLoss>(
-                      @"select (select sum(winloseamnt) as `totalamnt` from `transaction` where `playerid`={0} ) as totalamnt,
+                      @"select (select IFNULL(sum(winloseamnt),0) as `totalamnt` from `transaction` where `playerid`={0} ) as totalamnt,
 
 (select coalesce(sum(`amount`),0) as `totaltrans` from `multiple_transfer` where `transfer_to`={0}  and `type`='transfer') as totaltrans",userId ).FirstOrDefault();
 

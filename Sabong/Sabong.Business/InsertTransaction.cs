@@ -27,13 +27,14 @@ namespace Sabong.Business
             string oddsString;
             if (placeBet.BetType == BetType.Meron || placeBet.BetType == BetType.Wala)
             {
-                oddsString = placeBet.OddsRate.ToString().Substring(0, 4);
+                var x = placeBet.OddsRate.ToString();
+                oddsString = x.Substring(0, x.Length < 4 ? x.Length : 4);
             }
             else
             {
                 oddsString = placeBet.OddsRateInString;
             }
-            
+
             transaction trans=new transaction
                               {
                                   playerid = placeBet.MemberId,

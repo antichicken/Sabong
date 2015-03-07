@@ -15,6 +15,7 @@ G:\Sabong-master\Sabong\Sabong.Repository\bin\Debug\EntityFramework.xml
 G:\Sabong-master\Sabong\Sabong.Repository\obj\Debug\Sabong.Repository.csprojResolveAssemblyReference.cache
 G:\Sabong-master\Sabong\Sabong.Repository\obj\Debug\Sabong.Repository.dll
 G:\Sabong-master\Sabong\Sabong.Repository\obj\Debug\Sabong.Repository.pdb
+G:\Code\Sabong\Sabong\Sabong.Repository\obj\Debug\Sabong.Repository.csprojResolveAssemblyReference.cache
 C:\Work\Sabong\Sabong\Sabong.Repository\bin\Debug\Sabong.Repository.dll.config
 C:\Work\Sabong\Sabong\Sabong.Repository\bin\Debug\Sabong.Repository.dll
 C:\Work\Sabong\Sabong\Sabong.Repository\bin\Debug\Sabong.Repository.pdb
@@ -24,4 +25,3 @@ C:\Work\Sabong\Sabong\Sabong.Repository\bin\Debug\EntityFramework.xml
 C:\Work\Sabong\Sabong\Sabong.Repository\obj\Debug\Sabong.Repository.csprojResolveAssemblyReference.cache
 C:\Work\Sabong\Sabong\Sabong.Repository\obj\Debug\Sabong.Repository.dll
 C:\Work\Sabong\Sabong\Sabong.Repository\obj\Debug\Sabong.Repository.pdb
-G:\Code\Sabong\Sabong\Sabong.Repository\obj\Debug\Sabong.Repository.csprojResolveAssemblyReference.cache

@@ -392,7 +392,7 @@ function UserNotificationHandler(data) {
     }
 }
 
-function PlaceBet(stake) {
+function PlaceBet(stake,newRate) {
     if ($('#place-bet').hasClass('disabled')) {
         return false;
     }
@@ -421,6 +421,7 @@ function PlaceBet(stake) {
     if (stake==undefined) {
         s = betInfo.Stake;
     }
+    betInfo.Stake = s;
     $.ajax({
         url: '/Services/BettingHandler.ashx',
         type: 'POST',
@@ -499,6 +500,7 @@ function PlaceBet(stake) {
                     "Yes": function () {
                         betInfo.OddRate = result.RateChange;
                         $('#betInfo').val(JSON.stringify(betInfo));
+                        
                         PlaceBet();
                         $(this).dialog("destroy");
                     },
@@ -517,8 +519,12 @@ function PlaceBet(stake) {
                     $(this).parent().find('.ui-dialog-buttonset button:eq(0)').focus();
                 },
                 buttons: {
-                    "Yes": function() {
-                        PlaceBet(result.RemainMoney);
+                    "Yes": function () {
+                        betInfo.OddRate = result.RateChange;
+                        betInfo.Stake = result.RemainMoney;
+                        $('#betInfo').val(JSON.stringify(betInfo));
+                        $('#input-stake').val(result.RemainMoney);
+                        PlaceBet();
                         $(this).dialog("destroy");
                     },
                     No: function() {
