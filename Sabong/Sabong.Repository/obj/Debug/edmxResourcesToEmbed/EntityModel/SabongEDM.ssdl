@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="s_dbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="s_dbModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="agentbet_limit">
     <Key>
       <PropertyRef Name="id" />
@@ -977,8 +977,8 @@ warning 6002: The table/view 'def.s_db.view_matchResult' does not have a primary
     <Property Name="drawwodds" Type="varchar" MaxLength="21" />
     <Property Name="ftd" Type="varchar" MaxLength="21" />
     <Property Name="abreedername" Type="varchar" MaxLength="300" />
-    <Property Name="id" Type="int" Nullable="false" />
-    <Property Name="matchno" Type="int" Nullable="false" />
+    <Property Name="id" Type="bigint" Nullable="false" />
+    <Property Name="matchno" Type="bigint" Nullable="false" />
     <Property Name="starttime" Type="varchar" MaxLength="200" Nullable="false" />
     <Property Name="stoptime" Type="varchar" MaxLength="200" Nullable="false" />
     <Property Name="totaltime" Type="varchar" MaxLength="200" Nullable="false" />
@@ -1065,6 +1065,7 @@ warning 6002: The table/view 'def.s_db.view_transactionReport' does not have a p
       <PropertyRef Name="betcomamt" />
     </Key>
     <Property Name="matchno" Type="bigint" />
+    <Property Name="matchname" Type="varchar" MaxLength="255" />
     <Property Name="id" Type="int" Nullable="false" />
     <Property Name="date" Type="timestamp" Precision="0" Nullable="false" />
     <Property Name="ip" Type="varchar" MaxLength="50" Nullable="false" />
@@ -1329,6 +1330,7 @@ FROM `view_playeruplines` AS `view_playeruplines`</DefiningQuery>
     <EntitySet Name="view_transactionReport" EntityType="Self.view_transactionReport" store:Type="Views" store:Schema="s_db">
       <DefiningQuery>SELECT
 `view_transactionReport`.`matchno`, 
+`view_transactionReport`.`matchname`, 
 `view_transactionReport`.`id`, 
 `view_transactionReport`.`date`, 
 `view_transactionReport`.`ip`, 

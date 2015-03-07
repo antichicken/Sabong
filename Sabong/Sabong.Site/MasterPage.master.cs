@@ -1,28 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using Sabong.Business;
+using Sabong.Business.BO;
 using Sabong.Repository.EntityModel;
 
 public partial class MasterPage : System.Web.UI.MasterPage
 {
-    protected double GivenCredit;
-    protected double Profit;
 
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
             SelectLang();
-            Profit = User.GetCashBalance();
-            GivenCredit = User.GetCreditBalance();
-            GivenCredit = Math.Round(GivenCredit, 2, MidpointRounding.AwayFromZero);
-            Profit = Math.Round(Profit, 2, MidpointRounding.AwayFromZero);
         }
     }
 
@@ -41,19 +29,34 @@ public partial class MasterPage : System.Web.UI.MasterPage
         }
     }
 
-    private SessionInfo session;
+    private SessionInfo _session;
 
     protected SessionInfo SessionInfo
     {
         get
         {
-            if (session == null)
+            if (_session == null)
             {
-                session = WebUtil.GetSessionInfo();
+                _session = WebUtil.GetSessionInfo();
             }
-            return session;
+            return _session;
         }
     }
+
+    private UserCredit _credit;
+
+    protected UserCredit Credit
+    {
+        get
+        {
+            if (_credit==null)
+            {
+                _credit = User.UserCredit();
+            }
+            return _credit;
+        }
+    }
+
     protected void ddlLang_SelectedIndexChanged(object sender, EventArgs e)
     {
         WebUtil.SetCookie("user-lang",ddlLang.SelectedValue,DateTime.Now.AddYears(1000));
@@ -72,5 +75,5 @@ public partial class MasterPage : System.Web.UI.MasterPage
             return SessionInfo.User;
         }
     }
-
+    
 }

@@ -5,6 +5,7 @@ var path = require('path');
 var EventEmitter = require('events').EventEmitter;
 var qs = require('querystring');
 
+var secretKey = 'a69849e8-b44a-4d23-903a-c09dd46e6deb';
 var messageBus = new EventEmitter();
 messageBus.setMaxListeners(10000);
 var Messages = [];
@@ -50,20 +51,23 @@ http.createServer(function (req, response) {
         }
         if (req.method == "POST") {
             if (path.dirname(req.url) == "/push" || req.url.indexOf('/push') > -1) {
-                var body = '';
-                req.on('data', function (chunk) {
-                    body += chunk;
-                });
-                req.on('end', function () {
-                    var postData = qs.parse(body);
-                    console.log("push:"+ body);
-                    messageBus.emit('message', JSON.parse(body));
-                    
-                    response.writeHead(200, { "Content-Type": "text/plain" });
-                    response.write("ok");
-                    response.end();
+                var url_parts = url.parse(req.url, true);
+                if (url_parts.query.token==secretKey) {
+                    var body = '';
+                    req.on('data', function (chunk) {
+                        body += chunk;
+                    });
+                    req.on('end', function () {
+                        var postData = qs.parse(body);
+                        console.log("push:" + body.toString());
+                        messageBus.emit('message', JSON.parse(body));
+                        
+                        response.writeHead(200, { "Content-Type": "text/plain" });
+                        response.write("ok");
+                        response.end();
                 
-                });
+                    });
+                }
             }
         
         }

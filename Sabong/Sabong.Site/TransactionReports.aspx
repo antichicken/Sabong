@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="TransactionReports.aspx.cs" Inherits="TransactionReports" %>
+<%@ Import Namespace="Sabong.Business" %>
 
 <!DOCTYPE html>
 
@@ -17,7 +18,7 @@
             $("#calendar-ico1").click(function () {
                 $('#<%=txtDate.ClientID%>').datepicker("show");
             });
-            
+
             $("#<%=txtEndDate.ClientID%>").datepicker({
                 dateFormat: "dd/mm/yy"
             });
@@ -28,8 +29,9 @@
     </script>
     <style type="text/css">
         td.col-name {
-            height: 22px
+            height: 22px;
         }
+
         .table-ctn td {
             height: 22px;
             border: 1px solid #aeafae;
@@ -37,33 +39,56 @@
             text-align: center;
             padding: 10px 3px;
         }
+
         .bold {
-            font-weight: bold
+            font-weight: bold;
         }
+
         .normal {
-            font-weight: normal
+            font-weight: normal;
         }
+
         .text-right {
-            text-align: right !important
+            text-align: right !important;
         }
+
         .text-left {
-            text-align: left !important
+            text-align: left !important;
         }
+
         .text-top {
-            vertical-align: top
+            vertical-align: top;
         }
+
         .rp-arena {
-            color: #888
+            color: #888;
         }
+
         .rp-matchno {
-            
         }
+
         .lose {
-            color: red
+            color: red;
         }
+
         .rp-ip {
             vertical-align: bottom;
             color: #2a37f1;
+            font-weight: bold;
+        }
+
+        .bet-meron {
+            color: #d41527;
+            font-weight: bold;
+        }
+
+        .bet-wala {
+            color: #023eff;
+            font-weight: bold;
+        }
+
+        .bet-dbb, .bet-ftd {
+            color: #c65900;
             font-weight: bold;
         }
     </style>
@@ -110,14 +135,15 @@
                         <ItemTemplate>
                             <tr class="data-row <%# Container.ItemIndex%2 == 0 ?"event-row":string.Empty %>">
                                 <td><%#Container.ItemIndex+1 %></td>
-                                <td class="bold">
-                                    Ref No:TXN120171191
-                                    <br/>
-                                    <br/>
-                                    <br/>
+                                <td class="bold">Ref No:TXN120<%#Eval("id") %>
+                                    <br />
+                                    <br />
+                                    <br />
                                     <div class="normal"><%#Eval("date") %></div>
                                 </td>
                                 <td class="text-right text-top">
+                                    <span style="color: gray">(Bet on)<span class="bet-<%#Eval("cocktype").ToString().ToLower() %>"><%#Eval("cocktype") %></span></span><br />
+                                    <%#BuildMatchName(Eval("matchname").ToString()) %>
                                     <div class="rp-arena"><%#Eval("arena") %></div>
                                     <div>Match No:<span class="bold"><%#Eval("matchno") %></span></div>
                                 </td>
@@ -133,13 +159,25 @@
                                 </td>
                                 <td class="text-top">
                                     <div class="bold"><%#Eval("Status") %></div>
-                                    <br/>
-                                    <br/>
-                                    <br/>
+                                    <br />
+                                    <br />
+                                    <br />
                                     <div class="rp-ip"><%#Eval("ip") %></div>
                                 </td>
                             </tr>
                         </ItemTemplate>
+                        <FooterTemplate>
+                            <tr style="background: #e9e0ca;">
+                                <td colspan="5" style="text-align: right; font-weight: bold;">Subtotal(win/lost):<br>
+                                    Subtotal(Com.):<br>
+                                    Total:</td>
+                                <td style="text-align: right; font-weight: bold;"><span style="color: red;"><%#totalWin.NumberTostring() %></span><br>
+                                    <%#totalCom.NumberTostring() %><br>
+                                    <span style="color: red;"><%#totalWinTax.NumberTostring() %></span></td>
+                                <td>&nbsp;
+                                </td>
+                            </tr>
+                        </FooterTemplate>
                     </asp:Repeater>
                 </table>
             </div>

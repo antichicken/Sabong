@@ -38,6 +38,8 @@ namespace Sabong.Business
                 //Convert currency de Jump odd
                 //Calculate PT
                 RiskManagementHandler.Instance.ReceiveMoney(memberTransaction);
+
+
                // reTransactionHandler.IsSuccessBet = true;
                // reTransactionHandler.ReturnMessage = "Bet Success!";
             }

@@ -1143,5 +1143,6 @@
     <Property Name="betcomamt" Type="Single" Nullable="false" />
     <Property Name="breedername" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
     <Property Name="againstbreedername" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="matchname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

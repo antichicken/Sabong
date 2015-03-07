@@ -217,6 +217,8 @@ namespace Sabong.Business
                                     wala_img = match.cock_type.ToLower() == "wala" ? match.cimage : match.agimage,
                                     meron_name = match.cock_type.ToLower() == "wala" ? match.agname : match.cname,
                                     wala_name = match.cock_type.ToLower() == "wala" ? match.cname : match.agname,
+                                    cid = match.cock_type.ToLower() == "wala"?match.acid:match.cid,
+                                    acid = match.cock_type.ToLower() == "wala"?match.cid:match.acid
                                 }
                             });
                             _currentMatch = match;

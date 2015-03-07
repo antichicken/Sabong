@@ -1,46 +1,88 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using Sabong.Business;
-using Sabong.Repository;
-using Sabong.Repository.Repo;
+using Sabong.Repository.EntityModel;
 
-public partial class Login : System.Web.UI.Page
+public partial class Login : Page
 {
-    private readonly UserRepository _userRepo = new UserRepository();
+    readonly LoginServices _loginServices=new LoginServices();
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        var sessionInfo = WebUtil.GetSessionInfo();
+        if (sessionInfo!=null)
+        {
+            Response.Redirect("Default.aspx");
+        }
     }
     protected void btnLogin_Click(object sender, EventArgs e)
     {
         if (WebUtil.IsValidCapChar(vercode.Text.Trim()))
         {
-            var user = _userRepo.Login(username.Text, password.Text);
-            if (user != null)
+            LoginResult loginResult;
+            user userinfo;
+            string sessionId;//do not use now
+            _loginServices.DoLogin(username.Text,password.Text,out loginResult,out sessionId,out userinfo);
+            if (userinfo != null && loginResult==LoginResult.Successful)
             {
-                var sessionInfo = new SessionInfo()
+                switch (loginResult)
                 {
-                    LastUpdate = DateTime.Now,
-                    SessionId = Guid.NewGuid().ToString(),
-                    User = user,
-                    UserId = user.slno
-                };
-                SessionContainer.Add(sessionInfo);
+                    case LoginResult.Successful:
+                    {
+                        var sessionInfo = new SessionInfo()
+                        {
+                            LastUpdate = DateTime.Now,
+                            SessionId = Guid.NewGuid().ToString(),
+                            User = userinfo,
+                            UserId = userinfo.slno
+                        };
+                        SessionContainer.Add(sessionInfo);
 
-                WebUtil.SetCookie("sec", sessionInfo.SessionId, DateTime.Now.AddDays(7));
-                Response.Redirect("~/Term.aspx");
+                        WebUtil.SetCookie("sec", sessionInfo.SessionId, DateTime.Now.AddDays(7));
+                        Response.Redirect("~/Term.aspx");
+                        break;
+                    }
+                    case LoginResult.Closed:
+                    {
+                        vercode.Text = string.Empty;
+                        ltrMessage.Text = "<label for=\"username\" generated=\"false\" class=\"error\">Your account are closed</label>";
+                        break;
+                    }
+                    case LoginResult.Suspended:
+                    {
+                        vercode.Text = string.Empty;
+                        ltrMessage.Text = "<label for=\"username\" generated=\"false\" class=\"error\">Your account are suspended</label>";
+                        break;
+                    }
+                    case LoginResult.Expired:
+                    {
+                        vercode.Text = string.Empty;
+                        ltrMessage.Text = "<label for=\"username\" generated=\"false\" class=\"error\">Your account are expired</label>";
+                        break;
+                    }
+                    case LoginResult.NotAllowAccessPlayerSite:
+                    {
+                        vercode.Text = string.Empty;
+                        ltrMessage.Text = "<label for=\"username\" generated=\"false\" class=\"error\">Your account are not allow to access player site</label>";
+                        break;
+                    }
+                    default:
+                    {
+                        vercode.Text = string.Empty;
+                        ltrMessage.Text = "<label for=\"username\" generated=\"false\" class=\"error\">Username or Password is not correct</label>";
+                        break;
+                    }
+                }
+                
             }
             else
             {
+                vercode.Text = string.Empty;
                 ltrMessage.Text = "<label for=\"username\" generated=\"false\" class=\"error\">Username or Password is not correct</label>";
             }
         }
         else
         {
+            vercode.Text = string.Empty;
             ltrMessage.Text = "<label for=\"vercode\" generated=\"false\" class=\"error\">Verification code is not correct</label>";
         }
 

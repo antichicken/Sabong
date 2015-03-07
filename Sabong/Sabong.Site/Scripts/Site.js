@@ -53,33 +53,31 @@ $(document).ready(function () {
         if (e.target.id == "choose-meron") {
             des += $('#meron-name').text() + " MERON @" + rate;
             betInfo.Bettype = 0;
-            //playerLimit.minbet_meron
+            betInfo.CockId = $(this).attr('data-cock');
             if (playerLimit) {
-                $('#input-stake').val(playerLimit.minbet_meron);
+                $('#input-stake').attr('placeholder',playerLimit.minbet_meron);
             }
         }
         if (e.target.id == "choose-wala") {
             des += $('#wala-name').text() + " WALA @" + rate;
             betInfo.Bettype = 1;
-            //playerLimit.minbet_wala
+            betInfo.CockId = $(this).attr('data-cock');
             if (playerLimit) {
-                $('#input-stake').val(playerLimit.minbet_wala);
+                $('#input-stake').attr('placeholder', playerLimit.minbet_wala);
             }
         }
         if (e.target.id == "choose-draw") {
             des += "DRAW @" + rate;
             betInfo.Bettype = 2;
-            //playerLimit.minbet_draw
             if (playerLimit) {
-                $('#input-stake').val(playerLimit.minbet_draw);
+                $('#input-stake').attr('placeholder', playerLimit.minbet_draw);
             }
         }
         if (e.target.id == "choose-ftd") {
             des += "FTD @" + rate;
             betInfo.Bettype = 3;
-            //playerLimit.minbet_draw
             if (playerLimit) {
-                $('#input-stake').val(playerLimit.minbet_draw);
+                $('#input-stake').attr('placeholder', playerLimit.minbet_draw);
             }
         }
         betInfo.Stake = $('#input-stake').val();
@@ -264,10 +262,12 @@ function MatchNotificationHandler(data) {
                 var des = "";
                 if (betInfo.Bettype == 1) {
                     betInfo.OddRate = matchdata.matchinfo.wala_rate;
+                    betInfo.CockId = matchdata.matchinfo.acid;
                     des += $('#wala-name').text() + " WALA @" + matchdata.matchinfo.wala_rate;
 
                 } else if (betInfo.Bettype == 0) {
                     betInfo.OddRate = matchdata.matchinfo.meron_rate;
+                    betInfo.CockId = matchdata.matchinfo.cid;
                     des += $('#meron-name').text() + " MERON @" + matchdata.matchinfo.meron_rate;
 
                 } else if (betInfo.Bettype == 2) {
@@ -294,8 +294,8 @@ function MatchNotificationHandler(data) {
         $('#meron-image').attr('src', matchdata.matchinfo.meron_img);
         $('#wala-name').text(matchdata.matchinfo.wala_name);
         $('#meron-name').text(matchdata.matchinfo.meron_name);
-        $('#choose-meron').text(matchdata.matchinfo.meron_rate);
-        $('#choose-wala').text(matchdata.matchinfo.wala_rate);
+        $('#choose-meron').text(matchdata.matchinfo.meron_rate).attr('data-cock', matchdata.matchinfo.acid);
+        $('#choose-wala').text(matchdata.matchinfo.wala_rate).attr('data-cock', matchdata.matchinfo.cid);
         $('#choose-draw').text(matchdata.matchinfo.draw_rate);
         $('#choose-ftd').text(matchdata.matchinfo.ftd_rate);
         $('#match-confirm').text(GetMessageByCurrentLang(matchdata.matchinfo.confirm));
@@ -392,7 +392,7 @@ function UserNotificationHandler(data) {
     }
 }
 
-function PlaceBet(stake,newRate) {
+function PlaceBet() {
     if ($('#place-bet').hasClass('disabled')) {
         return false;
     }
@@ -417,22 +417,23 @@ function PlaceBet(stake,newRate) {
         $('#input-stake').focus();
         return false;
     }
-    var s = stake;
-    if (stake==undefined) {
-        s = betInfo.Stake;
+
+    internalBet(betInfo);
+
+    function internalBet(betinfo) {
+        $.ajax({
+            url: '/Services/BettingHandler.ashx',
+            type: 'POST',
+            data: { match: betInfo.MatchId, stake: betInfo.Stake, type: betInfo.Bettype, oddrate: betInfo.OddRate,cockid:betinfo.CockId },
+            success: function (res) {
+                bettingResultHandler($.parseJSON(res));
+            }
+        }).always(function () {
+            $('#loading-form').dialog('close');
+            $('#place-bet').removeAttr('disabled');
+        });;
     }
-    betInfo.Stake = s;
-    $.ajax({
-        url: '/Services/BettingHandler.ashx',
-        type: 'POST',
-        data: { match: betInfo.MatchId,stake:s,type:betInfo.Bettype,oddrate:betInfo.OddRate},
-        success: function (res) {
-            bettingResultHandler($.parseJSON(res));
-        }
-    }).always(function () {
-        $('#loading-form').dialog('close');
-        $('#place-bet').removeAttr('disabled');
-    });;
+    
 
     function isValidBet() {
         if (playerLimit != null) {
@@ -465,7 +466,6 @@ function PlaceBet(stake,newRate) {
                     //var sid = '#s_' + bet.id;
                     var aid = '#a_' + bet.id;
                     var tmp = '<tr class="betsaccepted-td ' + bet.cocktype + '" id="a_' + bet.id + '"><td>' + bet.matchno + '</td><td>' + bet.cocktype + '</td><td>' + bet.acceptedamount + '</td><td>' + bet.odds + '</td></tr>';
-                    //$(sid).remove();
                     if ($('#selected-bet .betsaccepted-td').length < 1) {
                         $('#selected-bet').closest('.betsaccepted').hide();
                     }
@@ -501,7 +501,7 @@ function PlaceBet(stake,newRate) {
                         betInfo.OddRate = result.RateChange;
                         $('#betInfo').val(JSON.stringify(betInfo));
                         
-                        PlaceBet();
+                        internalBet(betInfo);
                         $(this).dialog("destroy");
                     },
                     No: function () {
@@ -512,7 +512,7 @@ function PlaceBet(stake,newRate) {
         }
         else if (result.Status == "AcceptAmountAndWaitingReBet") {
             
-            $('#page-dialog > p').html('chap nhan mot phan, phan con lai danh voi odd rate khac <br/> Da chap nhan: ' + result.MoneyAccept + '. So tien con lai danh voi oddrate moi: ' + result.RemainMoney + '<br/>Rate moi: ' + result.RateChange);
+            $('#page-dialog > p').html('chap nhan mot phan, phan con lai danh voi odd rate khac <br/> So tien con lai danh voi oddrate moi: ' + result.RemainMoney + '<br/>Rate moi: ' + result.RateChange);
             $('#page-dialog').dialog({
                 modal: true,
                 open: function() {
@@ -524,7 +524,8 @@ function PlaceBet(stake,newRate) {
                         betInfo.Stake = result.RemainMoney;
                         $('#betInfo').val(JSON.stringify(betInfo));
                         $('#input-stake').val(result.RemainMoney);
-                        PlaceBet();
+                        
+                        internalBet(betInfo);
                         $(this).dialog("destroy");
                     },
                     No: function() {
@@ -577,4 +578,5 @@ function BettingInfo() {
     this.OddRate = null;
     this.Bettype = null;
     this.Stake = null;
+    this.CockId = '';
 }

@@ -26,10 +26,10 @@
         <span class="threecol2-3">Wala</span>
     </div>
     <div class="threecol3">
-        <div class="button_m clickable <%=DisabledCss() %>"><span id="choose-meron"><%=Match.C1odds %></span></div>
+        <div class="button_m clickable <%=DisabledCss() %>"><span id="choose-meron" data-cock="<%=Match.cock_type.ToLower()=="wala"?Match.acid:Match.cid %>"><%=Match.C1odds %></span></div>
         <div class="button_d clickable <%=DisabledCss() %>"><span id="choose-draw"><%=Match.drawwodds %></span></div>
         <div class="button_f clickable <%=DisabledCss() %>"><span id="choose-ftd"><%=Match.ftd %></span></div>
-        <div class="button2_wa clickable <%=DisabledCss() %>"><span id="choose-wala"><%=Match.C2odds %></span></div>
+        <div class="button2_wa clickable <%=DisabledCss() %>"><span id="choose-wala" data-cock="<%=Match.cock_type.ToLower()=="wala"?Match.cid:Match.acid %>"><%=Match.C2odds %></span></div>
     </div>
     <% if (Status == MatchStatus.Confirmed || Status == MatchStatus.ClosingSoon)
        { %>

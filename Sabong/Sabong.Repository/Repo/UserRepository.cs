@@ -131,7 +131,33 @@ namespace Sabong.Repository.Repo
                  return calculateProfitLoss.totalamnt+calculateProfitLoss.totaltrans;
              }
          }
-        
+
+        public double GetProfit(int userId)
+        {
+            using (s_dbEntities context = new s_dbEntities())
+            {
+
+                var totalamnt = context.Database.SqlQuery<double>(
+                     @"select coalesce(sum(winloseamnt),0) as `totalamnt` from `transaction` where `playerid`={0}", userId).FirstOrDefault();
+                var totalbetcomm =
+                    context.Database.SqlQuery<double>(
+                        @"select coalesce(sum(comm),0) as `totalbetcomm` from `playerbetcomm` where `playerid`={0} and `type`='betcomm'",
+                        userId).FirstOrDefault();
+                var totaltrans =
+                    context.Database.SqlQuery<double>(
+                        @"select coalesce(sum(`amount`),0) as `totaltrans` from `multiple_transfer` where `transfer_to`={0}  and `type`='transfer'",
+                        userId).FirstOrDefault();
+                return totalamnt + totalbetcomm + totaltrans;
+                //if (calculateProfitLoss == null)
+                //{
+                //    return 0;
+                //}
+
+
+                //return calculateProfitLoss.totalamnt + calculateProfitLoss.totaltrans;
+            }
+        }
+
          public double GetBetCredit(int userId)
          {
              using (s_dbEntities context = new s_dbEntities())
@@ -162,7 +188,15 @@ namespace Sabong.Repository.Repo
                  return result != null ? result.bidpoint1 : 0;
              }
          }
+         public double GetUpdatedCreditBalance(int userId)
+         {
+             using (s_dbEntities context = new s_dbEntities())
+             {
+                 var result = context.bidpoints.FirstOrDefault(i => i.agent_id == userId);
 
+                 return result != null ? result.updated_bidpoint : 0;
+             }
+         }
         public user Login(string username, string password)
         {
             using (s_dbEntities context = new s_dbEntities())
@@ -204,6 +238,15 @@ namespace Sabong.Repository.Repo
              // Return the hexadecimal string. 
              return sBuilder.ToString();
          }
+
+        public bidpoint getBidPoint(int playerid)
+        {
+          //  throw new NotImplementedException();
+            using (s_dbEntities context = new s_dbEntities())
+            {
+                return context.bidpoints.FirstOrDefault(i => i.agent_id == playerid);
+            }
+        }
     }
 
     public class ProfitLoss

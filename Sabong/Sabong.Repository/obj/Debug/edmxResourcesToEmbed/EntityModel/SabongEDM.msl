@@ -969,6 +969,7 @@
     <EntitySetMapping Name="view_transactionReport">
       <EntityTypeMapping TypeName="s_dbModel.view_transactionReport">
         <MappingFragment StoreEntitySet="view_transactionReport">
+          <ScalarProperty Name="matchname" ColumnName="matchname" />
           <ScalarProperty Name="againstbreedername" ColumnName="againstbreedername" />
           <ScalarProperty Name="breedername" ColumnName="breedername" />
           <ScalarProperty Name="betcomamt" ColumnName="betcomamt" />

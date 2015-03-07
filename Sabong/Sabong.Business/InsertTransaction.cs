@@ -40,7 +40,7 @@ namespace Sabong.Business
                                   playerid = placeBet.MemberId,
                                   matchno = placeBet.MatchId,
                                   acceptedamount = placeBet.Stake,
-                                  cocktype = placeBet.BetType.ToString(),
+                                  cocktype = placeBet.BetType.ToString().ToLower(),
                                   odds = oddsString,
                                   date = placeBet.PlaceTime,
                                   time = DateTime.Now,
@@ -54,6 +54,11 @@ namespace Sabong.Business
             trans=transRepo.GetBetComUserId(trans);
 
             transRepo.Insert(trans);
+
+            UserRepository user=new UserRepository();
+           var bidpoint= user.getBidPoint(trans.playerid);
+            bidpoint.updated_bidpoint -= placeBet.Stake;
+            user.UpdateBidPoint(bidpoint);
 
         }
     }

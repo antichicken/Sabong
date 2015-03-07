@@ -51,6 +51,7 @@
     <Compile Include="BO\AnnoucementBO.cs" />
     <Compile Include="BO\PlaceBet.cs" />
     <Compile Include="BO\CockOddsBase.cs" />
+    <Compile Include="BO\UserCredit.cs" />
     <Compile Include="Enum\BetType.cs" />
     <Compile Include="BO\TransactionHandler.cs" />
     <Compile Include="Class1.cs" />

@@ -12,10 +12,32 @@ public class UserServices : IHttpHandler {
     
     public void ProcessRequest (HttpContext context)
     {
-        PlaceBet(context);
+        var action = context.Request.Params["action"];
+        if (action!=null)
+        {
+            if (action=="credit")
+            {
+                UserCredit(context);
+            }
+        }
+        else
+        {
+            ChangePass(context);
+        }
+        
     }
 
-    private void PlaceBet(HttpContext context)
+    private void UserCredit(HttpContext context)
+    {
+        var sessionInfo = WebUtil.GetSessionInfo();
+        if (sessionInfo != null)
+        {
+            var credit = sessionInfo.User.GetCreditBalance();
+            context.Response.Write(JsonConvert.SerializeObject(credit));
+        }
+    }
+    
+    private void ChangePass(HttpContext context)
     {
         var sessionInfo = WebUtil.GetSessionInfo();
         if (sessionInfo != null)
