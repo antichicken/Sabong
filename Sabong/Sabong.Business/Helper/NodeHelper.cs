@@ -21,7 +21,7 @@ namespace Sabong.Business
                 }
                 catch (Exception)
                 {
-                    return "http://localhost:8888/push?token=a69849e8-b44a-4d23-903a-c09dd46e6deb";
+                    return "http://119.9.104.232:8888/push?token=a69849e8-b44a-4d23-903a-c09dd46e6deb";
                 }
             }
         }

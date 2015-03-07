@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 using System.Web;
 using Newtonsoft.Json;
 using Sabong.Business;
+using Sabong.Business.BO;
 using Sabong.Repository.EntityModel;
 using Sabong.Repository.Repo;
 
@@ -32,8 +33,8 @@ public class UserServices : IHttpHandler {
         var sessionInfo = WebUtil.GetSessionInfo();
         if (sessionInfo != null)
         {
-            var credit = sessionInfo.User.GetCreditBalance();
-            context.Response.Write(JsonConvert.SerializeObject(credit));
+            var credit = sessionInfo.User.UserCredit();
+            context.Response.Write(JsonConvert.SerializeObject(new UserCredit()));
         }
     }
     

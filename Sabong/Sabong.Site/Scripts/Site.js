@@ -314,6 +314,7 @@ function MatchNotificationHandler(data) {
             if (status=="StopBet") {
                 $('#accepted_bet .betsaccepted-td').remove();
                 clearBetSlip();
+                UpdateCredit();
             }
         }
     }
@@ -511,7 +512,7 @@ function PlaceBet() {
             });
         }
         else if (result.Status == "AcceptAmountAndWaitingReBet") {
-            
+            UpdateCredit();
             $('#page-dialog > p').html('chap nhan mot phan, phan con lai danh voi odd rate khac <br/> So tien con lai danh voi oddrate moi: ' + result.RemainMoney + '<br/>Rate moi: ' + result.RateChange);
             $('#page-dialog').dialog({
                 modal: true,
@@ -551,6 +552,7 @@ function PlaceBet() {
             $('#page-dialog > p').text("MaxWinningExceed");
             $('#page-dialog').dialog({ modal: true });
         } else if (result.Status == "AcceptBet") {
+            UpdateCredit();
             clearBetSlip();
             $('#page-dialog > p').text("Bet Accepted");
             $('#page-dialog').dialog({ modal: true });
@@ -559,6 +561,23 @@ function PlaceBet() {
             $('#page-dialog').dialog({ modal: true });
         }
     }
+}
+
+var creditTimer;
+function UpdateCredit() {
+    $.ajax({
+        url: '/Services/UserServices.ashx?action=credit',
+        success: function(data) {
+            data = $.parseJSON(data);
+            if (data) {
+                $('#given-credit').text(data.GivenCredit);
+                $('#profit').text(data.Profit);
+                $('#bet-credit').text(data.BetCredit);
+            }
+        }
+    });
+    clearTimeout(creditTimer);
+    creditTimer = setTimeout(function() { UpdateCredit(); }, 120000);
 }
 
 function GetMessageByCurrentLang(message) {
