@@ -30,6 +30,11 @@ namespace Sabong.Business
            return
             _user.GetPlayerbetLimit(userId);
         }
+
+        public string GetCurrencyValueByUserId(int memberId)
+        {
+            return _user.GetCurrencyValueByUserId(memberId);
+        }
     }
     public class LoginServices
     {

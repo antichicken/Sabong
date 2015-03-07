@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,13 +12,36 @@ namespace Sabong.Repository.Repo
     {
         public List<view_matchResult> GetMatchResultByDate(int arenaid,string strDate)
         {
+            
             using (s_dbEntities context = new s_dbEntities())
             {
-                var result = from matchresult in context.view_matchResult
+                return  (from matchresult in context.view_matchResult
                     where matchresult.fdate == strDate &&
                     matchresult.arena==arenaid
-                    select matchresult;
-                return result.ToList();
+                    select matchresult).ToList();
+                try
+                {
+                  //  return result.ToList();
+                }
+                catch (DbEntityValidationException e)
+                {
+
+                    foreach (var eve in e.EntityValidationErrors)
+                    {
+                        Console.WriteLine("Entity of type \"{0}\" in state \"{1}\" has the following validation errors:",
+                            eve.Entry.Entity.GetType().Name, eve.Entry.State);
+                        foreach (var ve in eve.ValidationErrors)
+                        {
+                            Console.WriteLine("- Property: \"{0}\", Error: \"{1}\"",
+                                ve.PropertyName, ve.ErrorMessage);
+                        }
+                    }
+                    throw;
+
+                    throw;
+                }
+
+                
             }
 
         }
@@ -33,6 +57,8 @@ namespace Sabong.Repository.Repo
                              transac.date <= toDate
                                select transac;
                 return result.ToList();
+
+               
             }
 
         }
