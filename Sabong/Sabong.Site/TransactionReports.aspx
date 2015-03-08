@@ -171,9 +171,9 @@
                                 <td colspan="5" style="text-align: right; font-weight: bold;">Subtotal(win/lost):<br>
                                     Subtotal(Com.):<br>
                                     Total:</td>
-                                <td style="text-align: right; font-weight: bold;"><span style="color: red;"><%#totalWin.NumberTostring() %></span><br>
-                                    <%#totalCom.NumberTostring() %><br>
-                                    <span style="color: red;"><%#totalWinTax.NumberTostring() %></span></td>
+                                <td style="text-align: right; font-weight: bold;"><span style="color: red;"><%#totalWin.NumberTostring(false) %></span><br>
+                                    <%#totalCom.NumberTostring(false) %><br>
+                                    <span style="color: red;"><%#totalWinTax.NumberTostring(false) %></span></td>
                                 <td>&nbsp;
                                 </td>
                             </tr>

@@ -32,10 +32,10 @@ namespace Sabong.Business
             }
         }
 
-        public static string NumberTostring(this double number)
+        public static string NumberTostring(this double number,bool removeDot00=true)
         {
             var x = number.ToString("N");
-            if (x.EndsWith(".00"))
+            if (x.EndsWith(".00") && removeDot00)
             {
                 return x.Substring(0, x.IndexOf('.'));
             }

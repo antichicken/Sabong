@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Sabong.Repository.EntityModel;
 using Sabong.Repository.Repo;
+using Sabong.Util;
 
 namespace Sabong.Business
 {
@@ -31,7 +32,7 @@ namespace Sabong.Business
 
 
         }
-
+        #region singlaton
         private static FetchAnnouncement _instance;
 
         public static FetchAnnouncement Instance
@@ -45,6 +46,7 @@ namespace Sabong.Business
                 return _instance;
             }
         }
+        #endregion
 
         #region Repos
 
@@ -67,10 +69,6 @@ namespace Sabong.Business
 
         private void InternalLoop()
         {
-            //match
-            //match confirm
-            //Running
-            //chart
             GetRunningAnnoucement();
             GetMatchEndingAnnouncemen();
             GetChartInfo();
@@ -97,12 +95,13 @@ namespace Sabong.Business
                     }
                     catch (Exception ex)
                     {
+                        LogHelper.Logger.Error(ex);
                     }
                 }
             }
             catch (Exception ex)
             {
-
+                LogHelper.Logger.Error(ex);
             }
 
         }
@@ -131,6 +130,7 @@ namespace Sabong.Business
                         }
                         catch (Exception ex)
                         {
+                            LogHelper.Logger.Error(ex);
                         }
                         _currentMatchendingAnnouncement = x;
                     }
@@ -138,6 +138,7 @@ namespace Sabong.Business
             }
             catch (Exception ex)
             {
+                LogHelper.Logger.Error(ex);
             }
         }
 
@@ -160,13 +161,15 @@ namespace Sabong.Business
                         });
                         _currentChartData = x;
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
+                        LogHelper.Logger.Error(ex);
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                LogHelper.Logger.Error(ex);
             }
         }
 
@@ -225,15 +228,15 @@ namespace Sabong.Business
                         }
                         catch (Exception ex)
                         {
-
+                            LogHelper.Logger.Error(ex);
                         }
                     }
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                LogHelper.Logger.Error(ex);
             }
         }
     }

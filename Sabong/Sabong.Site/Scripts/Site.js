@@ -208,6 +208,7 @@ $(document).ready(function () {
             }
         });
     }
+    
 });
 
 var NotificationPoll = function() {
@@ -243,7 +244,8 @@ function MatchNotificationHandler(data) {
         } else {
             $('#match-confirm').text(GetMessageByCurrentLang(data.message));
         }
-    }else if (data.type=="match-next") {
+    } else if (data.type == "match-next") {
+        $('#accepted_bet .betsaccepted-td').remove();
         fillMatchInfo(data);
         resetBetSlip();
     } else if (data.type == "match-change") {
@@ -294,8 +296,8 @@ function MatchNotificationHandler(data) {
         $('#meron-image').attr('src', matchdata.matchinfo.meron_img);
         $('#wala-name').text(matchdata.matchinfo.wala_name);
         $('#meron-name').text(matchdata.matchinfo.meron_name);
-        $('#choose-meron').text(matchdata.matchinfo.meron_rate).attr('data-cock', matchdata.matchinfo.acid);
-        $('#choose-wala').text(matchdata.matchinfo.wala_rate).attr('data-cock', matchdata.matchinfo.cid);
+        $('#choose-meron').text(matchdata.matchinfo.meron_rate).attr('data-cock', matchdata.matchinfo.cid);
+        $('#choose-wala').text(matchdata.matchinfo.wala_rate).attr('data-cock', matchdata.matchinfo.acid);
         $('#choose-draw').text(matchdata.matchinfo.draw_rate);
         $('#choose-ftd').text(matchdata.matchinfo.ftd_rate);
         $('#match-confirm').text(GetMessageByCurrentLang(matchdata.matchinfo.confirm));
@@ -314,7 +316,6 @@ function MatchNotificationHandler(data) {
             if (status=="StopBet") {
                 $('#accepted_bet .betsaccepted-td').remove();
                 clearBetSlip();
-                UpdateCredit();
             }
         }
     }
@@ -365,6 +366,7 @@ function GlobalNotificationHandler(data) {
         $('#site-anouncement').text(GetMessageByCurrentLang(data.message));
     }
     else if (data.type == "chart") {
+        UpdateCredit();
         ResetTable();
         DrawChart(data.chartInfo);
         DrawNormalChart(data.chartInfo);
@@ -390,6 +392,9 @@ function UserNotificationHandler(data) {
                 }
             }
         });
+        setTimeout(function () {
+            window.location = '/Login.aspx';
+        }, 5000);
     }
 }
 
@@ -397,7 +402,6 @@ function PlaceBet() {
     if ($('#place-bet').hasClass('disabled')) {
         return false;
     }
-    $('#loading-form').dialog({ modal: true });
     $('#place-bet').attr('disabled', 'disabled');
     
     var betInfo = $.parseJSON($('#betInfo').val());
@@ -422,6 +426,7 @@ function PlaceBet() {
     internalBet(betInfo);
 
     function internalBet(betinfo) {
+        $('#loading-form').dialog({ modal: true });
         $.ajax({
             url: '/Services/BettingHandler.ashx',
             type: 'POST',
@@ -483,8 +488,8 @@ function PlaceBet() {
 
 
     function bettingResultHandler(result) {
+        HandleSystemError(result);
         updateTransInfo(result);
-        
         if (result.Status == "MarketExpire") {
             clearBetSlip();
             $('#page-dialog > p').text("MarketExpire");
@@ -563,12 +568,38 @@ function PlaceBet() {
     }
 }
 
+function HandleSystemError(data) {
+    if (data) {
+        if (data.type=="error") {
+            if (data.code==0) {
+                $('#response-message > p').text("Your session is expired or logged in by another, You have to loggin again.");
+                $('#response-message').dialog({
+                    modal: true,
+                    buttons: {
+                        OK: function () {
+                            $(this).dialog("destroy");
+                            window.location = '/Login.aspx';
+                        }
+                    }
+                });
+
+                setTimeout(function () {
+                    window.location = '/Login.aspx';
+                }, 5000);
+            }
+            return false;
+        }
+    }
+    return true;
+}
+
 var creditTimer;
 function UpdateCredit() {
     $.ajax({
         url: '/Services/UserServices.ashx?action=credit',
         success: function(data) {
             data = $.parseJSON(data);
+            HandleSystemError(data);
             if (data) {
                 $('#given-credit').text(data.GivenCredit);
                 $('#profit').text(data.Profit);

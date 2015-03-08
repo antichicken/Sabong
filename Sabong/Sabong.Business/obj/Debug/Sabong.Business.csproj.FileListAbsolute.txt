@@ -29,3 +29,7 @@ C:\Work\Sabong\Sabong\Sabong.Business\bin\Debug\EntityFramework.xml
 C:\Work\Sabong\Sabong\Sabong.Business\obj\Debug\Sabong.Business.csprojResolveAssemblyReference.cache
 C:\Work\Sabong\Sabong\Sabong.Business\obj\Debug\Sabong.Business.dll
 C:\Work\Sabong\Sabong\Sabong.Business\obj\Debug\Sabong.Business.pdb
+C:\Work\Sabong\Sabong\Sabong.Business\bin\Debug\log4net.dll
+C:\Work\Sabong\Sabong\Sabong.Business\bin\Debug\Sabong.Util.dll
+C:\Work\Sabong\Sabong\Sabong.Business\bin\Debug\Sabong.Util.pdb
+C:\Work\Sabong\Sabong\Sabong.Business\bin\Debug\log4net.xml

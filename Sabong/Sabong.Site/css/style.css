@@ -586,10 +586,10 @@ color: #fff
 .hidden {
 display: none;
 }
-.Wala {
+.Wala, .wala {
     background-color: #006BCC
 }
-.BDD, .FTD {
+.BDD, .FTD, .bdd, .ftd {
     background-color: #59a918
 }
 .topmenu {

@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Sabong.Repository.EntityModel;
+using Sabong.Util;
 
 namespace Sabong.Repository.Repo
 {
@@ -8,13 +10,22 @@ namespace Sabong.Repository.Repo
     {
         public List<multiple_transfer> GeTransfersByType(string type)
         {
-            using (s_dbEntities context = new s_dbEntities())
+            try
             {
-                var result = from are in context.multiple_transfer
-                    where are.type==type
-                    select are;
-                return result.ToList();
+                using (var context = new s_dbEntities())
+                {
+                    var result = from are in context.multiple_transfer
+                                 where are.type == type
+                                 select are;
+                    return result.ToList();
+                }
             }
+            catch (Exception ex)
+            {
+                ex.LogError("Type: "+type);
+                return null;
+            }
+            
         }
     }
 }

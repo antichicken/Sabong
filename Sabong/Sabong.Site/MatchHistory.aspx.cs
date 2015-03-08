@@ -9,19 +9,20 @@ using Sabong.Repository.Repo;
 
 public partial class MatchHistory : System.Web.UI.Page
 {
-    private ReportRepository reportRepos = new ReportRepository();
-    private MatchRepository matchRepository=new MatchRepository();
-    private List<arena> arenas; 
+    private readonly ReportRepository _reportRepos = new ReportRepository();
+    private readonly MatchRepository matchRepository=new MatchRepository();
+    ArenaRepository _arenaRepos=new ArenaRepository();
+    private List<arena> _arenas; 
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
-            arenas = matchRepository.GetAllArenas();
+            _arenas = _arenaRepos.GetAll();
             txtDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
             int arena = 0;
             if (!int.TryParse(Request.QueryString["arena"],out arena))
             {
-                var firstOrDefault = arenas.FirstOrDefault();
+                var firstOrDefault = _arenas.FirstOrDefault();
                 if (firstOrDefault != null) arena = firstOrDefault.id;
             }
             LoadReport(arena, txtDate.Text);
@@ -31,7 +32,7 @@ public partial class MatchHistory : System.Web.UI.Page
 
     void LoadArena(int? selected)
     {
-        ddlArena.DataSource = arenas;
+        ddlArena.DataSource = _arenas;
         ddlArena.DataTextField = "arena_name";
         ddlArena.DataValueField = "id";
         ddlArena.DataBind();
@@ -50,7 +51,7 @@ public partial class MatchHistory : System.Web.UI.Page
 
     private void LoadReport(int arena, string date)
     {
-        var rp = reportRepos.GetMatchResultByDate(arena, date.Replace("/","-"));
+        var rp = _reportRepos.GetMatchResultByDate(arena, date.Replace("/","-"));
         rptReport.DataSource = rp;
         rptReport.DataBind();
     }
@@ -62,7 +63,7 @@ public partial class MatchHistory : System.Web.UI.Page
             return "_";
         
         var unixTimeStamp = Convert.ToDouble(input);
-        System.DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
+        var dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, System.DateTimeKind.Utc);
         dtDateTime = dtDateTime.AddSeconds(unixTimeStamp).ToLocalTime();
         return dtDateTime.ToString("hh:mm:ss");
     }

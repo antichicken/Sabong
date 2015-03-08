@@ -7,6 +7,7 @@ using System.Text;
 using Sabong.Repository;
 using Sabong.Repository.EntityModel;
 using Sabong.Repository.Repo;
+using Sabong.Util;
 
 namespace Sabong.Business
 {
@@ -18,9 +19,7 @@ namespace Sabong.Business
             if (Session==null)
             {
                 Session = new Dictionary<string, SessionInfo>();
-                //Loger.WriteLog("Secction " + DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss"));
             }
-            //Loger.WriteLog("InitSectionContainer " + DateTime.Now.ToString("dd-MM-yyyy hh:mm:ss"));
         }
         public static SessionInfo Get(string key)
         {
@@ -69,6 +68,7 @@ namespace Sabong.Business
             }
             catch (Exception ex)
             {
+                LogHelper.Logger.Error(ex);
             }
             
         }
@@ -116,8 +116,9 @@ namespace Sabong.Business
             get
             {
                 if (_user == null)
+                {
                     _user = _userRepo.GetUser(UserId);
-                
+                }
                 return _user;
             }
             set { _user = value; }

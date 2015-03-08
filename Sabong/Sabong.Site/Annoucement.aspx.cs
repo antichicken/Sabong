@@ -5,10 +5,12 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Sabong.Repository.Repo;
+using Sabong.Util;
 
 public partial class Annoucement : PageBase
 {
-    private AnnoucementRepository annoucementRepos = new AnnoucementRepository();
+    private readonly AnnoucementRepository _annoucementRepos = new AnnoucementRepository();
+    readonly ArenaRepository _arenaRepository=new ArenaRepository();
     protected void Page_Load(object sender, EventArgs e)
     {
         LoadAnnoucement();
@@ -16,13 +18,21 @@ public partial class Annoucement : PageBase
 
     void LoadAnnoucement()
     {
-        var list = annoucementRepos.GetAll();
-        rptAnnouce.DataSource = list;
-        rptAnnouce.DataBind();
+        try
+        {
+            var list = _annoucementRepos.GetAll();
+            rptAnnouce.DataSource = list;
+            rptAnnouce.DataBind();
+        }
+        catch (Exception ex)
+        {
+            LogHelper.Logger.Error(ex);
+        }
+        
     }
 
     protected string AreaName(string date)
     {
-        return annoucementRepos.GetArenaNameByDate(date);
+        return _arenaRepository.GetArenaNameByDate(date);
     }
 }

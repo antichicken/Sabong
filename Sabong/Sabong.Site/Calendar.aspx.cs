@@ -8,7 +8,7 @@ using Sabong.Repository.Repo;
 
 public partial class Calendar : System.Web.UI.Page
 {
-    private DerbyRepository _repository = new DerbyRepository();
+    private CalendarRepository _repository = new CalendarRepository();
     protected void Page_Load(object sender, EventArgs e)
     {
     }

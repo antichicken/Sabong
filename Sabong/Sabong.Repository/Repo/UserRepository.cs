@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Sabong.Repository.EntityModel;
 using System.Security.Cryptography;
+using Sabong.Util;
 
 namespace Sabong.Repository.Repo
 {
@@ -19,43 +20,66 @@ namespace Sabong.Repository.Repo
 
         public void UPdatePassWord(user trans)
         {
-            using (s_dbEntities context = new s_dbEntities())
+            try
             {
-                using (var md5Hash = MD5.Create())
+                using (var context = new s_dbEntities())
                 {
-                     var hashPass = GetMd5Hash(md5Hash, trans.password);
-                     trans.password = hashPass;
-                     context.users.Attach(trans);
-                  
-                     var entry = context.Entry(trans);
-                     entry.State = EntityState.Modified;
+                    using (var md5Hash = MD5.Create())
+                    {
+                        var hashPass = GetMd5Hash(md5Hash, trans.password);
+                        trans.password = hashPass;
+                        context.users.Attach(trans);
 
-                     //entry.Property(e => e.nn).IsModified = false;
+                        var entry = context.Entry(trans);
+                        entry.State = EntityState.Modified;
+
+                        //entry.Property(e => e.nn).IsModified = false;
 
 
-                     context.SaveChanges();
+                        context.SaveChanges();
+                    }
                 }
-              
+            }
+            catch (Exception ex)
+            {
+                ex.LogError();
             }
         }
         //select * from `currency` where `slno`='$currency_id'
         public string GetCurrencyName(int currencyId)
         {
            // if(currencyId)
-            using (s_dbEntities context = new s_dbEntities())
+            try
             {
-                var result = context.currencies.FirstOrDefault(i => i.slno == currencyId);
-                if (result != null) return result.currency1;
-                return "";
+                using (var context = new s_dbEntities())
+                {
+                    var result = context.currencies.FirstOrDefault(i => i.slno == currencyId);
+                    if (result != null) return result.currency1;
+                    return "";
+                }
             }
+            catch (Exception ex)
+            {
+                ex.LogError("userId: " + currencyId);
+                return string.Empty;
+            }
+            
         }
         //  $queryplpt=mysql_query("SELECT * FROM `player_pt_calc` where player_id='$_SESSION[useridval]'");
         public player_pt_calc GetPlayerPtByUserId(int userId)
         {
-            using (s_dbEntities context = new s_dbEntities())
+            try
             {
-                var result = context.player_pt_calc.FirstOrDefault(i => i.player_id == userId);
-                return result;
+                using (var context = new s_dbEntities())
+                {
+                    var result = context.player_pt_calc.FirstOrDefault(i => i.player_id == userId);
+                    return result;
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.LogError("userId: " + userId);
+                return null;
             }
         }
 
@@ -66,46 +90,79 @@ namespace Sabong.Repository.Repo
 
         public void UpdateBidPoint(bidpoint creditBalance)
         {
-            using (s_dbEntities context = new s_dbEntities())
+            try
             {
-                context.bidpoints.Attach(creditBalance);
+                using (var context = new s_dbEntities())
+                {
+                    context.bidpoints.Attach(creditBalance);
 
-                var entry = context.Entry(creditBalance);
-                entry.State = EntityState.Modified;
+                    var entry = context.Entry(creditBalance);
+                    entry.State = EntityState.Modified;
 
-                entry.Property(e => e.bidpoint1).IsModified = false;
-               
-                entry.Property(e => e.agent_id).IsModified = false;
-                context.SaveChanges();
+                    entry.Property(e => e.bidpoint1).IsModified = false;
+
+                    entry.Property(e => e.agent_id).IsModified = false;
+                    context.SaveChanges();
+                }
             }
+            catch (Exception ex)
+            {
+                ex.LogError();
+            }
+            
         }
 
         public playerbet_limit GetPlayerbetLimit(int userId)
         {
-            using (s_dbEntities context = new s_dbEntities())
+            try
             {
-                var result = context.playerbet_limit.FirstOrDefault(i => i.playerid == userId);
-                return result;
+                using (var context = new s_dbEntities())
+                {
+                    var result = context.playerbet_limit.FirstOrDefault(i => i.playerid == userId);
+                    return result;
+                }
             }
+            catch (Exception ex)
+            {
+                ex.LogError("userId: " + userId);
+                return null;
+            }
+            
         }
          public double DayCashBalance(int userId,DateTime todayDateTime)
          {
-             using (s_dbEntities context = new s_dbEntities())
+             try
              {
-                 var result = context.openning_balance.FirstOrDefault(i => i.userid == userId&& i.date==todayDateTime);
+                 using (s_dbEntities context = new s_dbEntities())
+                 {
+                     var result = context.openning_balance.FirstOrDefault(i => i.userid == userId && i.date == todayDateTime);
 
-                 return result != null ? result.balance : 0;
+                     return result != null ? result.balance : 0;
+                 }
+             }
+             catch (Exception ex)
+             {
+                 ex.LogError("userId: " + userId);
+                 return 0;
              }
          }
 
          //select `unique_idval` from `user` where `slno`='$userid'
          public string GetUniqueIdVal(int userId)
          {
-             using (s_dbEntities context = new s_dbEntities())
+             try
              {
-                 var result = context.users.FirstOrDefault(i => i.slno == userId );
+                 using (var context = new s_dbEntities())
+                 {
+                     var result = context.users.FirstOrDefault(i => i.slno == userId);
 
-                 return result != null ? result.unique_idval : "";
+                     return result != null ? result.unique_idval : "";
+                 }
+             }
+             catch (Exception ex)
+             {
+                 ex.LogError("userId: " + userId);
+                 return string.Empty;
              }
          }
 
@@ -114,139 +171,174 @@ namespace Sabong.Repository.Repo
 
          public double GetCashBalance(int userId)
          {
-             using (s_dbEntities context = new s_dbEntities())
+             try
              {
-
-                 var calculateProfitLoss = context.Database.SqlQuery<ProfitLoss>(
-                      @"select (select IFNULL(sum(winloseamnt),0) as `totalamnt` from `transaction` where `playerid`={0} ) as totalamnt,
-
-(select coalesce(sum(`amount`),0) as `totaltrans` from `multiple_transfer` where `transfer_to`={0}  and `type`='transfer') as totaltrans",userId ).FirstOrDefault();
-
-                 if (calculateProfitLoss == null)
+                 using (var context = new s_dbEntities())
                  {
-                     return 0;
+
+                     var calculateProfitLoss = context.Database.SqlQuery<ProfitLoss>(
+                          @"select (select IFNULL(sum(winloseamnt),0) as `totalamnt` from `transaction` where `playerid`={0} ) as totalamnt,
+
+(select coalesce(sum(`amount`),0) as `totaltrans` from `multiple_transfer` where `transfer_to`={0}  and `type`='transfer') as totaltrans", userId).FirstOrDefault();
+
+                     if (calculateProfitLoss == null)
+                     {
+                         return 0;
+                     }
+
+
+                     return calculateProfitLoss.totalamnt + calculateProfitLoss.totaltrans;
                  }
-
-
-                 return calculateProfitLoss.totalamnt+calculateProfitLoss.totaltrans;
+             }
+             catch (Exception ex)
+             {
+                 ex.LogError("userId: " + userId);
+                 return 0;
              }
          }
 
         public double GetProfit(int userId)
         {
-            using (s_dbEntities context = new s_dbEntities())
+            try
             {
-
-                var totalamnt = context.Database.SqlQuery<double>(
-                     @"select coalesce(sum(winloseamnt),0) as `totalamnt` from `transaction` where `playerid`={0}", userId).FirstOrDefault();
-                var totalbetcomm =
-                    context.Database.SqlQuery<double>(
-                        @"select coalesce(sum(comm),0) as `totalbetcomm` from `playerbetcomm` where `playerid`={0} and `type`='betcomm'",
-                        userId).FirstOrDefault();
-                var totaltrans =
-                    context.Database.SqlQuery<double>(
-                        @"select coalesce(sum(`amount`),0) as `totaltrans` from `multiple_transfer` where `transfer_to`={0}  and `type`='transfer'",
-                        userId).FirstOrDefault();
-                return totalamnt + totalbetcomm + totaltrans;
-                //if (calculateProfitLoss == null)
-                //{
-                //    return 0;
-                //}
-
-
-                //return calculateProfitLoss.totalamnt + calculateProfitLoss.totaltrans;
+                using (var context = new s_dbEntities())
+                {
+                    var totalamnt = context.Database.SqlQuery<double>(
+                         @"select coalesce(sum(winloseamnt),0) as `totalamnt` from `transaction` where `playerid`={0}", userId).FirstOrDefault();
+                    var totalbetcomm =
+                        context.Database.SqlQuery<double>(
+                            @"select coalesce(sum(comm),0) as `totalbetcomm` from `playerbetcomm` where `playerid`={0} and `type`='betcomm'",
+                            userId).FirstOrDefault();
+                    var totaltrans =
+                        context.Database.SqlQuery<double>(
+                            @"select coalesce(sum(`amount`),0) as `totaltrans` from `multiple_transfer` where `transfer_to`={0}  and `type`='transfer'",
+                            userId).FirstOrDefault();
+                    return totalamnt + totalbetcomm + totaltrans;
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.LogError("userId: " + userId);
+                return 0;
             }
         }
 
          public string GetCurrencyValueByUserId(int userid)
          {
-             using (s_dbEntities context = new s_dbEntities())
+             try
              {
-                 //Select
-                 user xxx = new user();
-                 string query = string.Format("select `t1`.`value` AS `value` from (`currency` `t1` join `user` `t2` on((`t1`.`slno` = `t2`.`currency_type`))) where (`t2`.`slno` = {0})", userid);
-                 var retval = context.Database.SqlQuery<string>(
-                    query).FirstOrDefault();
-                 return retval;
+                 using (var context = new s_dbEntities())
+                 {
+                     var query = string.Format("select `t1`.`value` AS `value` from (`currency` `t1` join `user` `t2` on((`t1`.`slno` = `t2`.`currency_type`))) where (`t2`.`slno` = {0})", userid);
+                     var retval = context.Database.SqlQuery<string>(
+                        query).FirstOrDefault();
+                     return retval;
+                 }
+             }
+             catch (Exception ex)
+             {
+                 ex.LogError("userId: " + userid);
+                 return string.Empty;
              }
          }
          public double GetBetCredit(int userId)
          {
-             using (s_dbEntities context = new s_dbEntities())
+             try
              {
+                 using (s_dbEntities context = new s_dbEntities())
+                 {
 
-                 var calculateProfitLoss = context.Database.SqlQuery<ProfitLoss>(
-                      @"select (select sum(winloseamnt) as `totalamnt` from `transaction` where `playerid`={0} ) as totalamnt,
+                     var calculateProfitLoss = context.Database.SqlQuery<ProfitLoss>(
+                          @"select (select sum(winloseamnt) as `totalamnt` from `transaction` where `playerid`={0} ) as totalamnt,
 
 (select coalesce(sum(`amount`),0) as `totaltrans` from `multiple_transfer` where `transfer_to`={0}  and `type`='transfer') as totaltrans", userId).FirstOrDefault();
 
-                 if (calculateProfitLoss == null)
-                 {
-                     return 0;
+                     if (calculateProfitLoss == null)
+                     {
+                         return 0;
+                     }
+
+                     //SELECT coalesce(sum(`acceptedamount`),0) as `creditbet` FROM `transaction` WHERE `playerid`='$_SESSION[useridval]' and `matchno` in (select `slno` from `fight_assign` where date='$datebe' and winner_cockid=0 and cancelstatus=0)
+                     return calculateProfitLoss.totalamnt + calculateProfitLoss.totaltrans;
                  }
-
-                 //SELECT coalesce(sum(`acceptedamount`),0) as `creditbet` FROM `transaction` WHERE `playerid`='$_SESSION[useridval]' and `matchno` in (select `slno` from `fight_assign` where date='$datebe' and winner_cockid=0 and cancelstatus=0)
-                 return calculateProfitLoss.totalamnt + calculateProfitLoss.totaltrans;
              }
-         }
-
-         public double GetCanBetCredit(int matchId,int userId)
-         {
-             using (s_dbEntities context = new s_dbEntities())
+             catch (Exception ex)
              {
-
-                 var calculateProfitLoss = context.Database.SqlQuery<BetCreditxxx>(
-                      @"select (select sum(winloseamnt) as `totalamnt` from `transaction` where `playerid`={0} ) as totalamnt,
-
-(select coalesce(sum(`amount`),0) as `totaltrans` from `multiple_transfer` where `transfer_to`={0}  and `type`='transfer') as totaltrans, (SELECT coalesce(sum(`acceptedamount`),0) as `creditbet` FROM `transaction` WHERE `playerid`={0} and {1} in (select `slno` from `fight_assign` where  winner_cockid=0 and cancelstatus=0)) as current       ", userId,matchId).FirstOrDefault();
-
-                 if (calculateProfitLoss == null)
-                 {
-                     return 0;
-                 }
-
-                 //SELECT coalesce(sum(`acceptedamount`),0) as `creditbet` FROM `transaction` WHERE `playerid`='$_SESSION[useridval]' and `matchno` in (select `slno` from `fight_assign` where date='$datebe' and winner_cockid=0 and cancelstatus=0)
-                 return calculateProfitLoss.totalamnt + calculateProfitLoss.totaltrans-calculateProfitLoss.current;
+                 ex.LogError("userId: " + userId);
+                 return 0;
              }
          }
-
+        
          //select `bidpoint` from `bidpoints` where `agent_id`='$agntid'
          public double GetCreditBalance(int userId)
          {
-             using (s_dbEntities context = new s_dbEntities())
+             try
              {
-                 var result = context.bidpoints.FirstOrDefault(i => i.agent_id == userId);
+                 using (var context = new s_dbEntities())
+                 {
+                     var result = context.bidpoints.FirstOrDefault(i => i.agent_id == userId);
 
-                 return result != null ? result.bidpoint1 : 0;
+                     return result != null ? result.bidpoint1 : 0;
+                 }
+             }
+             catch (Exception ex)
+             {
+                 ex.LogError("userId: " + userId);
+                 return 0;
              }
          }
          public double GetUpdatedCreditBalance(int userId)
          {
-             using (s_dbEntities context = new s_dbEntities())
+             try
              {
-                 var result = context.bidpoints.FirstOrDefault(i => i.agent_id == userId);
+                 using (s_dbEntities context = new s_dbEntities())
+                 {
+                     var result = context.bidpoints.FirstOrDefault(i => i.agent_id == userId);
 
-                 return result != null ? result.updated_bidpoint : 0;
+                     return result != null ? result.updated_bidpoint : 0;
+                 }
+             }
+             catch (Exception ex)
+             {
+                 ex.LogError("userId: "+userId);
+                 return 0;
              }
          }
         public user Login(string username, string password)
         {
-            using (s_dbEntities context = new s_dbEntities())
+            try
             {
-                using (var md5Hash = MD5.Create())
+                using (var context = new s_dbEntities())
                 {
-                    string hashPass = GetMd5Hash(md5Hash, password);
+                    using (var md5Hash = MD5.Create())
+                    {
+                        string hashPass = GetMd5Hash(md5Hash, password);
 
-                    return context.users.FirstOrDefault(i => i.username == username && i.password == hashPass);
+                        return context.users.FirstOrDefault(i => i.username == username && i.password == hashPass);
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                ex.LogError(string.Format("username: {0},password: {1}",username,password));
+                return null;
+            }
+            
         }
 
         public user GetUser(int id)
         {
-            using (s_dbEntities context=new s_dbEntities())
+            try
             {
-                return context.users.FirstOrDefault(i => i.slno == id);
+                using (var context = new s_dbEntities())
+                {
+                    return context.users.FirstOrDefault(i => i.slno == id);
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.LogError(string.Format("UserId: {0}",id));
+                return null;
             }
         }
 
@@ -254,15 +346,15 @@ namespace Sabong.Repository.Repo
          {
 
              // Convert the input string to a byte array and compute the hash. 
-             byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
+             var data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
 
              // Create a new Stringbuilder to collect the bytes 
              // and create a string.
-             StringBuilder sBuilder = new StringBuilder();
+             var sBuilder = new StringBuilder();
 
              // Loop through each byte of the hashed data  
              // and format each one as a hexadecimal string. 
-             for (int i = 0; i < data.Length; i++)
+             for (var i = 0; i < data.Length; i++)
              {
                  sBuilder.Append(data[i].ToString("x2"));
              }
@@ -273,11 +365,18 @@ namespace Sabong.Repository.Repo
 
         public bidpoint getBidPoint(int playerid)
         {
-          //  throw new NotImplementedException();
-            using (s_dbEntities context = new s_dbEntities())
+            try
             {
-                return context.bidpoints.FirstOrDefault(i => i.agent_id == playerid);
+                using (s_dbEntities context = new s_dbEntities())
+                {
+                    return context.bidpoints.FirstOrDefault(i => i.agent_id == playerid);
+                }
             }
+            catch (Exception ex)
+            {
+                ex.LogError(string.Format("playerid: {0}",playerid));
+                return null;
+            } 
         }
     }
 
@@ -288,21 +387,12 @@ namespace Sabong.Repository.Repo
         public double totalamnt { get; set; }
     }
 
-    public class BetCreditxxx
-    {
-        public double totaltrans { get; set; }
-
-        public double totalamnt { get; set; }
-
-        public double current { get; set; }
-    }
-
     public class AllLevelComm
     {
         public float AgentBetComm { get; set; }
         public float MasterBetComm { get; set; }
         public float SrmasterBetComm { get; set; }
-          public float HouseBetComm { get; set; }
-          public float AdminBetComm { get; set; }
+        public float HouseBetComm { get; set; }
+        public float AdminBetComm { get; set; }
     }
 }

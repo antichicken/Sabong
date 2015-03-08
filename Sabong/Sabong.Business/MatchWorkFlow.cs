@@ -6,9 +6,10 @@ namespace Sabong.Business
 {
     public class MatchWorkFlow
     {
+        readonly MatchRepository _match = new MatchRepository();
         public List<transaction> GetAllAcceptedTransaction(int userId, int matchId)
         {
-            TransactionRepository tranRepo=new TransactionRepository();
+            var tranRepo=new TransactionRepository();
             return tranRepo.GetAcceptedTransactions(userId, matchId);
         }
         //set warning update `fight_assign` set `block_warning_time`='$time',`block_warning_entry_time`='$now' where `slno`='$matchno'
@@ -21,7 +22,6 @@ namespace Sabong.Business
         //start time & stop time is varchar
         //block_warning_time float  ..block_warning_entry_time varchar
         //set winner_id or cancel match
-        readonly MatchRepository _match = new MatchRepository();
         public MatchStatus GetMatchStatus(int slno)
         {
             var viewMatchDetail= _match.GetMatchStatus(slno);
@@ -56,9 +56,6 @@ namespace Sabong.Business
 
         
         }
-
-      
-
 
         public MatchStatus GetMatchStatus(view_matchdetail viewMatchDetail)
         {

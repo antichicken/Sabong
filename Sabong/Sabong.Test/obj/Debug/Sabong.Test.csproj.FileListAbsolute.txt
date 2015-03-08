@@ -31,3 +31,7 @@ C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\EntityFramework.xml
 C:\Work\Sabong\Sabong\Sabong.Test\obj\Debug\Sabong.Test.csprojResolveAssemblyReference.cache
 C:\Work\Sabong\Sabong\Sabong.Test\obj\Debug\Sabong.Test.dll
 C:\Work\Sabong\Sabong\Sabong.Test\obj\Debug\Sabong.Test.pdb
+C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Util.dll
+C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\log4net.dll
+C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\Sabong.Util.pdb
+C:\Work\Sabong\Sabong\Sabong.Test\bin\Debug\log4net.xml

@@ -34,7 +34,20 @@ public class UserServices : IHttpHandler {
         if (sessionInfo != null)
         {
             var credit = sessionInfo.User.UserCredit();
-            context.Response.Write(JsonConvert.SerializeObject(new UserCredit()));
+            context.Response.Write(JsonConvert.SerializeObject(new
+            {
+                BetCredit = credit.BetCredit.NumberTostring(),
+                Profit=credit.Profit.NumberTostring(),
+                GivenCredit=credit.GivenCredit.NumberTostring()
+            }));
+        }
+        else
+        {
+            context.Response.Write(JsonConvert.SerializeObject(new
+            {
+                type="error",
+                code=0
+            }));
         }
     }
     

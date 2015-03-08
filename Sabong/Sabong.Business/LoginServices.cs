@@ -3,44 +3,10 @@ using Sabong.Repository.Repo;
 
 namespace Sabong.Business
 {
-
-    public class UserServices
-    {
-        readonly Repository.Repo.UserRepository _user = new UserRepository();
-        public double GetCreditBalance(int userId)
-        {
-            
-            return _user.GetCreditBalance(userId);
-        }
-
-        public double GetCashBalance(int userId)
-        {
-
-            return _user.GetCashBalance(userId);
-        }
-
-        public string GetCurrencyName(int currentId)
-        {
-
-            return _user.GetCurrencyName(currentId);
-        }
-
-        public playerbet_limit GetUserLimit(int userId)
-        {
-           return
-            _user.GetPlayerbetLimit(userId);
-        }
-
-        public string GetCurrencyValueByUserId(int memberId)
-        {
-            return _user.GetCurrencyValueByUserId(memberId);
-        }
-    }
     public class LoginServices
     {
-
-        SessionsManager _sessionManager = new SessionsManager();
-        UserRepository _memberRepo=new UserRepository();
+        readonly SessionsManager _sessionManager = new SessionsManager();
+        readonly UserRepository _memberRepo=new UserRepository();
         /// <summary>
         /// 
         /// </summary>

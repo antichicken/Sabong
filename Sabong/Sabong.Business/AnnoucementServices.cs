@@ -12,17 +12,18 @@ namespace Sabong.Business
     {
        public List<AnnoucementBO> GetAll()
        {
-           List<AnnoucementBO> retval = new List<AnnoucementBO>();
-           Repository.Repo.AnnoucementRepository repo=new AnnoucementRepository();
-           var annouce=repo.GetAll();
+           var retval = new List<AnnoucementBO>();
+           var annouceRepo=new AnnoucementRepository();
+           var arenaRepo = new ArenaRepository();
+           var annouce=annouceRepo.GetAll();
            foreach (var announcement in annouce)
            {
-               AnnoucementBO addValue=new AnnoucementBO();
+               var addValue=new AnnoucementBO();
                addValue.id = announcement.slno;
                addValue.Date = announcement.date.ToString("dd-MM-yyyy");
                addValue.Subject = announcement.subject;
 
-               addValue.ArenaName = repo.GetArenaNameByDate(announcement.date.ToString("dd-MM-yyyy"));
+               addValue.ArenaName = arenaRepo.GetArenaNameByDate(announcement.date.ToString("dd-MM-yyyy"));
 
                retval.Add(addValue);
            }

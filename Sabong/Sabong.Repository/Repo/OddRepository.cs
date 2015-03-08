@@ -1,6 +1,8 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Linq;
 using Sabong.Repository.EntityModel;
+using Sabong.Util;
 
 namespace Sabong.Repository.Repo
 {
@@ -8,25 +10,40 @@ namespace Sabong.Repository.Repo
     {
         public oddsdiff_calc GetOddsdiffCalcByMatchId(int matchId)
         {
-            using (s_dbEntities context = new s_dbEntities())
+            try
             {
-                return context.oddsdiff_calc.FirstOrDefault(i => i.match_slno == matchId);
+                using (var context = new s_dbEntities())
+                {
+                    return context.oddsdiff_calc.FirstOrDefault(i => i.match_slno == matchId);
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.LogError(string.Format("MatchId: {0}",matchId));
+                return null;
             }
         }
 
         public void UpdateOddDiffCalc(oddsdiff_calc oddsdiff)
         {
-            using (s_dbEntities context = new s_dbEntities())
+            try
             {
-                context.oddsdiff_calc.Attach(oddsdiff);
+                using (var context = new s_dbEntities())
+                {
+                    context.oddsdiff_calc.Attach(oddsdiff);
 
-                var entry = context.Entry(oddsdiff);
-                entry.State = EntityState.Modified;
+                    var entry = context.Entry(oddsdiff);
+                    entry.State = EntityState.Modified;
 
-                entry.Property(e => e.diff).IsModified = false;
-                entry.Property(e => e.match_slno).IsModified = false;
+                    entry.Property(e => e.diff).IsModified = false;
+                    entry.Property(e => e.match_slno).IsModified = false;
 
-                context.SaveChanges();
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                ex.LogError();
             }
         }
 

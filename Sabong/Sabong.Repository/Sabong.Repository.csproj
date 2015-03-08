@@ -33,6 +33,9 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\DLL\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -48,7 +51,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="EntityModel\agentbet_limit.cs">
       <DependentUpon>SabongEDM.tt</DependentUpon>
     </Compile>
@@ -248,7 +250,7 @@
     <Compile Include="Repo\AnnoucementRepository.cs" />
     <Compile Include="Repo\ArenaRepository.cs" />
     <Compile Include="Repo\CurrencyRepository.cs" />
-    <Compile Include="Repo\DerbyRepository.cs" />
+    <Compile Include="Repo\CalendarRepository.cs" />
     <Compile Include="Repo\MatchRepository.cs" />
     <Compile Include="Repo\OddRepository.cs" />
     <Compile Include="Repo\ReportRepository.cs" />
@@ -256,7 +258,12 @@
     <Compile Include="Repo\TransferRepository.cs" />
     <Compile Include="Repo\UserRepository.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Sabong.Util\Sabong.Util.csproj">
+      <Project>{76CDBF7B-2618-424D-BDD1-F3ACB0675381}</Project>
+      <Name>Sabong.Util</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <EntityDeploy Include="EntityModel\SabongEDM.edmx">

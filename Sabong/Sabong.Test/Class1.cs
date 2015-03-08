@@ -344,22 +344,7 @@ namespace Sabong.Test
 
 
         }
-
-        [Test]
-        public void GetBetCredit()
-        {
-            var match = new UserRepository();
-            string status = "";
-            var xxx = match.GetCanBetCredit(3498,4908);
-
-
-
-
-            //    bool matchEnd;
-
-
-        }
-
+        
         [Test]
         public void GetAnnoucement()
         {

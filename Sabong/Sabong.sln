@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sabong.Business", "Sabong.Business\Sabong.Business.csproj", "{9E6E6945-3466-41E3-97E0-A6699DF91AC8}"
 EndProject
@@ -13,7 +13,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Sabong.Site", "http://local
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
-		ProjectReferences = "{9e6e6945-3466-41e3-97e0-a6699df91ac8}|Sabong.Business.dll;{66E57BB2-4B49-4AC3-9229-315E974E38E5}|Sabong.Repository.dll;"
+		ProjectReferences = "{9e6e6945-3466-41e3-97e0-a6699df91ac8}|Sabong.Business.dll;{66E57BB2-4B49-4AC3-9229-315E974E38E5}|Sabong.Repository.dll;{76CDBF7B-2618-424D-BDD1-F3ACB0675381}|Sabong.Util.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_10501"
 		Debug.AspNetCompiler.PhysicalPath = "Sabong.Site\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_10501\"
@@ -35,9 +35,11 @@ Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "ExpressApp2", "ExpressApp2\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DLL", "DLL", "{67962479-12CF-4C9D-AEDB-AE15CFB03754}"
 	ProjectSection(SolutionItems) = preProject
-		C:\Users\BTA\Desktop\LukeSkywalker.IPNetwork.dll = C:\Users\BTA\Desktop\LukeSkywalker.IPNetwork.dll
+		..\..\..\Users\BTA\Desktop\LukeSkywalker.IPNetwork.dll = ..\..\..\Users\BTA\Desktop\LukeSkywalker.IPNetwork.dll
 		DLL\Newtonsoft.Json.dll = DLL\Newtonsoft.Json.dll
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sabong.Util", "Sabong.Util\Sabong.Util.csproj", "{76CDBF7B-2618-424D-BDD1-F3ACB0675381}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +67,10 @@ Global
 		{2D2A17D3-F3F0-47D4-A344-7CD6E5B06626}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2D2A17D3-F3F0-47D4-A344-7CD6E5B06626}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2D2A17D3-F3F0-47D4-A344-7CD6E5B06626}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76CDBF7B-2618-424D-BDD1-F3ACB0675381}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76CDBF7B-2618-424D-BDD1-F3ACB0675381}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76CDBF7B-2618-424D-BDD1-F3ACB0675381}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76CDBF7B-2618-424D-BDD1-F3ACB0675381}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

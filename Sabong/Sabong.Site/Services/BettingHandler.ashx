@@ -51,7 +51,11 @@ public class BettingHandler : IHttpHandler {
         }
         else
         {
-            throw new ApplicationException();
+            context.Response.Write(JsonConvert.SerializeObject(new
+            {
+                type = "error",
+                code = 0
+            }));
         }
     }
     

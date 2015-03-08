@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\DLL\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="LukeSkywalker.IPNetwork">
       <HintPath>..\DLL\LukeSkywalker.IPNetwork.dll</HintPath>
     </Reference>
@@ -54,7 +57,6 @@
     <Compile Include="BO\UserCredit.cs" />
     <Compile Include="Enum\BetType.cs" />
     <Compile Include="BO\TransactionHandler.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="FetchAnnouncement.cs" />
     <Compile Include="InsertTransaction.cs" />
     <Compile Include="Enum\MatchStatus.cs" />
@@ -74,11 +76,16 @@
     <Compile Include="Enum\SessionViolation.cs" />
     <Compile Include="Helper\StringHelper.cs" />
     <Compile Include="Helper\UserHelper.cs" />
+    <Compile Include="UserServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sabong.Repository\Sabong.Repository.csproj">
       <Project>{66e57bb2-4b49-4ac3-9229-315e974e38e5}</Project>
       <Name>Sabong.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sabong.Util\Sabong.Util.csproj">
+      <Project>{76cdbf7b-2618-424d-bdd1-f3acb0675381}</Project>
+      <Name>Sabong.Util</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
