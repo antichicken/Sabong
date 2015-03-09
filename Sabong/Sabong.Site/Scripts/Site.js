@@ -51,7 +51,7 @@ $(document).ready(function () {
         var rate=$(this).text();
         betInfo.OddRate = rate;
         if (e.target.id == "choose-meron") {
-            des += $('#meron-name').text() + " MERON @" + rate;
+            des += $('#meron-name').text() + " MERON @" + rate + '. Maxbet ' + playerLimit.maxbet_meron;
             betInfo.Bettype = 0;
             betInfo.CockId = $(this).attr('data-cock');
             if (playerLimit) {
@@ -59,7 +59,7 @@ $(document).ready(function () {
             }
         }
         if (e.target.id == "choose-wala") {
-            des += $('#wala-name').text() + " WALA @" + rate;
+            des += $('#wala-name').text() + " WALA @" + rate + '. Maxbet ' + playerLimit.maxbet_wala;
             betInfo.Bettype = 1;
             betInfo.CockId = $(this).attr('data-cock');
             if (playerLimit) {
@@ -67,14 +67,14 @@ $(document).ready(function () {
             }
         }
         if (e.target.id == "choose-draw") {
-            des += "DRAW @" + rate;
+            des += "DRAW @" + rate + '. Maxbet ' + playerLimit.maxbet_draw;
             betInfo.Bettype = 2;
             if (playerLimit) {
                 $('#input-stake').attr('placeholder', playerLimit.minbet_draw);
             }
         }
         if (e.target.id == "choose-ftd") {
-            des += "FTD @" + rate;
+            des += "FTD @" + rate + '. Maxbet ' + playerLimit.maxbet_draw;
             betInfo.Bettype = 3;
             if (playerLimit) {
                 $('#input-stake').attr('placeholder', playerLimit.minbet_draw);
@@ -213,7 +213,7 @@ $(document).ready(function () {
 
 var NotificationPoll = function() {
     $.ajax({
-        url: 'http://119.9.104.232:8888/?action=hear&match=' + $('#match-id').val() + '&id=' + $.cookie('sec'),
+        url: 'http://localhost:8888/?action=hear&match=' + $('#match-id').val() + '&id='+$.cookie('sec'),
         timeout:60000,
         success: function (data) {
             if (data.length > 0) {
@@ -265,20 +265,20 @@ function MatchNotificationHandler(data) {
                 if (betInfo.Bettype == 1) {
                     betInfo.OddRate = matchdata.matchinfo.wala_rate;
                     betInfo.CockId = matchdata.matchinfo.acid;
-                    des += $('#wala-name').text() + " WALA @" + matchdata.matchinfo.wala_rate;
+                    des += $('#wala-name').text() + " WALA @" + matchdata.matchinfo.wala_rate + '. Maxbet ' + playerLimit.maxbet_wala;
 
                 } else if (betInfo.Bettype == 0) {
                     betInfo.OddRate = matchdata.matchinfo.meron_rate;
                     betInfo.CockId = matchdata.matchinfo.cid;
-                    des += $('#meron-name').text() + " MERON @" + matchdata.matchinfo.meron_rate;
+                    des += $('#meron-name').text() + " MERON @" + matchdata.matchinfo.meron_rate +'. Maxbet ' + playerLimit.maxbet_meron;
 
                 } else if (betInfo.Bettype == 2) {
                     betInfo.OddRate = matchdata.matchinfo.draw_rate;
-                    des += "BDD @" + matchdata.matchinfo.draw_rate;
+                    des += "BDD @" + matchdata.matchinfo.draw_rate + '. Maxbet ' + playerLimit.maxbet_draw;
 
                 } else if (betInfo.Bettype == 3) {
                     betInfo.OddRate = matchdata.matchinfo.ftd_rate;
-                    des += "FTD @" + matchdata.matchinfo.ftd_rate;
+                    des += "FTD @" + matchdata.matchinfo.ftd_rate + '. Maxbet ' + playerLimit.maxbet_draw;
                 }
                 $('#betInfo').val(JSON.stringify(betInfo));
                 $('#bet-description').text(des);
@@ -314,8 +314,8 @@ function MatchNotificationHandler(data) {
                 $('#page-dialog').dialog({ modal: true });
             }
             if (status=="StopBet") {
-                $('#accepted_bet .betsaccepted-td').remove();
-                clearBetSlip();
+                //$('#accepted_bet .betsaccepted-td').remove();
+                //clearBetSlip();
             }
         }
     }

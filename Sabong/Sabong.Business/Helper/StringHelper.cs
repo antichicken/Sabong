@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -34,7 +35,7 @@ namespace Sabong.Business
 
         public static string NumberTostring(this double number,bool removeDot00=true)
         {
-            var x = number.ToString("N");
+            var x = number.ToString("N",new CultureInfo("en-US"));
             if (x.EndsWith(".00") && removeDot00)
             {
                 return x.Substring(0, x.IndexOf('.'));

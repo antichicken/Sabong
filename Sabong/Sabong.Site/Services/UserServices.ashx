@@ -54,7 +54,7 @@ public class UserServices : IHttpHandler {
     private void ChangePass(HttpContext context)
     {
         var sessionInfo = WebUtil.GetSessionInfo();
-        if (sessionInfo != null)
+        if (sessionInfo != null) 
         {
             try
             {

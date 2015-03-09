@@ -29,7 +29,7 @@
             <span>• Uppercase letter [A-Z]</span><br/>
             <span>• Numeric [0-9]</span>
             <div>For example: Aui123456, Adheufkvn0</div>
-            <div style="margin-top: 5px">Please note that your password is cAsE sEnSiTiVe and must not contain any special characters (!,@,#,etc..)</div>
+            <div style="margin-top: 5px">Please note that your password is case sensitive and must not contain any special characters (!,@,#,etc..)</div>
             </div>
             
             <table>
@@ -111,11 +111,11 @@
                 <li><a href="#" onclick="window.open('MatchHistory.aspx?arena=<%=User.arena%>','_newtab','width=920, height=735,scrollbars=1');return false;">
                     <asp:Literal ID="Literal1" runat="server" Text="<%$Resources:sabong.language, MatchHistory%>" EnableViewState="False"></asp:Literal></a></li>
                 <li>|</li>
-                <li><a href="#"onclick="window.open('MatchWinLoss.aspx','_newtab','width=920, height=735,scrollbars=1');return false;"><asp:Literal ID="Literal2" runat="server" Text="<%$Resources:sabong.language, MatchWinLoss%>" EnableViewState="False"></asp:Literal></a></li>
-                <li>|</li>
+                <li><a href="#"onclick="window.open('TransactionReports.aspx','_newtab','width=920, height=800,scrollbars=1');"><asp:Literal ID="Literal2" runat="server" Text="Transaction History" EnableViewState="False"></asp:Literal></a></li>
+                <%--<li>|</li>
                 <li><a href="#" onclick="window.open('DailyWinLoss.aspx','_newtab','width=920, height=735,scrollbars=1');return false;"><asp:Literal ID="Literal3" runat="server" Text="<%$Resources:sabong.language, DailyWinLoss%>" EnableViewState="False"></asp:Literal></a></li>
                 <li>|</li>
-                <li><a href="#" onclick="window.open('WinLossBetType.aspx','_newtab','width=920, height=735,scrollbars=1');return false;"><asp:Literal ID="Literal4" runat="server" Text="<%$Resources:sabong.language, WinLossByBetType%>" EnableViewState="False"></asp:Literal></a></li>
+                <li><a href="#" onclick="window.open('WinLossBetType.aspx','_newtab','width=920, height=735,scrollbars=1');return false;"><asp:Literal ID="Literal4" runat="server" Text="<%$Resources:sabong.language, WinLossByBetType%>" EnableViewState="False"></asp:Literal></a></li>--%>
                 <li>|</li>
                 <li><a href="#" onclick="window.open('calendar.aspx','_newtab','width=920, height=735,scrollbars=1');return false;"><asp:Literal ID="Literal5" runat="server" Text="<%$Resources:sabong.language, Schedule%>" EnableViewState="False"></asp:Literal></a></li>
                 <li>|</li>

@@ -173,7 +173,7 @@
                                     Total:</td>
                                 <td style="text-align: right; font-weight: bold;"><span style="color: red;"><%#totalWin.NumberTostring(false) %></span><br>
                                     <%#totalCom.NumberTostring(false) %><br>
-                                    <span style="color: red;"><%#totalWinTax.NumberTostring(false) %></span></td>
+                                    <span style="color: red;"><%#(totalWin+totalCom).NumberTostring(false) %></span></td>
                                 <td>&nbsp;
                                 </td>
                             </tr>

@@ -10,9 +10,11 @@ using Sabong.Repository.Repo;
 public partial class MatchHistory : System.Web.UI.Page
 {
     private readonly ReportRepository _reportRepos = new ReportRepository();
-    private readonly MatchRepository matchRepository=new MatchRepository();
-    ArenaRepository _arenaRepos=new ArenaRepository();
-    private List<arena> _arenas; 
+    readonly ArenaRepository _arenaRepos=new ArenaRepository();
+    readonly MatchCreateStartRepository _matchCreateStartRepos=new MatchCreateStartRepository();
+    private List<arena> _arenas;
+
+    public match_createstart MatchCreatestart = null;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -51,6 +53,8 @@ public partial class MatchHistory : System.Web.UI.Page
 
     private void LoadReport(int arena, string date)
     {
+        MatchCreatestart = _matchCreateStartRepos.GetMatchDetail(DateTime.ParseExact(date, "dd/MM/yyyy", null), arena);
+
         var rp = _reportRepos.GetMatchResultByDate(arena, date.Replace("/","-"));
         rptReport.DataSource = rp;
         rptReport.DataBind();

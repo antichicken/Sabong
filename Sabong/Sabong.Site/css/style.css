@@ -50,7 +50,6 @@ body {
     background-image: url('/images/bet-button-background.png');
     width: 100%;
     overflow: hidden;
-    text-align: center;
     clear: both
 }
 
@@ -597,4 +596,7 @@ display: none;
 }
 .topmenu {
     font-size: 12px
+}
+#loading-form {
+    display: none
 }

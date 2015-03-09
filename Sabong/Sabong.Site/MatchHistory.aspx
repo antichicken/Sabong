@@ -55,7 +55,17 @@
             <div class="table-ctn">
                 <table style="width: 100%; padding: 0px; margin: 0px; margin-top: 20px;">
                     <tr class="tbl-header">
-                        <td colspan="7"></td>
+                        <td colspan="7" style="text-align: left">
+                            <% if (MatchCreatestart != null)
+                               { %>
+                                   <%= ddlArena.SelectedItem.Text +" - "+MatchCreatestart.description + (MatchCreatestart.fighttype == 0 ? "(OPEN FIGHT) -	" : "(TOURNAMENT FIGHT) -	") + MatchCreatestart.create_date.ToString("dd/MM/yyyy") + string.Format("({0}) --> ", MatchCreatestart.time) + (MatchCreatestart.enddate == DateTime.MaxValue || MatchCreatestart.enddate == DateTime.MinValue ? "..." : MatchCreatestart.enddate.ToString("dd/MM/yyyy")+ string.Format("({0})", MatchCreatestart.endtime))%>
+                               <% }
+                               else
+                               {%>
+                                   <%= ddlArena.SelectedItem.Text %>
+                               <%}%>
+                            
+                        </td>
                     </tr>
                     <tr>
                         <td class="col-name">#</td>

@@ -251,6 +251,7 @@
     <Compile Include="Repo\ArenaRepository.cs" />
     <Compile Include="Repo\CurrencyRepository.cs" />
     <Compile Include="Repo\CalendarRepository.cs" />
+    <Compile Include="Repo\MatchCreateStartRepository.cs" />
     <Compile Include="Repo\MatchRepository.cs" />
     <Compile Include="Repo\OddRepository.cs" />
     <Compile Include="Repo\ReportRepository.cs" />
