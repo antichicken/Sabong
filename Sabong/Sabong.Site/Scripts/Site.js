@@ -213,7 +213,7 @@ $(document).ready(function () {
 
 var NotificationPoll = function() {
     $.ajax({
-        url: 'http://localhost:8888/?action=hear&match=' + $('#match-id').val() + '&id='+$.cookie('sec'),
+        url: 'http://119.9.104.232:8888/?action=hear&match=' + $('#match-id').val() + '&id=' + $.cookie('sec'),
         timeout:60000,
         success: function (data) {
             if (data.length > 0) {

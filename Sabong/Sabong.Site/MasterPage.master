@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>S1288.net</title>
-    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/style.css?v=1"/>
     <link href="/Scripts/jquery-ui/jquery-ui.css" rel="stylesheet" />
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -137,6 +137,6 @@
     <script src="/Scripts/jquery-1.9.1.min.js"></script>
     <script src="/Scripts/jquery.cookie.js"></script>
     <script src="/Scripts/drawbacaratchart.js"></script>
-    <script src="/Scripts/Site.js"></script>
+    <script src="/Scripts/Site.js?v=1"></script>
     <script src="/Scripts/jquery-ui/jquery-ui.min.js"></script>
 </html>

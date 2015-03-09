@@ -51,6 +51,7 @@ body {
     width: 100%;
     overflow: hidden;
     text-align: center;
+    clear: both
 }
 
     .secondmenu ul, .video ul {
@@ -272,7 +273,9 @@ float: right;
         font-weight: bold;
         text-decoration: none;
     }
-
+    .video {
+        width: 662px
+    }
 .betslip {
     background: none repeat scroll 0 0 #e6e6e6;
     clear: both;

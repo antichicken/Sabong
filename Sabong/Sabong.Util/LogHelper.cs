@@ -24,7 +24,7 @@ namespace Sabong.Util
             log.Error(ex);
         }
 
-        public static void LogError(this Exception ex, string messame)
+        public static void LogError(this Exception ex, string messame) 
         {
             log.Error(messame,ex);
         }
