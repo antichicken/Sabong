@@ -76,6 +76,7 @@
     <Compile Include="Enum\SessionViolation.cs" />
     <Compile Include="Helper\StringHelper.cs" />
     <Compile Include="Helper\UserHelper.cs" />
+    <Compile Include="SystemConfig.cs" />
     <Compile Include="UserServices.cs" />
   </ItemGroup>
   <ItemGroup>

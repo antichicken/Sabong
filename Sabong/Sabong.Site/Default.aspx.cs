@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Sabong.Business;
 using Sabong.Repository.EntityModel;
 using Sabong.Repository.Repo;
 
@@ -69,7 +70,7 @@ public partial class _Default : PageBase
 
     private string _annoucement = string.Empty;
 
-    AnnoucementRunningRepository _annoucementRepos = new AnnoucementRunningRepository();
+    readonly AnnoucementRunningRepository _annoucementRepos = new AnnoucementRunningRepository();
 
     protected string RunningAnnoucement
     {

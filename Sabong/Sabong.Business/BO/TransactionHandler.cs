@@ -43,20 +43,13 @@ namespace Sabong.Business
         public Dictionary<int,List<OddJumpStore>> DictOddJump=new Dictionary<int, List<OddJumpStore>>(); 
         public void UpdateRiskManagement(RiskManagement newRiskmanagement)
         {
-            _defaultRiskManagement = new RiskManagement
-            {
-                RiskBoxSizeLeve1 = newRiskmanagement.RiskBoxSizeLeve1,
-                RiskBoxSizeLeve2 = newRiskmanagement.RiskBoxSizeLeve2,
-                RiskBoxSizeLeve3 = newRiskmanagement.RiskBoxSizeLeve3,
-                RiskBoxSizeLeve4 = newRiskmanagement.RiskBoxSizeLeve4,
-                RiskBoxSizeLeve5 = newRiskmanagement.RiskBoxSizeLeve5,
+            newRiskmanagement.MatchId = _defaultRiskManagement.MatchId;
+            _defaultRiskManagement = newRiskmanagement;
+        }
 
-                RiskLevel1 = newRiskmanagement.RiskLevel1,
-                RiskLevel2 = newRiskmanagement.RiskLevel2,
-                RiskLevel3 = newRiskmanagement.RiskLevel3,
-                RiskLevel4 = newRiskmanagement.RiskLevel4,
-                RiskLevel5 = newRiskmanagement.RiskLevel5,
-            };
+        public RiskManagement GetCurrentRiskManagementSetting()
+        {
+            return _defaultRiskManagement;
         }
         private RiskManagement _defaultRiskManagement;
         void InitRiskManagement()

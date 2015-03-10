@@ -1,0 +1,89 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin.master.cs" Inherits="Admin_Admin" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+        .admin-ctn {
+            width: 1200px;
+            margin: 0 auto;
+            font-family: arial
+        }
+         .left-menu {
+             float: left;
+             width: 300px
+         }
+         .dashboard-ctn {
+             float: left;
+             width: 900px
+         }
+
+        .menu-ctn {
+            list-style: none
+        }
+
+        .menu-itm {
+            height: 30px;
+            line-height: 30px
+        }
+        .menu-itm:hover {
+            background-color: beige
+        }
+        .menu-itm:hover .menu-link {
+            color: #0194fc
+        }
+        .menu-link {
+            display: block;
+            color: rgb(2, 50, 74);
+            font-weight: 700;
+            font-family: arial;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dashboard-header {
+            font: bold 20px/1 arial;
+            padding-bottom: 10px;
+            border-bottom: solid 2px #696969;
+            margin-bottom: 30px
+        }
+    </style>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="admin-ctn">
+        <div class="left-menu">
+            <ul class="menu-ctn">
+                <li class="menu-itm">
+                    <a href="DashBoard.aspx" class="menu-link">Dash Board</a>
+                </li>
+                <li class="menu-itm">
+                    <a href="MaxBetSetting.aspx" class="menu-link">Update MaxBet</a>
+                </li>
+                <li class="menu-itm">
+                    <a href="OpeningOdd.aspx" class="menu-link">Update Opening Odd</a>
+                </li>
+                <li class="menu-itm">
+                    <a href="JumOddSetting.aspx" class="menu-link">Jump Odd Setting</a>
+                </li>
+                <li class="menu-itm">
+                    <a href="#" class="menu-link">Promotion Odd Setting</a>
+                </li>
+            </ul>
+        </div>
+        <div class="dashboard-ctn">
+            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div>
+        
+    </div>
+    </form>
+</body>
+</html>
